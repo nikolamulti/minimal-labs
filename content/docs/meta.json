@@ -1,0 +1,18 @@
+{
+  "title": "Name of Folder",
+  "pages": [
+    "---Getting Started---",
+    "introduction",
+    "installation",
+    "---Foundations---",
+    "colors",
+    "typography",
+    "units",
+    "shadows",
+    "icons",
+    "---Components---",
+    "accordion",
+    "app-shell",
+    "aspect-ratio"
+  ]
+}
