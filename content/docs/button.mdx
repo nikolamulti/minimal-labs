@@ -1,0 +1,86 @@
+---
+title: Button
+description: Button
+---
+
+## Usage
+
+```js
+<Button variant="primary">Click me</Button>
+```
+
+import { TypeTable } from "fumadocs-ui/components/type-table";
+
+### Properties
+
+<TypeTable
+  type={{
+    variant: {
+      description: "The visual style of the button",
+      type: "'default' | 'primary' | 'danger' | 'outline' | 'ghost'",
+      default: "'default'",
+    },
+    startIcon: {
+      description: "Icon component to display at the start of the button",
+      type: "ComponentType",
+    },
+    endIcon: {
+      description: "Icon component to display at the end of the button",
+      type: "ComponentType",
+    },
+    disabled: {
+      description: "Whether the button is disabled",
+      type: "boolean",
+    },
+  }}
+/>
+
+### Events
+
+<TypeTable
+  type={{
+    onClick: {
+      description: "Function to call when the button is clicked",
+      type: "Function",
+    },
+    onKeydown: {
+      description: "Function to call on keydown event",
+      type: "Function",
+    },
+    onChange: {
+      description: "Function to call when the button state changes",
+      type: "Function",
+    },
+    onKeyup: {
+      description: "Function to call on keyup event",
+      type: "Function",
+    },
+    onMouseenter: {
+      description: "Function to call when mouse enters the button",
+      type: "Function",
+    },
+    onMouseleave: {
+      description: "Function to call when mouse leaves the button",
+      type: "Function",
+    },
+    onMousedown: {
+      description: "Function to call on mousedown event",
+      type: "Function",
+    },
+    onMouseup: {
+      description: "Function to call on mouseup event",
+      type: "Function",
+    },
+    onPointerdown: {
+      description: "Function to call on pointerdown event",
+      type: "Function",
+    },
+    onPointerup: {
+      description: "Function to call on pointerup event",
+      type: "Function",
+    },
+
+}}
+/>
+
+>
