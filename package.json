@@ -9,7 +9,6 @@
     "postinstall": "fumadocs-mdx"
   },
   "dependencies": {
-    "node-fetch": "^3.3.2",
     "@lemonsqueezy/lemonsqueezy.js": "^3.3.1",
     "@supabase/supabase-js": "^2.1.0",
     "dotenv": "^16.4.5",
@@ -17,8 +16,10 @@
     "fumadocs-mdx": "10.0.2",
     "fumadocs-ui": "13.4.10",
     "next": "^14.2.8",
+    "node-fetch": "^3.3.2",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "wfs-components": "^0.0.0"
   },
   "devDependencies": {
     "@types/mdx": "^2.0.13",

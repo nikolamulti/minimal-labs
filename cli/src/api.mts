@@ -10,10 +10,9 @@ import {
   InstanceId,
 } from "./types.mjs";
 
-const API_URL =
-  process.env.NODE_ENV === "production"
-    ? "https://minimal-labs.com"
-    : "https://dac5-178-149-76-188.ngrok-free.app";
+const API_URL = "https://minimal-labs.com";
+
+//  "https://dac5-178-149-76-188.ngrok-free.app";
 
 /**
  * Activates a license key using the API.
