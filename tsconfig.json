@@ -35,7 +35,7 @@
   ],
   "exclude": [
     "node_modules",
-    "cli",
+    "cli/*",
     "app/api/components/**/*.svelte",
     "app/api/components/**/*.ts"
   ]
