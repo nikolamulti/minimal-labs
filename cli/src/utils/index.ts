@@ -1,7 +1,9 @@
+import { log } from "@clack/prompts";
+
 import fs from "fs";
 import path from "path";
 import os from "os";
-import { Config } from "./types.mjs";
+import { Config } from "../types/index.js";
 
 const CONFIG_FOLDER = path.join(os.homedir(), ".wfs-config");
 const CONFIG_FILE = path.join(CONFIG_FOLDER, "config.json");
@@ -60,4 +62,12 @@ export function removeConfig(): void {
   ) {
     fs.rmdirSync(CONFIG_FOLDER);
   }
+}
+
+export function capitalizeFirstLetter(string: string): string {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+export function handleError(error: unknown): void {
+  log.error(`Error: ${error instanceof Error ? error.message : String(error)}`);
 }

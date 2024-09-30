@@ -1,7 +1,7 @@
 export type LicenseKey = string;
 export type InstanceId = string;
 export type Component = string;
-export type Command = "activate" | "deactivate" | "add" | "help";
+export type Command = "init" | "activate" | "deactivate" | "add" | "help";
 
 export interface Config {
   license_key: LicenseKey;

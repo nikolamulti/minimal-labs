@@ -8,11 +8,55 @@ import {
   LicenseKey,
   Component,
   InstanceId,
-} from "./types.mjs";
+} from "@/types";
+import { execSync } from "child_process";
 
-const API_URL = "https://minimal-labs.com";
+const API_URL = "https://dac5-178-149-76-188.ngrok-free.app";
 
-//  "https://dac5-178-149-76-188.ngrok-free.app";
+/**
+ * Initializes the project by creating or updating a globals.css file in the current directory.
+ *
+ * This function performs the following steps:
+ * 1. Fetches the globals.css content from the API
+ * 2. Checks if a globals.css file already exists in the current directory
+ * 3. If it exists, appends the fetched content to the existing file
+ * 4. If it doesn't exist, creates a new file with the fetched content
+ *
+ * @returns {Promise<void>}
+ * @throws {Error} If the request fails or file operations fail
+ */
+export async function cliInit(): Promise<void> {
+  const response = await fetch(`${API_URL}/api/init`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch globals.css content.");
+  }
+
+  const newGlobalsCSS = await response.text();
+
+  const filePath = path.join(process.cwd(), "globals.css");
+
+  try {
+    if (fs.existsSync(filePath)) {
+      // If globals.css exists, append the new content
+      const existingContent = fs.readFileSync(filePath, "utf8");
+      const updatedContent = existingContent + "\n\n" + newGlobalsCSS;
+      fs.writeFileSync(filePath, updatedContent);
+      console.log("globals.css file updated successfully.");
+    } else {
+      // If globals.css doesn't exist, create a new file
+      fs.writeFileSync(filePath, newGlobalsCSS);
+      console.log("globals.css file created successfully.");
+    }
+  } catch (error) {
+    throw new Error(`Failed to create or update globals.css file: ${error}`);
+  }
+}
 
 /**
  * Activates a license key using the API.
@@ -35,7 +79,7 @@ export async function cliActivateLicense(
     );
   }
 
-  const response = await fetch(`${API_URL}/api/activate-license`, {
+  const response = await fetch(`${API_URL}/api/activate`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -70,7 +114,7 @@ export async function cliDeactivateLicense(
   licenseKey: LicenseKey,
   instanceId: InstanceId
 ): Promise<APIResponse> {
-  const response = await fetch(`${API_URL}/api/deactivate-license`, {
+  const response = await fetch(`${API_URL}/api/deactivate`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -157,12 +201,14 @@ export async function cliFetchComponents(
  *
  * @param {Component} component - The component to install
  * @param {LicenseKey} licenseKey - The license key for authentication
+ * @param {string} finalComponentName - The final name of the component
  * @returns {Promise<void>}
  * @throws {Error} If the request fails, the response is invalid, or file operations fail
  */
 export async function cliInstallComponent(
   component: Component,
-  licenseKey: LicenseKey
+  licenseKey: LicenseKey,
+  finalComponentName: string
 ): Promise<void> {
   /*---------------------------------------------
   / Step 1: Fetch component data
@@ -205,7 +251,10 @@ export async function cliInstallComponent(
   / Step 3: Create component directory
   /---------------------------------------------*/
   const componentsDir = path.join(process.cwd(), "components");
-  const componentDir = path.join(componentsDir, component.toLowerCase());
+  const componentDir = path.join(
+    componentsDir,
+    finalComponentName.toLowerCase()
+  );
 
   if (!fs.existsSync(componentDir)) {
     fs.mkdirSync(componentDir, { recursive: true });
@@ -218,4 +267,36 @@ export async function cliInstallComponent(
     const filePath = path.join(componentDir, fileName);
     fs.writeFileSync(filePath, code);
   }
+}
+
+// Add a new function to fetch globals.css content
+export async function fetchGlobalsCSSContent(): Promise<string> {
+  const response = await fetch(`${API_URL}/api/init`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch globals.css content.");
+  }
+
+  return await response.text();
+}
+
+export async function cliInstallBitsUI(): Promise<void> {
+  const useYarn = fs.existsSync(path.join(process.cwd(), "yarn.lock"));
+  const usePnpm = fs.existsSync(path.join(process.cwd(), "pnpm-lock.yaml"));
+
+  let installCommand;
+  if (usePnpm) {
+    installCommand = "pnpm add bits-ui";
+  } else if (useYarn) {
+    installCommand = "yarn add bits-ui";
+  } else {
+    installCommand = "npm install bits-ui";
+  }
+
+  execSync(installCommand, { stdio: "inherit" });
 }

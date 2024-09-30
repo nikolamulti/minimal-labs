@@ -3,11 +3,6 @@ import fetch from "node-fetch";
 import {
   removeAllInstancesByLicenseKey,
   getAllInstancesByLicenseKey,
-  getOrderIdByLicenseKey,
-  deleteOrder,
-  getOrderCustomerId,
-  countCustomerOrders,
-  deleteCustomer,
 } from "@/utils/supabaseFunctions";
 import { DeactivateLicense } from "@/types";
 
@@ -56,24 +51,8 @@ export async function POST(request: Request) {
     // Remove all instances for this license key from the database
     await removeAllInstancesByLicenseKey(licenseKey);
 
-    // Find and remove the order associated with this license key
-    const orderId = await getOrderIdByLicenseKey(licenseKey);
-    if (orderId) {
-      await deleteOrder(orderId);
-
-      // Check if the customer has any remaining orders
-      const customerId = await getOrderCustomerId(orderId);
-      if (customerId) {
-        const remainingOrders = await countCustomerOrders(customerId);
-        if (remainingOrders === 0) {
-          // If the customer has no remaining orders, delete the customer
-          await deleteCustomer(customerId);
-        }
-      }
-    }
-
     return NextResponse.json({
-      message: "All instances deactivated and order removed successfully",
+      message: "All instances deactivated successfully",
       license_key: licenseKey,
     });
   } catch (error) {

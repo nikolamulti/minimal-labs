@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
 import { log, outro } from "@clack/prompts";
-import { activate, deactivate } from "./license.mjs";
-import { add } from "./components.mjs";
-import { Command } from "./types.mjs";
+import { activate, deactivate, add, init } from "@/logic";
+import { Command } from "@/types";
 
 function displayHelp(): void {
   log.info(`Available commands:
+init            - Initialize the project
 activate        - Activate a license
 deactivate      - Deactivate the license
 add [component] - Add components (if component is specified, adds that component immediately)
@@ -19,6 +19,9 @@ async function main(): Promise<void> {
   const componentToAdd = process.argv[3];
 
   switch (command) {
+    case "init":
+      await init();
+      break;
     case "activate":
       await activate();
       break;

@@ -6,9 +6,13 @@
     "esModuleInterop": true,
     "strict": true,
     "outDir": "./dist",
-    "rootDir": "./src",
-    "declaration": false
+    "rootDir": ".",
+    "declaration": false,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
-  "include": ["src/**/*.mts"],
+  "include": ["src/**/*.mts", "src/**/*.ts", "src/types/**/*.ts"],
   "exclude": ["node_modules"]
 }

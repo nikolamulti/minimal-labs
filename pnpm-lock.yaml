@@ -36,8 +36,8 @@ dependencies:
     specifier: ^18.3.1
     version: 18.3.1(react@18.3.1)
   wfs-components:
-    specifier: ^0.0.0
-    version: 0.0.0
+    specifier: ^0.0.2
+    version: 0.0.2
 
 devDependencies:
   '@types/mdx':
@@ -3914,8 +3914,8 @@ packages:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
     dev: false
 
-  /wfs-components@0.0.0:
-    resolution: {integrity: sha512-X5RkrxPzVbA3mdM5/QtUE04bRgi425C8LLnypPBoBh0zl9y1XOHrCN03FjAak91wvXmkAY0ZFW5epeDKka4Gqw==}
+  /wfs-components@0.0.2:
+    resolution: {integrity: sha512-1MjTCxDYatGqzjONk1z25FC2O+rk+U1Yc4hPocRZRqq1Z4X2S6nNPGRi1FrWIBqNHrh4K+dP6PH5sewRqrzsUg==}
     hasBin: true
     dependencies:
       '@clack/prompts': 0.7.0

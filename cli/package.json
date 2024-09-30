@@ -1,11 +1,11 @@
 {
   "name": "wfs-components",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "A CLI for adding Webflow Svelte components to your project.",
   "main": "dist/index.mjs",
   "type": "module",
   "bin": {
-    "wfs": "./dist/index.mjs"
+    "wfs": "dist/index.mjs"
   },
   "scripts": {
     "build": "node build.js",
@@ -18,8 +18,8 @@
   },
   "devDependencies": {
     "terser": "^5.34.1",
-    "typescript": "^5.5.4",
-    "tsx": "^4.7.0"
+    "tsx": "^4.7.0",
+    "typescript": "^5.5.4"
   },
   "files": [
     "dist"

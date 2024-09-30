@@ -29,3 +29,6 @@ temp/
 
 # pnpm lock file
 pnpm-lock.yaml
+
+# Environment variables
+.env.development

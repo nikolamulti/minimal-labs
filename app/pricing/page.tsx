@@ -24,9 +24,12 @@ const PricingPage = () => {
               <li className="mb-2">✓ Limited usage</li>
               <li className="mb-2">✓ Community support</li>
             </ul>
-            <button className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors">
-              Get Started
-            </button>
+            <a
+              href="https://nikolamulti.lemonsqueezy.com/buy/8a19bd68-1f7e-49c3-8cbf-bb9e5dbe2624"
+              className="lemonsqueezy-button bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors text-center"
+            >
+              Buy Solo License
+            </a>
           </div>
 
           {/* Pro Plan */}
@@ -42,26 +45,11 @@ const PricingPage = () => {
               <li className="mb-2">✓ API access</li>
             </ul>
             <a
-              href="https://nikolamulti.lemonsqueezy.com/buy/8a19bd68-1f7e-49c3-8cbf-bb9e5dbe2624"
+              href="https://nikolamulti.lemonsqueezy.com/buy/668e4977-c0b7-4464-84be-303c67c6e9f7"
               className="lemonsqueezy-button bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors text-center"
             >
-              Upgrade to Pro
+              Buy Team License
             </a>
-          </div>
-
-          {/* Enterprise Plan */}
-          <div className="border rounded-lg p-6 flex flex-col">
-            <h2 className="text-2xl font-bold mb-4">Enterprise</h2>
-            <p className="text-3xl font-bold mb-6">Custom</p>
-            <ul className="mb-8 flex-grow">
-              <li className="mb-2">✓ All Pro features</li>
-              <li className="mb-2">✓ Dedicated support</li>
-              <li className="mb-2">✓ Custom integrations</li>
-              <li className="mb-2">✓ SLA</li>
-            </ul>
-            <button className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors">
-              Contact Sales
-            </button>
           </div>
         </div>
       </div>
