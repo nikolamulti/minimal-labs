@@ -14,7 +14,7 @@ import { execSync } from "child_process";
 const API_URL = "https://dac5-178-149-76-188.ngrok-free.app";
 
 /**
- * Initializes the project by creating or updating a globals.css file in the current directory.
+ * Initializes the project by creating or updating a globals.css file in the current directory
  *
  * This function performs the following steps:
  * 1. Fetches the globals.css content from the API
