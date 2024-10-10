@@ -1,0 +1,9 @@
+export { default as Footer } from "./Footer";
+export { default as CallToAction } from "./CallToAction";
+export { default as Nav } from "./Nav";
+export { default as FAQs } from "./FAQs";
+export { default as Pricing } from "./Pricing";
+export { default as WhatsIncluded } from "./WhatsIncluded";
+export { default as Components } from "./Components";
+export { default as Features } from "./Features";
+export { default as Benefits } from "./Benefits";

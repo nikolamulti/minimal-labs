@@ -7,5 +7,7 @@ export default function Layout({
 }: {
   children: ReactNode;
 }): React.ReactElement {
-  return <div className="bg-base">{children}</div>;
+  return (
+    <div className="selection:bg-white selection:fg-inverted">{children}</div>
+  );
 }

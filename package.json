@@ -10,7 +10,11 @@
   },
   "dependencies": {
     "@lemonsqueezy/lemonsqueezy.js": "^3.3.1",
+    "@phosphor-icons/react": "^2.1.7",
+    "@radix-ui/react-accordion": "^1.2.1",
     "@supabase/supabase-js": "^2.1.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
     "dotenv": "^16.4.5",
     "fumadocs-core": "13.4.10",
     "fumadocs-mdx": "10.0.2",
@@ -18,15 +22,19 @@
     "next": "^14.2.8",
     "node-fetch": "^3.3.2",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^2.5.3"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.15",
     "@types/mdx": "^2.0.13",
     "@types/node": "22.5.4",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.8",
     "tailwindcss": "^3.4.12",
     "ts-node": "^10.9.1",
     "typescript": "^5.5.4"

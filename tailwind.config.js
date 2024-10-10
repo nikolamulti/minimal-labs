@@ -1,5 +1,6 @@
 import { createPreset } from "fumadocs-ui/tailwind-plugin";
 import plugin from "tailwindcss/plugin";
+import typography from "@tailwindcss/typography";
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -14,7 +15,9 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {},
+      fontFamily: {
+        handwritten: ["'Just Another Hand'", "cursive"],
+      },
       backgroundColor: {
         base: "var(--color-neutral-1200)",
         bold: "var(--color-neutral-800)",
@@ -87,6 +90,14 @@ module.exports = {
         success: "var(--color-green-200)",
         warning: "var(--color-yellow-200)",
       },
+      animation: {
+        border: "border 4s linear infinite",
+      },
+      keyframes: {
+        border: {
+          to: { "--border-angle": "360deg" },
+        },
+      },
     },
   },
   plugins: [
@@ -97,9 +108,14 @@ module.exports = {
             color: value,
           }),
         },
-        { values: theme("foregroundColor"), type: "color" }
+        { values: theme("foregroundColor"), type: "color" },
       );
     }),
+    typography,
   ],
-  presets: [createPreset()],
+  presets: [
+    createPreset({
+      layoutWidth: "1400px",
+    }),
+  ],
 };

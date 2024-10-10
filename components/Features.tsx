@@ -1,0 +1,41 @@
+"use client";
+import { Section } from "@/components/ui/Section";
+import { Card } from "@/components/ui/Card";
+import {
+  BentoCodeBlock,
+  BentoIcons,
+  BentoVariables,
+  BentoThemes,
+  BentoComponents,
+  BentoAccessible,
+} from "@/components/ui/bento";
+
+const Features = () => {
+  return (
+    <Section className="relative overflow-hidden py-20">
+      <div className="absolute right-1/2 top-1 z-0 h-[360px] w-[960px] -translate-y-1/2 translate-x-1/2 scale-125 transform rounded-full bg-[radial-gradient(ellipse,_rgba(64,64,64,0.22)_0%,_#1E1E1E_70%)]" />
+      <div className="relative z-20 mx-auto mb-16 flex max-w-[40rem] flex-col gap-4 text-center">
+        <p className="mx-auto flex bg-gradient-to-r from-[#4D91F7] to-[#D8633E] bg-clip-text text-base font-bold text-transparent">
+          Features
+        </p>
+        <h2 className="text-balance text-2xl font-semibold fg-base lg:text-3xl">
+          Easy and fast development process
+        </h2>
+        <p className="text-base fg-muted">
+          Simplify design and development cycles with our optimized, time-saving
+          assets and components
+        </p>
+      </div>
+      <div className="z-10 grid grid-cols-4 gap-6 md:grid-cols-8 lg:grid-cols-12">
+        <BentoCodeBlock />
+        <BentoVariables />
+        <BentoThemes />
+        <BentoComponents />
+        <BentoIcons />
+        <BentoAccessible />
+      </div>
+    </Section>
+  );
+};
+
+export default Features;

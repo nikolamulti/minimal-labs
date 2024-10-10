@@ -1,43 +1,33 @@
-import Link from "next/link";
-import Image from "next/image";
-import Button from "@/components/Button";
+import {
+  Nav,
+  CallToAction,
+  Footer,
+  FAQs,
+  Pricing,
+  WhatsIncluded,
+  Components,
+  Features,
+  Benefits,
+} from "@/components";
+import Hero from "@/components/Hero";
 
 export default function HomePage() {
   return (
-    <>
-      <section className="py-6">
-        <div className="max-w-[960px] mx-auto flex gap-8 items-center">
-          <div>
-            <Link href="/">
-              <Image src="/logo.svg" alt="Fumadocs" width={32} height={32} />
-            </Link>
-          </div>
-          <nav className="flex gap-2">
-            <Button href="/svelte/docs">Docs</Button>
-            <Button href="/svelte/docs/accordion">Components</Button>
-            <Button href="/svelte/pricing">Pricing</Button>
-            <Button href="/svelte/faqs">FAQs</Button>
-          </nav>
-          <div className="flex gap-2">
-            <Button href="/svelte/preview">Preview</Button>
-            <Button href="/svelte/get-access">Get Access</Button>
-          </div>
-        </div>
-      </section>
-      <main className="flex h-screen flex-col justify-center text-center">
-        <h1 className="mb-4 text-2xl font-bold">Hello World</h1>
-        <p className="text-fd-muted-foreground">
-          You can open{" "}
-          <Link
-            href="/svelte/docs"
-            className="text-fd-foreground font-semibold underline"
-          >
-            /docs
-          </Link>
-          {""}
-          and see the documentation.
-        </p>
+    <div className="relative bg-base">
+      <div className="pointer-events-none absolute left-0 z-50 hidden h-full w-[15rem] bg-gradient-to-l from-[#1E1E1E] to-[#1B1B1B] 2xl:block" />
+      <div className="pointer-events-none absolute right-0 z-50 hidden h-full w-[15rem] bg-gradient-to-r from-[#1E1E1E] to-[#1B1B1B] 2xl:block" />
+      <Nav />
+      <main>
+        <Hero />
+        <WhatsIncluded />
+        <Components />
+        <Features />
+        <Benefits />
+        <Pricing />
+        <FAQs />
+        <CallToAction />
       </main>
-    </>
+      <Footer />
+    </div>
   );
 }
