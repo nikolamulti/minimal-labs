@@ -36,7 +36,7 @@ const BentoVariables: React.FC = () => {
           );
         })}
       </div>
-      <div className="px-6 mt-auto pb-6 z-20">
+      <div className="px-6 mt-auto pb-6 z-20 flex flex-col gap-1">
         <h3 className="text-base font-semibold fg-base">Variables & Styles</h3>
         <p className="text-sm fg-muted">
           Streamline project quickly using plug-and-play building blocks.
