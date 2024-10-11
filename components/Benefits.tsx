@@ -3,6 +3,7 @@
 import React from "React";
 import { Section } from "@/components/ui/Section";
 import Image from "next/image";
+import { Card } from "@/components/ui/Card";
 
 const Benefits = () => {
   return (
@@ -36,7 +37,7 @@ const Benefits = () => {
                 <div className="flex shrink-0">
                   <Image
                     className="h-5 w-5 fg-success"
-                    src="/webflow-icons/CheckDefault.svg"
+                    src="/ArrowsSplit.svg"
                     alt="icon"
                     width={20}
                     height={20}
@@ -57,7 +58,7 @@ const Benefits = () => {
                 <div className="flex shrink-0">
                   <Image
                     className="h-5 w-5 fg-success"
-                    src="/webflow-icons/CheckDefault.svg"
+                    src="/ClockCountdown.svg"
                     alt="icon"
                     width={20}
                     height={20}
@@ -75,10 +76,57 @@ const Benefits = () => {
               </div>
             </div>
           </div>
-          <div className="h-[456px] w-full rounded-xl bg-muted"></div>
+          <div className="relative flex h-[360px] w-full flex-col justify-center rounded-xl p-6">
+            <div className="absolute left-1/2 top-1/2 h-[280px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white opacity-5 blur-[96px]"></div>
+            <Card className="z-10 flex-row gap-4 p-5">
+              <div className="flex flex-row items-start justify-between gap-4">
+                <div className="mb-6 flex flex-col gap-1">
+                  <h3 className="text-base font-semibold fg-base">
+                    All 3 modes available
+                  </h3>
+                  <p className="text-sm fg-muted">
+                    Compatible with native Webflow designer themes and their
+                    changes.
+                  </p>
+                </div>
+                <div className="rounded-full border border-muted bg-default px-2 py-0.5 text-xs fg-muted">
+                  +30%
+                </div>
+              </div>
+              <div className="w-full shrink-0">
+                <img
+                  src="/Performance-loading-graphic.png"
+                  alt="Performance loading graphic"
+                  width="100%"
+                  height={80}
+                />
+              </div>
+            </Card>
+          </div>
         </div>
-        <div className="flex flex-col-reverse gap-12 lg:flex-row">
-          <div className="h-[456px] w-full rounded-xl bg-muted"></div>
+        <div className="flex h-[360px] flex-col-reverse gap-12 lg:flex-row">
+          <div className="relative flex w-full flex-col justify-center rounded-xl p-6">
+            <div className="absolute left-1/2 top-1/2 h-[280px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white opacity-5 blur-[96px]"></div>
+            <Card className="z-10 flex-row gap-4 p-5">
+              <div className="mb-6 flex flex-col gap-1">
+                <h3 className="text-base font-semibold fg-base">
+                  Perfectly aligned
+                </h3>
+                <p className="text-sm fg-muted">
+                  Focus on creating business logic rather than crafting
+                  components.
+                </p>
+              </div>
+              <div className="flex h-[90px] w-full shrink-0 flex-row items-center justify-center">
+                <img
+                  src="/Figma-svelte-webflow-logos-graphic.png"
+                  alt="Graphic with Figma, Svelte, and Webflow logos"
+                  width="100%"
+                  height={90}
+                />
+              </div>
+            </Card>
+          </div>
           <div className="flex w-full flex-col justify-center gap-4">
             <div className="mb-8 flex flex-col gap-2">
               <h3 className="text-2xl font-semibold fg-base">
@@ -94,7 +142,7 @@ const Benefits = () => {
                 <div className="flex shrink-0">
                   <Image
                     className="h-5 w-5 fg-success"
-                    src="/webflow-icons/CheckDefault.svg"
+                    src="/Target.svg"
                     alt="icon"
                     width={20}
                     height={20}
@@ -113,7 +161,7 @@ const Benefits = () => {
                 <div className="flex shrink-0">
                   <Image
                     className="h-5 w-5 fg-success"
-                    src="/webflow-icons/CheckDefault.svg"
+                    src="/ChartLineUp.svg"
                     alt="icon"
                     width={20}
                     height={20}
