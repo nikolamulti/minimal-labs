@@ -191,7 +191,7 @@ const Components = () => {
             </p>
           </div>
           <div className="absolute right-0 top-0 flex justify-end max-[850px]:hidden">
-            <span className="absolute top-[1rem] z-20 -rotate-[-15deg] text-nowrap text-center font-handwritten text-[2rem] leading-7 fg-base">
+            <span className="absolute top-[1rem] z-20 -rotate-[-15deg] text-nowrap bg-gradient-to-r from-[#6EA2F5] to-[#FD855F] bg-clip-text text-center font-handwritten text-[2rem] leading-7 text-transparent">
               Everything you
               <br />
               need to build an app

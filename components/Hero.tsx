@@ -46,7 +46,7 @@ const Hero = () => {
         </div>
       </div>
       <div className="relative z-30 flex h-[30rem] w-full items-end justify-center overflow-hidden">
-        <span className="absolute left-1/2 top-[1rem] z-20 hidden -translate-x-[calc(50%+14rem)] -rotate-[18deg] text-center font-handwritten text-[2rem] leading-7 fg-base sm:flex">
+        <span className="absolute left-1/2 top-[1rem] z-20 hidden -translate-x-[calc(50%+14rem)] -rotate-[18deg] bg-gradient-to-r from-[#6EA2F5] to-[#FD855F] bg-clip-text text-center font-handwritten text-[2rem] leading-7 text-transparent sm:flex">
           5x faster
           <br />
           development

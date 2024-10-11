@@ -22,67 +22,72 @@ const Pricing = () => {
           </p>
         </div>
         <div className="mx-auto grid grid-cols-1 gap-6 md:grid-cols-2">
-          <Card className="flex flex-col">
-            <div className="flex flex-col items-start gap-5 px-6 pb-8 pt-6 text-left">
-              <div className="rounded-full bg-white px-[10px] py-0.5 text-sm fg-inverted">
-                Personal
+          <div className="rounded-xl bg-[linear-gradient(142deg,#FF6533_0%,rgba(255,101,51,0)_25%,rgba(69,140,247,0)_75%,#458CF7_100%)] p-0.5">
+            <Card className="flex max-w-[440px] flex-col lg:max-w-[360px]">
+              <div className="flex flex-col items-start gap-5 px-6 pb-8 pt-6 text-left">
+                <div className="rounded-full bg-white px-[10px] py-0.5 text-sm fg-inverted">
+                  Personal
+                </div>
+                <div className="flex w-full flex-col gap-2">
+                  <h3 className="text-4xl font-semibold fg-base">$116</h3>
+                  <p className="text-base fg-muted">
+                    A single license for solo designers, developers, and
+                    freelancers.
+                  </p>
+                </div>
               </div>
-              <div className="flex w-full flex-col gap-2">
-                <h3 className="text-4xl font-semibold fg-base">$116</h3>
-                <p className="text-base fg-muted">
-                  A single license for solo designers, developers, and
-                  freelancers.
-                </p>
+              <div className="border border-muted" />
+              <CardList className="flex-grow px-6 pb-6 pt-8">
+                <CardListItem>License for 1 user</CardListItem>
+                <CardListItem>Figma UI Kit (30+ components)</CardListItem>
+                <CardListItem>Svelte components (30+ components)</CardListItem>
+                <CardListItem>Unlimited projects</CardListItem>
+                <CardAction className="mt-6">
+                  <Button
+                    variant="primary"
+                    size="medium"
+                    href="/pricing"
+                    className="w-full"
+                  >
+                    Buy personal license
+                  </Button>
+                </CardAction>
+              </CardList>
+            </Card>
+          </div>
+          <Card className="flex max-w-[440px] flex-col lg:max-w-[360px]">
+            <div className="p-0.5">
+              <div className="flex flex-col items-start gap-5 px-6 pb-8 pt-6 text-left">
+                <div className="rounded-full border border-muted bg-default px-[10px] py-0.5 text-sm fg-muted">
+                  Team
+                </div>
+                <div className="flex w-full flex-col gap-2">
+                  <h3 className="text-4xl font-semibold fg-base">$242</h3>
+                  <p className="text-base fg-muted">
+                    Up to 5 users. Perfect for design teams, agencies, and
+                    startups.
+                  </p>
+                </div>
               </div>
+
+              <div className="border border-muted" />
+              <CardList className="flex-grow px-6 pb-6 pt-8">
+                <CardListItem>License for up to 5 users</CardListItem>
+                <CardListItem>Figma UI Kit (30+ components)</CardListItem>
+                <CardListItem>Svelte components (30+ components)</CardListItem>
+                <CardListItem>Unlimited projects</CardListItem>
+                <CardAction className="mt-6">
+                  <Button
+                    variant="faded"
+                    size="medium"
+                    href="/pricing"
+                    className="w-full"
+                  >
+                    Buy team license
+                  </Button>
+                </CardAction>
+              </CardList>
             </div>
-            <div className="border border-muted" />
-            <CardList className="flex-grow px-6 pb-6 pt-8">
-              <CardListItem>License for 1 user</CardListItem>
-              <CardListItem>Figma UI Kit (30+ components)</CardListItem>
-              <CardListItem>Svelte components (30+ components)</CardListItem>
-              <CardListItem>Unlimited projects</CardListItem>
-              <CardAction className="mt-6">
-                <Button
-                  variant="primary"
-                  size="medium"
-                  href="/pricing"
-                  className="w-full"
-                >
-                  Buy personal license
-                </Button>
-              </CardAction>
-            </CardList>
-          </Card>
-          <Card className="flex flex-col">
-            <div className="flex flex-col items-start gap-5 px-6 pb-8 pt-6 text-left">
-              <div className="rounded-full border border-muted bg-default px-[10px] py-0.5 text-sm fg-muted">
-                Team
-              </div>
-              <div className="flex w-full flex-col gap-2">
-                <h3 className="text-4xl font-semibold fg-base">$242</h3>
-                <p className="text-base fg-muted">
-                  Up to 5 users. Perfect for design teams, agencies, and
-                  startups.
-                </p>
-              </div>
-            </div>
-            <div className="border border-muted" />
-            <CardList className="flex-grow px-6 pb-6 pt-8">
-              <CardListItem>License for up to 5 users</CardListItem>
-              <CardListItem>Figma UI Kit (30+ components)</CardListItem>
-              <CardListItem>Svelte components (30+ components)</CardListItem>
-              <CardListItem>Unlimited projects</CardListItem>
-              <CardAction className="mt-6">
-                <Button
-                  variant="faded"
-                  size="medium"
-                  href="/pricing"
-                  className="w-full"
-                >
-                  Buy team license
-                </Button>
-              </CardAction>
-            </CardList>
           </Card>
         </div>
         <div className="mt-8">
