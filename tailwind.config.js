@@ -92,30 +92,50 @@ module.exports = {
       },
       animation: {
         border: "border 4s linear infinite",
-        marquee: 'marquee 25s linear infinite',
-        marquee2: 'marquee2 25s linear infinite',
-        "marquee-reverse": "marquee-reverse 25s linear infinite",
-        "marquee2-reverse": "marquee2-reverse 25s linear infinite",
+        marquee: "marquee 50s linear infinite",
+        marquee2: "marquee2 50s linear infinite",
+        "marquee-reverse": "marquee-reverse 50s linear infinite",
+        "marquee2-reverse": "marquee2-reverse 50s linear infinite",
+        "marquee-vertical": "marquee-vertical 20s linear infinite",
+        "marquee2-vertical": "marquee2-vertical 20s linear infinite",
+        slideDown: "slideDown 200ms ease-out",
+        slideUp: "slideUp 200ms ease-out",
       },
       keyframes: {
         border: {
           to: { "--border-angle": "360deg" },
         },
         marquee: {
-          '0%': { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(-100%)' },
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-100%)" },
         },
         "marquee-reverse": {
-          '0%': { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(100%)' },
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(100%)" },
         },
         marquee2: {
-          '0%': { transform: 'translateX(100%)' },
-          '100%': { transform: 'translateX(0%)' },
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(0%)" },
         },
         "marquee2-reverse": {
-          '0%': { transform: 'translateX(-100%)' },
-          '100%': { transform: 'translateX(0%)' },
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(0%)" },
+        },
+        "marquee-vertical": {
+          "0%": { transform: "translateY(0%)" },
+          "100%": { transform: "translateY(100%)" },
+        },
+        "marquee2-vertical": {
+          "0%": { transform: "translateY(0%)" },
+          "100%": { transform: "translateY(100%)" },
+        },
+        slideDown: {
+          from: { height: 0 },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        slideUp: {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 },
         },
       },
     },

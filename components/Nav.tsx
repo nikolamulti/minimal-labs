@@ -26,7 +26,7 @@ const Nav = () => {
           </div>
           <nav
             className={`${
-              isMenuOpen ? "z-20 flex border-b border-muted bg-base" : "hidden"
+              isMenuOpen ? "z-20 flex bg-base" : "hidden"
             } absolute left-0 top-16 w-full flex-col gap-2 p-4 lg:relative lg:left-auto lg:top-0 lg:flex lg:w-auto lg:flex-row lg:p-0`}
           >
             <Button

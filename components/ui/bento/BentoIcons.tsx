@@ -40,13 +40,15 @@ const iconRows = [
 
 const BentoIcons: React.FC = () => {
   return (
-    <Card className="relative col-span-4 row-span-1 h-[20rem] overflow-hidden p-6 md:col-span-4 lg:col-span-7">
-      <h3 className="mb-1 text-base font-semibold fg-base">200+ Icons</h3>
-      <p className="max-w-xs text-sm fg-muted">
-        Fully compatible with the Figma file. Optimized and ready for immediate
-        use.
-      </p>
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-20 h-[8.75rem] bg-gradient-to-b from-[#29292900] to-[#353535]" />
+    <Card className="relative col-span-8 mx-auto h-[20rem] max-w-[40rem] overflow-hidden p-6 lg:col-span-7">
+      <div className="flex max-w-[25rem] flex-col gap-1">
+        <h3 className="text-lg font-semibold fg-base">200+ Icons</h3>
+        <p className="text-sm fg-muted">
+          Fully compatible with the Figma file. Optimized and ready for
+          immediate use.
+        </p>
+      </div>
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-20 h-[8.75rem] bg-gradient-to-t from-[rgba(41,41,41,1)] to-[rgba(41,41,41,0)]" />
       <div className="mt-6 flex flex-col gap-2">
         {iconRows.map((row, rowIndex) => (
           <div

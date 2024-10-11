@@ -6,12 +6,14 @@ const BentoCodeBlock: React.FC = () => {
   const [activeTab, setActiveTab] = useState("Checkbox");
 
   return (
-    <Card className="relative col-span-4 row-span-1 h-[20rem] overflow-hidden p-6 md:col-span-4 lg:col-span-7">
-      <h3 className="mb-1 text-base font-semibold fg-base">Source code</h3>
-      <p className="max-w-xs text-sm fg-muted">
-        Get access to all of the source code from our versatile Webflow app
-        components.
-      </p>
+    <Card className="relative col-span-8 row-span-1 mx-auto h-[20rem] max-w-[40rem] overflow-hidden p-6 lg:col-span-7">
+      <div className="flex max-w-[25rem] flex-col gap-1">
+        <h3 className="text-lg font-semibold fg-base">Source code</h3>
+        <p className="text-sm fg-muted">
+          Get access to all of the source code from our versatile Webflow app
+          components.
+        </p>
+      </div>
       <div className="bottom-0 left-6 right-0 top-10 mt-6 min-h-[14.75rem] w-[40rem] grow overflow-hidden rounded-lg border border-muted bg-default">
         <div className="flex border-b border-muted">
           <div className="flex text-sm font-medium">
@@ -20,8 +22,8 @@ const BentoCodeBlock: React.FC = () => {
                 key={tab}
                 className={`cursor-pointer p-3 text-sm ${
                   activeTab === tab
-                    ? "border-b border-b-muted bg-[#404040] fg-base"
-                    : "fg-muted hover:bg-[rgba(64,64,64,50%)]"
+                    ? "border-b border-muted bg-muted fg-base"
+                    : "fg-muted hover:bg-[#404040]"
                 }`}
                 onClick={() => setActiveTab(tab)}
               >
