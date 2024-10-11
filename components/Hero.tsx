@@ -6,13 +6,13 @@ import { Section } from "@/components/ui/Section";
 const Hero = () => {
   return (
     <Section removeMaxWidth={true} className="mx-auto px-0 pt-12 md:px-0">
-      <div className="absolute -top-[5.25rem] left-1/2 z-0 h-[calc(100%+5.25rem)] w-[calc(100vw-30px)] -translate-x-1/2 overflow-hidden">
+      <div className="absolute -top-[5.25rem] left-1/2 z-20 h-[calc(100%+5.25rem)] w-[calc(100vw-30px)] -translate-x-1/2 overflow-hidden">
         <div className="absolute -top-[5.25rem] left-1/2 h-[calc(100%+5.25rem)] w-[320px] -translate-x-[170%] bg-[url('/line-left-large.svg')] bg-contain bg-center bg-no-repeat md:-translate-x-[190%] lg:-translate-x-[225%]" />
         <div className="absolute -top-[5.25rem] left-1/2 h-[calc(100%+5.25rem)] w-[160px] -translate-x-[145%] bg-[url('/line-left-small.svg')] bg-contain bg-center bg-no-repeat md:-translate-x-[155%] lg:-translate-x-[200%]" />
         <div className="absolute -top-[5.25rem] right-1/2 h-[calc(100%+5.25rem)] w-[160px] translate-x-[145%] bg-[url('/line-right-small.svg')] bg-contain bg-center bg-no-repeat md:translate-x-[155%] lg:translate-x-[200%]" />
         <div className="absolute -top-[5.25rem] right-1/2 h-[calc(100%+5.25rem)] w-[320px] translate-x-[170%] bg-[url('/line-right-large.svg')] bg-contain bg-center bg-no-repeat md:translate-x-[190%] lg:translate-x-[225%]" />
       </div>
-      <div className="absolute inset-0 z-0 -mt-[5.25rem] bg-gradient-to-b from-black via-transparent to-transparent opacity-[16%]" />
+      <div className="absolute inset-0 z-0 -mt-[5.25rem] bg-gradient-to-b from-[#1A1A1A] via-[#1E1E1E] to-[#1E1E1E]" />
       <div className="relative z-20 flex flex-col items-center gap-8 px-4 text-center md:px-6">
         <div className="z-10 mx-auto flex items-center gap-3">
           <div className="flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded-[0.25rem] border border-muted bg-base">

@@ -22,7 +22,7 @@ const Benefits = () => {
       </div>
       <div className="flex flex-col gap-16">
         <div className="flex flex-col gap-12 lg:flex-row">
-          <div className="flex w-full flex-col justify-center gap-4">
+          <div className="relative z-20 flex w-full flex-col justify-center gap-4">
             <div className="mb-8 flex flex-col gap-2">
               <h3 className="text-2xl font-semibold fg-base">
                 Work smarter, not harder
@@ -77,7 +77,7 @@ const Benefits = () => {
             </div>
           </div>
           <div className="relative flex h-[360px] w-full flex-col justify-center rounded-xl p-6">
-            <div className="absolute left-1/2 top-1/2 h-[280px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white opacity-5 blur-[96px]"></div>
+            <div className="absolute left-1/2 top-1/2 h-[30rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(ellipse,#292929_0%,#1E1E1E_65%)]" />
             <Card className="z-10 flex-row gap-4 p-5">
               <div className="flex flex-row items-start justify-between gap-4">
                 <div className="mb-6 flex flex-col gap-1">
@@ -106,8 +106,8 @@ const Benefits = () => {
         </div>
         <div className="flex h-[360px] flex-col-reverse gap-12 lg:flex-row">
           <div className="relative flex w-full flex-col justify-center rounded-xl p-6">
-            <div className="absolute left-1/2 top-1/2 h-[280px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white opacity-5 blur-[96px]"></div>
-            <Card className="z-10 flex-row gap-4 p-5">
+            <div className="absolute left-1/2 top-1/2 h-[30rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(ellipse,#292929_0%,#1E1E1E_65%)]" />
+            <Card className="z-20 flex-row gap-4 p-5">
               <div className="mb-6 flex flex-col gap-1">
                 <h3 className="text-base font-semibold fg-base">
                   Perfectly aligned
@@ -127,7 +127,7 @@ const Benefits = () => {
               </div>
             </Card>
           </div>
-          <div className="flex w-full flex-col justify-center gap-4">
+          <div className="relative z-20 flex w-full flex-col justify-center gap-4">
             <div className="mb-8 flex flex-col gap-2">
               <h3 className="text-2xl font-semibold fg-base">
                 Keep consistency with ease
