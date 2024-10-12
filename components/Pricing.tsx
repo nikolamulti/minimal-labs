@@ -9,7 +9,7 @@ const Pricing = () => {
     <Section className="py-20">
       <div className="mx-auto flex flex-col text-center">
         <div className="mb-16 flex flex-col gap-4">
-          <p className="mx-auto flex bg-gradient-to-r from-[#4D91F7] to-[#D8633E] bg-clip-text text-base font-bold text-transparent">
+          <p className="mx-auto flex bg-gradient-to-r from-[#6EA2F5] to-[#FD855F] bg-clip-text text-base font-bold text-transparent">
             Pricing
           </p>
           <h2 className="text-balance text-center text-3xl font-bold fg-base">

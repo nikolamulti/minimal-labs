@@ -10,7 +10,7 @@ const WhatsIncluded: React.FC = () => (
   <Section className="relative overflow-hidden pt-20">
     <div className="relative z-10 mx-auto flex flex-col text-center">
       <div className="mx-auto flex max-w-[40rem] flex-col gap-4 pb-16">
-        <p className="mx-auto flex bg-gradient-to-r from-[#4D91F7] to-[#D8633E] bg-clip-text text-base font-bold text-transparent">
+        <p className="mx-auto flex bg-gradient-to-r from-[#6EA2F5] to-[#FD855F] bg-clip-text text-base font-bold text-transparent">
           What's included?
         </p>
         <h2 className="text-balance text-center text-3xl font-bold fg-base">

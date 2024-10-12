@@ -21,7 +21,7 @@ const CallToAction = () => {
       <div className="relative mx-auto overflow-hidden px-6">
         <div className="mx-auto flex max-w-[480px] flex-col items-center pt-16 lg:max-w-[640px] lg:pt-20">
           <div className="relative z-10 mb-8 flex flex-col gap-4 text-center lg:gap-6">
-            <h2 className="text-balance text-4xl font-semibold leading-tight fg-base lg:text-5xl">
+            <h2 className="text-balance bg-gradient-to-r from-[#6EA2F5] to-[#FD855F] bg-clip-text text-4xl font-semibold leading-tight text-transparent lg:text-5xl">
               Build your app today
             </h2>
             <p className="text-balance text-lg font-normal leading-normal fg-muted lg:text-xl lg:leading-8">

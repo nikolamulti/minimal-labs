@@ -9,7 +9,7 @@ const Benefits = () => {
   return (
     <Section className="relative overflow-hidden py-20">
       <div className="mx-auto mb-16 flex max-w-[40rem] flex-col gap-4 text-center">
-        <p className="mx-auto flex bg-gradient-to-r from-[#4D91F7] to-[#D8633E] bg-clip-text text-base font-bold text-transparent">
+        <p className="mx-auto flex bg-gradient-to-r from-[#6EA2F5] to-[#FD855F] bg-clip-text text-base font-bold text-transparent">
           Benefits
         </p>
         <h2 className="text-balance text-2xl font-semibold fg-base lg:text-3xl">
