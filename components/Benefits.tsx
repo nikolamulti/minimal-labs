@@ -22,12 +22,12 @@ const Benefits = () => {
       </div>
       <div className="flex flex-col gap-16">
         <div className="flex flex-col gap-12 lg:flex-row">
-          <div className="relative z-20 flex w-full flex-col justify-center gap-4">
-            <div className="mb-8 flex flex-col gap-2">
+          <div className="relative z-20 flex w-full flex-col justify-center gap-8">
+            <div className="flex flex-col gap-2">
               <h3 className="text-2xl font-semibold fg-base">
                 Work smarter, not harder
               </h3>
-              <p className="text-sm fg-muted">
+              <p className="text-balance text-sm fg-muted">
                 Streamline your workflow and focus on what truly matters. 100+
                 hours saved means more time for innovation and growth.
               </p>
@@ -44,11 +44,11 @@ const Benefits = () => {
                   />
                 </div>
 
-                <div className="flex flex-col gap-0.5">
+                <div className="flex max-w-[320px] flex-col gap-0.5">
                   <p className="text-sm font-semibold fg-base">
                     Build logic, not components
                   </p>
-                  <p className="text-sm fg-muted">
+                  <p className="text-xs fg-muted">
                     Focus on creating business logic rather than endlessly
                     crafting individual components.
                   </p>
@@ -65,12 +65,13 @@ const Benefits = () => {
                   />
                 </div>
 
-                <div className="flex flex-col gap-0.5">
+                <div className="flex max-w-[320px] flex-col gap-0.5">
                   <p className="text-sm font-semibold fg-base">
                     Develop app in no time
                   </p>
-                  <p className="text-sm fg-muted">
-                    Pre-made components allow fast app building and shipping.
+                  <p className="text-xs fg-muted">
+                    Pre-made components allow fast app building and shipping in
+                    record time.
                   </p>
                 </div>
               </div>
@@ -80,17 +81,17 @@ const Benefits = () => {
             <div className="absolute left-1/2 top-1/2 h-[30rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(ellipse,#292929_0%,#1E1E1E_65%)]" />
             <Card className="z-10 flex-row gap-4 p-5">
               <div className="flex flex-row items-start justify-between gap-4">
-                <div className="mb-6 flex flex-col gap-1">
-                  <h3 className="text-base font-semibold fg-base">
-                    All 3 modes available
+                <div className="mb-4 flex flex-col gap-1">
+                  <h3 className="text-sm font-semibold fg-base">
+                    Performance booster
                   </h3>
-                  <p className="text-sm fg-muted">
-                    Compatible with native Webflow designer themes and their
-                    changes.
+                  <p className="max-w-64 text-xs fg-muted">
+                    Maximize business impact by minimizing unnecessary labor and
+                    tasks.
                   </p>
                 </div>
                 <div className="rounded-full border border-muted bg-default px-2 py-0.5 text-xs fg-muted">
-                  +30%
+                  +500%
                 </div>
               </div>
               <div className="w-full shrink-0">
@@ -108,13 +109,13 @@ const Benefits = () => {
           <div className="relative flex w-full flex-col justify-center rounded-xl p-6">
             <div className="absolute left-1/2 top-1/2 h-[30rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(ellipse,#292929_0%,#1E1E1E_65%)]" />
             <Card className="z-20 flex-row gap-4 p-5">
-              <div className="mb-6 flex flex-col gap-1">
-                <h3 className="text-base font-semibold fg-base">
-                  Perfectly aligned
+              <div className="mb-4 flex flex-col gap-1">
+                <h3 className="text-sm font-semibold fg-base">
+                  Single source of truth
                 </h3>
-                <p className="text-sm fg-muted">
-                  Focus on creating business logic rather than crafting
-                  components.
+                <p className="max-w-64 text-xs fg-muted">
+                  Webflow's design system is perfectly integrated into Svelte
+                  and Figma.
                 </p>
               </div>
               <div className="flex h-[90px] w-full shrink-0 flex-row items-center justify-center">
@@ -127,12 +128,12 @@ const Benefits = () => {
               </div>
             </Card>
           </div>
-          <div className="relative z-20 flex w-full flex-col justify-center gap-4">
-            <div className="mb-8 flex flex-col gap-2">
+          <div className="relative z-20 flex w-full flex-col justify-center gap-8">
+            <div className="flex flex-col gap-2">
               <h3 className="text-2xl font-semibold fg-base">
                 Keep consistency with ease
               </h3>
-              <p className="text-sm fg-muted">
+              <p className="text-balance text-sm fg-muted">
                 From concept to flawless execution, ensure every detail aligns
                 perfectly with your vision and brand standards.
               </p>
@@ -148,12 +149,13 @@ const Benefits = () => {
                     height={20}
                   />
                 </div>
-                <div className="flex flex-col gap-0.5">
+                <div className="flex max-w-[320px] flex-col gap-0.5">
                   <p className="text-sm font-semibold fg-base">
                     Improved accuracy
                   </p>
-                  <p className="text-sm fg-muted">
-                    Minimizes discrepancies between design and final product.
+                  <p className="text-xs fg-muted">
+                    Effectively minimizes discrepancies between design and final
+                    product.
                   </p>
                 </div>
               </div>
@@ -168,9 +170,9 @@ const Benefits = () => {
                   />
                 </div>
 
-                <div className="flex flex-col gap-0.5">
+                <div className="flex max-w-[320px] flex-col gap-0.5">
                   <p className="text-sm font-semibold fg-base">Scalability</p>
-                  <p className="text-sm fg-muted">
+                  <p className="text-xs fg-muted">
                     Easily extend the system as new design patterns and
                     components are needed.
                   </p>

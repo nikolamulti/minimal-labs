@@ -21,9 +21,9 @@ const Features = () => {
         <h2 className="text-balance text-2xl font-semibold fg-base lg:text-3xl">
           Easy and fast development process
         </h2>
-        <p className="text-base fg-muted">
+        <p className="text-balance text-base fg-muted">
           Simplify design and development cycles with our optimized, time-saving
-          assets and components
+          assets and components.
         </p>
       </div>
       <div className="z-10 grid grid-cols-4 gap-6 md:grid-cols-8 lg:grid-cols-12">

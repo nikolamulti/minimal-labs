@@ -12,7 +12,8 @@ const BentoComponents: React.FC = () => {
       <div className="mb-6 flex max-w-[25rem] flex-col gap-1">
         <h3 className="text-lg font-semibold fg-base">Pre-made components</h3>
         <p className="text-sm fg-muted">
-          Streamline project quickly using plug-and-play building blocks.
+          Streamline projects quickly using efficient plug-and-play building
+          blocks.
         </p>
       </div>
       <div className="grid grid-cols-[1fr_14.75rem] gap-4">
