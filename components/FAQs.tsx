@@ -18,7 +18,7 @@ const FAQs = () => {
             FAQs
           </p>
           <h2 className="text-3xl font-semibold fg-base">
-            Your questions answered
+            Everything you need to know
           </h2>
           <p className="max-w-[24rem] text-base fg-muted">
             Find expert answers to common questions about Figma Kit and Svelte
@@ -126,28 +126,6 @@ const FAQs = () => {
             <AccordionItem value="item-8">
               <AccordionTrigger>
                 <h3>
-                  I need a license for more people. Do you have an Enterprise
-                  license?
-                </h3>
-              </AccordionTrigger>
-              <AccordionContent>
-                <p>
-                  Absolutely! Please reach out to us at{" "}
-                  <a
-                    href="mailto:aleksandar@minimal-square.com"
-                    className="fg-base"
-                  >
-                    aleksandar@minimal-square.com
-                  </a>{" "}
-                  for information about our Enterprise licenses. We'd be happy
-                  to discuss your specific needs and provide a tailored
-                  solution.
-                </p>
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-9">
-              <AccordionTrigger>
-                <h3>
                   Can I sell templates or themes built with a purchased product?
                 </h3>
               </AccordionTrigger>
@@ -165,7 +143,7 @@ const FAQs = () => {
                 </p>
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-10">
+            <AccordionItem value="item-9">
               <AccordionTrigger>
                 <h3>Is it a one-time payment?</h3>
               </AccordionTrigger>
@@ -173,7 +151,7 @@ const FAQs = () => {
                 <p>Yes, you pay once! It's NOT a subscription.</p>
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-11">
+            <AccordionItem value="item-10">
               <AccordionTrigger>
                 <h3>Do you provide invoices?</h3>
               </AccordionTrigger>
@@ -186,7 +164,7 @@ const FAQs = () => {
                 </p>
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-12">
+            <AccordionItem value="item-11">
               <AccordionTrigger>
                 <h3>Can you please give the company details?</h3>
               </AccordionTrigger>
@@ -205,7 +183,7 @@ const FAQs = () => {
                 </p>
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-13">
+            <AccordionItem value="item-12">
               <AccordionTrigger>
                 <h3>How does support work?</h3>
               </AccordionTrigger>
@@ -265,7 +243,7 @@ const FAQs = () => {
                 </p>
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-14">
+            <AccordionItem value="item-13">
               <AccordionTrigger>
                 <h3>How can I find my receipt email?</h3>
               </AccordionTrigger>
@@ -305,7 +283,7 @@ const FAQs = () => {
                 </p>
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-15">
+            <AccordionItem value="item-14">
               <AccordionTrigger>
                 <h3>How do I access the files after purchasing?</h3>
               </AccordionTrigger>
@@ -318,7 +296,7 @@ const FAQs = () => {
                 </p>
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-16">
+            <AccordionItem value="item-15">
               <AccordionTrigger>
                 <h3>Why did my payment didn't go through?</h3>
               </AccordionTrigger>
@@ -352,7 +330,7 @@ const FAQs = () => {
                 </p>
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-17">
+            <AccordionItem value="item-16">
               <AccordionTrigger>
                 <h3>How do I contact you?</h3>
               </AccordionTrigger>
