@@ -100,6 +100,8 @@ module.exports = {
         "marquee2-vertical": "marquee2-vertical 20s linear infinite",
         slideDown: "slideDown 200ms ease-out",
         slideUp: "slideUp 200ms ease-out",
+        moveAlongPath: "moveAlongPath 6s linear infinite",
+        moveAlongPathDelayed: "moveAlongPath 6s linear 2.75s infinite",
       },
       keyframes: {
         border: {
@@ -137,6 +139,10 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
+        moveAlongPath: {
+          "0%": { offsetDistance: "0%" },
+          "100%": { offsetDistance: "100%" },
+        },
       },
     },
   },
@@ -152,6 +158,16 @@ module.exports = {
       );
     }),
     typography,
+    plugin(({ addUtilities }) => {
+      addUtilities({
+        ".animate-moveAlongPath": {
+          animation: "moveAlongPath 6s linear infinite",
+        },
+        ".animate-moveAlongPathDelayed": {
+          animation: "moveAlongPath 6s linear 2.75s infinite",
+        },
+      });
+    }),
   ],
   presets: [
     createPreset({

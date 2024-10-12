@@ -1,5 +1,5 @@
 import { type HomeLayoutProps } from "fumadocs-ui/home-layout";
-
+import Image from "next/image";
 /**
  * Shared layout configurations
  *
@@ -9,13 +9,20 @@ import { type HomeLayoutProps } from "fumadocs-ui/home-layout";
  */
 export const baseOptions: HomeLayoutProps = {
   nav: {
-    title: "Minimal Labs",
+    title: (
+      <div className="flex items-center gap-3">
+        <Image src="/logo.svg" alt="minimal labs logo" width={24} height={24} />
+        <span className="text-base font-semibold">Minimal Labs</span>
+      </div>
+    ),
+    url: "/svelte",
   },
-  links: [
-    {
-      text: "Documentation",
-      url: "/svelte/docs",
-      active: "nested-url",
-    },
-  ],
+
+  // links: [
+  //   {
+  //     text: "Documentation",
+  //     url: "/svelte/docs",
+  //     active: "nested-url",
+  //   },
+  // ],
 };
