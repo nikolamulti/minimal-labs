@@ -22,7 +22,7 @@ const Pricing = () => {
           </p>
         </div>
         <div className="mx-auto grid grid-cols-1 gap-6 md:grid-cols-2">
-          <div className="rounded-xl bg-[linear-gradient(142deg,#FF6533_0%,rgba(255,101,51,0)_25%,rgba(69,140,247,0)_75%,#458CF7_100%)] p-0.5">
+          <div className="rounded-xl bg-[linear-gradient(142deg,#FF6533_0%,rgba(255,101,51,0)_25%,rgba(69,140,247,0)_75%,#458CF7_100%)] p-[1px]">
             <Card className="flex max-w-[440px] flex-col lg:max-w-[360px]">
               <div className="flex flex-col items-start gap-5 px-6 pb-8 pt-6 text-left">
                 <div className="rounded-full bg-white px-[10px] py-0.5 text-sm fg-inverted">
@@ -56,7 +56,7 @@ const Pricing = () => {
             </Card>
           </div>
           <Card className="flex max-w-[440px] flex-col lg:max-w-[360px]">
-            <div className="p-0.5">
+            <div className="p-[1px]">
               <div className="flex flex-col items-start gap-5 px-6 pb-8 pt-6 text-left">
                 <div className="rounded-full border border-muted bg-default px-[10px] py-0.5 text-sm fg-muted">
                   Team
