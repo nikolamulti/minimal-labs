@@ -33,7 +33,7 @@ const WhatsIncluded: React.FC = () => (
               />
               <div className="flex w-full flex-col gap-2">
                 <h3 className="text-xl font-semibold fg-base">Figma UI Kit</h3>
-                <p className="max-w-[24rem] text-sm fg-muted">
+                <p className="max-w-[24rem] text-sm leading-6 fg-muted">
                   Leverage Webflow's design system to skip the basics and dive
                   straight into crafting your app's features.
                 </p>
@@ -97,7 +97,7 @@ const WhatsIncluded: React.FC = () => (
                 <h3 className="text-xl font-semibold fg-base">
                   Svelte components
                 </h3>
-                <p className="max-w-[22rem] text-sm fg-muted">
+                <p className="max-w-[22rem] text-sm leading-6 fg-muted">
                   Streamline your Webflow projects with powerful, plug-and-play
                   building blocks.
                 </p>
