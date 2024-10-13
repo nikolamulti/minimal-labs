@@ -5,7 +5,7 @@ import { Section } from "@/components/ui/Section";
 
 const Hero = () => {
   return (
-    <Section removeMaxWidth={true} className="mx-auto px-0 pt-12 md:px-0">
+    <Section removeMaxWidth={true} className="mx-auto mt-20 px-0 pt-12 md:px-0">
       <div className="absolute -top-[5.25rem] left-1/2 z-20 h-[calc(100%+5.25rem)] w-[calc(100vw-30px)] -translate-x-1/2 overflow-hidden">
         <div className="absolute -top-[5.25rem] left-1/2 h-[calc(100%+5.25rem)] w-[160px] -translate-x-[145%] bg-[url('/line-left-small.svg')] bg-contain bg-center bg-no-repeat md:-translate-x-[155%] lg:-translate-x-[200%]" />
         <div className="absolute -top-[5.25rem] right-1/2 h-[calc(100%+5.25rem)] w-[160px] translate-x-[145%] bg-[url('/line-right-small.svg')] bg-contain bg-center bg-no-repeat md:translate-x-[155%] lg:translate-x-[200%]" />
