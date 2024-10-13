@@ -128,12 +128,12 @@ const Hero = () => {
                 y2="981"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#fff" stop-opacity="0" />
-                <stop offset=".18" stop-color="#fff" stop-opacity=".02" />
-                <stop offset=".32" stop-color="#fff" stop-opacity=".08" />
-                <stop offset=".42" stop-color="#fff" stop-opacity=".08" />
-                <stop offset=".46" stop-color="#fff" stop-opacity=".08" />
-                <stop offset="1" stop-color="#fff" stop-opacity="0" />
+                <stop stopColor="#fff" stopOpacity="0" />
+                <stop offset=".18" stopColor="#fff" stopOpacity=".02" />
+                <stop offset=".32" stopColor="#fff" stopOpacity=".08" />
+                <stop offset=".42" stopColor="#fff" stopOpacity=".08" />
+                <stop offset=".46" stopColor="#fff" stopOpacity=".08" />
+                <stop offset="1" stopColor="#fff" stopOpacity="0" />
               </linearGradient>
             </defs>
             <path
