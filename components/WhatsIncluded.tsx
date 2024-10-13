@@ -41,7 +41,7 @@ const WhatsIncluded: React.FC = () => (
             </div>
           </div>
           <div className="border border-muted" />
-          <CardList className="px-6 py-8">
+          <CardList className="flex flex-col gap-5 px-6 py-8">
             <CardListItem>
               <span className="">
                 <span className="font-semibold fg-base">
@@ -105,7 +105,7 @@ const WhatsIncluded: React.FC = () => (
             </div>
           </div>
           <div className="border border-muted" />
-          <CardList className="px-6 py-8">
+          <CardList className="flex flex-col gap-5 px-6 py-8">
             <CardListItem>
               <span className="">
                 <span className="font-semibold fg-base">
