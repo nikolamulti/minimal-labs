@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
@@ -8,14 +8,29 @@ import { List, X } from "@phosphor-icons/react";
 
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    // Check scroll position on initial load
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section
-      className={`relative z-30 px-4 py-6 md:px-6 ${isMenuOpen ? "bg-base" : ""}`}
+      className={`fixed left-0 right-0 top-0 z-[100] px-4 py-4 md:px-6 ${
+        isScrolled ? "bg-base/80 py-4" : "md:py-6"
+      } ${isMenuOpen ? "bg-base/100" : "backdrop-blur-md transition-all duration-300"}`}
     >
       <div className="mx-auto flex w-full max-w-[960px] items-center justify-between gap-8">
         <div className="flex items-center gap-4">
@@ -26,8 +41,8 @@ const Nav = () => {
           </div>
           <nav
             className={`${
-              isMenuOpen ? "z-20 flex bg-base" : "hidden"
-            } absolute left-0 top-16 w-full flex-col gap-2 p-4 lg:relative lg:left-auto lg:top-0 lg:flex lg:w-auto lg:flex-row lg:p-0`}
+              isMenuOpen ? "bg-base/80 z-20 flex lg:bg-transparent" : "hidden"
+            } absolute left-0 top-[4.5rem] w-full flex-col gap-2 p-4 backdrop-blur-md lg:relative lg:left-auto lg:top-0 lg:flex lg:w-auto lg:flex-row lg:p-0 lg:backdrop-filter-none`}
           >
             <Button
               variant="ghost"
