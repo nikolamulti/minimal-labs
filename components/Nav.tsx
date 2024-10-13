@@ -64,9 +64,15 @@ const Nav = () => {
             <Button
               variant="faded"
               href="/svelte/preview"
-              className="hidden min-[375px]:flex"
+              className="hidden items-center gap-2 min-[375px]:flex"
             >
-              Figma Preview
+              <Image
+                src="/figma-color.svg"
+                alt="Figma"
+                width={11}
+                height={16}
+              />
+              Preview in Figma
             </Button>
             <Button variant="primary" href="/svelte/pricing">
               Get Access

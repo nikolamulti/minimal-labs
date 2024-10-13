@@ -15,8 +15,8 @@ const buttonVariants = cva(
         faded: "fg-base bg-default hover:transparent lg:hover:bg-medium",
       },
       size: {
-        small: "px-2 py-1.5 text-sm	text-sm",
-        medium: "px-3 py-2.5 text-base	text-sm",
+        small: "px-3 py-1.5 text-sm	text-sm",
+        medium: "px-4 py-2.5 text-base text-sm",
       },
     },
     defaultVariants: {
@@ -48,7 +48,7 @@ const Button: React.FC<ButtonProps> = ({
       className={cn(buttonVariants({ variant, size }), className)}
       {...$$restProps}
     >
-      <div className="px-1">{children}</div>
+      {children}
     </Link>
   );
 };
