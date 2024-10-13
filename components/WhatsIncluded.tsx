@@ -16,7 +16,7 @@ const WhatsIncluded: React.FC = () => (
         <h2 className="text-balance text-center text-3xl font-bold fg-base">
           Complete app-building toolkit
         </h2>
-        <p className="max-w-[34rem] text-base fg-muted">
+        <p className="text-balance text-base fg-muted">
           Accelerate your workflow with pre-built components, design systems,
           and intuitive CLI tools.
         </p>
@@ -33,7 +33,7 @@ const WhatsIncluded: React.FC = () => (
               />
               <div className="flex w-full flex-col gap-2">
                 <h3 className="text-xl font-semibold fg-base">Figma UI Kit</h3>
-                <p className="text-sm fg-muted">
+                <p className="max-w-[24rem] text-sm fg-muted">
                   Leverage Webflow's design system to skip the basics and dive
                   straight into crafting your app's features.
                 </p>
@@ -97,9 +97,9 @@ const WhatsIncluded: React.FC = () => (
                 <h3 className="text-xl font-semibold fg-base">
                   Svelte components
                 </h3>
-                <p className="text-sm fg-muted">
-                  Streamline your Webflow projects with plug-and-play building
-                  blocks.
+                <p className="max-w-[22rem] text-sm fg-muted">
+                  Streamline your Webflow projects with powerful, plug-and-play
+                  building blocks.
                 </p>
               </div>
             </div>
@@ -142,8 +142,8 @@ const WhatsIncluded: React.FC = () => (
             </CardListItem>
             <CardListItem>
               <span className="">
-                <span className="font-semibold fg-base">Themes:</span> Choose
-                from all three native Webflow designer themes.
+                <span className="font-semibold fg-base">Themes:</span> Easily
+                choose from all three native Webflow designer themes.
               </span>
             </CardListItem>
           </CardList>
