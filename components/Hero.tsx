@@ -161,15 +161,15 @@ const Hero = () => {
       <div className="absolute inset-0 z-0 -mt-[5.25rem] bg-gradient-to-b from-[#1A1A1A] via-[#1E1E1E] to-[#1E1E1E]" />
       <div className="relative z-20 flex flex-col items-center gap-8 px-4 text-center md:px-6">
         <div className="z-10 mx-auto flex items-center gap-3">
-          <div className="flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded-[0.25rem] border border-muted bg-base">
+          <div className="flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded-lg border border-muted bg-base">
             <div className="ml-0.5 h-[1.0625rem] w-[1.625rem] bg-[url('/webflow-color.svg')] bg-contain bg-center bg-no-repeat" />
           </div>
           <div className="h-[0.75rem] w-[0.75rem] bg-[url('/x.svg')] bg-contain bg-center bg-no-repeat" />
-          <div className="flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded-[0.25rem] border border-muted bg-base">
+          <div className="flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded-lg border border-muted bg-base">
             <div className="h-[1.5rem] w-[1.25rem] bg-[url('/svelte-color.svg')] bg-contain bg-center bg-no-repeat" />
           </div>
           <div className="h-[0.75rem] w-[0.75rem] bg-[url('/x.svg')] bg-contain bg-center bg-no-repeat" />
-          <div className="flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded-[0.25rem] border border-muted bg-base">
+          <div className="flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded-lg border border-muted bg-base">
             <div className="h-[1.5rem] w-[1rem] bg-[url('/figma-color.svg')] bg-contain bg-center bg-no-repeat" />
           </div>
         </div>
@@ -203,7 +203,7 @@ const Hero = () => {
         <div className="relative w-full">
           <div className="pointer-events-none absolute bottom-0 left-1/2 z-20 w-[320px] -translate-x-1/2 transform overflow-hidden rounded-lg shadow-[0px_3px_64px_-4px_rgba(0,0,0,0.5)]">
             <Image
-              src="/app-shell-01.jpg"
+              src="/app-shell-01.png"
               alt="Hero"
               width={320}
               height={400}
@@ -212,7 +212,7 @@ const Hero = () => {
           </div>
           <div className="pointer-events-none absolute bottom-0 left-1/2 z-10 hidden w-[320px] -translate-x-[calc(50%+128px)] transform overflow-hidden rounded-lg bg-base shadow-lg sm:flex md:-translate-x-[calc(50%+160px)]">
             <Image
-              src="/app-shell-02.jpg"
+              src="/app-shell-02.png"
               alt="Hero"
               width={320}
               height={360}
@@ -221,7 +221,7 @@ const Hero = () => {
           </div>
           <div className="pointer-events-none absolute bottom-0 right-1/2 z-0 hidden w-[320px] translate-x-[calc(50%+128px)] transform overflow-hidden rounded-lg bg-base shadow-lg sm:flex md:translate-x-[calc(50%+160px)]">
             <Image
-              src="/app-shell-03.jpg"
+              src="/app-shell-03.png"
               alt="Hero"
               width={320}
               height={320}
