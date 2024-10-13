@@ -8,7 +8,7 @@ import { Card } from "@/components/ui/Card";
 const Benefits = () => {
   return (
     <Section className="relative overflow-hidden py-20">
-      <div className="mx-auto mb-16 flex max-w-[40rem] flex-col items-center gap-4 text-center">
+      <div className="relative z-20 mx-auto mb-16 flex max-w-[40rem] flex-col items-center gap-4 text-center">
         <p className="flex bg-gradient-to-r from-[#6EA2F5] to-[#FD855F] bg-clip-text text-base font-bold text-transparent">
           Benefits
         </p>
@@ -21,8 +21,8 @@ const Benefits = () => {
         </p>
       </div>
       <div className="flex flex-col gap-16">
-        <div className="flex flex-col gap-12 lg:flex-row">
-          <div className="relative z-20 flex w-full flex-col justify-center gap-8">
+        <div className="flex flex-col gap-12 md:flex-row">
+          <div className="relative z-20 flex w-full flex-col justify-center gap-8 py-4">
             <div className="flex flex-col gap-2">
               <h3 className="text-2xl font-semibold fg-base">
                 Work smarter, not harder
@@ -48,7 +48,7 @@ const Benefits = () => {
                   <p className="text-sm font-semibold fg-base">
                     Build logic, not components
                   </p>
-                  <p className="text-xs fg-muted">
+                  <p className="text-xs leading-5 fg-muted">
                     Focus on creating business logic rather than endlessly
                     crafting individual components.
                   </p>
@@ -69,7 +69,7 @@ const Benefits = () => {
                   <p className="text-sm font-semibold fg-base">
                     Develop app in no time
                   </p>
-                  <p className="text-xs fg-muted">
+                  <p className="text-xs leading-5 fg-muted">
                     Pre-made components allow fast app building and shipping in
                     record time.
                   </p>
@@ -77,15 +77,15 @@ const Benefits = () => {
               </div>
             </div>
           </div>
-          <div className="relative flex h-[360px] w-full flex-col justify-center rounded-xl p-6">
-            <div className="absolute left-1/2 top-1/2 h-[30rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(ellipse,#292929_0%,#1E1E1E_65%)]" />
-            <Card className="z-10 flex-row gap-4 p-5">
+          <div className="relative flex flex-col justify-center rounded-xl px-6 md:w-full">
+            <div className="absolute left-1/2 top-1/2 z-0 h-[30rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 rounded-[50%] bg-[radial-gradient(ellipse,#292929_0%,#1E1E1E_65%)]" />
+            <Card className="z-10 mx-auto max-w-[360px] flex-row gap-4 p-5">
               <div className="flex flex-row items-start justify-between gap-4">
                 <div className="mb-4 flex flex-col gap-1">
                   <h3 className="text-sm font-semibold fg-base">
                     Performance booster
                   </h3>
-                  <p className="max-w-64 text-xs fg-muted">
+                  <p className="max-w-64 text-xs leading-[18px] fg-muted">
                     Maximize business impact by minimizing unnecessary labor and
                     tasks.
                   </p>
@@ -105,15 +105,15 @@ const Benefits = () => {
             </Card>
           </div>
         </div>
-        <div className="flex h-[360px] flex-col-reverse gap-12 lg:flex-row">
-          <div className="relative flex w-full flex-col justify-center rounded-xl p-6">
-            <div className="absolute left-1/2 top-1/2 h-[30rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(ellipse,#292929_0%,#1E1E1E_65%)]" />
-            <Card className="z-20 flex-row gap-4 p-5">
+        <div className="flex flex-col-reverse gap-12 md:flex-row">
+          <div className="relative flex w-full flex-col justify-center rounded-xl lg:pr-6">
+            <div className="absolute left-1/2 top-1/2 h-[30rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 rounded-[50%] bg-[radial-gradient(ellipse,#292929_0%,#1E1E1E_65%)]" />
+            <Card className="z-20 mx-auto max-w-[360px] flex-row gap-4 p-5">
               <div className="mb-4 flex flex-col gap-1">
                 <h3 className="text-sm font-semibold fg-base">
                   Single source of truth
                 </h3>
-                <p className="max-w-64 text-xs fg-muted">
+                <p className="max-w-64 text-xs leading-[18px] fg-muted">
                   Webflow's design system is perfectly integrated into Svelte
                   and Figma.
                 </p>
@@ -128,7 +128,7 @@ const Benefits = () => {
               </div>
             </Card>
           </div>
-          <div className="relative z-20 flex w-full flex-col justify-center gap-8">
+          <div className="relative z-20 flex w-full flex-col justify-center gap-8 py-4">
             <div className="flex flex-col gap-2">
               <h3 className="text-2xl font-semibold fg-base">
                 Keep consistency with ease
@@ -153,7 +153,7 @@ const Benefits = () => {
                   <p className="text-sm font-semibold fg-base">
                     Improved accuracy
                   </p>
-                  <p className="text-xs fg-muted">
+                  <p className="text-xs leading-5 fg-muted">
                     Effectively minimizes discrepancies between design and final
                     product.
                   </p>
@@ -172,7 +172,7 @@ const Benefits = () => {
 
                 <div className="flex max-w-[320px] flex-col gap-0.5">
                   <p className="text-sm font-semibold fg-base">Scalability</p>
-                  <p className="text-xs fg-muted">
+                  <p className="text-xs leading-5 fg-muted">
                     Easily extend the system as new design patterns and
                     components are needed.
                   </p>

@@ -186,8 +186,13 @@ const Hero = () => {
           <Button href="/" size="medium" variant="primary">
             Get access
           </Button>
-          <Button href="/" size="medium">
-            Preview
+          <Button
+            className="flex flex-row items-center gap-2"
+            href="/"
+            size="medium"
+          >
+            <Image src="/figma-color.svg" alt="Figma" width={11} height={16} />
+            Preview in Figma
           </Button>
         </div>
       </div>
