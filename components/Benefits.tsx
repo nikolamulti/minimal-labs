@@ -32,7 +32,7 @@ const Benefits = () => {
                 hours saved means more time for innovation and growth.
               </p>
             </div>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-6">
               <div className="flex flex-row gap-2">
                 <div className="flex shrink-0">
                   <Image
@@ -43,8 +43,7 @@ const Benefits = () => {
                     height={20}
                   />
                 </div>
-
-                <div className="flex max-w-[320px] flex-col gap-0.5">
+                <div className="flex max-w-[320px] flex-col gap-1">
                   <p className="text-sm font-semibold fg-base">
                     Build logic, not components
                   </p>
@@ -65,7 +64,7 @@ const Benefits = () => {
                   />
                 </div>
 
-                <div className="flex max-w-[320px] flex-col gap-0.5">
+                <div className="flex max-w-[320px] flex-col gap-1">
                   <p className="text-sm font-semibold fg-base">
                     Develop app in no time
                   </p>
@@ -138,7 +137,7 @@ const Benefits = () => {
                 perfectly with your vision and brand standards.
               </p>
             </div>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-6">
               <div className="flex flex-row gap-2">
                 <div className="flex shrink-0">
                   <Image
@@ -149,7 +148,7 @@ const Benefits = () => {
                     height={20}
                   />
                 </div>
-                <div className="flex max-w-[320px] flex-col gap-0.5">
+                <div className="flex max-w-[320px] flex-col gap-1">
                   <p className="text-sm font-semibold fg-base">
                     Improved accuracy
                   </p>
@@ -170,7 +169,7 @@ const Benefits = () => {
                   />
                 </div>
 
-                <div className="flex max-w-[320px] flex-col gap-0.5">
+                <div className="flex max-w-[320px] flex-col gap-1">
                   <p className="text-sm font-semibold fg-base">Scalability</p>
                   <p className="text-xs leading-5 fg-muted">
                     Easily extend the system as new design patterns and
