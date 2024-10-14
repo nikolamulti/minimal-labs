@@ -3,27 +3,28 @@ import { Section } from "@/components/ui/Section";
 import { Card, CardList, CardListItem, CardAction } from "@/components/ui/Card";
 
 import { Button } from "@/components/ui/Button";
+import { Light } from "@/components/ui/Light";
 
 const Pricing = () => {
   return (
-    <Section className="py-20">
-      <div className="mx-auto flex flex-col text-center">
-        <div className="mb-16 flex flex-col gap-4">
-          <p className="mx-auto flex bg-gradient-to-r from-[#6EA2F5] to-[#FD855F] bg-clip-text text-base font-bold text-transparent">
+    <Section className="relative overflow-hidden pt-20">
+      <div className="relative z-20 mx-auto flex flex-col text-center">
+        <div className="mb-16 flex flex-col items-center gap-4">
+          <p className="flex bg-gradient-to-r from-[#6EA2F5] to-[#FD855F] bg-clip-text text-base font-bold text-transparent">
             Pricing
           </p>
           <h2 className="text-balance text-center text-3xl font-bold fg-base">
             Choose the perfect plan for your needs
           </h2>
-          <p className="text-balance text-base fg-muted">
+          <p className="max-w-[30rem] text-base fg-muted">
             Pay once for a powerful set of tools to boost your workflow. No
             subscriptions or hidden fees - just better design and development at
             your fingertips.
           </p>
         </div>
-        <div className="mx-auto grid grid-cols-1 gap-6 md:grid-cols-2">
-          <div className="rounded-xl bg-[linear-gradient(142deg,#FF6533_0%,rgba(255,101,51,0)_25%,rgba(69,140,247,0)_75%,#458CF7_100%)] p-[1px]">
-            <Card className="flex max-w-[440px] flex-col lg:max-w-[360px]">
+        <div className="mx-auto flex flex-col gap-6 md:flex-row">
+          <div className="max-w-[25rem] rounded-xl bg-[linear-gradient(142deg,#FF6533_0%,rgba(255,101,51,0)_25%,rgba(69,140,247,0)_75%,#458CF7_100%)] p-[1px] md:max-w-[22.5rem]">
+            <Card className="flex flex-col">
               <div className="flex flex-col items-start gap-5 px-6 pb-8 pt-6 text-left">
                 <div className="rounded-full bg-white px-[10px] py-0.5 text-sm fg-inverted">
                   Personal
@@ -55,7 +56,7 @@ const Pricing = () => {
               </CardList>
             </Card>
           </div>
-          <Card className="flex max-w-[440px] flex-col lg:max-w-[360px]">
+          <Card className="flex max-w-[25rem] flex-col md:max-w-[22.5rem]">
             <div className="p-[1px]">
               <div className="flex flex-col items-start gap-5 px-6 pb-8 pt-6 text-left">
                 <div className="rounded-full border border-muted bg-default px-[10px] py-0.5 text-sm fg-muted">
@@ -91,12 +92,13 @@ const Pricing = () => {
           </Card>
         </div>
         <div className="mt-8">
-          <p className="mx-auto max-w-[40rem] text-balance text-sm fg-muted">
+          <p className="mx-auto max-w-[25rem] text-sm fg-subtle md:max-w-xl">
             Secure 256-bit SSL Encrypted payments by Lemon Squeezy. The standard
             local tax rate may be charged, following the law of your country.
           </p>
         </div>
       </div>
+      <Light />
     </Section>
   );
 };

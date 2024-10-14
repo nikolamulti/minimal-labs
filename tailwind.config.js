@@ -19,7 +19,7 @@ module.exports = {
         handwritten: ["'Just Another Hand'", "cursive"],
       },
       backgroundColor: {
-        base: "var(--color-neutral-1200)",
+        base: "rgb(var(--color-neutral-1200))",
         bold: "var(--color-neutral-800)",
         critical: "var(--color-red-400)",
         "critical-hover": "var(--color-red-300)",

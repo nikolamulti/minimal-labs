@@ -3,10 +3,11 @@
 import React from "react";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
+import { Light } from "@/components/ui/Light";
 
 const CallToAction = () => {
   return (
-    <Section className="pb-24">
+    <Section removeMaxWidth className="pb-24">
       <div className="relative flex h-[320px] items-end overflow-hidden pb-8 lg:pb-12">
         <div className="absolute right-1/2 top-52 h-[512px] w-[512px] translate-x-[160px] scale-[2] transform rounded-full bg-[radial-gradient(circle,_#146EF5_0%,_rgba(20,110,245,0.25)_40%,_rgba(30,30,30,0)_55%)] opacity-[28%]"></div>
         <div className="absolute left-1/2 top-52 h-[512px] w-[512px] -translate-x-[160px] scale-[2] transform rounded-full bg-[radial-gradient(circle,_#FF3E00_0%,_rgba(255,62,0,0.25)_40%,_rgba(30,30,30,0)_55%)] opacity-[28%]"></div>
@@ -30,6 +31,7 @@ const CallToAction = () => {
               and component library for Webflow apps.
             </p>
           </div>
+          <Light divider={false} />
           <Button
             className="relative z-10"
             variant="primary"

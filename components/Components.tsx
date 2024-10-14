@@ -179,8 +179,8 @@ const Components = () => {
     <Section className="relative mx-auto overflow-hidden pb-20 pt-24">
       <div className="relative z-10 flex flex-col gap-16 self-start text-center">
         <div className="relative flex w-full justify-self-start text-left">
-          <div className="flex max-w-[40rem] flex-col gap-4">
-            <p className="mr-auto flex bg-gradient-to-r from-[#6EA2F5] to-[#FD855F] bg-clip-text text-base font-bold text-transparent">
+          <div className="flex max-w-[40rem] flex-col items-start gap-4">
+            <p className="flex bg-gradient-to-r from-[#6EA2F5] to-[#FD855F] bg-clip-text text-base font-bold text-transparent">
               Library
             </p>
             <h2 className="text-balance text-2xl font-semibold fg-base lg:text-3xl">
@@ -211,7 +211,6 @@ const Components = () => {
           ))}
         </div>
       </div>
-      <div className="absolute bottom-0 left-1/2 h-[1px] w-[80rem] -translate-x-1/2 bg-gradient-to-r from-transparent via-white/70 to-transparent mix-blend-overlay" />
     </Section>
   );
 };

@@ -11,18 +11,18 @@ import {
 
 const FAQs = () => {
   return (
-    <Section className="pt-20">
+    <Section className="pt-24">
       <div className="mx-auto max-w-[40rem]">
         <div className="mb-12 flex flex-col items-center justify-center gap-4 text-center lg:mb-16">
-          <p className="mx-auto flex bg-gradient-to-r from-[#6EA2F5] to-[#FD855F] bg-clip-text text-base font-bold text-transparent">
+          <p className="flex bg-gradient-to-r from-[#6EA2F5] to-[#FD855F] bg-clip-text text-base font-bold text-transparent">
             FAQs
           </p>
           <h2 className="text-3xl font-semibold fg-base">
             Everything you need to know
           </h2>
-          <p className="max-w-[24rem] text-base fg-muted">
-            Find expert answers to common questions about Figma Kit and Svelte
-            component library.
+          <p className="max-w-[30rem] text-base fg-muted">
+            Find expert answers to common questions about Figma UI Kit and
+            Svelte component library.
           </p>
         </div>
         <div className="w-full">

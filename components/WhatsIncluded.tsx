@@ -5,18 +5,19 @@ import Image from "next/image";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { Card, CardList, CardListItem } from "@/components/ui/Card";
+import { Light } from "@/components/ui/Light";
 
 const WhatsIncluded: React.FC = () => (
   <Section className="relative overflow-hidden pt-20">
     <div className="relative z-10 mx-auto flex flex-col text-center">
-      <div className="mx-auto flex max-w-[40rem] flex-col gap-4 pb-16">
-        <p className="mx-auto flex bg-gradient-to-r from-[#6EA2F5] to-[#FD855F] bg-clip-text text-base font-bold text-transparent">
+      <div className="mx-auto flex max-w-[40rem] flex-col items-center gap-4 pb-16">
+        <p className="flex bg-gradient-to-r from-[#6EA2F5] to-[#FD855F] bg-clip-text text-base font-bold text-transparent">
           What's included?
         </p>
         <h2 className="text-balance text-center text-3xl font-bold fg-base">
           Complete app-building toolkit
         </h2>
-        <p className="text-balance text-base fg-muted">
+        <p className="max-w-[30rem] text-base fg-muted">
           Accelerate your workflow with pre-built components, design systems,
           and intuitive CLI tools.
         </p>
@@ -149,7 +150,7 @@ const WhatsIncluded: React.FC = () => (
           </CardList>
         </Card>
       </div>
-      <div className="relative mt-6 animate-border overflow-hidden rounded-xl border border-transparent [background:linear-gradient(45deg,rgba(255,255,255,13%),#1e1e1e_50%,rgba(255,255,255,13%))_padding-box,conic-gradient(from_var(--border-angle),rgba(255,255,255,13%)_15%,_rgba(255,62,0,75%)_22%,_rgba(255,255,255,13%)_28%,_rgba(255,255,255,13%)_55%,_rgba(20,110,245,75%)_63%,_rgba(255,255,255,13%)_68%,_rgba(255,255,255,13%)_100%)_border-box]">
+      <div className="relative mt-6 animate-border overflow-hidden rounded-xl border border-transparent [background:linear-gradient(45deg,rgba(255,255,255,13%),#1e1e1e_50%,rgba(255,255,255,13%))_padding-box,conic-gradient(from_var(--border-angle),rgba(255,255,255,13%)_15%,_rgba(255,101,51,100%)_22%,_rgba(255,255,255,13%)_28%,_rgba(255,255,255,13%)_55%,_rgba(69,140,247,100%)_63%,_rgba(255,255,255,13%)_68%,_rgba(255,255,255,13%)_100%)_border-box]">
         <div className="absolute inset-0 rounded-xl bg-base bg-[linear-gradient(45deg,var(--tw-gradient-stops))] from-[#262626] via-[#1E1E1E] to-[#1E1E1E]" />
         <div className="relative mx-auto flex w-full rounded-[11px] px-8 py-6">
           <div className="flex w-full flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
@@ -169,8 +170,7 @@ const WhatsIncluded: React.FC = () => (
         </div>
       </div>
     </div>
-    <div className="absolute left-1/2 top-0 h-[1px] w-[60rem] -translate-x-1/2 bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.12)] to-transparent" />
-    <div className="absolute right-1/2 top-1 z-0 h-[360px] w-[960px] -translate-y-1/2 translate-x-1/2 scale-125 transform rounded-full bg-[radial-gradient(ellipse,_rgba(64,64,64,0.22)_0%,_#1E1E1E_70%)]" />
+    <Light />
   </Section>
 );
 

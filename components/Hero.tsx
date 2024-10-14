@@ -5,7 +5,7 @@ import { Section } from "@/components/ui/Section";
 
 const Hero = () => {
   return (
-    <Section removeMaxWidth={true} className="mx-auto px-0 pt-12 md:px-0">
+    <Section removeMaxWidth={true} className="mx-auto mt-20 px-0 pt-12 md:px-0">
       <div className="absolute -top-[5.25rem] left-1/2 z-20 h-[calc(100%+5.25rem)] w-[calc(100vw-30px)] -translate-x-1/2 overflow-hidden">
         <div className="absolute -top-[5.25rem] left-1/2 h-[calc(100%+5.25rem)] w-[160px] -translate-x-[145%] bg-[url('/line-left-small.svg')] bg-contain bg-center bg-no-repeat md:-translate-x-[155%] lg:-translate-x-[200%]" />
         <div className="absolute -top-[5.25rem] right-1/2 h-[calc(100%+5.25rem)] w-[160px] translate-x-[145%] bg-[url('/line-right-small.svg')] bg-contain bg-center bg-no-repeat md:translate-x-[155%] lg:translate-x-[200%]" />
@@ -128,12 +128,12 @@ const Hero = () => {
                 y2="981"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#fff" stop-opacity="0" />
-                <stop offset=".18" stop-color="#fff" stop-opacity=".02" />
-                <stop offset=".32" stop-color="#fff" stop-opacity=".08" />
-                <stop offset=".42" stop-color="#fff" stop-opacity=".08" />
-                <stop offset=".46" stop-color="#fff" stop-opacity=".08" />
-                <stop offset="1" stop-color="#fff" stop-opacity="0" />
+                <stop stopColor="#fff" stopOpacity="0" />
+                <stop offset=".18" stopColor="#fff" stopOpacity=".02" />
+                <stop offset=".32" stopColor="#fff" stopOpacity=".08" />
+                <stop offset=".42" stopColor="#fff" stopOpacity=".08" />
+                <stop offset=".46" stopColor="#fff" stopOpacity=".08" />
+                <stop offset="1" stopColor="#fff" stopOpacity="0" />
               </linearGradient>
             </defs>
             <path
@@ -161,15 +161,15 @@ const Hero = () => {
       <div className="absolute inset-0 z-0 -mt-[5.25rem] bg-gradient-to-b from-[#1A1A1A] via-[#1E1E1E] to-[#1E1E1E]" />
       <div className="relative z-20 flex flex-col items-center gap-8 px-4 text-center md:px-6">
         <div className="z-10 mx-auto flex items-center gap-3">
-          <div className="flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded-[0.25rem] border border-muted bg-base">
+          <div className="flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded-lg border border-muted bg-base">
             <div className="ml-0.5 h-[1.0625rem] w-[1.625rem] bg-[url('/webflow-color.svg')] bg-contain bg-center bg-no-repeat" />
           </div>
           <div className="h-[0.75rem] w-[0.75rem] bg-[url('/x.svg')] bg-contain bg-center bg-no-repeat" />
-          <div className="flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded-[0.25rem] border border-muted bg-base">
+          <div className="flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded-lg border border-muted bg-base">
             <div className="h-[1.5rem] w-[1.25rem] bg-[url('/svelte-color.svg')] bg-contain bg-center bg-no-repeat" />
           </div>
           <div className="h-[0.75rem] w-[0.75rem] bg-[url('/x.svg')] bg-contain bg-center bg-no-repeat" />
-          <div className="flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded-[0.25rem] border border-muted bg-base">
+          <div className="flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded-lg border border-muted bg-base">
             <div className="h-[1.5rem] w-[1rem] bg-[url('/figma-color.svg')] bg-contain bg-center bg-no-repeat" />
           </div>
         </div>
@@ -208,7 +208,7 @@ const Hero = () => {
         <div className="relative w-full">
           <div className="pointer-events-none absolute bottom-0 left-1/2 z-20 w-[320px] -translate-x-1/2 transform overflow-hidden rounded-lg shadow-[0px_3px_64px_-4px_rgba(0,0,0,0.5)]">
             <Image
-              src="/app-shell-01.jpg"
+              src="/app-shell-01.png"
               alt="Hero"
               width={320}
               height={400}
@@ -217,7 +217,7 @@ const Hero = () => {
           </div>
           <div className="pointer-events-none absolute bottom-0 left-1/2 z-10 hidden w-[320px] -translate-x-[calc(50%+128px)] transform overflow-hidden rounded-lg bg-base shadow-lg sm:flex md:-translate-x-[calc(50%+160px)]">
             <Image
-              src="/app-shell-02.jpg"
+              src="/app-shell-02.png"
               alt="Hero"
               width={320}
               height={360}
@@ -226,7 +226,7 @@ const Hero = () => {
           </div>
           <div className="pointer-events-none absolute bottom-0 right-1/2 z-0 hidden w-[320px] translate-x-[calc(50%+128px)] transform overflow-hidden rounded-lg bg-base shadow-lg sm:flex md:translate-x-[calc(50%+160px)]">
             <Image
-              src="/app-shell-03.jpg"
+              src="/app-shell-03.png"
               alt="Hero"
               width={320}
               height={320}
