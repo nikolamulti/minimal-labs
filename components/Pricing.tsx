@@ -23,10 +23,10 @@ const Pricing = () => {
           </p>
         </div>
         <div className="mx-auto flex flex-col gap-6 md:flex-row">
-          <div className="max-w-[25rem] rounded-xl bg-[linear-gradient(142deg,#FF6533_0%,rgba(255,101,51,0)_25%,rgba(69,140,247,0)_75%,#458CF7_100%)] p-[1px] md:max-w-[22.5rem]">
+          <div className="max-w-[25rem] rounded-xl bg-[linear-gradient(142deg,#FF6533_0%,rgba(255,101,51,0)_25%,rgba(69,140,247,0)_75%,#458CF7_100%)] p-[0.0625rem] md:max-w-[22.5rem]">
             <Card className="flex flex-col">
               <div className="flex flex-col items-start gap-5 px-6 pb-8 pt-6 text-left">
-                <div className="rounded-full bg-white px-[10px] py-0.5 text-sm fg-inverted">
+                <div className="rounded-full bg-white px-[0.625rem] py-0.5 text-sm fg-inverted">
                   Personal
                 </div>
                 <div className="flex w-full flex-col gap-2">
@@ -57,9 +57,9 @@ const Pricing = () => {
             </Card>
           </div>
           <Card className="flex max-w-[25rem] flex-col md:max-w-[22.5rem]">
-            <div className="p-[1px]">
+            <div className="p-[0.0625]">
               <div className="flex flex-col items-start gap-5 px-6 pb-8 pt-6 text-left">
-                <div className="rounded-full border border-muted bg-default px-[10px] py-0.5 text-sm fg-muted">
+                <div className="rounded-full border border-muted bg-default px-[0.625rem] py-0.5 text-sm fg-muted">
                   Team
                 </div>
                 <div className="flex w-full flex-col gap-2">

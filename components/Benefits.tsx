@@ -43,7 +43,7 @@ const Benefits = () => {
                     height={20}
                   />
                 </div>
-                <div className="flex max-w-[320px] flex-col gap-1">
+                <div className="flex max-w-[20rem] flex-col gap-1">
                   <p className="text-sm font-semibold fg-base">
                     Build logic, not components
                   </p>
@@ -64,7 +64,7 @@ const Benefits = () => {
                   />
                 </div>
 
-                <div className="flex max-w-[320px] flex-col gap-1">
+                <div className="flex max-w-[20rem] flex-col gap-1">
                   <p className="text-sm font-semibold fg-base">
                     Develop app in no time
                   </p>
@@ -78,13 +78,13 @@ const Benefits = () => {
           </div>
           <div className="relative flex flex-col justify-center rounded-xl px-6 md:w-full">
             <div className="absolute left-1/2 top-1/2 z-0 h-[30rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 rounded-[50%] bg-[radial-gradient(ellipse,#292929_0%,#1E1E1E_65%)]" />
-            <Card className="z-10 mx-auto max-w-[360px] flex-row gap-4 p-5">
+            <Card className="z-10 mx-auto max-w-[22.5rem] flex-row gap-4 p-5">
               <div className="flex flex-row items-start justify-between gap-4">
                 <div className="mb-4 flex flex-col gap-1">
                   <h3 className="text-sm font-semibold fg-base">
                     Performance booster
                   </h3>
-                  <p className="max-w-64 text-xs leading-[18px] fg-muted">
+                  <p className="max-w-64 text-xs leading-[1.125rem] fg-muted">
                     Maximize business impact by minimizing unnecessary labor and
                     tasks.
                   </p>
@@ -107,17 +107,17 @@ const Benefits = () => {
         <div className="flex flex-col-reverse gap-12 md:flex-row">
           <div className="relative flex w-full flex-col justify-center rounded-xl lg:pr-6">
             <div className="absolute left-1/2 top-1/2 h-[30rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 rounded-[50%] bg-[radial-gradient(ellipse,#292929_0%,#1E1E1E_65%)]" />
-            <Card className="z-20 mx-auto max-w-[360px] flex-row gap-4 p-5">
+            <Card className="z-20 mx-auto max-w-[22.5rem] flex-row gap-4 p-5">
               <div className="mb-4 flex flex-col gap-1">
                 <h3 className="text-sm font-semibold fg-base">
                   Single source of truth
                 </h3>
-                <p className="max-w-64 text-xs leading-[18px] fg-muted">
+                <p className="max-w-64 text-xs leading-[1.125rem] fg-muted">
                   Webflow's design system is perfectly integrated into Svelte
                   and Figma.
                 </p>
               </div>
-              <div className="flex h-[90px] w-full shrink-0 flex-row items-center justify-center">
+              <div className="flex h-[5.625rem] w-full shrink-0 flex-row items-center justify-center">
                 <img
                   src="/Figma-svelte-webflow-logos-graphic.png"
                   alt="Graphic with Figma, Svelte, and Webflow logos"
@@ -148,7 +148,7 @@ const Benefits = () => {
                     height={20}
                   />
                 </div>
-                <div className="flex max-w-[320px] flex-col gap-1">
+                <div className="flex max-w-[20rem] flex-col gap-1">
                   <p className="text-sm font-semibold fg-base">
                     Improved accuracy
                   </p>
@@ -169,7 +169,7 @@ const Benefits = () => {
                   />
                 </div>
 
-                <div className="flex max-w-[320px] flex-col gap-1">
+                <div className="flex max-w-[20rem] flex-col gap-1">
                   <p className="text-sm font-semibold fg-base">Scalability</p>
                   <p className="text-sm fg-muted">
                     Easily extend the system as new design patterns and

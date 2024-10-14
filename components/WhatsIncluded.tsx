@@ -152,7 +152,7 @@ const WhatsIncluded: React.FC = () => (
       </div>
       <div className="relative mt-6 animate-border overflow-hidden rounded-xl border border-transparent [background:linear-gradient(45deg,rgba(255,255,255,13%),#1e1e1e_50%,rgba(255,255,255,13%))_padding-box,conic-gradient(from_var(--border-angle),rgba(255,255,255,13%)_15%,_rgba(255,101,51,100%)_22%,_rgba(255,255,255,13%)_28%,_rgba(255,255,255,13%)_55%,_rgba(69,140,247,100%)_63%,_rgba(255,255,255,13%)_68%,_rgba(255,255,255,13%)_100%)_border-box]">
         <div className="absolute inset-0 rounded-xl bg-base bg-[linear-gradient(45deg,var(--tw-gradient-stops))] from-[#262626] via-[#1E1E1E] to-[#1E1E1E]" />
-        <div className="relative mx-auto flex w-full rounded-[11px] px-8 py-6">
+        <div className="relative mx-auto flex w-full rounded-[0.6875rem] px-8 py-6">
           <div className="flex w-full flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
             <div className="flex max-w-[22.5rem] flex-col gap-1 text-left">
               <h3 className="text-base font-semibold fg-base">

@@ -196,7 +196,7 @@ const Components = () => {
               <br />
               need to build an app
             </span>
-            <div className="absolute left-1/2 top-[2.1rem] z-20 h-[90px] w-[194px] -translate-x-[calc(50%+11rem)] bg-[url('/components-arrow.svg')] bg-contain bg-center bg-no-repeat" />
+            <div className="absolute left-1/2 top-[2.1rem] z-20 h-[5.625rem] w-[12.125rem] -translate-x-[calc(50%+11rem)] bg-[url('/components-arrow.svg')] bg-contain bg-center bg-no-repeat" />
           </div>
         </div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">

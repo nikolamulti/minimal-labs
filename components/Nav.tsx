@@ -62,7 +62,7 @@ const Nav = () => {
             : "transition-all duration-300 md:py-6"
       }`}
     >
-      <div className="mx-auto flex w-full max-w-[960px] items-center justify-between gap-8">
+      <div className="mx-auto flex w-full max-w-[60rem] items-center justify-between gap-8">
         <div className="flex items-center gap-4">
           <div>
             <Link href="/svelte">
