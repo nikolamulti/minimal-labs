@@ -29,8 +29,14 @@ const Nav = () => {
   return (
     <section
       className={`fixed left-0 right-0 top-0 z-[100] px-4 py-4 md:px-6 ${
-        isScrolled ? "bg-base/80 py-4" : "md:py-6"
-      } ${isMenuOpen ? "bg-base/100" : "backdrop-blur-md transition-all duration-300"}`}
+        isScrolled
+          ? isMenuOpen
+            ? "bg-base/100 py-4"
+            : "bg-base/80 py-4 backdrop-blur-md transition-all duration-300"
+          : isMenuOpen
+            ? "bg-base/100 md:py-6"
+            : "transition-all duration-300 md:py-6"
+      }`}
     >
       <div className="mx-auto flex w-full max-w-[960px] items-center justify-between gap-8">
         <div className="flex items-center gap-4">
@@ -41,7 +47,7 @@ const Nav = () => {
           </div>
           <nav
             className={`${
-              isMenuOpen ? "bg-base/80 z-20 flex lg:bg-transparent" : "hidden"
+              isMenuOpen ? "z-20 flex bg-base/80 lg:bg-transparent" : "hidden"
             } absolute left-0 top-[4.5rem] w-full flex-col gap-2 p-4 backdrop-blur-md lg:relative lg:left-auto lg:top-0 lg:flex lg:w-auto lg:flex-row lg:p-0 lg:backdrop-filter-none`}
           >
             <Button

@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/Card";
 
 const Benefits = () => {
   return (
-    <Section className="relative overflow-hidden py-20">
+    <Section className="relative overflow-hidden pb-24 pt-20">
       <div className="relative z-20 mx-auto mb-16 flex max-w-[40rem] flex-col items-center gap-4 text-center">
         <p className="flex bg-gradient-to-r from-[#6EA2F5] to-[#FD855F] bg-clip-text text-base font-bold text-transparent">
           Benefits

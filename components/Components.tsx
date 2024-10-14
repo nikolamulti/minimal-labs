@@ -211,7 +211,6 @@ const Components = () => {
           ))}
         </div>
       </div>
-      <div className="absolute bottom-0 left-1/2 h-[1px] w-[80rem] -translate-x-1/2 bg-gradient-to-r from-transparent via-white/70 to-transparent mix-blend-overlay" />
     </Section>
   );
 };

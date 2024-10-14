@@ -11,7 +11,7 @@ import {
 
 const FAQs = () => {
   return (
-    <Section className="pt-20">
+    <Section className="pt-24">
       <div className="mx-auto max-w-[40rem]">
         <div className="mb-12 flex flex-col items-center justify-center gap-4 text-center lg:mb-16">
           <p className="flex bg-gradient-to-r from-[#6EA2F5] to-[#FD855F] bg-clip-text text-base font-bold text-transparent">

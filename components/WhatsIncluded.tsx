@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { Card, CardList, CardListItem } from "@/components/ui/Card";
+import { Light } from "@/components/ui/Light";
 
 const WhatsIncluded: React.FC = () => (
   <Section className="relative overflow-hidden pt-20">
@@ -169,8 +170,7 @@ const WhatsIncluded: React.FC = () => (
         </div>
       </div>
     </div>
-    <div className="absolute left-1/2 top-0 h-[1px] w-[60rem] -translate-x-1/2 bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.12)] to-transparent" />
-    <div className="absolute right-1/2 top-1 z-0 h-[360px] w-[960px] -translate-y-1/2 translate-x-1/2 scale-125 transform rounded-full bg-[radial-gradient(ellipse,_rgba(64,64,64,0.22)_0%,_#1E1E1E_70%)]" />
+    <Light />
   </Section>
 );
 
