@@ -8,7 +8,7 @@ type LightProps = {
 
 const Light: React.FC<LightProps> = ({ className, divider = true }) => {
   return (
-    <div>
+    <div className="absolute left-0 right-0 top-0 mx-auto">
       <div
         className={cn(
           `pointer-events-none absolute right-1/2 top-1 z-0 h-[22.5rem] w-[60rem] -translate-y-1/2 translate-x-1/2 scale-125 transform rounded-full bg-[radial-gradient(ellipse,_rgba(64,64,64,22%)_0%,_#1E1E1E_70%)]`,

@@ -32,6 +32,7 @@ type ButtonProps = ButtonVariantsProps & {
   children: React.ReactNode;
   href: string;
   className?: string;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 };
 
 const Button: React.FC<ButtonProps> = ({
@@ -40,6 +41,7 @@ const Button: React.FC<ButtonProps> = ({
   variant,
   size,
   className,
+  onClick,
   ...$$restProps
 }) => {
   return (
@@ -47,6 +49,7 @@ const Button: React.FC<ButtonProps> = ({
       href={href}
       className={cn(buttonVariants({ variant, size }), className)}
       {...$$restProps}
+      onClick={onClick}
     >
       {children}
     </Link>

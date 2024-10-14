@@ -7,7 +7,7 @@ import { Light } from "@/components/ui/Light";
 
 const Pricing = () => {
   return (
-    <Section className="relative overflow-hidden pt-20">
+    <Section id="pricing" className="relative overflow-hidden pt-20">
       <div className="relative z-20 mx-auto flex flex-col text-center">
         <div className="mb-16 flex flex-col items-center gap-4">
           <p className="flex bg-gradient-to-r from-[#6EA2F5] to-[#FD855F] bg-clip-text text-base font-bold text-transparent">

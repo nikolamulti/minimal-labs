@@ -1,8 +1,5 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 const Footer = () => {
   return (
     <footer className="px-4 py-12 md:px-6">
@@ -17,24 +14,26 @@ const Footer = () => {
           </Link>{" "}
           · All rights reserved.
         </p>
-        <div className="mb-4 flex gap-6 md:mb-0">
+        <div className="mb-4 flex items-center gap-6 md:mb-0">
           <Link className="underline fg-base" href="/svelte/privacy">
             Privacy policy
           </Link>
           <Link className="underline fg-base" href="/svelte/license">
             Licensing
           </Link>
-          <Link className="underline fg-base" href="/svelte/cookies">
-            Cookies
-          </Link>
           <Link className="fg-base" href="https://x.com/minimalsquare">
-            <Image
-              className=""
-              src="/twitter.svg"
-              alt="Twitter"
-              width={20}
-              height={20}
-            />
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m1.53163 2 5.01915 6.61878L1.5 14h1.13682l4.42205-4.71144L10.6316 14H14.5L9.19834 7.009 13.8996 2h-1.1368L8.69047 6.33901 5.4 2H1.53163Zm1.67174.82598h1.77711L12.828 13.1742h-1.7771L3.20337 2.82598Z"
+                fill="#fff"
+              />
+            </svg>
           </Link>
         </div>
       </div>

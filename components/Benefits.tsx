@@ -47,7 +47,7 @@ const Benefits = () => {
                   <p className="text-sm font-semibold fg-base">
                     Build logic, not components
                   </p>
-                  <p className="text-xs leading-5 fg-muted">
+                  <p className="text-sm fg-muted">
                     Focus on creating business logic rather than endlessly
                     crafting individual components.
                   </p>
@@ -68,7 +68,7 @@ const Benefits = () => {
                   <p className="text-sm font-semibold fg-base">
                     Develop app in no time
                   </p>
-                  <p className="text-xs leading-5 fg-muted">
+                  <p className="text-sm fg-muted">
                     Pre-made components allow fast app building and shipping in
                     record time.
                   </p>
@@ -152,7 +152,7 @@ const Benefits = () => {
                   <p className="text-sm font-semibold fg-base">
                     Improved accuracy
                   </p>
-                  <p className="text-xs leading-5 fg-muted">
+                  <p className="text-sm fg-muted">
                     Effectively minimizes discrepancies between design and final
                     product.
                   </p>
@@ -171,7 +171,7 @@ const Benefits = () => {
 
                 <div className="flex max-w-[320px] flex-col gap-1">
                   <p className="text-sm font-semibold fg-base">Scalability</p>
-                  <p className="text-xs leading-5 fg-muted">
+                  <p className="text-sm fg-muted">
                     Easily extend the system as new design patterns and
                     components are needed.
                   </p>

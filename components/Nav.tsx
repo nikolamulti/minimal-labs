@@ -26,6 +26,30 @@ const Nav = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToPricing = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const pricingSection = document.getElementById("pricing");
+    if (pricingSection) {
+      const yOffset = -64;
+      const y =
+        pricingSection.getBoundingClientRect().top +
+        window.pageYOffset +
+        yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  };
+
+  const scrollToFAQs = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const faqsSection = document.getElementById("faqs");
+    if (faqsSection) {
+      const yOffset = -64;
+      const y =
+        faqsSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       className={`fixed left-0 right-0 top-0 z-[100] px-4 py-4 md:px-6 ${
@@ -67,14 +91,16 @@ const Nav = () => {
             <Button
               variant="ghost"
               className="text-left lg:text-center"
-              href="/svelte/pricing"
+              href="#pricing"
+              onClick={scrollToPricing}
             >
               Pricing
             </Button>
             <Button
               variant="ghost"
               className="text-left lg:text-center"
-              href="/svelte/faqs"
+              href="#faqs"
+              onClick={scrollToFAQs}
             >
               FAQs
             </Button>

@@ -23,7 +23,7 @@ const CallToAction = () => {
         <div className="mx-auto flex max-w-[480px] flex-col items-center gap-8 pt-16 lg:max-w-[640px] lg:pt-20">
           <div className="absolute right-1/2 top-1 z-0 h-[360px] w-[960px] -translate-y-1/2 translate-x-1/2 scale-125 transform rounded-full bg-[radial-gradient(ellipse,_rgba(64,64,64,0.22)_0%,_#1E1E1E_70%)]" />
           <div className="relative z-10 flex flex-col gap-6 text-center">
-            <h2 className="text-balance bg-gradient-to-r from-[#6EA2F5] to-[#FD855F] bg-clip-text text-4xl font-semibold leading-[1] text-transparent lg:text-5xl">
+            <h2 className="text-balance bg-gradient-to-r from-[#6EA2F5] to-[#FD855F] bg-clip-text text-4xl font-semibold leading-[1.15] text-transparent lg:text-[3rem]">
               Build your app today
             </h2>
             <p className="text-balance text-lg font-normal leading-normal fg-muted lg:text-xl lg:leading-8">
