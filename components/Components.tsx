@@ -199,7 +199,7 @@ const Components = () => {
             <div className="absolute left-1/2 top-[2.1rem] z-20 h-[5.625rem] w-[12.125rem] -translate-x-[calc(50%+11rem)] bg-[url('/components-arrow.svg')] bg-contain bg-center bg-no-repeat" />
           </div>
         </div>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 min-[600px]:grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
           {componentData.map((component, index) => (
             <ComponentCard
               key={index}
