@@ -72,7 +72,7 @@ const Nav = () => {
           <nav
             className={`${
               isMenuOpen ? "z-20 flex bg-base/80 lg:bg-transparent" : "hidden"
-            } absolute left-0 top-[4.5rem] w-full flex-col gap-2 p-4 backdrop-blur-md lg:relative lg:left-auto lg:top-0 lg:flex lg:w-auto lg:flex-row lg:p-0 lg:backdrop-filter-none`}
+            } lg:p-auto absolute left-0 top-[4.5rem] w-full flex-col place-items-start gap-2 p-4 pl-0 backdrop-blur-md lg:relative lg:left-auto lg:top-0 lg:flex lg:w-auto lg:flex-row lg:p-0 lg:backdrop-filter-none`}
           >
             <Button
               variant="ghost"
@@ -110,8 +110,9 @@ const Nav = () => {
           <div className="flex flex-row gap-3">
             <Button
               variant="faded"
-              href="/svelte/preview"
-              className="hidden items-center gap-2 min-[375px]:flex"
+              href="https://www.figma.com/design/QWWynAfNdebaDFCQ7iZqRz/Webflow-App---Premium-UI-Kit-v1.0"
+              target="_blank"
+              className="hidden items-center gap-2 min-[480px]:flex"
             >
               <Image
                 src="/figma-color.svg"

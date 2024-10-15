@@ -5,14 +5,14 @@ import { cn } from "@/utils/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 
 const buttonVariants = cva(
-  "rounded-lg text-nowrap text-center font-semibold flex items-center gap-2 justify-center",
+  "transition-all duration-200 rounded-lg text-nowrap text-center font-semibold flex items-center gap-2 justify-center",
   {
     variants: {
       variant: {
-        primary: "bg-white fg-inverted lg:hover:bg-inverted",
+        primary: "bg-white fg-inverted lg:hover:bg-[#E0E0E0]",
         ghost:
-          "fg-muted hover:bg-transparent lg:hover:fg-base hover:fg-muted lg:hover:bg-muted",
-        faded: "fg-base bg-default hover:transparent lg:hover:bg-medium",
+          "fg-muted hover:bg-transparent lg:hover:fg-base hover:fg-muted lg:hover:bg-medium",
+        faded: "fg-base bg-medium hover:transparent lg:hover:bg-[#4c4c4c]",
       },
       size: {
         small: "px-3 py-1.5 text-sm	text-sm",
@@ -33,6 +33,7 @@ type ButtonProps = ButtonVariantsProps & {
   href: string;
   className?: string;
   onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+  target?: string;
 };
 
 const Button: React.FC<ButtonProps> = ({
@@ -41,6 +42,7 @@ const Button: React.FC<ButtonProps> = ({
   variant,
   size,
   className,
+  target,
   onClick,
   ...$$restProps
 }) => {
@@ -50,6 +52,7 @@ const Button: React.FC<ButtonProps> = ({
       className={cn(buttonVariants({ variant, size }), className)}
       {...$$restProps}
       onClick={onClick}
+      target={target}
     >
       {children}
     </Link>

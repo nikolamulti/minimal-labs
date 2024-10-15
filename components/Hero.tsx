@@ -88,7 +88,6 @@ const Hero = () => {
           </svg>
         </div>
 
-        {/* Add the new animated signal line */}
         <div className="absolute -top-[5.25rem] left-1/2 h-[calc(100%+5.25rem)] w-[20rem] -translate-x-[170%] md:-translate-x-[190%] lg:-translate-x-[225%]">
           <svg
             className="h-full w-full"
@@ -187,15 +186,16 @@ const Hero = () => {
           </Button>
           <Button
             className="flex flex-row items-center gap-2"
-            href="/"
+            href="https://www.figma.com/design/QWWynAfNdebaDFCQ7iZqRz/Webflow-App---Premium-UI-Kit-v1.0"
             size="medium"
+            target="_blank"
           >
             <Image src="/figma-color.svg" alt="Figma" width={11} height={16} />
             Preview in Figma
           </Button>
         </div>
       </div>
-      <div className="relative z-30 flex h-[30rem] w-full items-end justify-center overflow-hidden">
+      <div className="relative z-50 flex h-[30rem] w-full items-end justify-center overflow-hidden">
         <span className="absolute left-1/2 top-[1rem] z-20 hidden -translate-x-[calc(50%+14rem)] -rotate-[18deg] bg-gradient-to-r from-[#6EA2F5] to-[#FD855F] bg-clip-text text-center font-handwritten text-[2rem] leading-7 text-transparent sm:flex">
           5x faster
           <br />
@@ -214,7 +214,7 @@ const Hero = () => {
               className="pointer-events-none h-auto w-full"
             />
           </div>
-          <div className="pointer-events-none absolute bottom-0 left-1/2 z-10 hidden w-[20rem] -translate-x-[calc(50%+8rem)] transform overflow-hidden rounded-lg bg-base shadow-lg sm:flex md:-translate-x-[calc(50%+10rem)]">
+          <div className="pointer-events-none absolute bottom-0 left-1/2 z-10 hidden w-[20rem] -translate-x-[calc(50%+4rem)] transform overflow-hidden rounded-lg bg-base shadow-lg min-[480px]:flex sm:-translate-x-[calc(50%+6rem)] md:-translate-x-[calc(50%+10rem)]">
             <Image
               src="/app-shell-02.png"
               alt="Hero"
@@ -223,7 +223,7 @@ const Hero = () => {
               className="pointer-events-none opacity-50"
             />
           </div>
-          <div className="pointer-events-none absolute bottom-0 right-1/2 z-0 hidden w-[20rem] translate-x-[calc(50%+8rem)] transform overflow-hidden rounded-lg bg-base shadow-lg sm:flex md:translate-x-[calc(50%+10rem)]">
+          <div className="pointer-events-none absolute bottom-0 right-1/2 z-0 hidden w-[20rem] translate-x-[calc(50%+4rem)] transform overflow-hidden rounded-lg bg-base shadow-lg min-[480px]:flex sm:translate-x-[calc(50%+6rem)] md:translate-x-[calc(50%+10rem)]">
             <Image
               src="/app-shell-03.png"
               alt="Hero"
@@ -232,7 +232,7 @@ const Hero = () => {
               className="pointer-events-none opacity-50"
             />
           </div>
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-30 mx-auto h-[16rem] max-w-[20rem] bg-gradient-to-t from-[rgba(30,30,30,1)] to-[rgba(0,0,0,0)] sm:max-w-[36rem] md:max-w-[40rem]" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-30 mx-auto h-[16rem] max-w-[20rem] bg-gradient-to-t from-[rgba(30,30,30,1)] to-[rgba(0,0,0,0)] min-[480px]:max-w-[28rem] sm:max-w-[32rem] md:max-w-[40rem]" />
         </div>
       </div>
     </Section>

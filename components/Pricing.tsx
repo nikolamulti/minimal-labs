@@ -18,8 +18,7 @@ const Pricing = () => {
           </h2>
           <p className="max-w-[30rem] text-base fg-muted">
             Pay once for a powerful set of tools to boost your workflow. No
-            subscriptions or hidden fees - just better design and development at
-            your fingertips.
+            subscriptions or hidden fees.
           </p>
         </div>
         <div className="mx-auto flex flex-col gap-6 md:flex-row">
@@ -30,7 +29,7 @@ const Pricing = () => {
                   Personal
                 </div>
                 <div className="flex w-full flex-col gap-2">
-                  <h3 className="text-4xl font-semibold fg-base">$116</h3>
+                  <h3 className="text-4xl font-semibold fg-base">$119</h3>
                   <p className="text-base fg-muted">
                     A single license for solo designers, developers, and
                     freelancers.
@@ -63,7 +62,7 @@ const Pricing = () => {
                   Team
                 </div>
                 <div className="flex w-full flex-col gap-2">
-                  <h3 className="text-4xl font-semibold fg-base">$242</h3>
+                  <h3 className="text-4xl font-semibold fg-base">$249</h3>
                   <p className="text-base fg-muted">
                     Up to 5 users. Perfect for design teams, agencies, and
                     startups.

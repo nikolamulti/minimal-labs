@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="px-4 py-12 md:px-6">
       <div className="mx-auto flex max-w-[60rem] flex-col-reverse items-center justify-between text-sm font-light md:flex-row">
-        <p className="font-normal leading-5 fg-subtle">
+        <p className="font-light leading-5 fg-subtle">
           ©2024{" "}
           <Link
             href="https://www.minimal-square.com/"

@@ -177,7 +177,7 @@ const componentData = [
 const Components = () => {
   return (
     <Section className="relative mx-auto overflow-hidden pb-20 pt-24">
-      <div className="relative z-10 flex flex-col gap-16 self-start text-center">
+      <div className="relative z-10 mx-auto flex max-w-[40rem] flex-col gap-16 self-start text-center lg:max-w-none">
         <div className="relative flex w-full justify-self-start text-left">
           <div className="flex max-w-[40rem] flex-col items-start gap-4">
             <p className="flex bg-gradient-to-r from-[#6EA2F5] to-[#FD855F] bg-clip-text text-base font-bold text-transparent">
@@ -190,7 +190,7 @@ const Components = () => {
               Curated library of ready-to-use Webflow app elements.
             </p>
           </div>
-          <div className="absolute right-0 top-0 flex justify-end max-[850px]:hidden">
+          <div className="absolute right-0 top-0 hidden justify-end lg:flex">
             <span className="absolute top-[1rem] z-20 -rotate-[-15deg] text-nowrap bg-gradient-to-r from-[#6EA2F5] to-[#FD855F] bg-clip-text text-center font-handwritten text-[2rem] leading-7 text-transparent">
               Everything you
               <br />

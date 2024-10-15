@@ -72,7 +72,9 @@ type CardListProps = {
 };
 
 const CardList: React.FC<CardListProps> = ({ children, className }) => (
-  <div className={cn("flex flex-col gap-3", className)}>{children}</div>
+  <div className={cn("flex max-w-[30rem] flex-col gap-3", className)}>
+    {children}
+  </div>
 );
 
 /*-------------------------------------

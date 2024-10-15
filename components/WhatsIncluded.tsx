@@ -1,6 +1,5 @@
 "use client";
 
-import react from "react";
 import Image from "next/image";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
@@ -22,7 +21,7 @@ const WhatsIncluded: React.FC = () => (
           and intuitive CLI tools.
         </p>
       </div>
-      <div className="mx-auto flex w-full flex-col gap-6 md:flex-row">
+      <div className="mx-auto flex w-full max-w-[40rem] flex-col gap-6 lg:max-w-none lg:flex-row">
         <Card>
           <div className="flex flex-col gap-8 pb-8 pl-6 pr-6 pt-6">
             <div className="flex flex-col gap-5 text-left">
@@ -150,7 +149,7 @@ const WhatsIncluded: React.FC = () => (
           </CardList>
         </Card>
       </div>
-      <div className="relative mt-6 animate-border overflow-hidden rounded-xl border border-transparent [background:linear-gradient(45deg,rgba(255,255,255,13%),#1e1e1e_50%,rgba(255,255,255,13%))_padding-box,conic-gradient(from_var(--border-angle),rgba(255,255,255,13%)_15%,_rgba(255,101,51,100%)_22%,_rgba(255,255,255,13%)_28%,_rgba(255,255,255,13%)_55%,_rgba(69,140,247,100%)_63%,_rgba(255,255,255,13%)_68%,_rgba(255,255,255,13%)_100%)_border-box]">
+      <div className="relative mx-auto mt-6 w-full max-w-[40rem] animate-border overflow-hidden rounded-xl border border-transparent [background:linear-gradient(45deg,rgba(255,255,255,13%),#1e1e1e_50%,rgba(255,255,255,13%))_padding-box,conic-gradient(from_var(--border-angle),rgba(255,255,255,13%)_15%,_rgba(255,101,51,100%)_22%,_rgba(255,255,255,13%)_28%,_rgba(255,255,255,13%)_55%,_rgba(69,140,247,100%)_63%,_rgba(255,255,255,13%)_68%,_rgba(255,255,255,13%)_100%)_border-box] lg:max-w-none">
         <div className="absolute inset-0 rounded-xl bg-base bg-[linear-gradient(45deg,var(--tw-gradient-stops))] from-[#262626] via-[#1E1E1E] to-[#1E1E1E]" />
         <div className="relative mx-auto flex w-full rounded-[0.6875rem] px-8 py-6">
           <div className="flex w-full flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
@@ -163,7 +162,7 @@ const WhatsIncluded: React.FC = () => (
                 adding components in a project.
               </p>
             </div>
-            <Button href="/docs" className="whitespace-nowrap">
+            <Button href="/svelte/docs/cli" className="whitespace-nowrap">
               How it works
             </Button>
           </div>

@@ -11,8 +11,13 @@ export const baseOptions: HomeLayoutProps = {
   nav: {
     title: (
       <div className="flex items-center gap-3">
-        <Image src="/logo.svg" alt="minimal labs logo" width={24} height={24} />
-        <span className="text-base font-semibold">Minimal Labs</span>
+        <Image
+          src="/logo.svg"
+          alt="webflow svelte components logo"
+          width={24}
+          height={24}
+        />
+        <span className="text-base font-semibold">WFS</span>
       </div>
     ),
     url: "/svelte",

@@ -39,7 +39,7 @@ export function generateMetadata({ params }: { params: { slug?: string[] } }) {
   if (!page) notFound();
 
   return {
-    title: page.data.title,
+    title: `${page.data.title} - WFS Components`,
     description: page.data.description,
   } satisfies Metadata;
 }
