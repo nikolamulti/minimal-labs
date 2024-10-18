@@ -1,88 +1,185 @@
 ---
 title: Button
-description: Button
+description: A customizable button component with various styles and states.
 ---
 
-{/* import { SvelteComponent } from "@/components/SvelteComponent"; */}
+import { SvelteComponent } from "@/components/SvelteComponent";
+import { Tabs, Tab } from "fumadocs-ui/components/tabs";
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { TypeTable } from "fumadocs-ui/components/type-table";
+
+<SvelteComponent url="/button/default" />
 
 ## Usage
 
-```js
+Import the Button component and use it in your Svelte application:
+
+```svelte
+<script>
+  import { Button } from '@/components/button';
+</script>
+
 <Button variant="primary">Click me</Button>
 ```
 
-import { TypeTable } from "fumadocs-ui/components/type-table";
+## Installation
 
-### Properties
+To install the Button component, use one of the following commands based on your package manager:
+
+<Tabs items={["npm", "pnpm", "yarn", "bun"]}>
+ 
+```bash tab="npm"
+npm wfs button
+```
+
+```bash tab="pnpm"
+pnpm wfs button
+```
+
+```bash tab="yarn"
+yarn wfs button
+```
+
+```bash tab="bun"
+bun wfs button
+```
+
+</Tabs>
+
+## Props
 
 <TypeTable
   type={{
     variant: {
       description: "The visual style of the button",
-      type: "'default' | 'primary' | 'danger' | 'outline' | 'ghost'",
-      default: "'default'",
+      type: "default | primary | danger | outline | ghost",
+      default: "default",
     },
     startIcon: {
-      description: "Icon component to display at the start of the button",
+      description:
+        "An optional icon component to display before the button text",
       type: "ComponentType",
+      default: "null",
     },
     endIcon: {
-      description: "Icon component to display at the end of the button",
+      description:
+        "An optional icon component to display after the button text",
       type: "ComponentType",
+      default: "null",
     },
     disabled: {
       description: "Whether the button is disabled",
       type: "boolean",
+      default: "false",
+    },
+    loading: {
+      description: "Whether the button is in a loading state",
+      type: "boolean",
+      default: "false",
     },
   }}
 />
 
-### Events
+## Events
+
+The Button component forwards all standard button events. You can listen to these events using the `on:` directive:
 
 <TypeTable
   type={{
-    onClick: {
-      description: "Function to call when the button is clicked",
-      type: "Function",
+    "on:click": {
+      description: "Triggered when the button is clicked",
+      type: "function",
     },
-    onKeydown: {
-      description: "Function to call on keydown event",
-      type: "Function",
+    "on:keydown": {
+      description:
+        "Triggered when a key is pressed while the button is focused",
+      type: "function",
     },
-    onChange: {
-      description: "Function to call when the button state changes",
-      type: "Function",
+    "on:change": {
+      description: "Triggered when the button's value changes",
+      type: "function",
     },
-    onKeyup: {
-      description: "Function to call on keyup event",
-      type: "Function",
+    "on:keyup": {
+      description:
+        "Triggered when a key is released while the button is focused",
+      type: "function",
     },
-    onMouseenter: {
-      description: "Function to call when mouse enters the button",
-      type: "Function",
+    "on:mouseenter": {
+      description: "Triggered when the mouse enters the button area",
+      type: "function",
     },
-    onMouseleave: {
-      description: "Function to call when mouse leaves the button",
-      type: "Function",
+    "on:mouseleave": {
+      description: "Triggered when the mouse leaves the button area",
+      type: "function",
     },
-    onMousedown: {
-      description: "Function to call on mousedown event",
-      type: "Function",
+    "on:mousedown": {
+      description: "Triggered when a mouse button is pressed on the button",
+      type: "function",
     },
-    onMouseup: {
-      description: "Function to call on mouseup event",
-      type: "Function",
+    "on:mouseup": {
+      description: "Triggered when a mouse button is released on the button",
+      type: "function",
     },
-    onPointerdown: {
-      description: "Function to call on pointerdown event",
-      type: "Function",
+    "on:pointerdown": {
+      description: "Triggered when a pointer becomes active on the button",
+      type: "function",
     },
-    onPointerup: {
-      description: "Function to call on pointerup event",
-      type: "Function",
+    "on:pointerup": {
+      description: "Triggered when a pointer is no longer active on the button",
+      type: "function",
     },
-
-}}
+  }}
 />
 
->
+## Variants
+
+The Button component supports five different variants:
+
+<SvelteComponent height={80} url="/button/variants" />
+
+```svelte
+<Button variant="primary">Submit</Button>
+<Button variant="danger">Delete</Button>
+<Button variant="outline">Cancel</Button>
+<Button variant="ghost">Close</Button>
+```
+
+- `default`: Standard button style
+- `primary`: Emphasized button style for primary actions
+- `danger`: Button style for destructive or dangerous actions
+- `outline`: Button with an outline style
+- `ghost`: Button with a transparent background
+
+## States
+
+<SvelteComponent height={80} url="/button/loading" />
+
+## Icon support
+
+<SvelteComponent height={80} url="/button/default" />
+
+```svelte
+<Button startIcon={ArrowLeft}>Previous</Button>
+<Button endIcon={ArrowRight}>Next</Button>
+```
+
+You can customize these variables in your global CSS or scope them to specific parts of your application.
+
+## Accessibility
+
+The Button component is built with accessibility in mind:
+
+1. It uses the native `<button>` element for proper semantics and keyboard navigation
+2. It supports focus states for keyboard users
+3. The loading state is communicated visually and can be detected by assistive technologies
+4. Disabled states are properly handled, preventing interaction and indicating the button is unavailable
+
+## Best Practices
+
+1. Use the appropriate variant for the button's purpose (e.g., `primary` for main actions, `danger` for destructive actions)
+2. Provide clear and concise text for the button label
+3. Use the `loading` state for asynchronous actions to provide visual feedback
+4. Utilize `startIcon` and `endIcon` props to enhance the button's meaning when appropriate
+5. Ensure sufficient color contrast between the button and its background for all variants
+
+For more details on implementation or advanced usage, please refer to the source code or contact the development team.
