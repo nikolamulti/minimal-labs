@@ -1,6 +1,6 @@
 ---
 title: Button
-description: A customizable button component with various styles and states.
+description: Interactive element that initiates an action, with a label or icon describing the outcome.
 ---
 
 import { SvelteComponent } from "@/components/SvelteComponent";
@@ -8,45 +8,19 @@ import { Tabs, Tab } from "fumadocs-ui/components/tabs";
 import { Step, Steps } from "fumadocs-ui/components/steps";
 import { TypeTable } from "fumadocs-ui/components/type-table";
 
-<SvelteComponent url="/button/default" />
-
-## Usage
-
-Import the Button component and use it in your Svelte application:
+<SvelteComponent url="/button/primary" />
 
 ```svelte
 <script>
   import { Button } from '@/components/button';
 </script>
 
-<Button variant="primary">Click me</Button>
+<Button variant="primary">Primary</Button>
 ```
 
-## Installation
+## Component API
 
-To install the Button component, use one of the following commands based on your package manager:
-
-<Tabs items={["npm", "pnpm", "yarn", "bun"]}>
- 
-```bash tab="npm"
-npm wfs button
-```
-
-```bash tab="pnpm"
-pnpm wfs button
-```
-
-```bash tab="yarn"
-yarn wfs button
-```
-
-```bash tab="bun"
-bun wfs button
-```
-
-</Tabs>
-
-## Props
+Component accepts a range of props allowing extensive customization of its appearance and behavior.
 
 <TypeTable
   type={{
@@ -77,56 +51,10 @@ bun wfs button
       type: "boolean",
       default: "false",
     },
-  }}
-/>
-
-## Events
-
-The Button component forwards all standard button events. You can listen to these events using the `on:` directive:
-
-<TypeTable
-  type={{
-    "on:click": {
-      description: "Triggered when the button is clicked",
-      type: "function",
-    },
-    "on:keydown": {
-      description:
-        "Triggered when a key is pressed while the button is focused",
-      type: "function",
-    },
-    "on:change": {
-      description: "Triggered when the button's value changes",
-      type: "function",
-    },
-    "on:keyup": {
-      description:
-        "Triggered when a key is released while the button is focused",
-      type: "function",
-    },
-    "on:mouseenter": {
-      description: "Triggered when the mouse enters the button area",
-      type: "function",
-    },
-    "on:mouseleave": {
-      description: "Triggered when the mouse leaves the button area",
-      type: "function",
-    },
-    "on:mousedown": {
-      description: "Triggered when a mouse button is pressed on the button",
-      type: "function",
-    },
-    "on:mouseup": {
-      description: "Triggered when a mouse button is released on the button",
-      type: "function",
-    },
-    "on:pointerdown": {
-      description: "Triggered when a pointer becomes active on the button",
-      type: "function",
-    },
-    "on:pointerup": {
-      description: "Triggered when a pointer is no longer active on the button",
-      type: "function",
+    href: {
+      description: "The URL to navigate to when the button is clicked",
+      type: "string",
+      default: "null",
     },
   }}
 />
@@ -138,10 +66,15 @@ The Button component supports five different variants:
 <SvelteComponent height={80} url="/button/variants" />
 
 ```svelte
-<Button variant="primary">Submit</Button>
-<Button variant="danger">Delete</Button>
-<Button variant="outline">Cancel</Button>
-<Button variant="ghost">Close</Button>
+<script>
+  import { Button } from '@/components/button';
+</script>
+
+<Button variant="default">Default</Button>
+<Button variant="primary">Primary</Button>
+<Button variant="danger">Danger</Button>
+<Button variant="outline">Outline</Button>
+<Button variant="ghost">Ghost</Button>
 ```
 
 - `default`: Standard button style
@@ -150,36 +83,144 @@ The Button component supports five different variants:
 - `outline`: Button with an outline style
 - `ghost`: Button with a transparent background
 
-## States
+### Default button
 
-<SvelteComponent height={80} url="/button/loading" />
-
-## Icon support
+Supports disabled state allowing you to control user interaction.
 
 <SvelteComponent height={80} url="/button/default" />
 
 ```svelte
+<script>
+  import { Button } from '@/components/button';
+</script>
+
+<Button variant="default">Default</Button>
+```
+
+### Primary button
+
+Supports disabled state allowing you to control user interaction.
+
+<SvelteComponent height={80} url="/button/primary" />
+
+```svelte
+<script>
+  import { Button } from '@/components/button';
+</script>
+
+<Button variant="primary">Primary</Button>
+```
+
+### Danger button
+
+Supports disabled state allowing you to control user interaction.
+
+<SvelteComponent height={80} url="/button/danger" />
+
+```svelte
+<script>
+  import { Button } from '@/components/button';
+</script>
+
+<Button variant="danger">Danger</Button>
+```
+
+### Outline button
+
+Supports disabled state allowing you to control user interaction.
+
+<SvelteComponent height={80} url="/button/outline" />
+
+```svelte
+<script>
+  import { Button } from '@/components/button';
+</script>
+
+<Button variant="outline">Outline</Button>
+```
+
+### Ghost button
+
+Supports disabled state allowing you to control user interaction.
+
+<SvelteComponent height={80} url="/button/ghost" />
+
+```svelte
+<script>
+  import { Button } from '@/components/button';
+</script>
+
+<Button variant="ghost">Ghost</Button>
+```
+
+## States
+
+### Disabled
+
+Supports `disabled` state allowing you to control user interaction.
+
+<SvelteComponent height={80} url="/button/disabled" />
+
+```svelte
+<script>
+  import { Button } from '@/components/button';
+</script>
+
+<Button variant="default" disabled>Default</Button>
+<Button variant="primary" disabled>Primary</Button>
+<Button variant="danger" disabled>Danger</Button>
+<Button variant="outline" disabled>Outline</Button>
+<Button variant="ghost" disabled>Ghost</Button>
+```
+
+### Loading
+
+Supports `loading` state and provide visual feedback during asynchronous operations.
+
+<SvelteComponent height={80} url="/button/loading" />
+
+```svelte
+<script>
+  import { Button } from '@/components/button';
+</script>
+
+<Button variant="default" loading>Default</Button>
+<Button variant="primary" loading>Primary</Button>
+<Button variant="danger" loading>Danger</Button>
+<Button variant="outline" loading>Outline</Button>
+<Button variant="ghost" loading>Ghost</Button>
+```
+
+## Icon support
+
+Built-in support for `startIcon` and `endIcon` props, allowing you to enhance the button's visual communication and functionality with custom icon components.
+
+<SvelteComponent height={80} url="/button/icon-support" />
+
+```svelte
+<script>
+  import { Button } from '@/components/button';
+</script>
+
 <Button startIcon={ArrowLeft}>Previous</Button>
 <Button endIcon={ArrowRight}>Next</Button>
 ```
 
-You can customize these variables in your global CSS or scope them to specific parts of your application.
+## Using as a link
+
+Built-in support for `href` prop, allowing you to use the button as a link.
+
+<SvelteComponent height={80} url="/button/link" />
+
+```svelte
+<script>
+  import { Button } from '@/components/button';
+</script>
+
+<Button href="/">Home</Button>
+<Button href="/">About</Button>
+```
 
 ## Accessibility
 
-The Button component is built with accessibility in mind:
-
-1. It uses the native `<button>` element for proper semantics and keyboard navigation
-2. It supports focus states for keyboard users
-3. The loading state is communicated visually and can be detected by assistive technologies
-4. Disabled states are properly handled, preventing interaction and indicating the button is unavailable
-
-## Best Practices
-
-1. Use the appropriate variant for the button's purpose (e.g., `primary` for main actions, `danger` for destructive actions)
-2. Provide clear and concise text for the button label
-3. Use the `loading` state for asynchronous actions to provide visual feedback
-4. Utilize `startIcon` and `endIcon` props to enhance the button's meaning when appropriate
-5. Ensure sufficient color contrast between the button and its background for all variants
-
-For more details on implementation or advanced usage, please refer to the source code or contact the development team.
+WFS lays on top of bits-ui and covers accessibility. For more information visit [documentation](https://bits-ui.com/docs/introduction).

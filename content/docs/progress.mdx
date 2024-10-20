@@ -1,32 +1,56 @@
 ---
 title: Progress
-description: Progress
+description: A component that visually represents the completion of a task or process.
 ---
 
+import { SvelteComponent } from "@/components/SvelteComponent";
 import { TypeTable } from "fumadocs-ui/components/type-table";
 
-## Code Block
+<SvelteComponent url="/progress" />
 
-```js
-console.log("Hello World");
+```svelte
+<script>
+ import { Progress } from '@/components/progress';
+</script>
+
+<Progress value={50} variant="primary" />
 ```
 
-## Properties
+## Component API
+
+The Progress component accepts several props for customization:
 
 <TypeTable
   type={{
-    percentage: {
-      description:
-        "The percentage of scroll position to display the roll button",
+    value: {
+      description: "The current progress value (0-100)",
       type: "number",
-      default: 0.2,
+      default: "required",
     },
-    show: {
-      description: "Whether to show the roll button",
-      type: "boolean",
-      default: "true",
+    variant: {
+      description: "The visual style of the progress bar",
+      type: "primary | neutral | success | warning | critical",
+      default: "primary",
     },
   }}
 />
 
 >
+
+## Variants
+
+The Progress component supports five different variants:
+
+<SvelteComponent height={160} url="/progress/variants" />
+
+```svelte
+<Progress value={20} variant="primary" />
+<Progress value={40} variant="neutral" />
+<Progress value={60} variant="success" />
+<Progress value={80} variant="warning" />
+<Progress value={20} variant="critical" />
+```
+
+## Accessibility
+
+WFS lays on top of bits-ui and covers accessibility. For more information visit [documentation](https://bits-ui.com/docs/introduction).

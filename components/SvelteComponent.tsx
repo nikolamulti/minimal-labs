@@ -18,7 +18,7 @@ const SvelteComponent: React.FC<SvelteComponentProps> = ({
       src={`https://webflow-svelte-preview.vercel.app${url}`}
       title="Svelte Component"
       width="100%"
-      height={height ? `${height}px` : "384px"}
+      height={height ? `${height}px` : "256px"}
     />
   );
 };
