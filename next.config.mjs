@@ -1,4 +1,5 @@
 import { createMDX } from "fumadocs-mdx/next";
+import path from "path";
 
 const withMDX = createMDX();
 
@@ -10,6 +11,9 @@ const config = {
     NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
     NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY:
       process.env.NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY,
+  },
+  experimental: {
+    swcPlugins: [["@onlook/nextjs", { root: path.resolve(".") }]],
   },
 };
 

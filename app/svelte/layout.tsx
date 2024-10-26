@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Script from "next/script";
 import { HomeLayout } from "fumadocs-ui/home-layout";
 import { baseOptions } from "../layout.config";
 
@@ -8,6 +9,13 @@ export default function Layout({
   children: ReactNode;
 }): React.ReactElement {
   return (
-    <div className="selection:bg-white selection:fg-inverted">{children}</div>
+    <>
+      <Script
+        src="https://app.lemonsqueezy.com/js/lemon.js"
+        strategy="afterInteractive"
+        defer
+      />
+      <div className="selection:bg-white selection:fg-inverted">{children}</div>
+    </>
   );
 }

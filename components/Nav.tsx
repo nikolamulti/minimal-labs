@@ -110,7 +110,7 @@ const Nav = () => {
           <div className="flex flex-row gap-3">
             <Button
               variant="faded"
-              href="https://www.figma.com/design/QWWynAfNdebaDFCQ7iZqRz/Webflow-App---Premium-UI-Kit-v1.0"
+              href="https://www.figma.com/design/QWWynAfNdebaDFCQ7iZqRz/Webflow-Apps---Extended-UI-Kit-v1.0"
               target="_blank"
               className="hidden items-center gap-2 min-[480px]:flex"
             >

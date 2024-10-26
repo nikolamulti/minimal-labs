@@ -3,6 +3,11 @@ import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 
+const personalCheckoutUrl =
+  "https://minimal-square.lemonsqueezy.com/buy/1eae4251-b3f3-4f7c-b676-cf42eff96816?embed=1";
+const teamCheckoutUrl =
+  "https://minimal-square.lemonsqueezy.com/buy/9b54582e-5dae-4785-bb20-05d9fecc3aad?embed=1";
+
 const Hero = () => {
   return (
     <Section removeMaxWidth={true} className="mx-auto mt-20 px-0 pt-12 md:px-0">
@@ -72,6 +77,7 @@ const Hero = () => {
               d="M36.2149 502.651C-2.3085 313.746.0281372 120.912 4.19791 1.01738L3.19852.98262C-.971771 120.892-3.31305 313.824 35.2351 502.851 73.7808 691.865 153.231 877.075 312.726 981.418l.548-.836C154.111 876.456 74.7406 691.568 36.2149 502.651Z"
               fill="url(#gray-gradient)"
             />
+
             <g mask="url(#line-mask-right)">
               <g mask="url(#fade-mask-right)">
                 <circle
@@ -140,6 +146,7 @@ const Hero = () => {
               d="M277.785 502.651c38.524-188.905 36.187-381.739 32.017-501.63362l1-.03476c4.17 119.90938 6.511 312.84138-32.037 501.86838C240.219 691.865 160.769 877.075 1.27378 981.418l-.547462-.836C159.889 876.456 239.259 691.568 277.785 502.651Z"
               fill="url(#gray-gradient)"
             />
+
             <g mask="url(#line-mask)">
               <g mask="url(#fade-mask)">
                 <circle
@@ -173,7 +180,7 @@ const Hero = () => {
         </div>
         <div className="flex max-w-[40rem] flex-col gap-6">
           <h1 className="text-balance text-[2.25rem] font-semibold leading-[3rem] fg-base lg:text-5xl lg:leading-[3.625rem]">
-            Supercharge building Webflow apps
+            Supercharge busilding Webflow apps
           </h1>
           <p className="text-balance text-xl font-light leading-[2rem] fg-muted">
             Ship faster with Webflow's design system, Svelte components and
@@ -181,12 +188,17 @@ const Hero = () => {
           </p>
         </div>
         <div className="flex w-full flex-col justify-center gap-4 min-[480px]:flex-row">
-          <Button href="/" size="medium" variant="primary">
+          <Button
+            className="lemonsqueezy-button"
+            href="https://minimal-square.lemonsqueezy.com/buy/1eae4251-b3f3-4f7c-b676-cf42eff96816?embed=1"
+            size="medium"
+            variant="primary"
+          >
             Get access
           </Button>
           <Button
             className="flex flex-row items-center gap-2"
-            href="https://www.figma.com/design/QWWynAfNdebaDFCQ7iZqRz/Webflow-App---Premium-UI-Kit-v1.0"
+            href="https://www.figma.com/design/QWWynAfNdebaDFCQ7iZqRz/Webflow-Apps---Extended-UI-Kit-v1.0"
             size="medium"
             target="_blank"
           >

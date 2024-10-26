@@ -29,5 +29,10 @@ export const baseOptions: HomeLayoutProps = {
   //     url: "/svelte/docs",
   //     active: "nested-url",
   //   },
+  //   {
+  //     text: "Figma UI Kit",
+  //     url: "/svelte/get-access",
+  //     active: "nested-url",
+  //   },
   // ],
 };
