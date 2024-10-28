@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ES2020",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "strict": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "declaration": false,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*.mts",
+    "src/**/*.ts",
+    "src/types/**/*.ts"
+  ],
+  "exclude": [
+    "src/types/**/*",
+    "src/utils/**/*",
+    "node_modules",
+    "dist",
+    "src/types",
+    "src/utils"
+  ]
+}

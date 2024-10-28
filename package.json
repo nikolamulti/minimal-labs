@@ -26,7 +26,6 @@
     "tailwind-merge": "^2.5.3"
   },
   "devDependencies": {
-    "@onlook/nextjs": "^2.1.1",
     "@tailwindcss/typography": "^0.5.15",
     "@types/mdx": "^2.0.13",
     "@types/node": "22.5.4",

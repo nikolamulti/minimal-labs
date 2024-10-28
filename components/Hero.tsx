@@ -1,14 +1,38 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 
-const personalCheckoutUrl =
-  "https://minimal-square.lemonsqueezy.com/buy/1eae4251-b3f3-4f7c-b676-cf42eff96816?embed=1";
-const teamCheckoutUrl =
-  "https://minimal-square.lemonsqueezy.com/buy/9b54582e-5dae-4785-bb20-05d9fecc3aad?embed=1";
-
 const Hero = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    // Check scroll position on initial load
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToPricing = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const pricingSection = document.getElementById("pricing");
+    if (pricingSection) {
+      const yOffset = -64;
+      const y =
+        pricingSection.getBoundingClientRect().top +
+        window.pageYOffset +
+        yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  };
+
   return (
     <Section removeMaxWidth={true} className="mx-auto mt-20 px-0 pt-12 md:px-0">
       <div className="absolute -top-[5.25rem] left-1/2 z-20 h-[calc(100%+5.25rem)] w-[calc(100vw-1.875rem)] -translate-x-1/2 overflow-hidden">
@@ -189,10 +213,10 @@ const Hero = () => {
         </div>
         <div className="flex w-full flex-col justify-center gap-4 min-[480px]:flex-row">
           <Button
-            className="lemonsqueezy-button"
-            href="https://minimal-square.lemonsqueezy.com/buy/1eae4251-b3f3-4f7c-b676-cf42eff96816?embed=1"
+            href="#pricing"
             size="medium"
             variant="primary"
+            onClick={scrollToPricing}
           >
             Get access
           </Button>

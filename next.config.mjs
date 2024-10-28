@@ -12,9 +12,6 @@ const config = {
     NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY:
       process.env.NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY,
   },
-  experimental: {
-    swcPlugins: [["@onlook/nextjs", { root: path.resolve(".") }]],
-  },
 };
 
 export default withMDX(config);

@@ -122,7 +122,7 @@ const Nav = () => {
               />
               Preview in Figma
             </Button>
-            <Button variant="primary" href="/svelte/pricing">
+            <Button variant="primary" href="#pricing" onClick={scrollToPricing}>
               Get Access
             </Button>
           </div>

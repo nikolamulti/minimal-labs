@@ -8,17 +8,17 @@ import {
   LicenseKey,
   Component,
   InstanceId,
-} from "@/types";
+} from "./types/index.js";
 import { execSync } from "child_process";
 
-const API_URL = "https://dac5-178-149-76-188.ngrok-free.app";
+const API_URL = "https://80fe-178-149-76-188.ngrok-free.app";
 
 /**
- * Initializes the project by creating or updating a globals.css file in the current directory
+ * Initializes the project by creating or updating a global.css file in the current directory
  *
  * This function performs the following steps:
- * 1. Fetches the globals.css content from the API
- * 2. Checks if a globals.css file already exists in the current directory
+ * 1. Fetches the global.css content from the API
+ * 2. Checks if a global.css file already exists in the current directory
  * 3. If it exists, appends the fetched content to the existing file
  * 4. If it doesn't exist, creates a new file with the fetched content
  *
@@ -34,27 +34,27 @@ export async function cliInit(): Promise<void> {
   });
 
   if (!response.ok) {
-    throw new Error("Failed to fetch globals.css content.");
+    throw new Error("Failed to fetch global.css content.");
   }
 
-  const newGlobalsCSS = await response.text();
+  const newGlobalCSS = await response.text();
 
-  const filePath = path.join(process.cwd(), "globals.css");
+  const filePath = path.join(process.cwd(), "global.css");
 
   try {
     if (fs.existsSync(filePath)) {
-      // If globals.css exists, append the new content
+      // If global.css exists, append the new content
       const existingContent = fs.readFileSync(filePath, "utf8");
-      const updatedContent = existingContent + "\n\n" + newGlobalsCSS;
+      const updatedContent = existingContent + "\n\n" + newGlobalCSS;
       fs.writeFileSync(filePath, updatedContent);
-      console.log("globals.css file updated successfully.");
+      console.log("global.css file updated successfully.");
     } else {
-      // If globals.css doesn't exist, create a new file
-      fs.writeFileSync(filePath, newGlobalsCSS);
-      console.log("globals.css file created successfully.");
+      // If global.css doesn't exist, create a new file
+      fs.writeFileSync(filePath, newGlobalCSS);
+      console.log("global.css file created successfully.");
     }
   } catch (error) {
-    throw new Error(`Failed to create or update globals.css file: ${error}`);
+    throw new Error(`Failed to create or update global.css file: ${error}`);
   }
 }
 
@@ -71,11 +71,11 @@ export async function cliInit(): Promise<void> {
  * @throws {Error} If the license key is invalid or the request fails
  */
 export async function cliActivateLicense(
-  licenseKey: LicenseKey
+  licenseKey: LicenseKey,
 ): Promise<APIResponse> {
   if (!API_URL) {
     throw new Error(
-      "API_URL is not set. Please check your environment variables."
+      "API_URL is not set. Please check your environment variables.",
     );
   }
 
@@ -112,7 +112,7 @@ export async function cliActivateLicense(
  */
 export async function cliDeactivateLicense(
   licenseKey: LicenseKey,
-  instanceId: InstanceId
+  instanceId: InstanceId,
 ): Promise<APIResponse> {
   const response = await fetch(`${API_URL}/api/deactivate`, {
     method: "POST",
@@ -142,7 +142,7 @@ export async function cliDeactivateLicense(
  * @throws {Error} If the license key is invalid or the request fails
  */
 export async function cliDeactivateAllInstances(
-  licenseKey: LicenseKey
+  licenseKey: LicenseKey,
 ): Promise<APIResponse> {
   const response = await fetch(`${API_URL}/api/deactivate-all-instances`, {
     method: "POST",
@@ -172,7 +172,7 @@ export async function cliDeactivateAllInstances(
  * @throws {Error} If the request fails or the response is invalid
  */
 export async function cliFetchComponents(
-  licenseKey: LicenseKey
+  licenseKey: LicenseKey,
 ): Promise<Component[]> {
   const response = await fetch(`${API_URL}/api/components`, {
     headers: {
@@ -182,7 +182,7 @@ export async function cliFetchComponents(
 
   if (!response.ok) {
     throw new Error(
-      `Failed to fetch available components: ${response.statusText}`
+      `Failed to fetch available components: ${response.statusText}`,
     );
   }
 
@@ -208,7 +208,7 @@ export async function cliFetchComponents(
 export async function cliInstallComponent(
   component: Component,
   licenseKey: LicenseKey,
-  finalComponentName: string
+  finalComponentName: string,
 ): Promise<void> {
   /*---------------------------------------------
   / Step 1: Fetch component data
@@ -219,14 +219,14 @@ export async function cliInstallComponent(
       headers: {
         Authorization: `Bearer ${licenseKey}`,
       },
-    }
+    },
   );
 
   if (!response.ok) {
     throw new Error(
       `Failed to fetch ${
         component.charAt(0).toUpperCase() + component.slice(1)
-      } component: ${response.statusText}`
+      } component: ${response.statusText}`,
     );
   }
 
@@ -243,7 +243,7 @@ export async function cliInstallComponent(
     throw new Error(
       `Invalid response for ${
         component.charAt(0).toUpperCase() + component.slice(1)
-      } component: components are missing or invalid`
+      } component: components are missing or invalid`,
     );
   }
 
@@ -253,7 +253,7 @@ export async function cliInstallComponent(
   const componentsDir = path.join(process.cwd(), "components");
   const componentDir = path.join(
     componentsDir,
-    finalComponentName.toLowerCase()
+    finalComponentName.toLowerCase(),
   );
 
   if (!fs.existsSync(componentDir)) {
@@ -269,8 +269,8 @@ export async function cliInstallComponent(
   }
 }
 
-// Add a new function to fetch globals.css content
-export async function fetchGlobalsCSSContent(): Promise<string> {
+// Add a new function to fetch global.css content
+export async function fetchGlobalCSSContent(): Promise<string> {
   const response = await fetch(`${API_URL}/api/init`, {
     method: "GET",
     headers: {
@@ -279,7 +279,7 @@ export async function fetchGlobalsCSSContent(): Promise<string> {
   });
 
   if (!response.ok) {
-    throw new Error("Failed to fetch globals.css content.");
+    throw new Error("Failed to fetch global.css content.");
   }
 
   return await response.text();
