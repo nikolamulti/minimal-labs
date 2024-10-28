@@ -1,11 +1,21 @@
-import type { ReactNode } from 'react';
-import { HomeLayout } from 'fumadocs-ui/home-layout';
-import { baseOptions } from '../layout.config';
+import type { ReactNode } from "react";
+import Script from "next/script";
+import { HomeLayout } from "fumadocs-ui/home-layout";
+import { baseOptions } from "../layout.config";
 
 export default function Layout({
   children,
 }: {
   children: ReactNode;
 }): React.ReactElement {
-  return <HomeLayout {...baseOptions}>{children}</HomeLayout>;
+  return (
+    <>
+      <Script
+        src="https://app.lemonsqueezy.com/js/lemon.js"
+        strategy="afterInteractive"
+        defer
+      />
+      <div className="selection:bg-white selection:fg-inverted">{children}</div>
+    </>
+  );
 }

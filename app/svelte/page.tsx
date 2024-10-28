@@ -1,19 +1,39 @@
-import Link from "next/link";
+import {
+  Nav,
+  CallToAction,
+  Footer,
+  FAQs,
+  Pricing,
+  WhatsIncluded,
+  Components,
+  Features,
+  Benefits,
+} from "@/components";
+import Hero from "@/components/Hero";
 
 export default function HomePage() {
   return (
-    <main className="flex h-screen flex-col justify-center text-center">
-      <h1 className="mb-4 text-2xl font-bold">Hello World</h1>
-      <p className="text-fd-muted-foreground">
-        You can open{" "}
-        <Link
-          href="/svelte/docs"
-          className="text-fd-foreground font-semibold underline"
-        >
-          /docs
-        </Link>{" "}
-        and see the documentation.
-      </p>
-    </main>
+    <>
+      <Nav />
+      <main>
+        <Hero />
+        <div className="relative bg-base">
+          <div className="pointer-events-none absolute left-0 z-[110] hidden h-full w-[15rem] bg-gradient-to-l from-[#1E1E1E] to-[#1B1B1B] 2xl:block" />
+          <div className="pointer-events-none absolute right-0 z-[110] hidden h-full w-[15rem] bg-gradient-to-r from-[#1E1E1E] to-[#1B1B1B] 2xl:block" />
+          <WhatsIncluded />
+          <Components />
+          <Features />
+          <Benefits />
+          <Pricing />
+          <FAQs />
+          <CallToAction />
+        </div>
+      </main>
+      <div className="relative bg-base">
+        <div className="pointer-events-none absolute left-0 z-[110] hidden h-full w-[15rem] bg-gradient-to-l from-[#1E1E1E] to-[#1B1B1B] 2xl:block" />
+        <div className="pointer-events-none absolute right-0 z-[110] hidden h-full w-[15rem] bg-gradient-to-r from-[#1E1E1E] to-[#1B1B1B] 2xl:block" />
+        <Footer />
+      </div>
+    </>
   );
 }
