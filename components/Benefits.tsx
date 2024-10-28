@@ -1,6 +1,6 @@
 "use client";
 
-import React from "React";
+import React from "react";
 import { Section } from "@/components/ui/Section";
 import Image from "next/image";
 import { Card } from "@/components/ui/Card";
