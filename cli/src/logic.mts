@@ -59,6 +59,29 @@ export async function init(): Promise<void> {
     });
   }
 
+  // Move working directory prompt here, after license key handling
+  const workingDir = await text({
+    message: "Working directory (press Enter for current directory):",
+    defaultValue: "./",
+  });
+
+  if (isCancel(workingDir)) {
+    outro("Operation cancelled");
+    return;
+  }
+
+  // Use the selected working directory or default to current directory
+  const selectedDir =
+    workingDir && workingDir.trim() !== ""
+      ? (workingDir as string)
+      : process.cwd();
+
+  // Validate the selected directory exists
+  if (!fs.existsSync(selectedDir)) {
+    log.error("Directory does not exist");
+    return;
+  }
+
   // Install bits-ui package
   s.start("Installing dependencies...");
   await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -68,7 +91,7 @@ export async function init(): Promise<void> {
   const newGlobalCSS = await fetchGlobalCSSContent();
 
   // Update global.css file
-  const filePath = path.join(process.cwd(), "global.css");
+  const filePath = path.join(selectedDir, "global.css");
 
   s.start("Adding CSS...");
   if (fs.existsSync(filePath)) {
@@ -93,7 +116,7 @@ export async function init(): Promise<void> {
 
   for (const component of availableComponents) {
     const componentDir = path.join(
-      process.cwd(),
+      selectedDir,
       "components",
       component.toLowerCase(),
     );
@@ -115,9 +138,7 @@ export async function init(): Promise<void> {
             if (value.trim() === "") return "Component name cannot be empty";
             const sanitizedName = value.replace(/\s+/g, "-").toLowerCase();
             if (
-              fs.existsSync(
-                path.join(process.cwd(), "components", sanitizedName),
-              )
+              fs.existsSync(path.join(selectedDir, "components", sanitizedName))
             ) {
               return "A component with this name already exists";
             }
@@ -132,7 +153,12 @@ export async function init(): Promise<void> {
       }
     }
 
-    await cliInstallComponent(component, licenseKey, finalComponentName);
+    await cliInstallComponent(
+      component,
+      licenseKey,
+      finalComponentName,
+      selectedDir,
+    );
     installedCount++;
   }
 

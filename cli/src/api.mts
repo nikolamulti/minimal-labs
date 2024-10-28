@@ -202,6 +202,7 @@ export async function cliFetchComponents(
  * @param {Component} component - The component to install
  * @param {LicenseKey} licenseKey - The license key for authentication
  * @param {string} finalComponentName - The final name of the component
+ * @param {string} workingDir - The working directory
  * @returns {Promise<void>}
  * @throws {Error} If the request fails, the response is invalid, or file operations fail
  */
@@ -209,6 +210,7 @@ export async function cliInstallComponent(
   component: Component,
   licenseKey: LicenseKey,
   finalComponentName: string,
+  workingDir: string,
 ): Promise<void> {
   /*---------------------------------------------
   / Step 1: Fetch component data
@@ -250,7 +252,7 @@ export async function cliInstallComponent(
   /*---------------------------------------------
   / Step 3: Create component directory
   /---------------------------------------------*/
-  const componentsDir = path.join(process.cwd(), "components");
+  const componentsDir = path.join(workingDir, "components");
   const componentDir = path.join(
     componentsDir,
     finalComponentName.toLowerCase(),
