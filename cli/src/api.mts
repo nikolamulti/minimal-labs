@@ -11,7 +11,7 @@ import {
 } from "./types/index.js";
 import { execSync } from "child_process";
 
-const API_URL = "https://80fe-178-149-76-188.ngrok-free.app";
+const API_URL = "https://minimal-labs.com";
 
 /**
  * Initializes the project by creating or updating a global.css file in the current directory
