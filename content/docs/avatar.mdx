@@ -1,32 +1,144 @@
 ---
 title: Avatar
-description: Avatar
+description: A visual representation of a user or entity, typically displayed as a profile picture, icon, or initials.
 ---
 
+import { SvelteComponent } from "@/components/SvelteComponent";
+import { Tabs, Tab } from "fumadocs-ui/components/tabs";
+import { Step, Steps } from "fumadocs-ui/components/steps";
 import { TypeTable } from "fumadocs-ui/components/type-table";
 
-## Code Block
+<SvelteComponent url="/avatar/fallback" />
 
-```js
-console.log("Hello World");
+```svelte
+<script>
+ import { Avatar } from '@/components/avatar';
+</script>
+
+<Avatar size="md" fallback="AA" color="neutral" />
 ```
 
-## Properties
+## Component API
+
+The Avatar component accepts various props for customization:
 
 <TypeTable
   type={{
-    percentage: {
-      description:
-        "The percentage of scroll position to display the roll button",
-      type: "number",
-      default: 0.2,
+    size: {
+      description: "The size of the avatar",
+      type: "sm | md | lg",
+      default: "md",
     },
-    show: {
-      description: "Whether to show the roll button",
-      type: "boolean",
-      default: "true",
+    image: {
+      description: "The image to display in the avatar",
+      type: "string",
+      default: "undefined",
+    },
+    icon: {
+      description: "The icon to display in the avatar",
+      type: "ComponentType",
+      default: "undefined",
+    },
+    fallback: {
+      description: "The fallback text to display in the avatar",
+      type: "string",
+      default: "undefined",
+    },
+    color: {
+      description: "The color of the avatar",
+      type: "string",
+      default: "neutral",
     },
   }}
 />
 
->
+## Sizes
+
+The Avatar component supports three sizes:
+
+<SvelteComponent height={80} url="/avatar/sizes" />
+
+```svelte
+<script>
+  import { Avatar } from '@/components/avatar';
+</script>
+
+<Avatar size="sm" fallback="AA" color="neutral" />
+<Avatar size="md" fallback="AA" color="neutral" />
+<Avatar size="lg" fallback="AA" color="neutral" />
+```
+
+## Variants
+
+### Image
+
+Displays a profile picture.
+
+<SvelteComponent height={80} url="/avatar/image" />
+
+```svelte
+<script>
+  import { Avatar } from '@/components/avatar';
+</script>
+
+<Avatar size="sm" image="https://picsum.photos/300" />
+<Avatar size="md" image="https://picsum.photos/300" />
+<Avatar size="lg" image="https://picsum.photos/300" />
+```
+
+### Icon
+
+Shows an icon when no image is available.
+
+<SvelteComponent height={80} url="/avatar/icon" />
+
+```svelte
+<script>
+  import { Avatar } from '@/components/avatar';
+</script>
+
+<Avatar size="sm" icon="https://picsum.photos/300" />
+<Avatar size="md" icon="https://picsum.photos/300" />
+<Avatar size="lg" icon="https://picsum.photos/300" />
+```
+
+### Fallback
+
+Displays initials or a placeholder when no image or icon is provided.
+
+<SvelteComponent height={80} url="/avatar/fallback" />
+
+```svelte
+<script>
+  import { Avatar } from '@/components/avatar';
+</script>
+
+<Avatar size="sm" fallback="AA" color="neutral" />
+<Avatar size="md" fallback="AA" color="neutral" />
+<Avatar size="lg" fallback="AA" color="neutral" />
+```
+
+## Colors
+
+The Avatar component supports various color options:
+
+<SvelteComponent height={80} url="/avatar/colors" />
+
+```svelte
+<script>
+  import { Avatar } from '@/components/avatar';
+</script>
+
+<Avatar size="md" fallback="AA" color="neutral" />
+<Avatar size="md" fallback="AA" color="primary" />
+<Avatar size="md" fallback="AA" color="success" />
+<Avatar size="md" fallback="AA" color="warning" />
+<Avatar size="md" fallback="AA" color="critical" />
+<Avatar size="md" fallback="AA" color="orange" />
+<Avatar size="md" fallback="AA" color="pink" />
+<Avatar size="md" fallback="AA" color="purple" />
+```
+
+## Accessibility
+
+WFS lays on top of bits-ui and covers accessibility. For more information visit [documentation](https://bits-ui.com/docs/introduction).

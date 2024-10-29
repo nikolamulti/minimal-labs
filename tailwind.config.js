@@ -169,9 +169,5 @@ module.exports = {
       });
     }),
   ],
-  presets: [
-    createPreset({
-      layoutWidth: "1400px",
-    }),
-  ],
+  presets: [createPreset({})],
 };
