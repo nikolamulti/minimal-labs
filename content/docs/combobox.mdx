@@ -1,32 +1,155 @@
 ---
 title: Combobox
-description: Combobox
+description: A customizable dropdown component that allows users to select an item from a list, with support for filtering and custom styling.
 ---
 
+import { SvelteComponent } from "@/components/SvelteComponent";
 import { TypeTable } from "fumadocs-ui/components/type-table";
 
-## Code Block
+<SvelteComponent url="/combobox" />
 
-```js
-console.log("Hello World");
+```svelte
+<script>
+  import { Combobox, ComboboxInput, ComboboxContent, ComboboxItem } from '$lib/components/combobox';
+
+  const fruits = [
+    { value: 'apple', label: 'Apple' },
+    { value: 'banana', label: 'Banana' },
+    { value: 'cherry', label: 'Cherry' },
+  ];
+</script>
+
+<Combobox name="fruit-selector" items={fruits}>
+  <ComboboxInput />
+  <ComboboxContent>
+    {#each fruits as fruit (fruit.value)}
+      <ComboboxItem value={fruit.value}>{fruit.label}</ComboboxItem>
+    {/each}
+  </ComboboxContent>
+</Combobox>
 ```
 
-## Properties
+## Component API
+
+The Combobox component is composed of several sub-components, each with its own props and functionality.
+
+### Combobox
 
 <TypeTable
   type={{
-    percentage: {
-      description:
-        "The percentage of scroll position to display the roll button",
-      type: "number",
-      default: 0.2,
+    name: {
+      description: "The name of the combobox input",
+      type: "string",
+      default: "",
     },
-    show: {
-      description: "Whether to show the roll button",
-      type: "boolean",
-      default: "true",
+    items: {
+      description: "Array of selectable items",
+      type: "array",
+      default: "[]",
+    },
+  }}
+/>
+### ComboboxInput
+<TypeTable
+  type={{
+    name: {
+      leadingIcon: "Icon component for leading icon",
+      type: "ComponentType",
+      default: "null",
+    },
+    trailingIcon: {
+      description: "Icon component for leading icon",
+      type: "ComponentType",
+      default: "null",
+    },
+    value: {
+      description: "Current value of the input",
+      type: "string",
+      default: "",
+    },
+  }}
+/>
+### ComboboxContent
+<TypeTable
+  type={{
+    value: {
+      description: "The value of the item",
+      type: "string",
+      default: "",
+    },
+    label: {
+      description: "The label to display for item",
+      type: "string",
+      default: "",
     },
   }}
 />
 
 >
+
+## Filtering
+
+The component supports filtering of items based on user input.
+
+```svelte
+<script>
+  let inputValue = '';
+  let touchedInput = false;
+
+  $: filteredFruits = inputValue && touchedInput
+    ? fruits.filter((fruit) => fruit.value.includes(inputValue.toLowerCase()))
+    : fruits;
+</script>
+
+<Combobox name="combobox" items={filteredFruits}>
+  <ComboboxInput bind:value={inputValue} />
+  <ComboboxContent>
+    {#each filteredFruits as fruit (fruit.value)}
+      <ComboboxItem value={fruit.value} label={fruit.label}>
+        {fruit.label}
+      </ComboboxItem>
+    {:else}
+      <span>No results found</span>
+    {/each}
+  </ComboboxContent>
+</Combobox>
+```
+
+## Custom Header
+
+Add a header to the dropdown content using ComboboxHeader.
+
+```svelte
+<ComboboxContent>
+  <ComboboxHeader>Select a Fruit</ComboboxHeader>
+  <!-- ComboboxItems -->
+</ComboboxContent>
+```
+
+## Item Indicator
+
+Use ComboboxItemIndicator to add an icon or other indicator to selected items.
+
+```svelte
+<ComboboxItem value={fruit.value} label={fruit.label}>
+  {fruit.label}
+  <ComboboxItemIndicator>
+    <Account />
+  </ComboboxItemIndicator>
+</ComboboxItem>
+```
+
+## Custom Arrow
+
+Add a custom arrow to the combobox using ComboboxArrow.
+
+```svelte
+<Combobox>
+  <!-- Other Combobox components -->
+  <ComboboxArrow />
+</Combobox>
+```
+
+## Accessibility
+
+WFS lays on top of bits-ui and covers accessibility. For more information visit [documentation](https://bits-ui.com/docs/introduction).
