@@ -1,32 +1,141 @@
 ---
 title: Textarea
-description: Textarea
+description: Form field for multi-line text entry.
 ---
 
+import { SvelteComponent } from "@/components/SvelteComponent";
+import { Tabs, Tab } from "fumadocs-ui/components/tabs";
+import { Step, Steps } from "fumadocs-ui/components/steps";
 import { TypeTable } from "fumadocs-ui/components/type-table";
 
-## Code Block
+<SvelteComponent url="/textarea" />
 
-```js
-console.log("Hello World");
+```svelte
+<script>
+  import { Textarea } from '@/components/textarea';
+</script>
+
+<Textarea placeholder="Placeholder" />
 ```
 
-## Properties
+## Component API
+
+Component accepts props for customization and dispatches events for interaction handling.
+
+### Props
 
 <TypeTable
   type={{
-    percentage: {
-      description:
-        "The percentage of scroll position to display the roll button",
-      type: "number",
-      default: 0.2,
+    placeholder: {
+      type: "string",
+      default: "Placeholder",
     },
-    show: {
-      description: "Whether to show the roll button",
+    disabled: {
       type: "boolean",
-      default: "true",
+      default: "false",
+    },
+    error: {
+      type: "boolean",
+      default: "false",
+    },
+    value: {
+      type: "string",
+      default: "",
     },
   }}
 />
 
+### Events
+
+<TypeTable
+  type={{
+    input: {
+      description: "Fired when input value changes",
+      type: "Event",
+      default: "undefined",
+    },
+    change: {
+      description: "Fired when textarea loses focus with changed value",
+      type: "Event",
+      default: "undefined",
+    },
+    keydown: {
+      description: "Fired when key is pressed",
+      type: "KeyboardEvent",
+      default: "undefined",
+    },
+    keyup: {
+      description: "Fired when key is released",
+      type: "KeyboardEvent",
+      default: "undefined",
+    },
+    focus: {
+      description: "Fired when textarea gains focus",
+      type: "FocusEvent",
+      default: "undefined",
+    },
+  }}
+/>
 >
+
+## States
+
+### Default
+
+Standard textarea for multi-line text input.
+
+<SvelteComponent url="/textarea" />
+
+```svelte
+<script>
+  import { Textarea } from '@/components/textarea';
+</script>
+
+<Textarea placeholder="Placeholder" />
+```
+
+### Error
+
+Visual feedback for invalid input states.
+
+<SvelteComponent url="/textarea/error" />
+
+```svelte
+<script>
+  import { Textarea } from '@/components/textarea';
+</script>
+
+<Textarea placeholder="Placeholder" error={true} />
+```
+
+### Disabled
+
+Prevents user interaction and shows visual indication.
+
+<SvelteComponent url="/textarea/disabled" />
+
+```svelte
+<script>
+  import { Textarea } from '@/components/textarea';
+</script>
+
+<Textarea placeholder="Placeholder" disabled={true} />
+```
+
+### With Value
+
+Pre-populated textarea with initial content.
+
+<SvelteComponent url="/textarea/with-value" />
+
+```svelte
+<script>
+  import { Textarea } from '@/components/textarea';
+</script>
+
+<Textarea placeholder="Placeholder" value="Value" />
+```
+
+## Accessibility
+
+WFS lays on top of bits-ui and covers accessibility. For more information visit [documentation](https://bits-ui.com/docs/introduction).
