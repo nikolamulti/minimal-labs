@@ -1,32 +1,264 @@
 ---
 title: Accordion
-description: Accordion
+description: A collapsible content container that allows users to show and hide sections of related content.
 ---
 
+import { SvelteComponent } from "@/components/SvelteComponent";
+import { Tabs, Tab } from "fumadocs-ui/components/tabs";
+import { Step, Steps } from "fumadocs-ui/components/steps";
 import { TypeTable } from "fumadocs-ui/components/type-table";
 
-## Code Block
+<SvelteComponent url="/accordion" />
 
-```js
-console.log("Hello World");
+```svelte
+<script lang="ts">
+	import {
+		AccordionRoot,
+		AccordionItem,
+		AccordionTrigger,
+		AccordionContent,
+		AccordionHeader
+	} from '$lib/components/accordion';
+	import { Component } from '$lib/components';
+	import { FolderDefault } from '$lib/components/icons';
+</script>
+
+<AccordionRoot>
+  <AccordionItem value="item-1">
+    <AccordionHeader class="accordion-header">
+      <FolderDefault />
+      <AccordionTrigger>Accordion</AccordionTrigger>
+    </AccordionHeader>
+    <AccordionContent>
+      Lorem ipsum dolor sit amet adipisicing elit. Quisquam, quos.
+    </AccordionContent>
+  </AccordionItem>
+</AccordionRoot>
 ```
 
-## Properties
+## Component API
+
+### Root Props
 
 <TypeTable
   type={{
-    percentage: {
+    value: {
       description:
-        "The percentage of scroll position to display the roll button",
-      type: "number",
-      default: 0.2,
+        "The controlled value of the opened accordion item(s). When multiple is true, accepts an array of values.",
+      type: "'string' | 'string[]'",
+      default: "undefined",
     },
-    show: {
-      description: "Whether to show the roll button",
+    multiple: {
+      description:
+        "When true, allows multiple accordion items to be open simultaneously.",
       type: "boolean",
+      default: "false",
+    },
+    disabled: {
+      description:
+        "When true, prevents user interaction for the entire accordion.",
+      type: "boolean",
+      default: "false",
+    },
+    onValueChange: {
+      description:
+        "Callback fired when the opened state of any accordion item changes.",
+      type: "(value: string | string[]) => void",
       default: "true",
+    },
+    asChild: {
+      description:
+        "When true, allows rendering the component through a child component instead of a DOM element.",
+      type: "boolean",
+      default: "false",
     },
   }}
 />
 
 >
+
+### Item Props
+
+<TypeTable
+  type={{
+    value: {
+      description:
+        "A unique identifier for the accordion item. Used to track open/close state.",
+      type: "string",
+      default: "''",
+    },
+    disabled: {
+      description:
+        "When true, prevents user interaction for this specific item.",
+      type: "boolean",
+      default: "false",
+    },
+    asChild: {
+      description:
+        "When true, allows rendering the item through a child component instead of a DOM element.",
+      type: "boolean",
+      default: "false",
+    },
+    itemEl: {
+      description: "A reference to the DOM element of the accordion item.",
+      type: "HTMLElement",
+      default: "undefined",
+    },
+  }}
+/>
+
+### Trigger Props
+
+<TypeTable
+  type={{
+    asChild: {
+      description:
+        "When true, allows rendering the trigger through a child component instead of a DOM element.",
+      type: "boolean",
+      default: "false",
+    },
+    triggerEl: {
+      description: "A reference to the DOM element of the trigger.",
+      type: "HTMLElement",
+      default: "undefined",
+    },
+    onClick: {
+      description: "Custom click event handler for the trigger.",
+      type: "'(e: Event) => void'",
+      default: "undefined",
+    },
+    onKeydown: {
+      description: "Custom keydown event handler for the trigger.",
+      type: "'(e: KeyboardEvent) => void'",
+      default: "undefined",
+    },
+  }}
+/>
+### Content Props
+
+<TypeTable
+  type={{
+    transition: {
+      description:
+        "Configuration for both in and out transitions of the content.",
+      type: "TransitionConfig",
+      default: "undefined",
+    },
+    transitionConfig: {
+      description: "Additional configuration options for the main transition.",
+      type: "object",
+      default: "undefined",
+    },
+    inTransition: {
+      description:
+        "Specific transition configuration for when content is showing.",
+      type: "TransitionConfig",
+      default: "undefined",
+    },
+    inTransitionConfig: {
+      description: "Additional configuration options for the in transition.",
+      type: "object",
+      default: "undefined",
+    },
+    outTransition: {
+      description:
+        "Specific transition configuration for when content is hiding.",
+      type: "TransitionConfig",
+      default: "undefined",
+    },
+    outTransitionConfig: {
+      description: "Additional configuration options for the out transition.",
+      type: "object",
+      default: "undefined",
+    },
+    asChild: {
+      description:
+        "When true, allows rendering the content through a child component instead of a DOM element.",
+      type: "boolean",
+      default: "false",
+    },
+    contentEl: {
+      description: "A reference to the DOM element of the content.",
+      type: "HTMLElement",
+      default: "undefined",
+    },
+  }}
+/>
+
+### Header Props
+
+<TypeTable
+  type={{
+    asChild: {
+      description:
+        "When true, allows rendering the header through a child component instead of a DOM element.",
+      type: "boolean",
+      default: "false",
+    },
+    headerEl: {
+      description: "A reference to the DOM element of the header.",
+      type: "HTMLElement",
+      default: "undefined",
+    },
+    level: {
+      description: "The heading level to use for the header (1-6).",
+      type: "number",
+      default: "'3'",
+    },
+  }}
+/>
+
+## Features
+
+### Single item
+
+Default behavior allows only one item to be opened at a time.
+
+<SvelteComponent height={100} url="/accordion" />
+
+```svelte
+<Accordion>
+  <AccordionItem value="item-1">
+    <AccordionTrigger>Accordion</AccordionTrigger>
+    <AccordionContent>Lorem ipsum dolor sit amet adipisicing elit. Quisquam, quos.</AccordionContent>
+  </AccordionItem>
+</Accordion>
+```
+
+### Multiple items
+
+Enable opening multiple items simultaneously using the multiple prop.
+
+<SvelteComponent height={160} url="/accordion/multiple" />
+
+```svelte
+<Accordion multiple>
+  <AccordionItem value="item-1">
+    <AccordionTrigger>Accordion</AccordionTrigger>
+    <AccordionContent>Lorem ipsum dolor sit amet adipisicing elit. Quisquam, quos.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="item-2">
+    <AccordionTrigger>Accordion</AccordionTrigger>
+    <AccordionContent>Lorem ipsum dolor sit amet adipisicing elit. Quisquam, quos.</AccordionContent>
+  </AccordionItem>
+</Accordion>
+```
+
+## Disabled state
+
+Disable interaction for the entire accordion or specific items.
+
+<SvelteComponent height={100} url="/accordion/disabled" />
+
+```svelte
+<Accordion disabled>
+  <AccordionItem value="item-1">
+    <AccordionTrigger>Accordion</AccordionTrigger>
+    <AccordionContent>Lorem ipsum dolor sit amet adipisicing elit. Quisquam, quos.</AccordionContent>
+  </AccordionItem>
+</Accordion>
+```
+
+## Accessibility
+
+WFS lays on top of bits-ui and covers accessibility. For more information visit [documentation](https://bits-ui.com/docs/introduction).
