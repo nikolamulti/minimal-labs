@@ -117,11 +117,9 @@ const WhatsIncluded: React.FC = () => (
             </CardListItem>
             <CardListItem>
               <span className="">
-                <span className="font-semibold fg-base">
-                  Typescript support:
-                </span>{" "}
-                Providing better error-catching and code suggestions as you
-                work.
+                <span className="font-semibold fg-base">Fully typed:</span> Each
+                component is fully typed with TypeScript, so you can move fast
+                without breaking things.
               </span>
             </CardListItem>
             <CardListItem>
