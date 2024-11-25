@@ -2,8 +2,9 @@ import "./global.css";
 import { RootProvider } from "fumadocs-ui/provider";
 import { Inter } from "next/font/google";
 import type { ReactNode } from "react";
-import { Metadata } from "next";
-import type { Viewport } from "next";
+import type { Metadata } from "next/types";
+import type { Viewport } from "next/types";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -91,6 +92,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       <link rel="manifest" href="/app/site.webmanifest" />
       <body>
         <RootProvider>{children}</RootProvider>
+        <GoogleTagManager gtmId="GTM-KF4LP92J" />
       </body>
     </html>
   );
