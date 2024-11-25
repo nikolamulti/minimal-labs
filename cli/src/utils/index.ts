@@ -3,7 +3,7 @@ import { log } from "@clack/prompts";
 import fs from "fs";
 import path from "path";
 import os from "os";
-import { Config } from "../types/index.js";
+import { Config } from "../types";
 
 const CONFIG_FOLDER = path.join(os.homedir(), ".wfs-config");
 const CONFIG_FILE = path.join(CONFIG_FOLDER, "config.json");

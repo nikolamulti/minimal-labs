@@ -7,26 +7,26 @@ const GLOBALS_CSS_PATH = path.join(
   "app",
   "api",
   "init",
-  "globals.css"
+  "global.css",
 );
 
 export async function GET(request: NextRequest) {
   try {
-    // Read the contents of globals.css
-    const globalsCSS = fs.readFileSync(GLOBALS_CSS_PATH, "utf-8");
+    // Read the contents of global.css
+    const globalCSS = fs.readFileSync(GLOBALS_CSS_PATH, "utf-8");
 
     // Return the contents as the response
-    return new NextResponse(globalsCSS, {
+    return new NextResponse(globalCSS, {
       status: 200,
       headers: {
         "Content-Type": "text/css",
       },
     });
   } catch (error) {
-    console.error("Error reading globals.css:", error);
+    console.error("Error reading global.css:", error);
     return NextResponse.json(
-      { error: "Failed to read globals.css" },
-      { status: 500 }
+      { error: "Failed to read global.css" },
+      { status: 500 },
     );
   }
 }

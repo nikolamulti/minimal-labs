@@ -4,6 +4,7 @@ import { Card, CardList, CardListItem, CardAction } from "@/components/ui/Card";
 
 import { Button } from "@/components/ui/Button";
 import { Light } from "@/components/ui/Light";
+import { personalCheckoutUrl, teamCheckoutUrl } from "@/utils/LemonSqueezyUrls";
 
 const Pricing = () => {
   return (
@@ -46,8 +47,8 @@ const Pricing = () => {
                   <Button
                     variant="primary"
                     size="medium"
-                    href="/pricing"
-                    className="w-full"
+                    className="lemonsqueezy-button w-full"
+                    href={personalCheckoutUrl}
                   >
                     Buy personal license
                   </Button>
@@ -80,8 +81,8 @@ const Pricing = () => {
                   <Button
                     variant="faded"
                     size="medium"
-                    href="/pricing"
-                    className="w-full"
+                    className="lemonsqueezy-button w-full"
+                    href={teamCheckoutUrl}
                   >
                     Buy team license
                   </Button>

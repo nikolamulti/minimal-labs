@@ -1,5 +1,4 @@
 import { Nav, Footer } from "@/components";
-import Hero from "@/components/Hero";
 import { Section } from "@/components/ui/Section";
 
 export default function CookiesPage() {

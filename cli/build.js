@@ -35,25 +35,44 @@ async function compileTSFiles() {
   }
 }
 
-// Function to minify compiled JavaScript files
-async function minifyFiles() {
-  // Read all files in the dist directory
+// Updated function to replace path aliases in compiled files
+async function replacePathAliases() {
   const files = await fs.readdir(distDir);
   for (const file of files) {
-    // Process only .mjs files (ES modules)
     if (path.extname(file) === ".mjs") {
       const filePath = path.join(distDir, file);
-      // Read the content of the file
+      let content = await fs.readFile(filePath, "utf-8");
+
+      // Replace ./logic with ./logic.mjs
+      content = content.replace(
+        /from ['"]\.\/logic['"]/g,
+        "from './logic.mjs'",
+      );
+
+      // Replace ./api with ./api.mjs
+      content = content.replace(/from ['"]\.\/api['"]/g, "from './api.mjs'");
+
+      await fs.writeFile(filePath, content);
+    }
+  }
+  console.log("Replaced path aliases in compiled files.");
+}
+
+// Updated minifyFiles function to handle .mjs files
+async function minifyFiles() {
+  const files = await fs.readdir(distDir);
+  for (const file of files) {
+    if (path.extname(file) === ".mjs") {
+      const filePath = path.join(distDir, file);
       const code = await fs.readFile(filePath, "utf-8");
-      // Minify the code using terser
       const minified = await minify(code, {
         module: true,
         toplevel: true,
       });
-      // Write the minified code back to the file
       await fs.writeFile(filePath, minified.code);
     }
   }
+  console.log("Minified JavaScript files.");
 }
 
 // Function to update package.json
@@ -71,17 +90,13 @@ async function updatePackageJson() {
 // Main build function to orchestrate the build process
 async function build() {
   try {
-    // Step 1: Clean the dist directory
     await cleanDistDirectory();
-    // Step 2: Compile TypeScript files
     await compileTSFiles();
-    // Step 3: Minify the compiled JavaScript files
+    await replacePathAliases();
     await minifyFiles();
-    // Step 4: Update package.json
     await updatePackageJson();
     console.log("Build completed successfully!");
   } catch (error) {
-    // If any step of the build process fails, log the error and exit
     console.error("Build failed:", error);
     process.exit(1);
   }

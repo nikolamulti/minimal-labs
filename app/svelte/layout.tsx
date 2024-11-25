@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Script from "next/script";
 import { HomeLayout } from "fumadocs-ui/home-layout";
 import { baseOptions } from "../layout.config";
 
@@ -20,9 +21,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-KF4LP92J');`,
           }}
         />
+        <Script
+          src="https://app.lemonsqueezy.com/js/lemon.js"
+          strategy="afterInteractive"
+          defer
+        />
         <title>Your Site Title</title>
         <meta name="description" content="Your site description" />
-        {/* Add other head elements as needed */}
       </head>
       <body>
         {/* Google Tag Manager (noscript) */}
@@ -34,7 +39,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
-        {/* End Google Tag Manager (noscript) */}
         <div className="selection:bg-white selection:fg-inverted">
           {children}
         </div>
