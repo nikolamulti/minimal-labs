@@ -90,9 +90,9 @@ export default function Layout({ children }: { children: ReactNode }) {
       />
       <meta name="apple-mobile-web-app-title" content="WFS" />
       <link rel="manifest" href="/app/site.webmanifest" />
+      <GoogleTagManager gtmId="GTM-KF4LP92J" />
       <body>
         <RootProvider>{children}</RootProvider>
-        <GoogleTagManager gtmId="GTM-KF4LP92J" />
       </body>
     </html>
   );
