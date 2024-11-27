@@ -1,0 +1,70 @@
+---
+title: Checkbox
+description: Interactive component that allows users to make a binary choice, often used in forms and settings.
+---
+
+import { SvelteComponent } from "@/components/SvelteComponent";
+import { TypeTable } from "fumadocs-ui/components/type-table";
+
+<SvelteComponent url="/checkbox/default" />
+
+```svelte
+<script>
+  import { Checkbox } from '@/components/checkbox';
+  import { Label } from '@/components/label';
+  import { Helper } from '@/components/helper';
+</script>
+
+<Checkbox id="checkbox-default" variant="default">
+  <Label for="checkbox-default">Default</Label>
+  <Helper>This is a helper text</Helper>
+</Checkbox>
+```
+
+## Component API
+
+The Checkbox component accepts several props for customization:
+
+<TypeTable
+  type={{
+    id: {
+      description: "Unique identifier for the checkbox",
+      type: "string",
+      default: "required",
+    },
+    variant: {
+      description: "Visual style variant of the checkbox",
+      type: "string",
+      default: "default",
+    },
+    disabled: {
+      description: "Whether the checkbox is disabled",
+      type: "boolean",
+      default: "false",
+    },
+    isError: {
+      description: "Whether to display the checkbox in error state",
+      type: "boolean",
+      default: "false",
+    },
+  }}
+/>
+
+>
+
+## Variants
+
+The Checkbox component supports the following variants:
+
+<SvelteComponent height={160} url="/checkbox/variants" />
+
+```svelte
+<Checkbox id="checkbox-default" variant="default">
+  <Label for="checkbox-default">Default</Label>
+  <Helper>This is a helper text</Helper>
+</Checkbox>
+```
+
+## Accessibility
+
+WFS lays on top of bits-ui and covers accessibility. For more information visit [documentation](https://bits-ui.com/docs/introduction).

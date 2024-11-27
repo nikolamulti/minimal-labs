@@ -1,0 +1,47 @@
+---
+title: Label
+description: A component for displaying labels with optional sublabels, question icons, and required indicators.
+---
+
+import { SvelteComponent } from "@/components/SvelteComponent";
+import { Tabs, Tab } from "fumadocs-ui/components/tabs";
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { TypeTable } from "fumadocs-ui/components/type-table";
+
+<SvelteComponent url="/label" />
+
+```svelte
+<script>
+ import { Label } from '@/components/label';
+</script>
+
+<Label sublabel="Sublabel" showQuestionIcon={true} isRequired={true}>Label</Label>
+```
+
+## Component API
+
+The Label component accepts various props for customization:
+
+<TypeTable
+  type={{
+    sublabel: {
+      description: "Additional text displayed below the main label",
+      type: "string",
+      default: "null",
+    },
+    showQuestionIcon: {
+      description: "Displays a question mark icon next to the label",
+      type: "boolean",
+      default: "false",
+    },
+    isRequired: {
+      description: "Adds a required indicator to the label",
+      type: "boolean",
+      default: "false",
+    },
+  }}
+/>
+
+## Accessibility
+
+WFS lays on top of bits-ui and covers accessibility. For more information visit [documentation](https://bits-ui.com/docs/introduction).

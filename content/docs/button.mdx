@@ -1,0 +1,226 @@
+---
+title: Button
+description: Interactive element that initiates an action, with a label or icon describing the outcome.
+---
+
+import { SvelteComponent } from "@/components/SvelteComponent";
+import { Tabs, Tab } from "fumadocs-ui/components/tabs";
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { TypeTable } from "fumadocs-ui/components/type-table";
+
+<SvelteComponent url="/button/primary" />
+
+```svelte
+<script>
+  import { Button } from '@/components/button';
+</script>
+
+<Button variant="primary">Primary</Button>
+```
+
+## Component API
+
+Component accepts a range of props allowing extensive customization of its appearance and behavior.
+
+<TypeTable
+  type={{
+    variant: {
+      description: "The visual style of the button",
+      type: "default | primary | danger | outline | ghost",
+      default: "default",
+    },
+    startIcon: {
+      description:
+        "An optional icon component to display before the button text",
+      type: "ComponentType",
+      default: "null",
+    },
+    endIcon: {
+      description:
+        "An optional icon component to display after the button text",
+      type: "ComponentType",
+      default: "null",
+    },
+    disabled: {
+      description: "Whether the button is disabled",
+      type: "boolean",
+      default: "false",
+    },
+    loading: {
+      description: "Whether the button is in a loading state",
+      type: "boolean",
+      default: "false",
+    },
+    href: {
+      description: "The URL to navigate to when the button is clicked",
+      type: "string",
+      default: "null",
+    },
+  }}
+/>
+
+## Variants
+
+The Button component supports five different variants:
+
+<SvelteComponent height={80} url="/button/variants" />
+
+```svelte
+<script>
+  import { Button } from '@/components/button';
+</script>
+
+<Button variant="default">Default</Button>
+<Button variant="primary">Primary</Button>
+<Button variant="danger">Danger</Button>
+<Button variant="outline">Outline</Button>
+<Button variant="ghost">Ghost</Button>
+```
+
+- `default`: Standard button style
+- `primary`: Emphasized button style for primary actions
+- `danger`: Button style for destructive or dangerous actions
+- `outline`: Button with an outline style
+- `ghost`: Button with a transparent background
+
+### Default button
+
+Supports disabled state allowing you to control user interaction.
+
+<SvelteComponent height={80} url="/button/default" />
+
+```svelte
+<script>
+  import { Button } from '@/components/button';
+</script>
+
+<Button variant="default">Default</Button>
+```
+
+### Primary button
+
+Supports disabled state allowing you to control user interaction.
+
+<SvelteComponent height={80} url="/button/primary" />
+
+```svelte
+<script>
+  import { Button } from '@/components/button';
+</script>
+
+<Button variant="primary">Primary</Button>
+```
+
+### Danger button
+
+Supports disabled state allowing you to control user interaction.
+
+<SvelteComponent height={80} url="/button/danger" />
+
+```svelte
+<script>
+  import { Button } from '@/components/button';
+</script>
+
+<Button variant="danger">Danger</Button>
+```
+
+### Outline button
+
+Supports disabled state allowing you to control user interaction.
+
+<SvelteComponent height={80} url="/button/outline" />
+
+```svelte
+<script>
+  import { Button } from '@/components/button';
+</script>
+
+<Button variant="outline">Outline</Button>
+```
+
+### Ghost button
+
+Supports disabled state allowing you to control user interaction.
+
+<SvelteComponent height={80} url="/button/ghost" />
+
+```svelte
+<script>
+  import { Button } from '@/components/button';
+</script>
+
+<Button variant="ghost">Ghost</Button>
+```
+
+## States
+
+### Disabled
+
+Supports `disabled` state allowing you to control user interaction.
+
+<SvelteComponent height={80} url="/button/disabled" />
+
+```svelte
+<script>
+  import { Button } from '@/components/button';
+</script>
+
+<Button variant="default" disabled>Default</Button>
+<Button variant="primary" disabled>Primary</Button>
+<Button variant="danger" disabled>Danger</Button>
+<Button variant="outline" disabled>Outline</Button>
+<Button variant="ghost" disabled>Ghost</Button>
+```
+
+### Loading
+
+Supports `loading` state and provide visual feedback during asynchronous operations.
+
+<SvelteComponent height={80} url="/button/loading" />
+
+```svelte
+<script>
+  import { Button } from '@/components/button';
+</script>
+
+<Button variant="default" loading>Default</Button>
+<Button variant="primary" loading>Primary</Button>
+<Button variant="danger" loading>Danger</Button>
+<Button variant="outline" loading>Outline</Button>
+<Button variant="ghost" loading>Ghost</Button>
+```
+
+## Icon support
+
+Built-in support for `startIcon` and `endIcon` props, allowing you to enhance the button's visual communication and functionality with custom icon components.
+
+<SvelteComponent height={80} url="/button/icon-support" />
+
+```svelte
+<script>
+  import { Button } from '@/components/button';
+</script>
+
+<Button startIcon={ArrowLeft}>Previous</Button>
+<Button endIcon={ArrowRight}>Next</Button>
+```
+
+## Using as a link
+
+Built-in support for `href` prop, allowing you to use the button as a link.
+
+<SvelteComponent height={80} url="/button/link" />
+
+```svelte
+<script>
+  import { Button } from '@/components/button';
+</script>
+
+<Button href="/">Home</Button>
+<Button href="/">About</Button>
+```
+
+## Accessibility
+
+WFS lays on top of bits-ui and covers accessibility. For more information visit [documentation](https://bits-ui.com/docs/introduction).

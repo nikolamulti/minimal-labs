@@ -1,0 +1,59 @@
+---
+title: Spinner
+description: A loading indicator that provides visual feedback during asynchronous operations.
+---
+
+import { SvelteComponent } from "@/components/SvelteComponent";
+import { Tabs, Tab } from "fumadocs-ui/components/tabs";
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { TypeTable } from "fumadocs-ui/components/type-table";
+
+<SvelteComponent url="/spinner" />
+
+```svelte
+import { Spinner } from '@/components/spinner';
+<Spinner size={24} />
+```
+
+## Component API
+
+Component accepts a single prop for customizing its appearance.
+
+<TypeTable
+  type={{
+    size: {
+      type: "number",
+      default: 24,
+    },
+  }}
+/>
+
+>
+
+## Usage
+
+### Default spinner
+
+Basic spinner with default size of 24px.
+
+<SvelteComponent height={80} url="/spinner" />
+
+```svelte
+<Spinner />
+```
+
+### Custom size
+
+Spinner size can be customized using the size prop.
+
+<SvelteComponent height={80} url="/spinner/sizes" />
+
+```svelte
+<Spinner size={16} />
+<Spinner size={24} />
+<Spinner size={32} />
+```
+
+## Accessibility
+
+WFS lays on top of bits-ui and covers accessibility. For more information visit [documentation](https://bits-ui.com/docs/introduction).
