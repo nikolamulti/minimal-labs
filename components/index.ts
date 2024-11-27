@@ -7,3 +7,4 @@ export { default as WhatsIncluded } from "./WhatsIncluded";
 export { default as Components } from "./Components";
 export { default as Features } from "./Features";
 export { default as Benefits } from "./Benefits";
+export { default as NavNotFound } from "./NavNotFound";

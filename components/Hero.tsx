@@ -204,7 +204,7 @@ const Hero = () => {
         </div>
         <div className="flex max-w-[40rem] flex-col gap-6">
           <h1 className="text-balance text-[2.25rem] font-semibold leading-[3rem] fg-base lg:text-5xl lg:leading-[3.625rem]">
-            Supercharge busilding Webflow apps
+            Supercharge building Webflow apps
           </h1>
           <p className="text-balance text-xl font-light leading-[2rem] fg-muted">
             Ship faster with Webflow's design system, Svelte components and

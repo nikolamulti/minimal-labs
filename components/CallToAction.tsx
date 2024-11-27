@@ -4,8 +4,36 @@ import React from "react";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { Light } from "@/components/ui/Light";
+import { useState, useEffect } from "react";
 
 const CallToAction = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    // Check scroll position on initial load
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToPricing = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const pricingSection = document.getElementById("pricing");
+    if (pricingSection) {
+      const yOffset = -64;
+      const y =
+        pricingSection.getBoundingClientRect().top +
+        window.pageYOffset +
+        yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  };
+
   return (
     <Section removePadding removeMaxWidth className="pb-24">
       <div className="relative flex h-[20rem] items-end overflow-hidden pb-8 lg:pb-12">
@@ -36,7 +64,8 @@ const CallToAction = () => {
             className="relative z-10"
             variant="primary"
             size={"medium"}
-            href="/svelte/pricing"
+            href="#pricing"
+            onClick={scrollToPricing}
           >
             Get access
           </Button>
