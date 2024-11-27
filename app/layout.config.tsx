@@ -1,5 +1,5 @@
-import { type HomeLayoutProps } from "fumadocs-ui/home-layout";
-import Image from "next/image";
+import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
+
 /**
  * Shared layout configurations
  *
@@ -7,32 +7,15 @@ import Image from "next/image";
  * Home Layout: app/(home)/layout.tsx
  * Docs Layout: app/docs/layout.tsx
  */
-export const baseOptions: HomeLayoutProps = {
+export const baseOptions: BaseLayoutProps = {
   nav: {
-    title: (
-      <div className="flex items-center gap-3">
-        <Image
-          src="/logo.svg"
-          alt="webflow svelte components logo"
-          width={24}
-          height={24}
-        />
-        <span className="text-base font-semibold">WFS</span>
-      </div>
-    ),
-    url: "/svelte",
+    title: 'My App',
   },
-
-  // links: [
-  //   {
-  //     text: "Documentation",
-  //     url: "/svelte/docs",
-  //     active: "nested-url",
-  //   },
-  //   {
-  //     text: "Figma UI Kit",
-  //     url: "/svelte/get-access",
-  //     active: "nested-url",
-  //   },
-  // ],
+  links: [
+    {
+      text: 'Documentation',
+      url: '/docs',
+      active: 'nested-url',
+    },
+  ],
 };
