@@ -13,10 +13,10 @@
     "cli:prod": "node ./dist/index.mjs"
   },
   "dependencies": {
+    "@clack/prompts": "^0.7.0",
     "node-fetch": "^3.3.0"
   },
   "devDependencies": {
-    "@clack/prompts": "^0.7.0",
     "terser": "^5.34.1",
     "tsx": "^4.7.0",
     "typescript": "^5.5.4"
