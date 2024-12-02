@@ -12,9 +12,9 @@ export default function CookiesPage() {
               <h1>Cookies</h1>
               <p>
                 This Cookie Policy applies to the Websites managed by Aleksandar
-                Radovanović pr Minimal Square (referred to as "us," "we," or
-                "Minimal Square"), including but not limited to, the Website
-                accessible at{" "}
+                Radovanović pr Minimal Square (referred to as &quot;us,&quot;
+                &quot;we,&quot; or &quot;Minimal Square&quot;), including but
+                not limited to, the Website accessible at{" "}
                 <a
                   href="https://minimal-labs.com"
                   target="_blank"

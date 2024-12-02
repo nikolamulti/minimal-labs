@@ -40,7 +40,7 @@ const BentoCodeBlock: React.FC = () => {
               </span>{" "}
               <span className="text-[#C4AFFF]">lang</span>
               <span className="text-[#FFFFFF]">=</span>
-              <span className="text-[#FFBC86]">"ts"</span>
+              <span className="text-[#FFBC86]">&quot;ts&quot;</span>
               <span className="text-[#FFDE5B]">
                 <span className="text-[#FFFFFF80]">&gt;</span>
               </span>
@@ -48,13 +48,15 @@ const BentoCodeBlock: React.FC = () => {
               <span className="text-[#A7D1FF]"> {activeTab} </span>&#125;{" "}
               <span className="text-[#C4AFFF]">from</span>{" "}
               <span className="text-[#FFBC86]">
-                '@/components/{activeTab.toLowerCase()}'
+                &#039;@/components/{activeTab.toLowerCase()}&#039;
               </span>
               ;
               <br /> <span className="text-[#C4AFFF]">import</span> &#123;
               <span className="text-[#A7D1FF]"> Label </span>&#125;{" "}
               <span className="text-[#C4AFFF]">from</span>{" "}
-              <span className="text-[#FFBC86]">'@/components/label'</span>
+              <span className="text-[#FFBC86]">
+                &#039;@/components/label&#039;
+              </span>
               ;
               <br />
               <span className="text-[#FFDE5B]">
@@ -69,10 +71,10 @@ const BentoCodeBlock: React.FC = () => {
               </span>{" "}
               <span className="text-[#C4AFFF]">id</span>
               <span className="text-[#FFFFFF]">=</span>
-              <span className="text-[#FFBC86]">"option-1"</span>{" "}
+              <span className="text-[#FFBC86]">&quot;option-1&quot;</span>{" "}
               <span className="text-[#A7D1FF]">orientation</span>
               <span className="text-[#FFFFFF]">=</span>
-              <span className="text-[#FFBC86]">"horizontal"</span>
+              <span className="text-[#FFBC86]">&quot;horizontal&quot;</span>
               <span className="text-[#FFDE5B]">
                 <span className="text-[#FFFFFF80]">&gt;</span>
               </span>
@@ -82,7 +84,7 @@ const BentoCodeBlock: React.FC = () => {
               </span>{" "}
               <span className="text-[#C4AFFF]">for</span>
               <span className="text-[#FFFFFF]">=</span>
-              <span className="text-[#FFBC86]">"option-1"</span>
+              <span className="text-[#FFBC86]">&quot;option-1&quot;</span>
               <span className="text-[#FFDE5B]">
                 <span className="text-[#FFFFFF80]">&gt;</span>
               </span>

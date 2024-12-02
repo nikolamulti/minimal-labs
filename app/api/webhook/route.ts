@@ -9,7 +9,6 @@ import { NextResponse } from "next/server";
 import {
   upsertCustomer,
   upsertOrder,
-  getOrderLicenseKey,
   getOrderIdByLicenseKey,
   getOrderCustomerId,
   updateOrderLicenseKey,

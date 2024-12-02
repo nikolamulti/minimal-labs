@@ -44,6 +44,7 @@ export async function GET(request: NextRequest) {
     );
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const licenseKey = authHeader.split(" ")[1];
 
   // Here you would typically validate the license key

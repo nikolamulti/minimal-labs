@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
 import type {
   TabsContentProps,
   TabsProps as BaseProps,
-} from '@radix-ui/react-tabs';
+} from "@radix-ui/react-tabs";
 import {
   useMemo,
   useState,
@@ -12,9 +12,9 @@ import {
   useContext,
   useRef,
   useLayoutEffect,
-} from 'react';
-import { cn } from '../lib/cn';
-import * as Primitive from './ui/tabs';
+} from "react";
+import { cn } from "../lib/cn";
+import * as Primitive from "./ui/tabs";
 
 export { Primitive };
 
@@ -31,7 +31,7 @@ function removeChangeListener(id: string, listener: ChangeListener): void {
   const list = listeners.get(id) ?? [];
   listeners.set(
     id,
-    list.filter((item) => item !== listener),
+    list.filter((item) => item !== listener)
   );
 }
 
@@ -59,7 +59,7 @@ export interface TabsProps extends BaseProps {
 }
 
 const ValueToMapContext = createContext<Map<string, string> | undefined>(
-  undefined,
+  undefined
 );
 
 export function Tabs({
@@ -99,7 +99,8 @@ export function Tabs({
     if (!hash) return;
 
     const entry = Array.from(valueToIdMapRef.current.entries()).find(
-      ([_, id]) => id === hash,
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      ([_, id]) => id === hash
     );
 
     if (entry) setValue(entry[0]);
@@ -111,7 +112,7 @@ export function Tabs({
         const id = valueToIdMapRef.current.get(v);
 
         if (id) {
-          window.history.replaceState(null, '', `#${id}`);
+          window.history.replaceState(null, "", `#${id}`);
         }
       }
 
@@ -126,7 +127,7 @@ export function Tabs({
         setValue(v);
       }
     },
-    [groupId, persist, updateAnchor],
+    [groupId, persist, updateAnchor]
   );
 
   return (
@@ -134,7 +135,7 @@ export function Tabs({
       value={value}
       onValueChange={onValueChange}
       {...props}
-      className={cn('my-4', props.className)}
+      className={cn("my-4", props.className)}
     >
       <Primitive.TabsList>
         {values.map((v, i) => (
@@ -151,7 +152,7 @@ export function Tabs({
 }
 
 function toValue(v: string): string {
-  return v.toLowerCase().replace(/\s/, '-');
+  return v.toLowerCase().replace(/\s/, "-");
 }
 
 export function Tab({ value, className, ...props }: TabsContentProps) {
@@ -166,8 +167,8 @@ export function Tab({ value, className, ...props }: TabsContentProps) {
     <Primitive.TabsContent
       value={v}
       className={cn(
-        'prose-no-margin [&>figure:only-child]:-m-4 [&>figure:only-child]:rounded-none [&>figure:only-child]:border-none',
-        className,
+        "prose-no-margin [&>figure:only-child]:-m-4 [&>figure:only-child]:rounded-none [&>figure:only-child]:border-none",
+        className
       )}
       {...props}
     />

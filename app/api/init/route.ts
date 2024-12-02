@@ -7,9 +7,10 @@ const GLOBALS_CSS_PATH = path.join(
   "app",
   "api",
   "init",
-  "global.css",
+  "global.css"
 );
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function GET(request: NextRequest) {
   try {
     // Read the contents of global.css
@@ -26,7 +27,7 @@ export async function GET(request: NextRequest) {
     console.error("Error reading global.css:", error);
     return NextResponse.json(
       { error: "Failed to read global.css" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }
