@@ -5,14 +5,14 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@clack/prompts':
-    specifier: ^0.7.0
-    version: 0.7.0
   node-fetch:
     specifier: ^3.3.0
     version: 3.3.2
 
 devDependencies:
+  '@clack/prompts':
+    specifier: ^0.7.0
+    version: 0.7.0
   terser:
     specifier: ^5.34.1
     version: 5.36.0
@@ -30,7 +30,7 @@ packages:
     dependencies:
       picocolors: 1.1.1
       sisteransi: 1.0.5
-    dev: false
+    dev: true
 
   /@clack/prompts@0.7.0:
     resolution: {integrity: sha512-0MhX9/B4iL6Re04jPrttDm+BsP8y6mS7byuv0BvXgdXhbV5PdlsHt55dvNsuBCPZ7xq1oTAOOuotR9NFbQyMSA==}
@@ -38,7 +38,7 @@ packages:
       '@clack/core': 0.3.5
       picocolors: 1.1.1
       sisteransi: 1.0.5
-    dev: false
+    dev: true
     bundledDependencies:
       - is-unicode-supported
 
@@ -391,7 +391,7 @@ packages:
 
   /picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
-    dev: false
+    dev: true
 
   /resolve-pkg-maps@1.0.0:
     resolution: {integrity: sha512-seS2Tj26TBVOC2NIc2rOe2y2ZO7efxITtLZcGSOnHHNOQ7CkiUBfw0Iw2ck6xkIhPwLhKNLS8BO+hEpngQlqzw==}
@@ -399,7 +399,7 @@ packages:
 
   /sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
-    dev: false
+    dev: true
 
   /source-map-support@0.5.21:
     resolution: {integrity: sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w==}
