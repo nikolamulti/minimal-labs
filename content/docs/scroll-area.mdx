@@ -1,0 +1,173 @@
+---
+title: Scroll area
+description: Scrolling element that maintain consistency across different browsers.
+---
+
+import { Svelte } from "@/components/svelte";
+import { Tabs, Tab } from "@/components/tabs";
+import { Step, Steps } from "@/components/steps";
+import { TypeTable } from "@/components/type-table";
+import { DocsButton } from "@/components/ui/docs-button";
+import { DocsTabs, DocsTab } from "@/components/docs-tabs";
+
+<DocsButton href="https://bits-ui.com/docs/components/scroll-area">
+  API Reference
+</DocsButton>
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/scroll-area" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+    
+```svelte
+<script lang="ts">
+  import { ScrollArea } from '$lib/components/scroll-area';
+</script>
+
+<ScrollArea class="scroll-area">
+  <div class="scroll-area__container">
+    <h2 class="scroll-area__title">Scroll Area</h2>
+    <p class="scroll-area__text">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu
+      convallis nulla, sed egestas sapien. Nulla eleifend sem sed malesuada
+      pellentesque. Sed in tellus est. Sed malesuada tellus eu sollicitudin
+      aliquam. <br />
+      <br />
+      Donec luctus nibh eu odio sagittis, vitae tristique enim aliquam.
+      Pellentesque nunc ligula, volutpat eget blandit eu, congue et justo. In a
+      lacus sodales, porta mi nec, ornare risus. Etiam vel elit bibendum,
+      sodales ligula vel, mollis diam.
+      <br />
+      <br />
+      Suspendisse vel erat ornare, feugiat nulla vitae, hendrerit magna. Donec viverra
+      risus eget elit laoreet, eget viverra nunc molestie. Sed faucibus justo ut
+      massa ullamcorper commodo.
+    </p>
+  </div>
+</ScrollArea>
+
+<style>
+  :global(.scroll-area) {
+    width: 320px;
+    height: 190px;
+    padding: 1rem;
+    background-color: var(--wfs-background-muted);
+    border-radius: var(--wfs-radius-md);
+    border: 1px solid var(--wfs-border-muted);
+  }
+
+  :global(.scroll-area__container) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  :global(.scroll-area__title) {
+    margin: 0;
+  }
+
+  :global(.scroll-area__text) {
+    margin: 0;
+    color: var(--wfs-foreground-muted);
+    font-size: var(--wfs-font-size-md);
+    line-height: var(--wfs-line-height-md);
+  }
+</style>
+
+````
+
+  </DocsTab>
+</DocsTabs>
+
+
+## Usage
+
+```svelte
+<script lang="ts">
+  import { ScrollArea } from '$lib/components/scroll-area';
+</script>
+````
+
+```svelte
+<ScrollArea class="scroll-area">
+  <div class="scroll-area__container">
+    <h2 class="scroll-area__title">Scroll Area</h2>
+    <p class="scroll-area__text">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis nulla, sed
+      egestas sapien. Nulla eleifend sem sed malesuada pellentesque. Sed in tellus est. Sed
+      malesuada tellus eu sollicitudin aliquam. <br /><br />
+      Donec luctus nibh eu odio sagittis, vitae tristique enim aliquam. Pellentesque nunc ligula, volutpat
+      eget blandit eu, congue et justo. In a lacus sodales, porta mi nec, ornare risus. Etiam vel elit
+      bibendum, sodales ligula vel, mollis diam.<br /><br />
+      Suspendisse vel erat ornare, feugiat nulla vitae, hendrerit magna. Donec viverra risus eget elit
+      laoreet, eget viverra nunc molestie. Sed faucibus justo ut massa ullamcorper commodo.
+    </p>
+  </div>
+</ScrollArea>
+```
+
+## Examples
+
+### Orientation
+
+Use the `orientation` property to change the orientation of the scroll area.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/scroll-area/orientation" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { ScrollArea } from '$lib/components/scroll-area';
+</script>
+
+<ScrollArea orientation="horizontal" class="scroll-area">
+  <div class="scroll-area__container">
+    <h2 class="scroll-area__title">Scroll Area</h2>
+    <p class="scroll-area__text" style="width: 420px;">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis nulla, sed
+      egestas sapien. Nulla eleifend sem sed malesuada pellentesque. Sed in tellus est. Sed
+      malesuada tellus eu sollicitudin aliquam. <br /><br />
+      Donec luctus nibh eu odio sagittis, vitae tristique enim aliquam. Pellentesque nunc ligula, volutpat
+      eget blandit eu, congue et justo. In a lacus sodales, porta mi nec, ornare risus. Etiam vel elit
+      bibendum.
+    </p>
+  </div>
+</ScrollArea>
+
+<style>
+  :global(.scroll-area) {
+    width: 320px;
+    height: 190px;
+    padding: 1rem;
+    background-color: var(--wfs-background-muted);
+    border-radius: var(--wfs-radius-md);
+    border: 1px solid var(--wfs-border-muted);
+  }
+
+  :global(.scroll-area__container) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  :global(.scroll-area__title) {
+    margin: 0;
+  }
+
+  :global(.scroll-area__text) {
+    margin: 0;
+    color: var(--wfs-foreground-muted);
+    font-size: var(--wfs-font-size-md);
+    line-height: var(--wfs-line-height-md);
+  }
+</style>
+```
+
+  </DocsTab>
+
+</DocsTabs>
+````

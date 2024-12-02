@@ -3,57 +3,80 @@ title: Spinner
 description: A loading indicator that provides visual feedback during asynchronous operations.
 ---
 
-import { SvelteComponent } from "@/components/SvelteComponent";
-import { Tabs, Tab } from "fumadocs-ui/components/tabs";
-import { Step, Steps } from "fumadocs-ui/components/steps";
-import { TypeTable } from "fumadocs-ui/components/type-table";
+import { Svelte } from "@/components/svelte";
+import { Tabs, Tab } from "@/components/tabs";
+import { Step, Steps } from "@/components/steps";
+import { TypeTable } from "@/components/type-table";
+import { DocsButton } from "@/components/ui/docs-button";
+import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 
-<SvelteComponent url="/spinner" />
+<div className="h-6" />
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/spinner" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
 
 ```svelte
-import { Spinner } from '@/components/spinner';
-<Spinner size={24} />
+<script lang="ts">
+  import { Spinner } from '$lib/components/spinner';
+</script>
+
+<Spinner size={32} />
 ```
 
-## Component API
+  </DocsTab>
+</DocsTabs>
 
-Component accepts a single prop for customizing its appearance.
+## Usage
+
+```svelte
+<script lang="ts">
+  import { Progress } from '$lib/components/progress';
+
+  let value = 70;
+</script>
+```
+
+```svelte
+<Progress bind:value variant="primary" />
+```
+
+## Properties
 
 <TypeTable
   type={{
     size: {
+      description: "Determines the size of the spinner.",
       type: "number",
       default: 24,
     },
   }}
 />
 
->
+## Examples
 
-## Usage
+### Sizes
 
-### Default spinner
+Use the `size` property to change the size of the spinner.
 
-Basic spinner with default size of 24px.
-
-<SvelteComponent height={80} url="/spinner" />
-
-```svelte
-<Spinner />
-```
-
-### Custom size
-
-Spinner size can be customized using the size prop.
-
-<SvelteComponent height={80} url="/spinner/sizes" />
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/spinner/sizes" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
 
 ```svelte
+<script lang="ts">
+  import { Spinner } from '$lib/components/spinner';
+</script>
+
 <Spinner size={16} />
 <Spinner size={24} />
 <Spinner size={32} />
+<Spinner size={48} />
 ```
 
-## Accessibility
-
-WFS lays on top of bits-ui and covers accessibility. For more information visit [documentation](https://bits-ui.com/docs/introduction).
+  </DocsTab>
+</DocsTabs>

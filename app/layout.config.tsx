@@ -1,4 +1,5 @@
 import type { BaseLayoutProps } from "@/components/shared";
+import Image from "next/image";
 
 /**
  * Shared layout configurations
@@ -9,13 +10,18 @@ import type { BaseLayoutProps } from "@/components/shared";
  */
 export const baseOptions: BaseLayoutProps = {
   nav: {
-    title: "My App",
+    title: (
+      <div className="flex items-center gap-3">
+        <Image
+          src="/logo.svg"
+          alt="webflow svelte components logo"
+          width={24}
+          height={24}
+        />
+        <span className="text-base font-semibold">WFS</span>
+      </div>
+    ),
+    url: "/svelte",
   },
-  links: [
-    {
-      text: "Documentation",
-      url: "/docs",
-      active: "nested-url",
-    },
-  ],
+  disableThemeSwitch: true,
 };

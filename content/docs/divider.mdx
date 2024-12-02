@@ -3,68 +3,106 @@ title: Divider
 description: An element for visual content separation.
 ---
 
-import { SvelteComponent } from "@/components/SvelteComponent";
-import { Tabs, Tab } from "fumadocs-ui/components/tabs";
-import { Step, Steps } from "fumadocs-ui/components/steps";
-import { TypeTable } from "fumadocs-ui/components/type-table";
+import { Svelte } from "@/components/svelte";
+import { Tabs, Tab } from "@/components/tabs";
+import { Step, Steps } from "@/components/steps";
+import { TypeTable } from "@/components/type-table";
+import { DocsButton } from "@/components/ui/docs-button";
+import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 
-<SvelteComponent url="/divider" />
+<div className="h-6" />
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/divider" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
 
 ```svelte
-import { Divider } from '@/components/divider';
+<script lang="ts">
+  import { Divider } from '$lib/components/divider';
+</script>
 
 <Divider />
 ```
 
-## Component API
+  </DocsTab>
+</DocsTabs>
+
+## Usage
+
+```svelte
+<script lang="ts">
+  import { Divider } from '$lib/components/divider';
+</script>
+```
+
+```svelte
+<Divider />
+```
+
+## Properties
 
 <TypeTable
   type={{
     orientation: {
-      description: "Sets the orientation of the divider line",
-      type: "'wfs-horizontal' | 'wfs-vertical'",
-      default: "'wfs-horizontal'",
+      description: "The orientation of the divider.",
+      type: "string",
+      typeDescription: "'horizontal' | 'vertical'",
+      default: "horizontal",
     },
     elevation: {
-      description:
-        "Controls the visual weight of the divider through color intensity",
-      type: "'1' | '2' | '3' | '4'",
-      default: "'1'",
+      description: "The elevation of the divider.",
+      type: "string",
+      typeDescription: "'1' | '2' | '3' | '4'",
+      default: "1",
     },
   }}
 />
 
->
-
-## Variants
+## Examples
 
 ### Orientation
 
-The divider can be displayed horizontally or vertically.
+Use the `orientation` property to change the orientation of the divider.
 
-<SvelteComponent height={80} url="/divider/orientation" />
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/divider/orientation" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
 
 ```svelte
-<!-- Horizontal divider (default) -->
-<Divider orientation="wfs-horizontal" />
+<script lang="ts">
+  import { Divider } from '$lib/components/divider';
+</script>
 
-<!-- Vertical divider -->
-<Divider orientation="wfs-vertical" />
+<Divider orientation="vertical" />
 ```
 
-### Elevation levels
+  </DocsTab>
+</DocsTabs>
 
-Four elevation levels are available to control the visual weight.
+### Elevation
 
-<SvelteComponent height={160} url="/divider/elevation" />
+Use the `elevation` property to change the elevation of the divider.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/divider/elevation" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
 
 ```svelte
-<Divider elevation="1" /> <!-- Lightest -->
+<script lang="ts">
+  import { Divider } from '$lib/components/divider';
+</script>
+
+<Divider elevation="1" />
 <Divider elevation="2" />
 <Divider elevation="3" />
-<Divider elevation="4" /> <!-- Darkest -->
+<Divider elevation="4" />
 ```
 
-## Accessibility
-
-WFS lays on top of bits-ui and covers accessibility. For more information visit [documentation](https://bits-ui.com/docs/introduction).
+  </DocsTab>
+</DocsTabs>

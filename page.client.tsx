@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   Fragment,
@@ -6,21 +6,21 @@ import {
   useEffect,
   useMemo,
   useState,
-} from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import Link from 'next/link';
-import { cva } from 'class-variance-authority';
-import { cn } from './lib/cn';
-import { useI18n } from 'fumadocs-ui/provider';
-import { useTreeContext, useTreePath } from 'fumadocs-ui/provider';
-import { useSidebar } from 'fumadocs-ui/provider';
-import type { PageTree } from 'fumadocs-core/server';
-import { usePathname } from 'next/navigation';
-import { useNav } from './components/layout/nav';
+} from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
+import { cva } from "class-variance-authority";
+import { cn } from "./lib/cn";
+import { useI18n } from "fumadocs-ui/provider";
+import { useTreeContext, useTreePath } from "fumadocs-ui/provider";
+import { useSidebar } from "fumadocs-ui/provider";
+import type { PageTree } from "fumadocs-core/server";
+import { usePathname } from "next/navigation";
+import { useNav } from "./components/layout/nav";
 import {
   type BreadcrumbOptions,
   getBreadcrumbItemsFromPath,
-} from 'fumadocs-core/breadcrumb';
+} from "fumadocs-core/breadcrumb";
 
 export function PageContainer(props: HTMLAttributes<HTMLDivElement>) {
   const { collapsed } = useSidebar();
@@ -29,15 +29,15 @@ export function PageContainer(props: HTMLAttributes<HTMLDivElement>) {
     <div
       {...props}
       className={cn(
-        'flex w-full min-w-0 max-w-[var(--fd-page-width)] flex-col md:transition-[max-width]',
-        props.className,
+        "flex w-full min-w-0 max-w-[var(--fd-page-width)] flex-col md:transition-[max-width]",
+        props.className
       )}
       style={
         {
           ...props.style,
-          '--fd-page-width': collapsed
-            ? '100vw'
-            : 'calc(min(100vw, var(--fd-layout-width)) - var(--fd-sidebar-width) - var(--fd-toc-width))',
+          "--fd-page-width": collapsed
+            ? "100vw"
+            : "calc(min(100vw, var(--fd-layout-width)) - var(--fd-sidebar-width) - var(--fd-toc-width))",
         } as object
       }
     >
@@ -54,16 +54,16 @@ export function PageHeader(props: HTMLAttributes<HTMLDivElement>) {
     <header
       {...props}
       className={cn(
-        'sticky top-fd-layout-top z-10 flex flex-row items-center border-b border-fd-foreground/10 text-sm transition-colors',
-        !isTransparent && 'bg-fd-background/80 backdrop-blur-md',
-        open && 'opacity-0',
-        props.className,
+        "sticky top-fd-layout-top z-10 flex flex-row items-center border-b border-fd-foreground/10 text-sm transition-colors",
+        !isTransparent && "bg-fd-background/80 backdrop-blur-md",
+        open && "opacity-0",
+        props.className
       )}
       style={
         {
           ...props.style,
-          '--fd-toc-top-with-offset':
-            'calc(4px + var(--fd-banner-height) + var(--fd-nav-height))',
+          "--fd-toc-top-with-offset":
+            "calc(4px + var(--fd-banner-height) + var(--fd-nav-height))",
         } as object
       }
     >
@@ -74,7 +74,7 @@ export function PageHeader(props: HTMLAttributes<HTMLDivElement>) {
 
 export function LastUpdate(props: { date: Date }) {
   const { text } = useI18n();
-  const [date, setDate] = useState('');
+  const [date, setDate] = useState("");
 
   useEffect(() => {
     // to the timezone of client
@@ -99,18 +99,18 @@ export interface FooterProps {
 }
 
 const itemVariants = cva(
-  'flex w-full flex-col gap-2 rounded-lg border bg-fd-card p-4 text-sm transition-colors hover:bg-fd-accent/80 hover:text-fd-accent-foreground',
+  "flex w-full flex-col gap-2 rounded-lg border bg-fd-card p-4 text-sm transition-colors hover:bg-fd-accent/80 hover:text-fd-accent-foreground"
 );
 
 const itemLabel = cva(
-  'inline-flex items-center gap-0.5 text-fd-muted-foreground',
+  "inline-flex items-center gap-0.5 text-fd-muted-foreground"
 );
 
 function scanNavigationList(tree: PageTree.Node[]) {
   const list: PageTree.Item[] = [];
 
   tree.forEach((node) => {
-    if (node.type === 'folder') {
+    if (node.type === "folder") {
       if (node.index) {
         list.push(node.index);
       }
@@ -119,7 +119,7 @@ function scanNavigationList(tree: PageTree.Node[]) {
       return;
     }
 
-    if (node.type === 'page' && !node.external) {
+    if (node.type === "page" && !node.external) {
       list.push(node);
     }
   });
@@ -164,9 +164,9 @@ export function Footer({ items }: FooterProps) {
       {next ? (
         <Link
           href={next.url}
-          className={cn(itemVariants({ className: 'col-start-2 text-end' }))}
+          className={cn(itemVariants({ className: "col-start-2 text-end" }))}
         >
-          <div className={cn(itemLabel({ className: 'flex-row-reverse' }))}>
+          <div className={cn(itemLabel({ className: "flex-row-reverse" }))}>
             <ChevronRight className="-me-1 size-4 shrink-0 rtl:rotate-180" />
             <p>{text.nextPage}</p>
           </div>

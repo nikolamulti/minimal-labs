@@ -1,3 +1,160 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Just Another Hand";
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url(../fonts/JustAnotherHand.woff2) format("woff2");
+  }
+}
+
+@property --border-angle {
+  inherits: false;
+  initial-value: 0deg;
+  syntax: "<angle>";
+}
+
+.dark {
+  /* Fumadocs colors */
+  --background: 0 0% 12%;
+  --foreground: 255 100% 100%;
+  --muted: 0 0% 21%;
+  /* --muted-foreground: 0 0% 0%; */
+  --popover: 0 0% 21%;
+  /* --popover-foreground: 0 0% 0%; */
+  --card: 0 0% 16%;
+  /* --card-foreground: 0 0% 0%; */
+  --border: 0 0% 25%;
+  /* --primary: 0 0% 0%; */
+  /* --primary-foreground: 0 0% 0%; */
+  --secondary: 0 0% 16%;
+  /* --secondary-foreground: 0 0% 0%; */
+  --accent: 0 0% 21%;
+  /* --accent-foreground: 0 0% 0%; */
+  /* --ring: 0 0% 0%; */
+}
+
+:root {
+  /* Colors */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-blue-100: #a7d1ff;
+  --color-blue-200: #007df0;
+  --color-blue-300: #187cd9;
+  --color-blue-400: #006acc;
+  --color-blue-alpha-10: #007df01a;
+  --color-blue-alpha-15: #007df026;
+  --color-blue-alpha-20: #007df033;
+  --color-blue-alpha-25: #007df040;
+  --color-blue-alpha-30: #007df04d;
+  --color-blue-alpha-35: #007df059;
+  --color-green-100: #79e09c;
+  --color-green-200: #259d4d;
+  --color-green-300: #0d8a4f;
+  --color-green-400: #007a41;
+  --color-green-alpha-10: #259d4d1a;
+  --color-green-alpha-15: #259d4d26;
+  --color-green-alpha-20: #259d4d33;
+  --color-green-alpha-25: #259d4d40;
+  --color-green-alpha-30: #259d4d4d;
+  --color-green-alpha-35: #259d4d59;
+  --color-neutral-0: #f5f5f5;
+  --color-neutral-100: #e8e8e8;
+  --color-neutral-1000: #353535;
+  --color-neutral-1100: #292929;
+  --color-neutral-1200: 30 30 30;
+  --color-neutral-200: #e0e0e0;
+  --color-neutral-300: #dbdbdb;
+  --color-neutral-400: #c4c4c4;
+  --color-neutral-450: #b8b8b8;
+  --color-neutral-50: #ededed;
+  --color-neutral-500: #a6a6a6;
+  --color-neutral-550: #8a8a8a;
+  --color-neutral-600: #6d6d6d;
+  --color-neutral-700: #5e5e5e;
+  --color-neutral-750: #4c4c4c;
+  --color-neutral-800: #404040;
+  --color-neutral-900: #373737;
+  --color-neutral-black-10: #0000001a;
+  --color-neutral-black-13: #00000021;
+  --color-neutral-black-16: #00000029;
+  --color-neutral-black-19: #00000030;
+  --color-neutral-black-22: #00000038;
+  --color-neutral-black-25: #00000040;
+  --color-neutral-black-30: #0000004d;
+  --color-neutral-black-40: #00000066;
+  --color-neutral-black-50: #00000080;
+  --color-neutral-black-60: #00000099;
+  --color-neutral-black-67: #000000ab;
+  --color-neutral-black-7: #00000012;
+  --color-neutral-black-70: #000000b2;
+  --color-neutral-black-80: #000000cc;
+  --color-neutral-white-10: #ffffff1a;
+  --color-neutral-white-13: #ffffff21;
+  --color-neutral-white-16: #ffffff29;
+  --color-neutral-white-19: #ffffff30;
+  --color-neutral-white-22: #ffffff38;
+  --color-neutral-white-25: #ffffff40;
+  --color-neutral-white-30: #ffffff4d;
+  --color-neutral-white-40: #ffffff66;
+  --color-neutral-white-50: #ffffff80;
+  --color-neutral-white-60: #ffffff99;
+  --color-neutral-white-67: #ffffffab;
+  --color-neutral-white-7: #ffffff12;
+  --color-neutral-white-70: #ffffffb2;
+  --color-neutral-white-80: #ffffffcc;
+  --color-orange-100: #ffbc86;
+  --color-orange-200: #df640c;
+  --color-orange-300: #c95616;
+  --color-orange-400: #bf4707;
+  --color-orange-alpha-10: #df640c1a;
+  --color-orange-alpha-15: #df640c26;
+  --color-orange-alpha-20: #df640c33;
+  --color-orange-alpha-25: #df640c40;
+  --color-orange-alpha-30: #df640c4d;
+  --color-orange-alpha-35: #df640c59;
+  --color-pink-100: #febdff;
+  --color-pink-200: #dd2cac;
+  --color-pink-300: #c44aa9;
+  --color-pink-400: #b53a9a;
+  --color-pink-alpha-10: #dd2cac1a;
+  --color-pink-alpha-15: #dd2cac26;
+  --color-pink-alpha-20: #dd2cac33;
+  --color-pink-alpha-25: #dd2cac40;
+  --color-pink-alpha-30: #dd2cac4d;
+  --color-pink-alpha-35: #dd2cac59;
+  --color-purple-100: #c4afff;
+  --color-purple-200: #875ffd;
+  --color-purple-300: #815beb;
+  --color-purple-400: #734ce0;
+  --color-purple-alpha-10: #875ffd1a;
+  --color-purple-alpha-15: #875ffd26;
+  --color-purple-alpha-20: #875ffd33;
+  --color-purple-alpha-25: #875ffd40;
+  --color-purple-alpha-30: #875ffd4d;
+  --color-purple-alpha-35: #875ffd59;
+  --color-red-100: #ff9c9c;
+  --color-red-200: #e42f3a;
+  --color-red-300: #cb3535;
+  --color-red-400: #cf313b;
+  --color-red-alpha-10: #e42f3a1a;
+  --color-red-alpha-15: #e42f3a26;
+  --color-red-alpha-20: #e42f3a33;
+  --color-red-alpha-25: #e42f3a40;
+  --color-red-alpha-30: #e42f3a4d;
+  --color-red-alpha-35: #e42f3a59;
+  --color-yellow-100: #ffde5b;
+  --color-yellow-200: #ffd301;
+  --color-yellow-300: #f0c000;
+  --color-yellow-400: #8b6d00;
+  --color-yellow-alpha-10: #ffd3011a;
+  --color-yellow-alpha-15: #ffd30126;
+  --color-yellow-alpha-20: #ffd30133;
+  --color-yellow-alpha-25: #ffd30140;
+  --color-yellow-alpha-30: #ffd3014d;
+  --color-yellow-alpha-35: #ffd30159;
+}

@@ -3,30 +3,395 @@ title: Select
 description: Allows users to choose single or multiple values from a list of options.
 ---
 
-import { TypeTable } from "fumadocs-ui/components/type-table";
+import { Svelte } from "@/components/svelte";
+import { Tabs, Tab } from "@/components/tabs";
+import { Step, Steps } from "@/components/steps";
+import { TypeTable } from "@/components/type-table";
+import { DocsButton } from "@/components/ui/docs-button";
+import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 
-## Code Block
+<DocsButton href="https://bits-ui.com/docs/components/select">
+  API Reference
+</DocsButton>
 
-```js
-console.log("Hello World");
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/select" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Select, SelectTrigger, SelectContent, SelectGroup, SelectItem } from '$lib/components/select';
+
+  const roles = [
+    { value: 'admin', label: 'Admin' },
+    { value: 'editor', label: 'Editor' },
+    { value: 'reviewer', label: 'Reviewer' },
+    { value: 'guest', label: 'Guest' }
+  ];
+</script>
+
+<Select name="userRoles">
+  <SelectTrigger placeholder="Assign user role" aria-label="Assign user role" />
+  <SelectContent>
+    <SelectGroup>
+      {#each roles as role}
+        <SelectItem value={role.value} label={role.label}>
+          {role.label}
+        </SelectItem>
+      {/each}
+    </SelectGroup>
+  </SelectContent>
+</Select>
+```
+
+  </DocsTab>
+</DocsTabs>
+
+## Usage
+
+```svelte
+<script lang="ts">
+  import { Select, SelectTrigger, SelectContent, SelectGroup, SelectItem } from '$lib/components/select';
+
+  const roles = [
+    { value: 'admin', label: 'Admin' },
+    { value: 'editor', label: 'Editor' },
+    { value: 'reviewer', label: 'Reviewer' },
+    { value: 'guest', label: 'Guest' }
+  ];
+</script>
+```
+
+```svelte
+<Select name="userRoles">
+  <SelectTrigger placeholder="Assign user role" aria-label="Assign user role" />
+  <SelectContent>
+    <SelectGroup>
+      {#each roles as role}
+        <SelectItem value={role.value} label={role.label}>
+          {role.label}
+        </SelectItem>
+      {/each}
+    </SelectGroup>
+  </SelectContent>
+</Select>
 ```
 
 ## Properties
 
+### SelectTrigger
+
 <TypeTable
   type={{
-    percentage: {
-      description:
-        "The percentage of scroll position to display the roll button",
-      type: "number",
-      default: 0.2,
-    },
-    show: {
-      description: "Whether to show the roll button",
-      type: "boolean",
-      default: "true",
+    icon: {
+      description: "The icon to display in the select trigger.",
+      type: "ComponentType",
     },
   }}
 />
 
->
+### SelectItem
+
+<TypeTable
+  type={{
+    icon: {
+      description: "The icon to display in the select item.",
+      type: "ComponentType",
+    },
+  }}
+/>
+
+## Examples
+
+### Icon support
+
+Use the `icon` property to add an icon to either the `SelectTrigger` or `SelectItem` component.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/select/icon-support" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Select, SelectTrigger, SelectContent, SelectGroup, SelectItem } from '$lib/components/select';
+  import { Account } from '$lib/components/icons';
+
+  const roles = [
+    { value: 'admin', label: 'Admin', icon: Account },
+    { value: 'editor', label: 'Editor', icon: Account },
+    { value: 'reviewer', label: 'Reviewer', icon: Account },
+    { value: 'guest', label: 'Guest', icon: Account }
+  ];
+</script>
+
+<Select name="userRoles">
+  <SelectTrigger icon={Account} placeholder="Assign user role" aria-label="Assign user role" />
+  <SelectContent>
+    <SelectGroup>
+      {#each roles as role}
+        <SelectItem value={role.value} label={role.label} icon={role.icon}>
+          {role.label}
+        </SelectItem>
+      {/each}
+    </SelectGroup>
+  </SelectContent>
+</Select>
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Header
+
+Use the `SelectHeader` component to add a header inside the `SelectContent` or within a `SelectGroup` when using grouped options.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/select/header" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Select, SelectTrigger, SelectContent, SelectGroup, SelectHeader, SelectItem } from '$lib/components/select';
+
+  const roles = [
+    { value: 'admin', label: 'Admin' },
+    { value: 'editor', label: 'Editor' },
+    { value: 'reviewer', label: 'Reviewer' },
+    { value: 'guest', label: 'Guest' }
+  ];
+</script>
+
+<Select name="userRoles">
+  <SelectTrigger placeholder="Assign user role" aria-label="Assign user role" />
+  <SelectContent>
+    <SelectGroup>
+      <SelectHeader>User Roles</SelectHeader>
+      {#each roles as role}
+        <SelectItem value={role.value} label={role.label}>
+          {role.label}
+        </SelectItem>
+      {/each}
+    </SelectGroup>
+  </SelectContent>
+</Select>
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Description
+
+Use the `Description` component inside the `SelectItem` component to provide additional information about the select item.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/select/description" height={480} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Select, SelectTrigger, SelectContent, SelectGroup, SelectItem, SelectDescription } from '$lib/components/select';
+
+  const roles = [
+    { value: 'admin', label: 'Admin', description: 'Full system access' },
+    { value: 'editor', label: 'Editor', description: 'Can edit content' },
+    { value: 'reviewer', label: 'Reviewer', description: 'Can review content' },
+    { value: 'guest', label: 'Guest', description: 'Limited access' }
+  ];
+</script>
+
+<Select name="userRoles">
+  <SelectTrigger placeholder="Assign user role" aria-label="Assign user role" />
+  <SelectContent>
+    <SelectGroup>
+      {#each roles as role}
+        <SelectItem value={role.value} label={role.label}>
+          {role.label}
+          <SelectDescription>{role.description}</SelectDescription>
+        </SelectItem>
+      {/each}
+    </SelectGroup>
+  </SelectContent>
+</Select>
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Sublabel
+
+Use the `Sublabel` component inside the `SelectItem` component to add a secondary label to the select item.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/select/sublabel" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Select, SelectTrigger, SelectContent, SelectGroup, SelectItem, SelectSublabel } from '$lib/components/select';
+
+  const roles = [
+    { value: 'admin', label: 'Admin', sublabel: 'Full system access' },
+    { value: 'editor', label: 'Editor', sublabel: 'Can edit content' },
+    { value: 'reviewer', label: 'Reviewer', sublabel: 'Can review content' },
+    { value: 'guest', label: 'Guest', sublabel: 'Limited access' }
+  ];
+</script>
+
+<Select name="userRoles">
+  <SelectTrigger placeholder="Assign user role" aria-label="Assign user role" />
+  <SelectContent>
+    <SelectGroup>
+      {#each roles as role}
+        <SelectItem value={role.value} label={role.label}>
+          {role.label}
+          <SelectSublabel>{role.sublabel}</SelectSublabel>
+        </SelectItem>
+      {/each}
+    </SelectGroup>
+  </SelectContent>
+</Select>
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Group
+
+Use the `SelectGroup` component inside `SelectContent` to group related options together.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/select/group" height={480} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Select, SelectTrigger, SelectContent, SelectGroup, SelectHeader, SelectItem, SelectSeparator } from '$lib/components/select';
+
+  const roles = {
+    management: [
+      { value: 'admin', label: 'Admin', description: 'Full system access' },
+      { value: 'editor', label: 'Editor', description: 'Can edit content' }
+    ],
+    limited: [
+      { value: 'reviewer', label: 'Reviewer', description: 'Can review content' },
+      { value: 'guest', label: 'Guest', description: 'Limited access' }
+    ]
+  };
+</script>
+
+<Select name="userRoles">
+  <SelectTrigger placeholder="Assign user role" aria-label="Assign user role" />
+  <SelectContent>
+    <SelectGroup>
+      <SelectHeader>Management</SelectHeader>
+      {#each roles.management as role}
+        <SelectItem value={role.value} label={role.label}>
+          {role.label}
+        </SelectItem>
+      {/each}
+    </SelectGroup>
+    <SelectSeparator />
+    <SelectGroup>
+      <SelectHeader>Limited access</SelectHeader>
+      {#each roles.limited as role}
+        <SelectItem value={role.value} label={role.label}>
+          {role.label}
+        </SelectItem>
+      {/each}
+    </SelectGroup>
+  </SelectContent>
+</Select>
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Disabled
+
+Use the `disabled` property to prevent users from interacting with the select.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/select/disabled" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Select, SelectTrigger, SelectContent, SelectGroup, SelectItem } from '$lib/components/select';
+
+  const roles = [
+    { value: 'admin', label: 'Admin' },
+    { value: 'editor', label: 'Editor' },
+    { value: 'reviewer', label: 'Reviewer' },
+    { value: 'guest', label: 'Guest' }
+  ];
+</script>
+
+<Select disabled name="userRoles">
+  <SelectTrigger placeholder="Assign user role" aria-label="Assign user role" />
+  <SelectContent>
+    <SelectGroup>
+      {#each roles as role}
+        <SelectItem value={role.value} label={role.label}>
+          {role.label}
+        </SelectItem>
+      {/each}
+    </SelectGroup>
+  </SelectContent>
+</Select>
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Disabled item
+
+Use the `disabled` property inside the `SelectItem` component to prevent users from interacting with the select item.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/select/disabled-item" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Select, SelectTrigger, SelectContent, SelectGroup, SelectItem } from '$lib/components/select';
+
+  const roles = [
+    { value: 'admin', label: 'Admin', disabled: true },
+    { value: 'editor', label: 'Editor', disabled: false },
+    { value: 'reviewer', label: 'Reviewer', disabled: false },
+    { value: 'guest', label: 'Guest', disabled: false }
+  ];
+</script>
+
+<Select name="userRoles">
+  <SelectTrigger placeholder="Assign user role" aria-label="Assign user role" />
+  <SelectContent>
+    <SelectGroup>
+      {#each roles as role}
+        <SelectItem value={role.value} label={role.label} disabled={role.disabled}>
+          {role.label}
+        </SelectItem>
+      {/each}
+    </SelectGroup>
+	</SelectContent>
+</Select>
+```
+
+  </DocsTab>
+</DocsTabs>

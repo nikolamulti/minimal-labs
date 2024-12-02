@@ -1,17 +1,67 @@
 ---
 title: Aspect Ratio
-description: Aspect Ratio
+description: Displays content while maintaining a specified aspect ratio, ensuring consistent visual proportions.
 ---
 
-## Code Block
+import { Svelte } from "@/components/svelte";
+import { Tabs, Tab } from "@/components/tabs";
+import { Step, Steps } from "@/components/steps";
+import { TypeTable } from "@/components/type-table";
+import { DocsButton } from "@/components/ui/docs-button";
+import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 
-```js
-console.log("Hello World");
+<DocsButton href="https://bits-ui.com/docs/components/aspect-ratio">
+  API Reference
+</DocsButton>
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/aspect-ratio" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+    
+```svelte
+<script lang="ts">
+  import { AspectRatio } from '$lib/components/aspect-ratio'; 
+</script>
+
+<AspectRatio ratio={16 / 9}>
+  <img class="aspect-ratio__image" src="/placeholder.jpg" alt="Placeholder" />
+</AspectRatio>
+
+<style>
+  :global(.aspect-ratio__image) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--wfs-radius-md);
+  }
+</style>
+
+````
+
+  </DocsTab>
+</DocsTabs>
+
+## Usage
+
+```svelte
+<script lang="ts">
+  import { AspectRatio } from '$lib/components/aspect-ratio';
+</script>
+````
+
+```svelte
+<AspectRatio ratio={16 / 9}>
+  <img class="aspect-ratio__image" src="/placeholder.jpg" alt="Placeholder" />
+</AspectRatio>
+
+<style>
+  :global(.aspect-ratio__image) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--wfs-radius-md);
+  }
+</style>
 ```
-
-## Cards
-
-<Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.vercel.app" />
-</Cards>

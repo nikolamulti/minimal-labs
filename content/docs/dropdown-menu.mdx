@@ -1,0 +1,490 @@
+---
+title: Dropdown menu
+description: A dropdown menu displays a list of options or actions when triggered.
+---
+
+import { Svelte } from "@/components/svelte";
+import { Tabs, Tab } from "@/components/tabs";
+import { Step, Steps } from "@/components/steps";
+import { TypeTable } from "@/components/type-table";
+import { DocsButton } from "@/components/ui/docs-button";
+import { DocsTabs, DocsTab } from "@/components/docs-tabs";
+
+<DocsButton href="https://bits-ui.com/docs/components/dropdown-menu">
+  API Reference
+</DocsButton>
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/dropdown-menu" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Dropdown, DropdownTrigger, DropdownContent, DropdownItem } from '$lib/components/dropdown-menu';
+  import { ChevronSmallDown } from '$lib/components/icons';
+  import { Button } from '$lib/components/button';
+</script>
+
+<Dropdown>
+  <DropdownTrigger>
+    <Button trailingIcon={ChevronSmallDown}>Account</Button>
+  </DropdownTrigger>
+  <DropdownContent class="dropdown__content">
+    <DropdownItem>View Profile</DropdownItem>
+    <DropdownItem>Account Settings</DropdownItem>
+    <DropdownItem>Billing</DropdownItem>
+    <DropdownItem>Team Members</DropdownItem>
+    <DropdownItem>Support</DropdownItem>
+  </DropdownContent>
+</Dropdown>
+
+<style>
+  :global(.dropdown__content) {
+    width: 200px;
+  }
+</style>
+```
+
+  </DocsTab>
+</DocsTabs>
+
+## Usage
+
+```svelte
+<script lang="ts">
+  import { Dropdown, DropdownTrigger, DropdownContent, DropdownItem } from '$lib/components/dropdown-menu';
+  import { ChevronSmallDown } from '$lib/components/icons';
+  import { Button } from '$lib/components/button';
+</script>
+```
+
+```svelte
+<Dropdown>
+  <DropdownTrigger>
+    <Button trailingIcon={ChevronSmallDown}>Account</Button>
+  </DropdownTrigger>
+  <DropdownContent>
+    <DropdownItem>View Profile</DropdownItem>
+    <DropdownItem>Account Settings</DropdownItem>
+    <DropdownItem>Billing</DropdownItem>
+    <DropdownItem>Team Members</DropdownItem>
+    <DropdownItem>Support</DropdownItem>
+  </DropdownContent>
+</Dropdown>
+```
+
+## Properties
+
+These are the properties specific to our `dropdown-menu` implementation. For the complete list of properties, please refer to their <a href="https://www.bits-ui.com/docs/components/dropdown-menu" target="_blank">documentation</a>.
+
+### DropdownItem
+
+<TypeTable
+  type={{
+    icon: {
+      description: "The icon to display in dropdown item.",
+      type: "ComponentType | null",
+      default: "null",
+    },
+  }}
+/>
+
+### DropdownSubTrigger
+
+<TypeTable
+  type={{
+    icon: {
+      description: "The icon to display in dropdown item.",
+      type: "ComponentType | null",
+      default: "null",
+    },
+  }}
+/>
+
+### DropdownCheckboxItem
+
+<TypeTable
+  type={{
+    icon: {
+      description: "The icon to display in dropdown item.",
+      type: "ComponentType | null",
+      default: "null",
+    },
+  }}
+/>
+
+## Examples
+
+### Icon support
+
+Use the `icon` property to easily add an icon to the `DropdownItem` component.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/dropdown-menu/icon-support" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Dropdown, DropdownTrigger, DropdownContent, DropdownItem } from '$lib/components/dropdown-menu';
+  import { Account, Settings, Briefcase, Users, HelpCircle, ChevronSmallDown } from '$lib/components/icons';
+  import { Button } from '$lib/components/button';
+</script>
+
+<Dropdown>
+  <DropdownTrigger>
+    <Button trailingIcon={ChevronSmallDown}>Account</Button>
+  </DropdownTrigger>
+  <DropdownContent class="dropdown__content">
+    <DropdownItem icon={Account}>View Profile</DropdownItem>
+    <DropdownItem icon={Settings}>Account Settings</DropdownItem>
+    <DropdownItem icon={Briefcase}>Billing</DropdownItem>
+    <DropdownItem icon={Users}>Team Members</DropdownItem>
+    <DropdownItem icon={HelpCircle}>Support</DropdownItem>
+  </DropdownContent>
+</Dropdown>
+
+<style>
+  :global(.dropdown__content) {
+    width: 200px;
+  }
+</style>
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Description
+
+Use the `Description` component inside the `DropdownItem` component to provide additional information about the dropdown item.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/dropdown-menu/description" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+	import { Dropdown, DropdownTrigger, DropdownContent, DropdownItem, DropdownDescription } from '$lib/components/dropdown-menu';
+	import { ChevronSmallDown } from '$lib/components/icons';
+	import { Button } from '$lib/components/button';
+</script>
+
+<Dropdown>
+  <DropdownTrigger>
+    <Button trailingIcon={ChevronSmallDown}>Account</Button>
+  </DropdownTrigger>
+  <DropdownContent class="dropdown__content">
+    <DropdownItem>
+      View Profile
+      <DropdownDescription>Edit your profile information</DropdownDescription>
+    </DropdownItem>
+    <DropdownItem>
+      Account Settings
+      <DropdownDescription>Manage account preferences</DropdownDescription>
+    </DropdownItem>
+    <DropdownItem>
+      Billing
+      <DropdownDescription>Manage billing information</DropdownDescription>
+    </DropdownItem>
+    <DropdownItem>
+      Team Members
+      <DropdownDescription>Manage team members and permissions</DropdownDescription>
+    </DropdownItem>
+    <DropdownItem>
+      Support
+      <DropdownDescription>Contact customer support</DropdownDescription>
+    </DropdownItem>
+  </DropdownContent>
+</Dropdown>
+
+<style>
+  :global(.dropdown__content) {
+    width: 200px;
+  }
+</style>
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Sublabel
+
+Use the `Sublabel` component inside the `DropdownItem` component to add a secondary label to the dropdown item.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/dropdown-menu/sublabel" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Dropdown, DropdownTrigger, DropdownContent, DropdownItem, DropdownSublabel } from '$lib/components/dropdown-menu';
+  import { ChevronSmallDown } from '$lib/components/icons';
+  import { Button } from '$lib/components/button';
+</script>
+
+<Dropdown>
+  <DropdownTrigger>
+    <Button trailingIcon={ChevronSmallDown}>Account</Button>
+  </DropdownTrigger>
+  <DropdownContent class="dropdown__content">
+    <DropdownItem>
+      View Profile
+      <DropdownSublabel>Edit profile</DropdownSublabel>
+    </DropdownItem>
+    <DropdownItem>
+      Account Settings
+      <DropdownSublabel>Preferences</DropdownSublabel>
+    </DropdownItem>
+    <DropdownItem>
+      Billing
+      <DropdownSublabel>Payment details</DropdownSublabel>
+    </DropdownItem>
+    <DropdownItem>
+      Team Members
+      <DropdownSublabel>Manage team</DropdownSublabel>
+    </DropdownItem>
+    <DropdownItem>
+      Support
+      <DropdownSublabel>Get help</DropdownSublabel>
+    </DropdownItem>
+  </DropdownContent>
+</Dropdown>
+
+<style>
+  :global(.dropdown__content) {
+    width: 200px;
+  }
+</style>
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Checkbox
+
+Use the `DropdownCheckboxItem` component to create a checkbox item.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/dropdown-menu/checkbox" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Dropdown, DropdownTrigger, DropdownContent, DropdownCheckboxItem } from '$lib/components/dropdown-menu';
+  import { ChevronSmallDown } from '$lib/components/icons';
+  import { Button } from '$lib/components/button';
+
+  const account = {
+    personalAccount: false,
+    businessAccount: false,
+    enterpriseAccount: false
+  };
+</script>
+
+<Dropdown closeOnItemClick={false}>
+  <DropdownTrigger>
+    <Button trailingIcon={ChevronSmallDown}>Account</Button>
+  </DropdownTrigger>
+  <DropdownContent class="dropdown__content">
+    <DropdownCheckboxItem bind:checked={account.personalAccount}>
+      Personal account
+    </DropdownCheckboxItem>
+    <DropdownCheckboxItem bind:checked={account.businessAccount}>
+      Business account
+    </DropdownCheckboxItem>
+    <DropdownCheckboxItem bind:checked={account.enterpriseAccount}>
+      Enterprise account
+    </DropdownCheckboxItem>
+  </DropdownContent>
+</Dropdown>
+
+<style>
+  :global(.dropdown__content) {
+    width: 200px;
+  }
+</style>
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Radio
+
+Use the `DropdownRadioItem` component to create a radio item.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/dropdown-menu/radio" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Dropdown, DropdownTrigger, DropdownContent, DropdownRadioItem, DropdownRadioGroup } from '$lib/components/dropdown-menu';
+  import { ChevronSmallDown } from '$lib/components/icons';
+  import { Button } from '$lib/components/button';
+
+  let account = 'personal';
+</script>
+
+<Dropdown>
+  <DropdownTrigger>
+    <Button trailingIcon={ChevronSmallDown}>Account</Button>
+  </DropdownTrigger>
+  <DropdownContent class="dropdown__content">
+    <DropdownRadioGroup bind:value={account}>
+      <DropdownRadioItem value="personal">Personal account</DropdownRadioItem>
+      <DropdownRadioItem value="business">Business account</DropdownRadioItem>
+      <DropdownRadioItem value="enterprise">Enterprise account</DropdownRadioItem>
+    </DropdownRadioGroup>
+  </DropdownContent>
+</Dropdown>
+
+<style>
+  :global(.dropdown__content) {
+    width: 200px;
+  }
+</style>
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Group
+
+Use the `DropdownGroup` component to group items together in the dropdown menu.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/dropdown-menu/group" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Dropdown, DropdownTrigger, DropdownContent, DropdownHeader, DropdownItem, DropdownGroup, DropdownSeparator } from '$lib/components/dropdown-menu';
+  import { ChevronSmallDown } from '$lib/components/icons';
+  import { Button } from '$lib/components/button';
+</script>
+
+<Dropdown>
+  <DropdownTrigger>
+    <Button trailingIcon={ChevronSmallDown}>Account</Button>
+  </DropdownTrigger>
+  <DropdownContent class="dropdown__content">
+    <DropdownGroup>
+      <DropdownHeader>Profile</DropdownHeader>
+      <DropdownItem>View Profile</DropdownItem>
+      <DropdownItem>Account Settings</DropdownItem>
+    </DropdownGroup>
+    <DropdownSeparator />
+    <DropdownGroup>
+      <DropdownHeader>Billing & Teams</DropdownHeader>
+      <DropdownItem>Billing</DropdownItem>
+      <DropdownItem>Team Members</DropdownItem>
+    </DropdownGroup>
+    <DropdownSeparator />
+    <DropdownGroup>
+      <DropdownHeader>Help</DropdownHeader>
+      <DropdownItem>Support</DropdownItem>
+      <DropdownItem>Documentation</DropdownItem>
+    </DropdownGroup>
+    <DropdownSeparator />
+    <DropdownGroup>
+      <DropdownItem>Sign out</DropdownItem>
+    </DropdownGroup>
+  </DropdownContent>
+</Dropdown>
+
+<style>
+  :global(.dropdown__content) {
+    width: 256px;
+  }
+</style>
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Submenu
+
+Use the `DropdownSub` component to create a submenu in the dropdown menu.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/dropdown-menu/submenu" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+	import { Dropdown, DropdownTrigger, DropdownContent, DropdownHeader, DropdownItem, DropdownGroup, DropdownSub, DropdownSubTrigger, DropdownSubContent, DropdownSeparator } from '$lib/components/dropdown-menu';
+	import { ChevronSmallDown } from '$lib/components/icons';
+	import { Button } from '$lib/components/button';
+</script>
+
+<Dropdown>
+  <DropdownTrigger>
+    <Button trailingIcon={ChevronSmallDown}>Account</Button>
+  </DropdownTrigger>
+  <DropdownContent class="dropdown__content">
+    <DropdownGroup>
+      <DropdownHeader>Profile</DropdownHeader>
+      <DropdownItem>View Profile</DropdownItem>
+      <DropdownItem>Account Settings</DropdownItem>
+    </DropdownGroup>
+    <DropdownSeparator />
+    <DropdownGroup>
+      <DropdownHeader>Billing & Teams</DropdownHeader>
+      <DropdownSub>
+        <DropdownSubTrigger>Billing</DropdownSubTrigger>
+        <DropdownSubContent class="dropdown__submenu-content">
+          <DropdownItem>Overview</DropdownItem>
+          <DropdownItem>Subscriptions</DropdownItem>
+          <DropdownItem>Invoices</DropdownItem>
+        </DropdownSubContent>
+      </DropdownSub>
+      <DropdownSub>
+        <DropdownSubTrigger>Team Members</DropdownSubTrigger>
+        <DropdownSubContent class="dropdown__submenu-content">
+          <DropdownItem>Manage Team</DropdownItem>
+          <DropdownItem>Add Member</DropdownItem>
+          <DropdownItem>Roles & Permissions</DropdownItem>
+        </DropdownSubContent>
+      </DropdownSub>
+    </DropdownGroup>
+    <DropdownSeparator />
+    <DropdownGroup>
+      <DropdownHeader>Help</DropdownHeader>
+      <DropdownItem>Support</DropdownItem>
+      <DropdownItem>Documentation</DropdownItem>
+    </DropdownGroup>
+    <DropdownSeparator />
+    <DropdownGroup>
+      <DropdownItem>Sign out</DropdownItem>
+    </DropdownGroup>
+  </DropdownContent>
+</Dropdown>
+
+<style>
+  :global(.dropdown__content) {
+    width: 256px;
+  }
+
+  :global(.dropdown__submenu-content) {
+    width: 160px;
+  }
+</style>
+```
+
+  </DocsTab>
+</DocsTabs>

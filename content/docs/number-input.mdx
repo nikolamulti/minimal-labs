@@ -1,32 +1,166 @@
 ---
 title: Number input
-description: Number input
+description: Form field for numerical values.
 ---
 
-import { TypeTable } from "fumadocs-ui/components/type-table";
+import { Svelte } from "@/components/svelte";
+import { Tabs, Tab } from "@/components/tabs";
+import { Step, Steps } from "@/components/steps";
+import { TypeTable } from "@/components/type-table";
+import { DocsButton } from "@/components/ui/docs-button";
+import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 
-## Code Block
+<div className="h-6" />
 
-```js
-console.log("Hello World");
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/number-input" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { NumberInput } from '$lib/components/input';
+</script>
+
+<NumberInput placeholder="Number of members" name="members" />
+```
+
+  </DocsTab>
+</DocsTabs>
+
+## Usage
+
+```svelte
+<script lang="ts">
+  import { NumberInput } from '$lib/components/input';
+</script>
+```
+
+```svelte
+<NumberInput placeholder="Number of members" name="members" />
 ```
 
 ## Properties
 
 <TypeTable
   type={{
-    percentage: {
-      description:
-        "The percentage of scroll position to display the roll button",
-      type: "number",
-      default: 0.2,
+    icon: {
+      description: "The icon to be displayed in the input.",
+      type: "ComponentType",
     },
-    show: {
-      description: "Whether to show the roll button",
+    value: {
+      description: "The value of the input.",
+      type: "number",
+    },
+    placeholder: {
+      description: "The placeholder text to display when empty.",
+      type: "string",
+    },
+    min: {
+      description: "The minimum allowed value.",
+      type: "number",
+    },
+    max: {
+      description: "The maximum allowed value.",
+      type: "number",
+    },
+    disabled: {
+      description: "Whether the input is disabled.",
       type: "boolean",
-      default: "true",
+      default: "false",
+    },
+    error: {
+      description: "Whether to show error styling.",
+      type: "boolean",
+      default: "false",
     },
   }}
 />
 
->
+## Examples
+
+### Icon support
+
+Use the `icon` property to add an icon to the `NumberInput` component.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/number-input/icon-support" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { NumberInput } from '$lib/components/input';
+  import { Users } from '$lib/components/icons';
+</script>
+
+<NumberInput icon={Users} placeholder="Number of members" name="members" />
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Min max
+
+Use the `min` and `max` properties to set the minimum and maximum input values.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/number-input/min-max" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { NumberInput } from '$lib/components/input';
+</script>
+
+<NumberInput min={0} max={10} placeholder="Number of members" name="members" />
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Error
+
+Use the `error` property to indicate that the input has an error.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/number-input/error" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { NumberInput } from '$lib/components/input';
+</script>
+
+<NumberInput error placeholder="Number of members" name="members" />
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Disabled
+
+Use the `disabled` property to prevent users from interacting with the input.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/number-input/disabled" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { NumberInput } from '$lib/components/input';
+</script>
+
+<NumberInput disabled placeholder="Number of members" name="members" />
+```
+
+  </DocsTab>
+</DocsTabs>

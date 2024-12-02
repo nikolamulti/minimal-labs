@@ -3,262 +3,289 @@ title: Accordion
 description: A collapsible content container that allows users to show and hide sections of related content.
 ---
 
-import { SvelteComponent } from "@/components/SvelteComponent";
-import { Tabs, Tab } from "fumadocs-ui/components/tabs";
-import { Step, Steps } from "fumadocs-ui/components/steps";
-import { TypeTable } from "fumadocs-ui/components/type-table";
+import { Svelte } from "@/components/svelte";
+import { Tabs, Tab } from "@/components/tabs";
+import { Step, Steps } from "@/components/steps";
+import { TypeTable } from "@/components/type-table";
+import { DocsButton } from "@/components/ui/docs-button";
+import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 
-<SvelteComponent url="/accordion" />
+<DocsButton href="https://bits-ui.com/docs/components/accordion">
+  API Reference
+</DocsButton>
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/accordion" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+    
+```svelte
+<script lang="ts">
+	import { Accordion, AccordionItem, AccordionContent, AccordionHeader } from '$lib/components/accordion';
+</script>
+
+<Accordion>
+  <AccordionItem value="pricing">
+    <AccordionHeader>How much does it cost?</AccordionHeader>
+    <AccordionContent>
+      Basic plan starts at $10/month. Professional plan at $29/month. Enterprise
+      plan has custom pricing.
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="cancel">
+    <AccordionHeader>Can I cancel my subscription anytime?</AccordionHeader>
+    <AccordionContent>
+      Yes, cancel anytime with no fees. Access continues until end of billing
+      period.
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="support">
+    <AccordionHeader>How can I get support?</AccordionHeader>
+    <AccordionContent>
+      24/7 email and chat support available. Enterprise includes dedicated
+      support.
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
+```
+
+  </DocsTab>
+</DocsTabs>
+
+## Usage
 
 ```svelte
 <script lang="ts">
-	import {
-		AccordionRoot,
-		AccordionItem,
-		AccordionTrigger,
-		AccordionContent,
-		AccordionHeader
-	} from '$lib/components/accordion';
-	import { Component } from '$lib/components';
-	import { FolderDefault } from '$lib/components/icons';
+	import { Accordion, AccordionItem, AccordionContent, AccordionHeader } from '$lib/components/accordion';
 </script>
-
-<AccordionRoot>
-  <AccordionItem value="item-1">
-    <AccordionHeader class="accordion-header">
-      <FolderDefault />
-      <AccordionTrigger>Accordion</AccordionTrigger>
-    </AccordionHeader>
-    <AccordionContent>
-      Lorem ipsum dolor sit amet adipisicing elit. Quisquam, quos.
-    </AccordionContent>
-  </AccordionItem>
-</AccordionRoot>
 ```
-
-## Component API
-
-### Root Props
-
-<TypeTable
-  type={{
-    value: {
-      description:
-        "The controlled value of the opened accordion item(s). When multiple is true, accepts an array of values.",
-      type: "'string' | 'string[]'",
-      default: "undefined",
-    },
-    multiple: {
-      description:
-        "When true, allows multiple accordion items to be open simultaneously.",
-      type: "boolean",
-      default: "false",
-    },
-    disabled: {
-      description:
-        "When true, prevents user interaction for the entire accordion.",
-      type: "boolean",
-      default: "false",
-    },
-    onValueChange: {
-      description:
-        "Callback fired when the opened state of any accordion item changes.",
-      type: "(value: string | string[]) => void",
-      default: "true",
-    },
-    asChild: {
-      description:
-        "When true, allows rendering the component through a child component instead of a DOM element.",
-      type: "boolean",
-      default: "false",
-    },
-  }}
-/>
-
->
-
-### Item Props
-
-<TypeTable
-  type={{
-    value: {
-      description:
-        "A unique identifier for the accordion item. Used to track open/close state.",
-      type: "string",
-      default: "''",
-    },
-    disabled: {
-      description:
-        "When true, prevents user interaction for this specific item.",
-      type: "boolean",
-      default: "false",
-    },
-    asChild: {
-      description:
-        "When true, allows rendering the item through a child component instead of a DOM element.",
-      type: "boolean",
-      default: "false",
-    },
-    itemEl: {
-      description: "A reference to the DOM element of the accordion item.",
-      type: "HTMLElement",
-      default: "undefined",
-    },
-  }}
-/>
-
-### Trigger Props
-
-<TypeTable
-  type={{
-    asChild: {
-      description:
-        "When true, allows rendering the trigger through a child component instead of a DOM element.",
-      type: "boolean",
-      default: "false",
-    },
-    triggerEl: {
-      description: "A reference to the DOM element of the trigger.",
-      type: "HTMLElement",
-      default: "undefined",
-    },
-    onClick: {
-      description: "Custom click event handler for the trigger.",
-      type: "'(e: Event) => void'",
-      default: "undefined",
-    },
-    onKeydown: {
-      description: "Custom keydown event handler for the trigger.",
-      type: "'(e: KeyboardEvent) => void'",
-      default: "undefined",
-    },
-  }}
-/>
-### Content Props
-
-<TypeTable
-  type={{
-    transition: {
-      description:
-        "Configuration for both in and out transitions of the content.",
-      type: "TransitionConfig",
-      default: "undefined",
-    },
-    transitionConfig: {
-      description: "Additional configuration options for the main transition.",
-      type: "object",
-      default: "undefined",
-    },
-    inTransition: {
-      description:
-        "Specific transition configuration for when content is showing.",
-      type: "TransitionConfig",
-      default: "undefined",
-    },
-    inTransitionConfig: {
-      description: "Additional configuration options for the in transition.",
-      type: "object",
-      default: "undefined",
-    },
-    outTransition: {
-      description:
-        "Specific transition configuration for when content is hiding.",
-      type: "TransitionConfig",
-      default: "undefined",
-    },
-    outTransitionConfig: {
-      description: "Additional configuration options for the out transition.",
-      type: "object",
-      default: "undefined",
-    },
-    asChild: {
-      description:
-        "When true, allows rendering the content through a child component instead of a DOM element.",
-      type: "boolean",
-      default: "false",
-    },
-    contentEl: {
-      description: "A reference to the DOM element of the content.",
-      type: "HTMLElement",
-      default: "undefined",
-    },
-  }}
-/>
-
-### Header Props
-
-<TypeTable
-  type={{
-    asChild: {
-      description:
-        "When true, allows rendering the header through a child component instead of a DOM element.",
-      type: "boolean",
-      default: "false",
-    },
-    headerEl: {
-      description: "A reference to the DOM element of the header.",
-      type: "HTMLElement",
-      default: "undefined",
-    },
-    level: {
-      description: "The heading level to use for the header (1-6).",
-      type: "number",
-      default: "'3'",
-    },
-  }}
-/>
-
-## Features
-
-### Single item
-
-Default behavior allows only one item to be opened at a time.
-
-<SvelteComponent height={100} url="/accordion" />
 
 ```svelte
 <Accordion>
-  <AccordionItem value="item-1">
-    <AccordionTrigger>Accordion</AccordionTrigger>
-    <AccordionContent>Lorem ipsum dolor sit amet adipisicing elit. Quisquam, quos.</AccordionContent>
+	<AccordionItem value="pricing">
+		<AccordionHeader>How much does it cost?</AccordionHeader>
+		<AccordionContent>
+			Basic plan starts at $10/month. Professional plan at $29/month. Enterprise plan has custom
+			pricing.
+		</AccordionContent>
+	</AccordionItem>
+	<AccordionItem value="cancel">
+		<AccordionHeader>Can I cancel my subscription anytime?</AccordionHeader>
+		<AccordionContent>
+			Yes, cancel anytime with no fees. Access continues until end of billing period.
+		</AccordionContent>
+	</AccordionItem>
+	<AccordionItem value="support">
+		<AccordionHeader>How can I get support?</AccordionHeader>
+		<AccordionContent>
+			24/7 email and chat support available. Enterprise includes dedicated support.
+		</AccordionContent>
+	</AccordionItem>
+</Accordion>
+```
+
+## Properties
+
+These are the properties specific to our `accordion` implementation. For the complete list of properties, please refer to their <a href="https://www.bits-ui.com/docs/components/accordion" target="_blank">documentation</a>.
+
+### AccordionHeader
+
+<TypeTable
+  type={{
+    icon: {
+      description: "A leading icon to be rendered in the header.",
+      type: "ComponentType",
+      default: "null",
+    },
+  }}
+/>
+
+### AccordionContent
+
+<TypeTable
+  type={{
+    indent: {
+      description: "When true, the content will be indented.",
+      type: "boolean",
+      default: "false",
+    },
+  }}
+/>
+
+## Examples
+
+### Default
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/accordion" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+    
+```svelte
+<script lang="ts">
+	import { Accordion, AccordionItem, AccordionContent, AccordionHeader } from '$lib/components/accordion';
+</script>
+
+<Accordion>
+  <AccordionItem value="pricing">
+    <AccordionHeader>How much does it cost?</AccordionHeader>
+    <AccordionContent>
+      Basic plan starts at $10/month. Professional plan at $29/month. Enterprise
+      plan has custom pricing.
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="cancel">
+    <AccordionHeader>Can I cancel my subscription anytime?</AccordionHeader>
+    <AccordionContent>
+      Yes, cancel anytime with no fees. Access continues until end of billing
+      period.
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="support">
+    <AccordionHeader>How can I get support?</AccordionHeader>
+    <AccordionContent>
+      24/7 email and chat support available. Enterprise includes dedicated
+      support.
+    </AccordionContent>
   </AccordionItem>
 </Accordion>
 ```
 
-### Multiple items
+  </DocsTab>
+</DocsTabs>
 
-Enable opening multiple items simultaneously using the multiple prop.
+### Icon support
 
-<SvelteComponent height={160} url="/accordion/multiple" />
+Add an `icon` prop to the `AccordionItem` component to display a leading icon in the header.
 
+When using icon, you can enable content indentation with the `indent` prop on `AccordionContent` to align the content with the header text.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/accordion/icon-support" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+  
 ```svelte
-<Accordion multiple>
-  <AccordionItem value="item-1">
-    <AccordionTrigger>Accordion</AccordionTrigger>
-    <AccordionContent>Lorem ipsum dolor sit amet adipisicing elit. Quisquam, quos.</AccordionContent>
+<script lang="ts">
+	import { Accordion, AccordionItem, AccordionContent, AccordionHeader } from '$lib/components/accordion';
+	import { HelpCircle } from '$lib/components/icons';
+</script>
+
+<Accordion>
+  <AccordionItem value="pricing">
+    <AccordionHeader icon={HelpCircle}>How much does it cost?</AccordionHeader>
+    <AccordionContent indent>
+      Basic plan starts at $10/month. Professional plan at $29/month. Enterprise
+      plan has custom pricing.
+    </AccordionContent>
   </AccordionItem>
-  <AccordionItem value="item-2">
-    <AccordionTrigger>Accordion</AccordionTrigger>
-    <AccordionContent>Lorem ipsum dolor sit amet adipisicing elit. Quisquam, quos.</AccordionContent>
+  <AccordionItem value="cancel">
+    <AccordionHeader icon={HelpCircle}>
+      Can I cancel my subscription anytime?
+    </AccordionHeader>
+    <AccordionContent indent>
+      Yes, cancel anytime with no fees. Access continues until end of billing
+      period.
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="support">
+    <AccordionHeader icon={HelpCircle}>How can I get support?</AccordionHeader>
+    <AccordionContent indent>
+      24/7 email and chat support available. Enterprise includes dedicated
+      support.
+    </AccordionContent>
   </AccordionItem>
 </Accordion>
 ```
 
-## Disabled state
+  </DocsTab>
+</DocsTabs>
 
-Disable interaction for the entire accordion or specific items.
+### Disabled
 
-<SvelteComponent height={100} url="/accordion/disabled" />
+Disable interaction for the entire accordion by adding the `disabled` prop to the `Accordion` component.
 
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/accordion/disabled" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+  
 ```svelte
+<script lang="ts">
+	import { Accordion, AccordionItem, AccordionContent, AccordionHeader } from '$lib/components/accordion';
+</script>
+
 <Accordion disabled>
-  <AccordionItem value="item-1">
-    <AccordionTrigger>Accordion</AccordionTrigger>
-    <AccordionContent>Lorem ipsum dolor sit amet adipisicing elit. Quisquam, quos.</AccordionContent>
+  <AccordionItem value="pricing">
+    <AccordionHeader>How much does it cost?</AccordionHeader>
+    <AccordionContent>
+      Basic plan starts at $10/month. Professional plan at $29/month. Enterprise
+      plan has custom pricing.
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="cancel">
+    <AccordionHeader>Can I cancel my subscription anytime?</AccordionHeader>
+    <AccordionContent>
+      Yes, cancel anytime with no fees. Access continues until end of billing
+      period.
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="support">
+    <AccordionHeader>How can I get support?</AccordionHeader>
+    <AccordionContent>
+      24/7 email and chat support available. Enterprise includes dedicated
+      support.
+    </AccordionContent>
   </AccordionItem>
 </Accordion>
 ```
 
-## Accessibility
+  </DocsTab>
+</DocsTabs>
 
-WFS lays on top of bits-ui and covers accessibility. For more information visit [documentation](https://bits-ui.com/docs/introduction).
+### Disabled item
+
+Disable interaction for a specific item by adding the `disabled` prop to the `AccordionItem` component.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/accordion/disabled-item" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+  
+```svelte
+<script lang="ts">
+	import { Accordion, AccordionItem, AccordionContent, AccordionHeader } from '$lib/components/accordion';
+</script>
+
+<Accordion>
+  <AccordionItem value="pricing">
+    <AccordionHeader>How much does it cost?</AccordionHeader>
+    <AccordionContent>
+      Basic plan starts at $10/month. Professional plan at $29/month. Enterprise
+      plan has custom pricing.
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="cancel">
+    <AccordionHeader>Can I cancel my subscription anytime?</AccordionHeader>
+    <AccordionContent class="accordion__content">
+      Yes, cancel anytime with no fees. Access continues until end of billing
+      period.
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem disabled value="support">
+    <AccordionHeader>How can I get support?</AccordionHeader>
+    <AccordionContent>
+      24/7 email and chat support available. Enterprise includes dedicated
+      support.
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
+```
+
+  </DocsTab>
+</DocsTabs>

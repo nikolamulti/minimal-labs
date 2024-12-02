@@ -3,68 +3,283 @@ title: Checkbox
 description: Interactive component that allows users to make a binary choice, often used in forms and settings.
 ---
 
-import { SvelteComponent } from "@/components/SvelteComponent";
-import { TypeTable } from "fumadocs-ui/components/type-table";
+import { Svelte } from "@/components/svelte";
+import { Tabs, Tab } from "@/components/tabs";
+import { Step, Steps } from "@/components/steps";
+import { TypeTable } from "@/components/type-table";
+import { DocsButton } from "@/components/ui/docs-button";
+import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 
-<SvelteComponent url="/checkbox/default" />
+<DocsButton href="https://bits-ui.com/docs/components/checkbox">
+  API Reference
+</DocsButton>
 
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/checkbox" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+    
 ```svelte
-<script>
-  import { Checkbox } from '@/components/checkbox';
-  import { Label } from '@/components/label';
-  import { Helper } from '@/components/helper';
+<script lang="ts">
+  import { Checkbox, CheckboxField } from '$lib/components/checkbox';
+  import { Label } from '$lib/components/fieldset';
+  
+  let acceptTerms = false;
 </script>
 
-<Checkbox id="checkbox-default" variant="default">
-  <Label for="checkbox-default">Default</Label>
-  <Helper>This is a helper text</Helper>
-</Checkbox>
+<CheckboxField>
+  <Checkbox id="terms" bind:checked={acceptTerms} />
+  <Label for="terms">Accept Terms and Conditions</Label>
+</CheckboxField>
 ```
 
-## Component API
+  </DocsTab>
+</DocsTabs>
 
-The Checkbox component accepts several props for customization:
+## Usage
+
+```svelte
+<script lang="ts">
+  import { Checkbox, CheckboxField } from '$lib/components/checkbox';
+  import { Label } from '$lib/components/fieldset';
+
+  let acceptTerms = false;
+</script>
+```
+
+```svelte
+<CheckboxField>
+  <Checkbox id="terms" bind:checked={acceptTerms} />
+  <Label for="terms">Accept Terms and Conditions</Label>
+</CheckboxField>
+```
+
+## Properties
+
+These are the properties specific to our `checkbox` implementation. For the complete list of properties, please refer to their <a href="https://www.bits-ui.com/docs/components/checkbox" target="_blank">documentation</a>.
+
+### Checkbox
 
 <TypeTable
   type={{
-    id: {
-      description: "Unique identifier for the checkbox",
-      type: "string",
-      default: "required",
-    },
-    variant: {
-      description: "Visual style variant of the checkbox",
-      type: "string",
-      default: "default",
-    },
-    disabled: {
-      description: "Whether the checkbox is disabled",
-      type: "boolean",
-      default: "false",
-    },
-    isError: {
-      description: "Whether to display the checkbox in error state",
+    error: {
+      description: "Whether the checkbox is in an error state.",
       type: "boolean",
       default: "false",
     },
   }}
 />
 
->
+## Examples
 
-## Variants
+### Group
 
-The Checkbox component supports the following variants:
+Use the `CheckboxGroup` component to organize multiple checkboxes in a stack with consistent spacing.
 
-<SvelteComponent height={160} url="/checkbox/variants" />
-
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/checkbox/group" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+  
 ```svelte
-<Checkbox id="checkbox-default" variant="default">
-  <Label for="checkbox-default">Default</Label>
-  <Helper>This is a helper text</Helper>
-</Checkbox>
+<script lang="ts">
+  import { Checkbox, CheckboxField, CheckboxGroup } from '$lib/components/checkbox';
+  import { Label, Description } from '$lib/components/fieldset';
+
+let options = [
+{
+id: 'email-updates',
+label: 'Account activity and updates',
+description: 'Get notified about important changes to your account',
+checked: false
+},
+{
+id: 'product-news',
+label: 'Product news and updates',
+description: 'Stay informed about new features and improvements',
+checked: false
+},
+{
+id: 'marketing',
+label: 'Special offers and promotions',
+description: 'Get exclusive deals and promotional content',
+checked: false
+}
+];
+
+</script>
+
+<CheckboxGroup>
+  {#each options as option}
+    <CheckboxField>
+      <Checkbox id={option.id} bind:checked={option.checked} />
+      <Label for={option.id}>{option.label}</Label>
+      <Description>{option.description}</Description>
+    </CheckboxField>
+  {/each}
+</CheckboxGroup>
 ```
+  </DocsTab>
+</DocsTabs>
 
-## Accessibility
+### Indeterminate
 
-WFS lays on top of bits-ui and covers accessibility. For more information visit [documentation](https://bits-ui.com/docs/introduction).
+Use the `indeterminate` state to indicate that some, but not all, of the checkboxes in a group are selected.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/checkbox/indeterminate" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+  
+```svelte
+<script lang="ts">
+  import { Checkbox, CheckboxField, CheckboxGroup } from '$lib/components/checkbox';
+  import { Label } from '$lib/components/fieldset';
+
+let options = [
+{ id: 'option-1', label: 'Option 1', checked: true },
+{ id: 'option-2', label: 'Option 2', checked: false },
+{ id: 'option-3', label: 'Option 3', checked: false }
+];
+
+$: allSelected = options.every((option) => option.checked);
+$: someSelected = options.some((option) => option.checked) && !allSelected;
+
+function handleSelectAll() {
+if (someSelected) {
+options = options.map((option) => ({ ...option, checked: true }));
+} else if (allSelected) {
+options = options.map((option) => ({ ...option, checked: false }));
+} else {
+options = options.map((option) => ({ ...option, checked: true }));
+}
+}
+
+</script>
+
+<CheckboxGroup>
+  <CheckboxField>
+    <Checkbox id="select-all" checked={someSelected ? 'indeterminate' : allSelected} on:click={handleSelectAll} />
+    <Label for="select-all">Select all</Label>
+  </CheckboxField>
+  {#each options as option}
+    <CheckboxField>
+      <Checkbox id={option.id} bind:checked={option.checked} />
+      <Label for={option.id}>{option.label}</Label>
+    </CheckboxField>
+  {/each}
+</CheckboxGroup>
+```
+  </DocsTab>
+</DocsTabs>
+
+### Description
+
+Use the `Description` component to provide additional information and helpful context about the checkbox.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/checkbox/description" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+  
+```svelte
+<script lang="ts">
+  import { Checkbox, CheckboxField } from '$lib/components/checkbox';
+  import { Label, Description } from '$lib/components/fieldset';
+
+let acceptTerms = false;
+
+</script>
+
+<CheckboxField>
+  <Checkbox id="terms" bind:checked={acceptTerms} />
+  <Label for="terms">Accept Terms and Conditions</Label>
+  <Description>Please accept to continue</Description>
+</CheckboxField>
+```
+  </DocsTab>
+</DocsTabs>
+
+### Sublabel
+
+Use the `Sublabel` component to add a secondary label to the checkbox.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/checkbox/sublabel" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+  
+```svelte
+<script lang="ts">
+  import { Checkbox, CheckboxField } from '$lib/components/checkbox';
+  import { Label, Sublabel } from '$lib/components/fieldset';
+
+let acceptTerms = false;
+
+</script>
+
+<CheckboxField>
+  <Checkbox id="terms" bind:checked={acceptTerms} />
+  <Label for="terms">Accept Terms and Conditions</Label>
+  <Sublabel>(Required)</Sublabel>
+</CheckboxField>
+```
+  </DocsTab>
+</DocsTabs>
+
+### Error
+
+Use the `error` property to indicate that the checkbox has an error.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/checkbox/error" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+    
+```svelte
+<script lang="ts">
+  import { Checkbox, CheckboxField } from '$lib/components/checkbox';
+  import { Label } from '$lib/components/fieldset';
+  
+  let acceptTerms = false;
+</script>
+
+<CheckboxField>
+  <Checkbox error id="terms" bind:checked={acceptTerms} />
+  <Label for="terms">Accept Terms and Conditions</Label>
+</CheckboxField>
+```
+  </DocsTab>
+</DocsTabs>
+
+### Disabled
+
+Use the `disabled` property to prevent users from interacting with the checkbox.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/checkbox/disabled" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+    
+```svelte
+<script lang="ts">
+  import { Checkbox, CheckboxField } from '$lib/components/checkbox';
+  import { Label } from '$lib/components/fieldset';
+  
+  let acceptTerms = false;
+</script>
+
+<CheckboxField>
+  <Checkbox disabled id="terms" bind:checked={acceptTerms} />
+  <Label for="terms">Accept Terms and Conditions</Label>
+</CheckboxField>
+```
+  </DocsTab>
+</DocsTabs>

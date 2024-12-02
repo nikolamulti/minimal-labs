@@ -1,173 +1,339 @@
 ---
 title: Note
-description: A versatile component for displaying informational messages, warnings, or alerts with customizable styles and content.
+description: Provide contextual feedback messages for user actions.
 ---
 
-import { SvelteComponent } from "@/components/SvelteComponent";
-import { TypeTable } from "fumadocs-ui/components/type-table";
+import { Svelte } from "@/components/svelte";
+import { Tabs, Tab } from "@/components/tabs";
+import { Step, Steps } from "@/components/steps";
+import { TypeTable } from "@/components/type-table";
+import { DocsButton } from "@/components/ui/docs-button";
+import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 
-<SvelteComponent url="/note" />
+<div className="h-6" />
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/note" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
 
 ```svelte
-<script>
- import { Note, NoteIcon, NoteContent, NoteTitle, NoteDescription, NoteLink } from '$lib/components/note';
- import { Account } from '$lib/components/icons';
+<script lang="ts">
+  import { Note, NoteIcon, NoteContent, NoteTitle, NoteDescription, NoteLink } from '$lib/components/note';
+  import { Updates } from '$lib/components/icons';
 </script>
 
-<Note variant="primary" style="solid" fullWidth={true} closable={true}>
- <NoteIcon icon={Account} />
- <NoteContent>
-   <NoteTitle>Title text here</NoteTitle>
-   <NoteDescription>Description text here</NoteDescription>
-   <NoteLink variant="primary" underline={true}>Action 1</NoteLink>
- </NoteContent>
+<Note variant="primary" style="outline" icon={Updates}>
+  <NoteContent>
+    <NoteTitle>New features available</NoteTitle>
+    <NoteDescription>
+      We've added dark mode support and improved performance across the application.
+    </NoteDescription>
+  </NoteContent>
+  <NoteLink>See updates</NoteLink>
 </Note>
 ```
 
-## Component API
+  </DocsTab>
+</DocsTabs>
 
-The Note component and its subcomponents accept a range of props for extensive customization.
+## Usage
+
+```svelte
+<script lang="ts">
+  import { Note, NoteIcon, NoteContent, NoteTitle, NoteDescription, NoteLink } from '$lib/components/note';
+  import { Updates } from '$lib/components/icons';
+</script>
+```
+
+```svelte
+<Note variant="primary" style="outline" icon={Updates}>
+  <NoteContent>
+    <NoteTitle>New features available</NoteTitle>
+    <NoteDescription>
+      We've added dark mode support and improved performance across the application.
+    </NoteDescription>
+  </NoteContent>
+  <NoteLink>See updates</NoteLink>
+</Note>
+```
+
+## Properties
 
 ### Note
 
 <TypeTable
   type={{
     variant: {
-      type: "'primary' | 'success' | 'warning' | 'critical'",
+      description: "Determines the semantic meaning or purpose of the note.",
+      type: "string",
+      typeDescription: "'primary' | 'success' | 'warning' | 'critical'",
       default: "primary",
     },
     style: {
-      type: "'solid' | 'faded' | 'outline'",
-      default: "solid",
-    },
-    fullWidth: {
-      type: "boolean",
-      default: "false",
+      description: "Determines the visual appearance within each variant.",
+      type: "string",
+      typeDescription: "'solid' | 'faded' | 'outline'",
+      default: "outline",
     },
     orientation: {
-      type: "'horizontal' | 'vertical'",
-      default: "horizontal",
+      description: "The orientation of the note's content.",
+      type: "string",
+      typeDescription: "'vertical' | 'horizontal'",
+      default: "vertical",
     },
     closable: {
+      description: "Whether the note can be closed.",
+      type: "boolean",
+      default: "true",
+    },
+    fullWidth: {
+      description:
+        "Whether the note should take up the full width of its container.",
       type: "boolean",
       default: "false",
     },
+    icon: {
+      description: "The icon to display in the note.",
+      type: "ComponentType",
+    },
   }}
 />
+
 ### NoteLink
+
 <TypeTable
   type={{
-    variant: {
-      type: "'primary' | 'success' | 'warning' | 'critical'",
-      default: "primary",
+    href: {
+      description: "The URL that the link points to.",
+      type: "string",
+    },
+    leadingIcon: {
+      description: "The leading icon of the link.",
+      type: "ComponentType",
+    },
+    trailingIcon: {
+      description: "The trailing icon of the link.",
+      type: "ComponentType",
     },
     underline: {
+      description: "Whether to show an underline on the link.",
+      type: "boolean",
+      default: "false",
+    },
+    button: {
+      description: "Whether the link should behave like a button.",
+      type: "boolean",
+      default: "false",
+    },
+    disabled: {
+      description:
+        "Whether the link is disabled. Only works when used as a button.",
       type: "boolean",
       default: "false",
     },
   }}
 />
 
->
+## Examples
 
-## Variants
+### Variants
 
-The Note component supports four different variants:
+Use the `variant` property to change the color of the note, which helps convey its semantic meaning or purpose.
 
-<SvelteComponent height={400} url="/note/variants" />
-
-```svelte
-<Note variant="primary">Primary Note</Note>
-<Note variant="success">Success Note</Note>
-<Note variant="warning">Warning Note</Note>
-<Note variant="critical">Critical Note</Note>
-```
-
-## Styles
-
-The Note component supports three different styles:
-
-<SvelteComponent height={360} url="/note/style" />
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/note/variants" height={500} />
+  </DocsTab>
+  <DocsTab value="Code">
 
 ```svelte
-<Note style="solid">Solid Note</Note>
-<Note style="faded">Faded Note</Note>
-<Note style="outline">Outline Note</Note>
-```
+<script lang="ts">
+  import { Note, NoteIcon, NoteContent, NoteTitle, NoteDescription, NoteLink } from '$lib/components/note';
+  import { Updates } from '$lib/components/icons';
+</script>
 
-## Width
-
-Control the width of the Note component:
-
-<SvelteComponent url="/note/full-width" />
-
-```svelte
-<Note fullWidth={true}>Full Width Note</Note>
-<Note fullWidth={false}>Default Width Note</Note>
-```
-
-## Orientation
-
-Choose between horizontal and vertical layouts:
-
-<SvelteComponent url="/note/orientation" />
-
-```svelte
-<Note orientation="horizontal">Horizontal Note</Note>
-<Note orientation="vertical">Vertical Note</Note>
-```
-
-## Closable
-
-Add a close button to the Note:
-
-<SvelteComponent url="/note/closable" />
-
-```svelte
-<Note variant="primary" style="solid" fullWidth={true} orientation="horizontal" closable={true}>
-			<NoteIcon icon={Account} />
-			<NoteContent>
-				<NoteTitle>Title</NoteTitle>
-				<NoteDescription>Description</NoteDescription>
-				<NoteLink variant="primary" underline={true}>Action</NoteLink>
-			</NoteContent>
-		</Note>
-		<Note
-			variant="primary"
-			style="solid"
-			fullWidth={true}
-			orientation="horizontal"
-			closable={false}
-		>
-			<NoteIcon icon={Account} />
-			<NoteContent>
-				<NoteTitle>Title</NoteTitle>
-				<NoteDescription>Description</NoteDescription>
-				<NoteLink variant="primary" underline={true}>Action</NoteLink>
-			</NoteContent>
-		</Note>
-```
-
-## Subcomponents
-
-The Note component is composed of several subcomponents for flexible content structuring:
-NoteIcon: Add an icon to the Note
-NoteContent: Wrapper for the Note's content
-NoteTitle: Title of the Note
-NoteDescription: Description or body text of the Note
-NoteLink: Action link within the Note
-
-```svelte
-<Note>
-  <NoteIcon icon={Account} />
+<Note variant="primary" style="solid" icon={Updates}>
   <NoteContent>
-    <NoteTitle>Title</NoteTitle>
-    <NoteDescription>Description</NoteDescription>
-    <NoteLink>Action</NoteLink>
+    <NoteTitle>New features available</NoteTitle>
+    <NoteDescription>
+      We've added dark mode support and improved performance across the application.
+    </NoteDescription>
   </NoteContent>
+  <NoteLink>See updates</NoteLink>
+</Note>
+
+<Note variant="success" style="solid" icon={Updates}>
+  <NoteContent>
+    <NoteTitle>New features available</NoteTitle>
+    <NoteDescription>
+      We've added dark mode support and improved performance across the application.
+    </NoteDescription>
+  </NoteContent>
+  <NoteLink>See updates</NoteLink>
+</Note>
+
+<Note variant="warning" style="solid" icon={Updates}>
+  <NoteContent>
+    <NoteTitle>New features available</NoteTitle>
+    <NoteDescription>
+      We've added dark mode support and improved performance across the application.
+    </NoteDescription>
+  </NoteContent>
+	<NoteLink>See updates</NoteLink>
+</Note>
+
+<Note variant="critical" style="solid" icon={Updates}>
+  <NoteContent>
+    <NoteTitle>New features available</NoteTitle>
+    <NoteDescription>
+      We've added dark mode support and improved performance across the application.
+    </NoteDescription>
+  </NoteContent>
+  <NoteLink>See updates</NoteLink>
 </Note>
 ```
 
-## Accessibility
+  </DocsTab>
+</DocsTabs>
 
-The Note component is designed with accessibility in mind. It uses semantic HTML and ARIA attributes to ensure proper screen reader support and keyboard navigation.
+### Styles
+
+Use the `style` property to change the visual appearance within each variant.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/note/styles" height={400} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Note, NoteIcon, NoteContent, NoteTitle, NoteDescription, NoteLink } from '$lib/components/note';
+  import { Updates } from '$lib/components/icons';
+</script>
+
+<Note variant="primary" style="solid" icon={Updates}>
+  <NoteContent>
+    <NoteTitle>New features available</NoteTitle>
+    <NoteDescription>
+      We've added dark mode support and improved performance across the application.
+    </NoteDescription>
+  </NoteContent>
+  <NoteLink>See updates</NoteLink>
+</Note>
+
+<Note variant="primary" style="faded" icon={Updates}>
+  <NoteContent>
+    <NoteTitle>New features available</NoteTitle>
+    <NoteDescription>
+      We've added dark mode support and improved performance across the application.
+    </NoteDescription>
+  </NoteContent>
+  <NoteLink>See updates</NoteLink>
+</Note>
+
+<Note variant="primary" style="outline" icon={Updates}>
+  <NoteContent>
+    <NoteTitle>New features available</NoteTitle>
+    <NoteDescription>
+      We've added dark mode support and improved performance across the application.
+    </NoteDescription>
+  </NoteContent>
+  <NoteLink>See updates</NoteLink>
+</Note>
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Orientation
+
+Use the `orientation` property to change the orientation of the note.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/note/orientation" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Note, NoteIcon, NoteContent, NoteTitle, NoteDescription, NoteLink } from '$lib/components/note';
+  import { Updates } from '$lib/components/icons';
+</script>
+
+<Note variant="primary" style="outline" icon={Updates} orientation="horizontal">
+  <NoteContent>
+    <NoteTitle>New features available</NoteTitle>
+    <NoteDescription>
+      We've added dark mode support and improved performance across the application.
+    </NoteDescription>
+  </NoteContent>
+  <NoteLink>See updates</NoteLink>
+</Note>
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Full width
+
+Use the `fullWidth` property to make the note take up the full width of its container.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/note/full-width" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Note, NoteIcon, NoteContent, NoteTitle, NoteDescription, NoteLink } from '$lib/components/note';
+  import { Updates } from '$lib/components/icons';
+</script>
+
+<Note variant="primary" style="outline" icon={Updates} fullWidth={true}>
+  <NoteContent>
+    <NoteTitle>New features available</NoteTitle>
+    <NoteDescription>
+      We've added dark mode support and improved performance across the application.
+    </NoteDescription>
+  </NoteContent>
+  <NoteLink>See updates</NoteLink>
+</Note>
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Closable
+
+Use the `closable` property to prevent the user from closing the note. By default, notes are closable.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/note/closable" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Note, NoteIcon, NoteContent, NoteTitle, NoteDescription, NoteLink } from '$lib/components/note';
+  import { Updates } from '$lib/components/icons';
+</script>
+
+<Note variant="primary" style="outline" icon={Updates} closable={false}>
+  <NoteContent>
+    <NoteTitle>New features available</NoteTitle>
+    <NoteDescription>
+      We've added dark mode support and improved performance across the application.
+    </NoteDescription>
+  </NoteContent>
+  <NoteLink>See updates</NoteLink>
+</Note>
+```
+
+  </DocsTab>
+</DocsTabs>

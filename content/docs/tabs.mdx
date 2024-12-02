@@ -1,32 +1,194 @@
 ---
 title: Tabs
-description: Tabs
+description: Navigation between multiple pages or content sections.
 ---
 
-import { TypeTable } from "fumadocs-ui/components/type-table";
+import { Svelte } from "@/components/svelte";
+import { Tabs, Tab } from "@/components/tabs";
+import { Step, Steps } from "@/components/steps";
+import { TypeTable } from "@/components/type-table";
+import { DocsButton } from "@/components/ui/docs-button";
+import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 
-## Code Block
+<DocsButton href="https://bits-ui.com/docs/components/tabs">
+  API Reference
+</DocsButton>
 
-```js
-console.log("Hello World");
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/tabs" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Tabs, TabsList, TabsTrigger, TabsContent } from '$lib/components/tabs';
+</script>
+
+<Tabs value="menu">
+  <TabsList>
+    <TabsTrigger value="menu">Menu</TabsTrigger>
+    <TabsTrigger value="settings">Settings</TabsTrigger>
+    <TabsTrigger value="account">Account</TabsTrigger>
+  </TabsList>
+  <TabsContent value="menu"></TabsContent>
+  <TabsContent value="settings"></TabsContent>
+  <TabsContent value="account"></TabsContent>
+</Tabs>
+```
+
+  </DocsTab>
+</DocsTabs>
+
+## Usage
+
+```svelte
+<script lang="ts">
+  import { Tabs, TabsList, TabsTrigger, TabsContent } from '$lib/components/tabs';
+</script>
+```
+
+```svelte
+<Tabs value="menu">
+  <TabsList>
+    <TabsTrigger value="menu">Menu</TabsTrigger>
+    <TabsTrigger value="settings">Settings</TabsTrigger>
+    <TabsTrigger value="account">Account</TabsTrigger>
+  </TabsList>
+  <TabsContent value="menu"></TabsContent>
+  <TabsContent value="settings"></TabsContent>
+  <TabsContent value="account"></TabsContent>
+</Tabs>
 ```
 
 ## Properties
 
+These are the properties specific to our `tabs` implementation. For the complete list of properties, please refer to their <a href="https://www.bits-ui.com/docs/components/tabs" target="_blank">documentation</a>.
+
+### Tabs
+
 <TypeTable
   type={{
-    percentage: {
-      description:
-        "The percentage of scroll position to display the roll button",
-      type: "number",
-      default: 0.2,
-    },
-    show: {
-      description: "Whether to show the roll button",
-      type: "boolean",
-      default: "true",
+    variant: {
+      description: "Changes the visual appearance of the tabs.",
+      type: "string",
+      typeDescription: "'pills' | 'underline'",
+      default: "underline",
     },
   }}
 />
 
->
+### TabsTrigger
+
+<TypeTable
+  type={{
+    icon: {
+      description: "The icon to display in the tab.",
+      type: "ComponentType",
+    },
+  }}
+/>
+
+## Examples
+
+### Icon support
+
+Use the `icon` property to add an icon to the `TabsTrigger` component.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/tabs/icon-support" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Tabs, TabsList, TabsTrigger, TabsContent } from '$lib/components/tabs';
+  import { Menu, Settings, Account } from '$lib/components/icons';
+</script>
+
+<Tabs value="menu">
+  <TabsList>
+    <TabsTrigger icon={Menu} value="menu">Menu</TabsTrigger>
+    <TabsTrigger icon={Settings} value="settings">Settings</TabsTrigger>
+    <TabsTrigger icon={Account} value="account">Account</TabsTrigger>
+  </TabsList>
+  <TabsContent value="menu"></TabsContent>
+  <TabsContent value="settings"></TabsContent>
+  <TabsContent value="account"></TabsContent>
+</Tabs>
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Variants
+
+Use the `variant` property to change the appearance of the tabs.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/tabs/variants" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+	import { Tabs, TabsList, TabsTrigger, TabsContent } from '$lib/components/tabs';
+</script>
+
+<Tabs variant="underline" value="menu">
+  <TabsList>
+    <TabsTrigger value="menu">Menu</TabsTrigger>
+    <TabsTrigger value="settings">Settings</TabsTrigger>
+    <TabsTrigger value="account">Account</TabsTrigger>
+  </TabsList>
+  <TabsContent value="menu"></TabsContent>
+  <TabsContent value="settings"></TabsContent>
+  <TabsContent value="account"></TabsContent>
+</Tabs>
+
+<Tabs variant="pills" value="menu">
+  <TabsList>
+    <TabsTrigger value="menu">Menu</TabsTrigger>
+    <TabsTrigger value="settings">Settings</TabsTrigger>
+    <TabsTrigger value="account">Account</TabsTrigger>
+  </TabsList>
+  <TabsContent value="menu"></TabsContent>
+  <TabsContent value="settings"></TabsContent>
+  <TabsContent value="account"></TabsContent>
+</Tabs>
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Disabled
+
+Use the `disabled` property to prevent users from interacting with the tab.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/tabs/disabled" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Tabs, TabsList, TabsTrigger, TabsContent } from '$lib/components/tabs';
+</script>
+
+<Tabs value="menu">
+  <TabsList>
+    <TabsTrigger value="menu">Menu</TabsTrigger>
+    <TabsTrigger value="settings">Settings</TabsTrigger>
+    <TabsTrigger disabled value="account">Account</TabsTrigger>
+  </TabsList>
+  <TabsContent value="menu"></TabsContent>
+  <TabsContent value="settings"></TabsContent>
+  <TabsContent value="account"></TabsContent>
+</Tabs>
+```
+
+  </DocsTab>
+</DocsTabs>

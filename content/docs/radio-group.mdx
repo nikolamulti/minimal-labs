@@ -3,194 +3,320 @@ title: Radio group
 description: Form control that allows users to select one option from a set of choices.
 ---
 
-import { SvelteComponent } from "@/components/SvelteComponent";
-import { Tabs, Tab } from "fumadocs-ui/components/tabs";
-import { Step, Steps } from "fumadocs-ui/components/steps";
-import { TypeTable } from "fumadocs-ui/components/type-table";
+import { Svelte } from "@/components/svelte";
+import { Tabs, Tab } from "@/components/tabs";
+import { Step, Steps } from "@/components/steps";
+import { TypeTable } from "@/components/type-table";
+import { DocsButton } from "@/components/ui/docs-button";
+import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 
-<SvelteComponent url="/radio-group" />
+<DocsButton href="https://bits-ui.com/docs/components/radio-group">
+  API Reference
+</DocsButton>
 
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/radio-group" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+    
 ```svelte
-<script>
- import { RadioGroup } from '@/components/radio-group';
+<script lang="ts">
+  import { RadioGroup, Radio, RadioField } from '$lib/components/radio-group';
+  import { Label, Description } from '$lib/components/fieldset';
+  
+  let selectedPlan = 'personal';
 </script>
 
-<RadioGroup value="option2">
-	<Radio value="option1" id="option1">
-		<RadioContent>
-			<Label for="option1">Option 1</Label>
-			<RadioSublabel>Sublabel</RadioSublabel>
-		</RadioContent>
-		<Helper>This is a helper text</Helper>
-	</Radio>
+<RadioGroup value={selectedPlan}>
+  <RadioField>
+    <Radio value="personal" id="personal" />
+    <Label for="personal">Personal Plan</Label>
+  </RadioField>
+  <RadioField>
+    <Radio value="team" id="team" />
+    <Label for="team">Team Plan</Label>
+  </RadioField>
+  <RadioField>
+    <Radio value="enterprise" id="enterprise" />
+    <Label for="enterprise">Enterprise Plan</Label>
+  </RadioField>
 </RadioGroup>
 ```
 
-## Component API
+  </DocsTab>
+</DocsTabs>
 
-### Root
+## Usage
+
+```svelte
+<script lang="ts">
+  import { RadioGroup, Radio, RadioField } from '$lib/components/radio-group';
+  import { Label, Description } from '$lib/components/fieldset';
+
+  let selectedPlan = 'personal';
+</script>
+```
+
+```svelte
+<RadioGroup value={selectedPlan}>
+  <RadioField>
+    <Radio value="personal" id="personal" />
+    <Label for="personal">Personal Plan</Label>
+  </RadioField>
+  <RadioField>
+    <Radio value="team" id="team" />
+    <Label for="team">Team Plan</Label>
+  </RadioField>
+  <RadioField>
+    <Radio value="enterprise" id="enterprise" />
+    <Label for="enterprise">Enterprise Plan</Label>
+  </RadioField>
+</RadioGroup>
+```
+
+## Properties
+
+These are the properties specific to our `radio-group` implementation. For the complete list of properties, please refer to their <a href="https://www.bits-ui.com/docs/components/radio-group" target="_blank">documentation</a>.
+
+### RadioGroup
 
 <TypeTable
   type={{
-    value: {
-      description:
-        "The controlled value of the radio group. Must match one of the radio items' values.",
-      type: "string",
-      default: "undefined",
-    },
-    orientation: {
-      description: "Defines the layout direction of radio items.",
-      type: "'horizontal' | 'vertical'",
-      default: "vertical",
-    },
-    disabled: {
-      description:
-        "When true, disables all radio items in the group from being interacted with.",
-      type: "boolean",
-      default: "false",
-    },
-    required: {
-      description:
-        "When true, indicates that user must select an option for form validation.",
-      type: "boolean",
-      default: "false",
-    },
-    loop: {
-      description:
-        "When true, keyboard navigation will loop from last to first item and vice versa.",
-      type: "boolean",
-      default: "false",
-    },
     error: {
-      description:
-        "When true, displays radio items in error state with error styling.",
+      description: "Whether the radio group has an error.",
       type: "boolean",
       default: "false",
-    },
-    onValueChange: {
-      description:
-        "Callback fired when the value changes. Receives the new value as an argument.",
-      type: "function",
-      default: "undefined",
-    },
-    asChild: {
-      description:
-        "When true, allows composing the component with other elements.",
-      type: "boolean",
-      default: "undefined",
-    },
-    groupEl: {
-      description: "Reference to the root DOM element of the radio group.",
-      type: "HTMLElement",
-      default: "undefined",
     },
   }}
 />
 
->
+## Examples
 
-### Item
+### Description
 
-<TypeTable
-  type={{
-    value: {
-      description:
-        "The unique value associated with this radio item. Used for selection and form submission.",
-      type: "string",
-      default: "''",
-    },
-    disabled: {
-      description:
-        "When true, prevents this specific radio item from being selected.",
-      type: "boolean",
-      default: "false",
-    },
-    buttonEl: {
-      description: "Defines the layout direction of radio items.",
-      type: "Reference to the radio button DOM element.",
-      default: "undefined",
-    },
-    inputEl: {
-      description:
-        "Reference to the hidden input element used for form submission.",
-      type: "boolean",
-      default: "undefined",
-    },
-  }}
-/>
+Use the `description` component inside the `RadioField` to add a description to the radio item.
 
->
-
-## Events
-
-RadioGroup.Item components emit the following events:
-
-- `click` : Fired when the radio item is clicked
-- `keydown` : Fired when a key is pressed while the radio item is focused
-- `focus` : Fired when the radio item receives focus
-
-## Orientation
-
-The RadioGroup supports both vertical and horizontal layouts:
-
-<SvelteComponent url="/radio-group/orientation" />
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/radio-group/description" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
 
 ```svelte
-<RadioGroup value="option2">
-	<Radio value="option1" id="option1">
-		<RadioContent>
-			<Label for="option1">Option 1</Label>
-			<RadioSublabel>Sublabel</RadioSublabel>
-		</RadioContent>
-		<Helper>This is a helper text</Helper>
-	</Radio>
-	<Radio value="option2" id="option2">
-		<RadioContent>
-			<Label for="option2">Option 2</Label>
-			<RadioSublabel>Sublabel</RadioSublabel>
-		</RadioContent>
-  </Radio>
+<script lang="ts">
+  import { RadioGroup, Radio, RadioField } from '$lib/components/radio-group';
+  import { Label, Description } from '$lib/components/fieldset';
+
+  let selectedPlan = 'personal';
+</script>
+
+<RadioGroup value={selectedPlan}>
+  <RadioField>
+    <Radio value="personal" id="personal" />
+    <Label for="personal">Personal Plan</Label>
+    <Description>Perfect for individuals and small projects</Description>
+  </RadioField>
+  <RadioField>
+    <Radio value="team" id="team" />
+    <Label for="team">Team Plan</Label>
+    <Description>Great for teams up to 20 people</Description>
+  </RadioField>
+  <RadioField>
+    <Radio value="enterprise" id="enterprise" />
+    <Label for="enterprise">Enterprise Plan</Label>
+    <Description>For large organizations with custom needs</Description>
+  </RadioField>
 </RadioGroup>
 ```
 
-## States
+  </DocsTab>
+</DocsTabs>
 
-### Disabled
+### Sublabel
 
-Individual items or the entire group can be disabled:
+Use the `sublabel` component inside the `RadioField` to add a sublabel to the radio item.
 
-<SvelteComponent url="/radio-group/disabled" />
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/radio-group/sublabel" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
 
 ```svelte
-<RadioGroup value="option2">
-	<Radio disabled value="option1" id="option1">
-		<RadioContent>
-			<Label for="option1">Option 1</Label>
-			<RadioSublabel>Sublabel</RadioSublabel>
-		</RadioContent>
-		<Helper>This is a helper text</Helper>
-	</Radio>
+<script lang="ts">
+  import { RadioGroup, Radio, RadioField } from '$lib/components/radio-group';
+  import { Label, Sublabel } from '$lib/components/fieldset';
+
+  let selectedPlan = 'personal';
+</script>
+
+<RadioGroup value={selectedPlan}>
+  <RadioField>
+    <Radio value="personal" id="personal" />
+    <Label for="personal">Personal Plan</Label>
+    <Sublabel>1 license</Sublabel>
+  </RadioField>
+  <RadioField>
+    <Radio value="team" id="team" />
+    <Label for="team">Team Plan</Label>
+    <Sublabel>10 licenses</Sublabel>
+  </RadioField>
+  <RadioField>
+    <Radio value="enterprise" id="enterprise" />
+    <Label for="enterprise">Enterprise Plan</Label>
+    <Sublabel>Unlimited licenses</Sublabel>
+  </RadioField>
 </RadioGroup>
 ```
+
+  </DocsTab>
+</DocsTabs>
+
+### Orientation
+
+Use the `orientation` property to change the orientation of the `RadioGroup` component.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/radio-group/orientation" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { RadioGroup, Radio, RadioField } from '$lib/components/radio-group';
+  import { Label } from '$lib/components/fieldset';
+
+  let selectedPlan = 'personal';
+</script>
+
+<RadioGroup orientation="horizontal" value={selectedPlan}>
+  <RadioField>
+    <Radio value="personal" id="personal" />
+    <Label for="personal">Personal Plan</Label>
+  </RadioField>
+  <RadioField>
+    <Radio value="team" id="team" />
+    <Label for="team">Team Plan</Label>
+  </RadioField>
+  <RadioField>
+    <Radio value="enterprise" id="enterprise" />
+    <Label for="enterprise">Enterprise Plan</Label>
+  </RadioField>
+</RadioGroup>
+```
+
+  </DocsTab>
+</DocsTabs>
 
 ### Error
 
-Supports error state for form validation:
+Use the `error` property to add an error state to the `RadioGroup` component.
 
-<SvelteComponent url="/radio-group/error" />
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/radio-group/error" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
 
 ```svelte
-<RadioGroup error value="option2">
-	<Radio value="option1" id="option1">
-		<RadioContent>
-			<Label for="option1">Option 1</Label>
-			<RadioSublabel>Sublabel</RadioSublabel>
-		</RadioContent>
-		<Helper>This is a helper text</Helper>
-	</Radio>
+<script lang="ts">
+  import { RadioGroup, Radio, RadioField } from '$lib/components/radio-group';
+  import { Label } from '$lib/components/fieldset';
+
+  let selectedPlan = 'personal';
+</script>
+
+<RadioGroup error value={selectedPlan}>
+  <RadioField>
+    <Radio value="personal" id="personal" />
+    <Label for="personal">Personal Plan</Label>
+  </RadioField>
+  <RadioField>
+    <Radio value="team" id="team" />
+    <Label for="team">Team Plan</Label>
+  </RadioField>
+  <RadioField>
+    <Radio value="enterprise" id="enterprise" />
+    <Label for="enterprise">Enterprise Plan</Label>
+  </RadioField>
 </RadioGroup>
 ```
 
-## Accessibility
+  </DocsTab>
+</DocsTabs>
 
-WFS lays on top of bits-ui and covers accessibility. For more information visit [documentation](https://bits-ui.com/docs/introduction).
+### Disabled
+
+Use the `disabled` property to disable the `RadioGroup` component.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/radio-group/disabled" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { RadioGroup, Radio, RadioField } from '$lib/components/radio-group';
+  import { Label } from '$lib/components/fieldset';
+
+  let selectedPlan = 'personal';
+</script>
+
+<RadioGroup disabled value={selectedPlan}>
+  <RadioField>
+    <Radio value="personal" id="personal" />
+    <Label for="personal">Personal Plan</Label>
+  </RadioField>
+  <RadioField>
+    <Radio value="team" id="team" />
+    <Label for="team">Team Plan</Label>
+  </RadioField>
+  <RadioField>
+    <Radio value="enterprise" id="enterprise" />
+    <Label for="enterprise">Enterprise Plan</Label>
+  </RadioField>
+</RadioGroup>
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Disabled item
+
+Use the `disabled` property on individual `Radio` components to disable specific radio items.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/radio-group/disabled-item" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { RadioGroup, Radio, RadioField } from '$lib/components/radio-group';
+  import { Label } from '$lib/components/fieldset';
+
+  let selectedPlan = 'personal';
+</script>
+
+<RadioGroup value={selectedPlan}>
+  <RadioField>
+    <Radio value="personal" id="personal" />
+    <Label for="personal">Personal Plan</Label>
+  </RadioField>
+  <RadioField>
+    <Radio value="team" id="team" />
+    <Label for="team">Team Plan</Label>
+  </RadioField>
+  <RadioField>
+    <Radio disabled value="enterprise" id="enterprise" />
+    <Label for="enterprise">Enterprise Plan</Label>
+  </RadioField>
+</RadioGroup>
+```
+
+  </DocsTab>
+</DocsTabs>

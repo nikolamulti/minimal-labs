@@ -3,142 +3,207 @@ title: Avatar
 description: A visual representation of a user or entity, typically displayed as a profile picture, icon, or initials.
 ---
 
-import { SvelteComponent } from "@/components/SvelteComponent";
-import { Tabs, Tab } from "fumadocs-ui/components/tabs";
-import { Step, Steps } from "fumadocs-ui/components/steps";
-import { TypeTable } from "fumadocs-ui/components/type-table";
+import { Svelte } from "@/components/svelte";
+import { Tabs, Tab } from "@/components/tabs";
+import { Step, Steps } from "@/components/steps";
+import { TypeTable } from "@/components/type-table";
+import { DocsButton } from "@/components/ui/docs-button";
+import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 
-<SvelteComponent url="/avatar/fallback" />
+<DocsButton href="https://bits-ui.com/docs/components/avatar">
+  API Reference
+</DocsButton>
 
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/avatar" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+    
 ```svelte
-<script>
- import { Avatar } from '@/components/avatar';
+<script lang="ts">
+  import { Avatar } from '$lib/components/avatar';
 </script>
 
-<Avatar size="md" fallback="AA" color="neutral" />
+<Avatar size="md" fallback="JD" image="/avatar-01.jpg" />
 ```
 
-## Component API
+  </DocsTab>
+</DocsTabs>
 
-The Avatar component accepts various props for customization:
+## Usage
+
+```svelte
+<script lang="ts">
+  import { Avatar } from '$lib/components/avatar';
+</script>
+```
+
+```svelte
+<Avatar size="md" fallback="JD" image="/avatar-01.jpg" />
+```
+
+## Properties
+
+These are the properties specific to our `avatar` implementation. For the complete list of properties, please refer to their <a href="https://www.bits-ui.com/docs/components/avatar" target="_blank">documentation</a>.
+
+### Avatar
 
 <TypeTable
   type={{
+    color: {
+      description: "The color of the avatar.",
+      type: "string",
+      typeDescription:
+        "neutral | primary | success | warning | critical | orange | pink | purple",
+      default: "neutral",
+    },
     size: {
-      description: "The size of the avatar",
-      type: "sm | md | lg",
+      description: "The size of the avatar.",
+      type: "string",
+      typeDescription: "xs | sm | md | lg",
       default: "md",
     },
     image: {
-      description: "The image to display in the avatar",
-      type: "string",
-      default: "undefined",
-    },
-    icon: {
-      description: "The icon to display in the avatar",
-      type: "ComponentType",
-      default: "undefined",
+      description: "The image source of the avatar.",
+      type: "string | null",
+      default: "null",
     },
     fallback: {
-      description: "The fallback text to display in the avatar",
-      type: "string",
-      default: "undefined",
-    },
-    color: {
-      description: "The color of the avatar",
-      type: "string",
-      default: "neutral",
+      description: "The fallback text of the avatar.",
+      type: "string | null",
+      default: "null",
     },
   }}
 />
 
-## Sizes
+### AvatarGroup
 
-The Avatar component supports three sizes:
+<TypeTable
+  type={{
+    gap: {
+      description: "The gap between the avatars.",
+      type: "string",
+      typeDescription: "xs | sm | md | lg",
+      default: "md",
+    },
+  }}
+/>
 
-<SvelteComponent height={80} url="/avatar/sizes" />
-
-```svelte
-<script>
-  import { Avatar } from '@/components/avatar';
-</script>
-
-<Avatar size="sm" fallback="AA" color="neutral" />
-<Avatar size="md" fallback="AA" color="neutral" />
-<Avatar size="lg" fallback="AA" color="neutral" />
-```
-
-## Variants
-
-### Image
-
-Displays a profile picture.
-
-<SvelteComponent height={80} url="/avatar/image" />
-
-```svelte
-<script>
-  import { Avatar } from '@/components/avatar';
-</script>
-
-<Avatar size="sm" image="https://picsum.photos/300" />
-<Avatar size="md" image="https://picsum.photos/300" />
-<Avatar size="lg" image="https://picsum.photos/300" />
-```
+## Examples
 
 ### Icon
 
-Shows an icon when no image is available.
+The icon is displayed when neither a `fallback` text or an `image` source is provided. In this case, the avatar will show a default user icon.
 
-<SvelteComponent height={80} url="/avatar/icon" />
-
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/avatar/icon" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+    
 ```svelte
-<script>
-  import { Avatar } from '@/components/avatar';
+<script lang="ts">
+  import { Avatar } from '$lib/components/avatar';
 </script>
 
-<Avatar size="sm" icon="https://picsum.photos/300" />
-<Avatar size="md" icon="https://picsum.photos/300" />
-<Avatar size="lg" icon="https://picsum.photos/300" />
+<Avatar size="md" color="neutral" />
 ```
+  </DocsTab>
+</DocsTabs>
 
 ### Fallback
 
-Displays initials or a placeholder when no image or icon is provided.
+When an `image` is not provided, the avatar displays a fallback text instead. This is commonly used to show initials of a user's name.
 
-<SvelteComponent height={80} url="/avatar/fallback" />
-
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/avatar/fallback" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+    
 ```svelte
-<script>
-  import { Avatar } from '@/components/avatar';
+<script lang="ts">
+  import { Avatar } from '$lib/components/avatar';
 </script>
 
-<Avatar size="sm" fallback="AA" color="neutral" />
-<Avatar size="md" fallback="AA" color="neutral" />
-<Avatar size="lg" fallback="AA" color="neutral" />
+<Avatar size="md" fallback="JD" color="neutral" />
 ```
+  </DocsTab>
+</DocsTabs>
 
-## Colors
+### Sizes
 
-The Avatar component supports various color options:
+The `size` property controls the dimensions of the avatar.
 
-<SvelteComponent height={80} url="/avatar/colors" />
-
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/avatar/sizes" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+    
 ```svelte
-<script>
-  import { Avatar } from '@/components/avatar';
+<script lang="ts">
+  import { Avatar } from '$lib/components/avatar';
 </script>
 
-<Avatar size="md" fallback="AA" color="neutral" />
-<Avatar size="md" fallback="AA" color="primary" />
-<Avatar size="md" fallback="AA" color="success" />
-<Avatar size="md" fallback="AA" color="warning" />
-<Avatar size="md" fallback="AA" color="critical" />
-<Avatar size="md" fallback="AA" color="orange" />
-<Avatar size="md" fallback="AA" color="pink" />
-<Avatar size="md" fallback="AA" color="purple" />
+<Avatar size="xs" fallback="JD" color="neutral" />
+<Avatar size="sm" fallback="JD" color="neutral" />
+<Avatar size="md" fallback="JD" color="neutral" />
+<Avatar size="lg" fallback="JD" color="neutral" />
 ```
+  </DocsTab>
+</DocsTabs>
 
-## Accessibility
+### Colors
 
-WFS lays on top of bits-ui and covers accessibility. For more information visit [documentation](https://bits-ui.com/docs/introduction).
+The `color` property controls the background color of the avatar when no image is provided.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/avatar/colors" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+    
+```svelte
+<script lang="ts">
+  import { Avatar } from '$lib/components/avatar';
+</script>
+
+<Avatar size="md" fallback="JD" color="neutral" />
+<Avatar size="md" fallback="JD" color="primary" />
+<Avatar size="md" fallback="JD" color="success" />
+<Avatar size="md" fallback="JD" color="warning" />
+<Avatar size="md" fallback="JD" color="critical" />
+<Avatar size="md" fallback="JD" color="orange" />
+<Avatar size="md" fallback="JD" color="pink" />
+<Avatar size="md" fallback="JD" color="purple" />
+```
+  </DocsTab>
+</DocsTabs>
+
+### Group
+
+Use the `AvatarGroup` component to display multiple avatars together. The `gap` property controls the spacing between the avatars.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/avatar/group" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+    
+```svelte
+<script lang="ts">
+  import { Avatar, AvatarGroup } from '$lib/components/avatar';
+</script>
+
+<AvatarGroup gap="md">
+  <Avatar size="md" color="neutral" fallback="JD" image="/avatar-01.jpg" />
+  <Avatar size="md" color="neutral" fallback="NN" image="/avatar-02.jpg" />
+  <Avatar size="md" color="neutral" fallback="IP" image="/avatar-03.jpg" />
+  <Avatar size="md" color="neutral" fallback="AA" image="/avatar-04.jpg" />
+  <Avatar size="md" color="neutral" fallback="ZG" image="/avatar-05.jpg" />
+</AvatarGroup>
+```
+  </DocsTab>
+</DocsTabs>

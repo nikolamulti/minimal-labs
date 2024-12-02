@@ -3,157 +3,215 @@ title: Tooltip
 description: An informative popup that appears when users hover over or focus on an element.
 ---
 
-import { SvelteComponent } from "@/components/SvelteComponent";
-import { Tabs, Tab } from "fumadocs-ui/components/tabs";
-import { Step, Steps } from "fumadocs-ui/components/steps";
-import { TypeTable } from "fumadocs-ui/components/type-table";
+import { Svelte } from "@/components/svelte";
+import { Tabs, Tab } from "@/components/tabs";
+import { Step, Steps } from "@/components/steps";
+import { TypeTable } from "@/components/type-table";
+import { DocsButton } from "@/components/ui/docs-button";
+import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 
-<SvelteComponent url="/tooltip" />
+<div className="h-6" />
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/tooltip" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
 
 ```svelte
-<script>
-  import { Button } from '@/components/button';
-  import { Tooltip, TooltipTrigger, TooltipContent, TooltipArrow } from '@/components/tooltip';
+<script lang="ts">
+  import { Tooltip, TooltipTrigger, TooltipContent } from '$lib/components/tooltip';
+  import { Button } from '$lib/components/button';
 </script>
 
 <Tooltip>
-	<TooltipTrigger>
-		<Button>Hover me</Button>
-	</TooltipTrigger>
-	<TooltipContent
-		sameWidth={false}
-		side="top"
-		align="center"
-		sideOffset={10}
-		avoidCollisions={true}
-	>
-		<TooltipArrow />
-		Longer tooltip text
-	</TooltipContent>
+  <TooltipTrigger>
+    <Button>Hover me</Button>
+  </TooltipTrigger>
+  <TooltipContent>A simple tooltip that appears on hover</TooltipContent>
 </Tooltip>
 ```
 
-## Component API
+  </DocsTab>
+</DocsTabs>
 
-The Tooltip component consists of multiple parts, each accepting specific props for customization.
+## Usage
 
-<TypeTable
-  type={{
-    side: {
-      description: "Placement of the tooltip relative to the trigger element",
-      type: "'top' | 'right' | 'bottom' | 'left'",
-      default: "'top'",
-    },
-    align: {
-      description: "Alignment along the trigger element's axis",
-      type: "'start' | 'center' | 'end'",
-      default: "'center'",
-    },
-    sideOffset: {
-      description: "Distance in pixels between tooltip and trigger element",
-      type: "number",
-      default: "'5'",
-    },
-    sameWidth: {
-      description: "Whether tooltip should match the width of its trigger",
-      type: "boolean",
-      default: "'false'",
-    },
-    avoidCollisions: {
-      description:
-        "Automatically adjust position when tooltip would overflow viewport",
-      type: "boolean",
-      default: "'true'",
-    },
-  }}
-/>
-
->
-
-### TooltipArrow
-
-Optional visual arrow element that points to the trigger.
-
-## Positioning
-
-The tooltip can be positioned on any side of the trigger element:
-
-<SvelteComponent height={160} url="/tooltip/positioning" />
+```svelte
+<script lang="ts">
+  import { Tooltip, TooltipTrigger, TooltipContent } from '$lib/components/tooltip';
+  import { Button } from '$lib/components/button';
+</script>
+```
 
 ```svelte
 <Tooltip>
   <TooltipTrigger>
+    <Button>Hover me</Button>
+  </TooltipTrigger>
+  <TooltipContent>A simple tooltip that appears on hover</TooltipContent>
+</Tooltip>
+```
+
+## Properties
+
+These are the properties specific to our `tooltip` implementation. For the complete list of properties, please refer to their <a href="https://www.bits-ui.com/docs/components/tooltip" target="_blank">documentation</a>.
+
+### TooltipContent
+
+<TypeTable
+  type={{
+    width: {
+      description: "The width of the tooltip content.",
+      type: "number",
+    },
+  }}
+/>
+
+## Examples
+
+### Side
+
+Use the `side` property to change the side of the tooltip.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/tooltip/side" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Tooltip, TooltipTrigger, TooltipContent } from '$lib/components/tooltip';
+  import { Button } from '$lib/components/button';
+</script>
+
+<Tooltip>
+  <TooltipTrigger>
     <Button>Top</Button>
   </TooltipTrigger>
-  <TooltipContent side="top">
-    <TooltipArrow />
-    Top tooltip
-  </TooltipContent>
+  <TooltipContent side="top">A simple tooltip that appears on hover</TooltipContent>
 </Tooltip>
 
 <Tooltip>
   <TooltipTrigger>
     <Button>Right</Button>
   </TooltipTrigger>
-  <TooltipContent side="right">
-    <TooltipArrow />
-    Right tooltip
-  </TooltipContent>
+  <TooltipContent side="right">A simple tooltip that appears on hover</TooltipContent>
 </Tooltip>
-```
 
-## Alignment
-
-Control the alignment of the tooltip relative to its trigger:
-
-<SvelteComponent height={160} url="/tooltip/alignment" />
-
-```svelte
 <Tooltip>
   <TooltipTrigger>
-    <Button>Aligned</Button>
+    <Button>Bottom</Button>
   </TooltipTrigger>
-  <TooltipContent align="start">
-    <TooltipArrow />
-    Start aligned tooltip
-  </TooltipContent>
+  <TooltipContent side="bottom">A simple tooltip that appears on hover</TooltipContent>
 </Tooltip>
-```
 
-## Width Control
-
-Use `sameWidth` to match tooltip width with trigger:
-
-<SvelteComponent height={160} url="/tooltip/width-control" />
-```svelte
 <Tooltip>
   <TooltipTrigger>
-    <Button>Same Width</Button>
+    <Button>Left</Button>
   </TooltipTrigger>
-  <TooltipContent sameWidth={true}>
-    <TooltipArrow />
-    This tooltip will match trigger width
-  </TooltipContent>
+  <TooltipContent side="left">A simple tooltip that appears on hover</TooltipContent>
 </Tooltip>
 ```
 
-## Collision Avoidance
+  </DocsTab>
+</DocsTabs>
 
-The tooltip automatically adjusts its position to stay within the viewport:
+### Align
 
-<SvelteComponent height={160} url="/tooltip/collision-avoidance" />
+Use the `align` property to change the alignment of the tooltip.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/tooltip/align" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
 ```svelte
+<script lang="ts">
+  import { Tooltip, TooltipTrigger, TooltipContent } from '$lib/components/tooltip';
+  import { Button } from '$lib/components/button';
+</script>
+
+<Tooltip closeDelay={0}>
+  <TooltipTrigger>
+    <Button>Start</Button>
+  </TooltipTrigger>
+  <TooltipContent align="start">A simple tooltip that appears on hover</TooltipContent>
+</Tooltip>
+
 <Tooltip>
   <TooltipTrigger>
-    <Button>Smart Positioning</Button>
+    <Button>Center</Button>
   </TooltipTrigger>
-  <TooltipContent avoidCollisions={true} sideOffset={10}>
-    <TooltipArrow />
-    This tooltip will reposition to stay visible
+  <TooltipContent align="center">A simple tooltip that appears on hover</TooltipContent>
+</Tooltip>
+
+<Tooltip>
+  <TooltipTrigger>
+    <Button>End</Button>
+  </TooltipTrigger>
+  <TooltipContent align="end">A simple tooltip that appears on hover</TooltipContent>
+</Tooltip>
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Width
+
+Use the `width` property to change the width of the tooltip content.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/tooltip/width" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Tooltip, TooltipTrigger, TooltipContent } from '$lib/components/tooltip';
+  import { Button } from '$lib/components/button';
+</script>
+
+<Tooltip>
+  <TooltipTrigger>
+    <Button>Hover me</Button>
+  </TooltipTrigger>
+  <TooltipContent width={320}>
+    A simple tooltip that appears on hover. This is a tooltip with a fixed width of 320 pixels.
+    The content will wrap to fit within this width constraint.
   </TooltipContent>
 </Tooltip>
 ```
 
-## Accessibility
+  </DocsTab>
+</DocsTabs>
 
-WFS lays on top of bits-ui and covers accessibility. For more information visit [documentation](https://bits-ui.com/docs/introduction).
+### Same width
+
+Use the `sameWidth` property to make the tooltip content the same width as the trigger.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/tooltip/same-width" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Tooltip, TooltipTrigger, TooltipContent } from '$lib/components/tooltip';
+  import { Button } from '$lib/components/button';
+</script>
+
+<Tooltip>
+  <TooltipTrigger>
+    <Button>Same width as the trigger</Button>
+  </TooltipTrigger>
+  <TooltipContent sameWidth>A simple tooltip that appears on hover</TooltipContent>
+</Tooltip>
+```
+
+  </DocsTab>
+</DocsTabs>

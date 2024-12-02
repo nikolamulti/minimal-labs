@@ -3,224 +3,278 @@ title: Button
 description: Interactive element that initiates an action, with a label or icon describing the outcome.
 ---
 
-import { SvelteComponent } from "@/components/SvelteComponent";
-import { Tabs, Tab } from "fumadocs-ui/components/tabs";
-import { Step, Steps } from "fumadocs-ui/components/steps";
-import { TypeTable } from "fumadocs-ui/components/type-table";
+import { Svelte } from "@/components/svelte";
+import { Tabs, Tab } from "@/components/tabs";
+import { Step, Steps } from "@/components/steps";
+import { TypeTable } from "@/components/type-table";
+import { DocsButton } from "@/components/ui/docs-button";
+import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 
-<SvelteComponent url="/button/primary" />
+<DocsButton href="https://bits-ui.com/docs/components/button">
+  API Reference
+</DocsButton>
 
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/button" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+    
 ```svelte
-<script>
-  import { Button } from '@/components/button';
+<script lang="ts">
+  import { Button } from '$lib/components/button';
 </script>
 
-<Button variant="primary">Primary</Button>
+<Button variant="primary">Button</Button>
 ```
 
-## Component API
+  </DocsTab>
+</DocsTabs>
 
-Component accepts a range of props allowing extensive customization of its appearance and behavior.
+## Usage
+
+```svelte
+<script lang="ts">
+  import { Button } from '$lib/components/button';
+</script>
+```
+
+```svelte
+<Button variant="primary">Button</Button>
+```
+
+## Properties
+
+These are the properties specific to our `button` implementation. For the complete list of properties, please refer to their <a href="https://www.bits-ui.com/docs/components/button" target="_blank">documentation</a>.
+
+### Button
 
 <TypeTable
   type={{
     variant: {
-      description: "The visual style of the button",
-      type: "default | primary | danger | outline | ghost",
+      description: "The variant of the button.",
+      type: "string",
+      typeDescription: "default | primary | critical | outline | ghost",
       default: "default",
     },
-    startIcon: {
-      description:
-        "An optional icon component to display before the button text",
-      type: "ComponentType",
-      default: "null",
-    },
-    endIcon: {
-      description:
-        "An optional icon component to display after the button text",
-      type: "ComponentType",
-      default: "null",
-    },
     disabled: {
-      description: "Whether the button is disabled",
+      description: "Whether the button is disabled.",
       type: "boolean",
       default: "false",
     },
     loading: {
-      description: "Whether the button is in a loading state",
+      description: "Whether the button is loading.",
       type: "boolean",
       default: "false",
     },
-    href: {
-      description: "The URL to navigate to when the button is clicked",
-      type: "string",
+    leadingIcon: {
+      description: "The leading icon of the button.",
+      type: "ComponentType | null",
+      default: "null",
+    },
+    trailingIcon: {
+      description: "The trailing icon of the button.",
+      type: "ComponentType | null",
       default: "null",
     },
   }}
 />
 
-## Variants
+### ButtonIcon
 
-The Button component supports five different variants:
+<TypeTable
+  type={{
+    variant: {
+      description: "The variant of the button icon.",
+      type: "string",
+      typeDescription: "default | primary | critical | outline | ghost",
+      default: "default",
+    },
+    size: {
+      description: "The size of the button icon.",
+      type: "string",
+      typeDescription: "sm | md",
+      default: "medium",
+    },
+    disabled: {
+      description: "Whether the button is disabled.",
+      type: "boolean",
+      default: "false",
+    },
+    loading: {
+      description: "Whether the button is loading.",
+      type: "boolean",
+      default: "false",
+    },
+  }}
+/>
 
-<SvelteComponent height={80} url="/button/variants" />
+## Examples
 
+### Variants
+
+Use the `variant` property to change the appearance of the button.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/button/variants" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+    
 ```svelte
-<script>
-  import { Button } from '@/components/button';
+<script lang="ts">
+  import { Button } from '$lib/components/button';
 </script>
 
 <Button variant="default">Default</Button>
 <Button variant="primary">Primary</Button>
-<Button variant="danger">Danger</Button>
 <Button variant="outline">Outline</Button>
 <Button variant="ghost">Ghost</Button>
+<Button variant="critical">Critical</Button>
 ```
-
-- `default`: Standard button style
-- `primary`: Emphasized button style for primary actions
-- `danger`: Button style for destructive or dangerous actions
-- `outline`: Button with an outline style
-- `ghost`: Button with a transparent background
-
-### Default button
-
-Supports disabled state allowing you to control user interaction.
-
-<SvelteComponent height={80} url="/button/default" />
-
-```svelte
-<script>
-  import { Button } from '@/components/button';
-</script>
-
-<Button variant="default">Default</Button>
-```
-
-### Primary button
-
-Supports disabled state allowing you to control user interaction.
-
-<SvelteComponent height={80} url="/button/primary" />
-
-```svelte
-<script>
-  import { Button } from '@/components/button';
-</script>
-
-<Button variant="primary">Primary</Button>
-```
-
-### Danger button
-
-Supports disabled state allowing you to control user interaction.
-
-<SvelteComponent height={80} url="/button/danger" />
-
-```svelte
-<script>
-  import { Button } from '@/components/button';
-</script>
-
-<Button variant="danger">Danger</Button>
-```
-
-### Outline button
-
-Supports disabled state allowing you to control user interaction.
-
-<SvelteComponent height={80} url="/button/outline" />
-
-```svelte
-<script>
-  import { Button } from '@/components/button';
-</script>
-
-<Button variant="outline">Outline</Button>
-```
-
-### Ghost button
-
-Supports disabled state allowing you to control user interaction.
-
-<SvelteComponent height={80} url="/button/ghost" />
-
-```svelte
-<script>
-  import { Button } from '@/components/button';
-</script>
-
-<Button variant="ghost">Ghost</Button>
-```
-
-## States
+  </DocsTab>
+</DocsTabs>
 
 ### Disabled
 
-Supports `disabled` state allowing you to control user interaction.
+Use the `disabled` property to disable the button.
 
-<SvelteComponent height={80} url="/button/disabled" />
-
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/button/disabled" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+    
 ```svelte
-<script>
-  import { Button } from '@/components/button';
+<script lang="ts">
+  import { Button } from '$lib/components/button';
 </script>
 
 <Button variant="default" disabled>Default</Button>
 <Button variant="primary" disabled>Primary</Button>
-<Button variant="danger" disabled>Danger</Button>
 <Button variant="outline" disabled>Outline</Button>
 <Button variant="ghost" disabled>Ghost</Button>
+<Button variant="critical" disabled>Critical</Button>
 ```
+  </DocsTab>
+</DocsTabs>
 
 ### Loading
 
-Supports `loading` state and provide visual feedback during asynchronous operations.
+Use the `loading` property to show a loading indicator.
 
-<SvelteComponent height={80} url="/button/loading" />
-
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/button/loading" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+    
 ```svelte
-<script>
-  import { Button } from '@/components/button';
+<script lang="ts">
+  import { Button } from '$lib/components/button';
 </script>
 
-<Button variant="default" loading>Default</Button>
-<Button variant="primary" loading>Primary</Button>
-<Button variant="danger" loading>Danger</Button>
-<Button variant="outline" loading>Outline</Button>
-<Button variant="ghost" loading>Ghost</Button>
+<Button variant="default" loading>Button</Button>
+<Button variant="primary" loading>Button</Button>
+<Button variant="outline" loading>Button</Button>
+<Button variant="ghost" loading>Button</Button>
+<Button variant="critical" loading>Button</Button>
 ```
+  </DocsTab>
+</DocsTabs>
 
-## Icon support
+### Icon support
 
-Built-in support for `startIcon` and `endIcon` props, allowing you to enhance the button's visual communication and functionality with custom icon components.
+Use the `leadingIcon` and `trailingIcon` properties to add an icon to the button.
 
-<SvelteComponent height={80} url="/button/icon-support" />
-
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/button/icon-support" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+    
 ```svelte
-<script>
-  import { Button } from '@/components/button';
+<script lang="ts">
+  import { Button } from '$lib/components/button';
+  import { Add, TabNew } from '$lib/components/icons';
 </script>
 
-<Button startIcon={ArrowLeft}>Previous</Button>
-<Button endIcon={ArrowRight}>Next</Button>
+<Button variant="default" trailingIcon={TabNew} href="https://webflow.com">
+	View documentation
+</Button>
+<Button variant="primary" leadingIcon={Add}>
+	Create new project
+</Button>
 ```
+  </DocsTab>
+</DocsTabs>
 
-## Using as a link
+### Button icon
 
-Built-in support for `href` prop, allowing you to use the button as a link.
+Use the `ButtonIcon` component to create icon-only buttons.
 
-<SvelteComponent height={80} url="/button/link" />
-
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/button/icon" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+    
 ```svelte
-<script>
-  import { Button } from '@/components/button';
+<script lang="ts">
+  import { ButtonIcon } from '$lib/components/button';
+  import { Add } from '$lib/components/icons';
 </script>
 
-<Button href="/">Home</Button>
-<Button href="/">About</Button>
+<ButtonIcon variant="default" icon={Add} />
+<ButtonIcon variant="primary" icon={Add} />
+<ButtonIcon variant="outline" icon={Add} />
+<ButtonIcon variant="ghost" icon={Add} />
+<ButtonIcon variant="critical" icon={Add} />
 ```
+  </DocsTab>
+</DocsTabs>
 
-## Accessibility
+### Button icon size
 
-WFS lays on top of bits-ui and covers accessibility. For more information visit [documentation](https://bits-ui.com/docs/introduction).
+Use the `size` property to change the size of the button icon.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/button/icon-size" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+    
+```svelte
+<script lang="ts">
+  import { ButtonIcon } from '$lib/components/button';
+  import { Add } from '$lib/components/icons';
+</script>
+
+<ButtonIcon variant="primary" size="small" icon={Add} />
+<ButtonIcon variant="primary" size="medium" icon={Add} />
+```
+  </DocsTab>
+</DocsTabs>
+
+### Link
+
+Use the `href` property to create a link button.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/button/link" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+    
+```svelte
+<script lang="ts">
+  import { Button } from '$lib/components/button';
+  import { TabNew } from '$lib/components/icons';
+</script>
+
+<Button variant="default" trailingIcon={TabNew} href="https://webflow.com/">
+  Webflow Account
+</Button>
+```
+  </DocsTab>
+</DocsTabs>

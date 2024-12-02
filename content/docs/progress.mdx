@@ -1,56 +1,91 @@
 ---
 title: Progress
-description: A component that visually represents the completion of a task or process.
+description: A component that indicates the completion of a process.
 ---
 
-import { SvelteComponent } from "@/components/SvelteComponent";
-import { TypeTable } from "fumadocs-ui/components/type-table";
+import { Svelte } from "@/components/svelte";
+import { Tabs, Tab } from "@/components/tabs";
+import { Step, Steps } from "@/components/steps";
+import { TypeTable } from "@/components/type-table";
+import { DocsButton } from "@/components/ui/docs-button";
+import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 
-<SvelteComponent url="/progress" />
+<DocsButton href="https://bits-ui.com/docs/components/progress">
+  API Reference
+</DocsButton>
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/progress" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
 
 ```svelte
-<script>
- import { Progress } from '@/components/progress';
+<script lang="ts">
+  import { Progress } from '$lib/components/progress';
+
+  let value = 70;
 </script>
 
-<Progress value={50} variant="primary" />
+<Progress bind:value variant="primary" />
 ```
 
-## Component API
+  </DocsTab>
+</DocsTabs>
 
-The Progress component accepts several props for customization:
+## Usage
+
+```svelte
+<script lang="ts">
+  import { Progress } from '$lib/components/progress';
+
+  let value = 70;
+</script>
+```
+
+```svelte
+<Progress bind:value variant="primary" />
+```
+
+## Properties
 
 <TypeTable
   type={{
-    value: {
-      description: "The current progress value (0-100)",
-      type: "number",
-      default: "required",
-    },
-    variant: {
-      description: "The visual style of the progress bar",
-      type: "primary | neutral | success | warning | critical",
+    color: {
+      description: "Determines the color variant of the progress bar.",
+      type: "string",
+      typeDescription:
+        "'primary' | 'neutral' | 'success' | 'warning' | 'critical'",
       default: "primary",
     },
   }}
 />
 
->
+## Examples
 
-## Variants
+### Colors
 
-The Progress component supports five different variants:
+Use the `color` property to change the color of the progress bar.
 
-<SvelteComponent height={160} url="/progress/variants" />
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/progress/variants" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
 
 ```svelte
-<Progress value={20} variant="primary" />
-<Progress value={40} variant="neutral" />
-<Progress value={60} variant="success" />
-<Progress value={80} variant="warning" />
-<Progress value={20} variant="critical" />
+<script lang="ts">
+  import { Progress } from '$lib/components/progress';
+
+  let value = 70;
+</script>
+
+<Progress bind:value color="primary" />
+<Progress bind:value color="neutral" />
+<Progress bind:value color="critical" />
+<Progress bind:value color="warning" />
+<Progress bind:value color="success" />
 ```
 
-## Accessibility
-
-WFS lays on top of bits-ui and covers accessibility. For more information visit [documentation](https://bits-ui.com/docs/introduction).
+  </DocsTab>
+</DocsTabs>

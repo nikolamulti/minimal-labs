@@ -1,78 +1,201 @@
 ---
 title: Link
-description: A component for creating hyperlinks with various styles and states.
+description: Interactive text element that works inside paragraphs or on its own.
 ---
 
-import { SvelteComponent } from "@/components/SvelteComponent";
-import { TypeTable } from "fumadocs-ui/components/type-table";
+import { Svelte } from "@/components/svelte";
+import { Tabs, Tab } from "@/components/tabs";
+import { Step, Steps } from "@/components/steps";
+import { TypeTable } from "@/components/type-table";
+import { DocsButton } from "@/components/ui/docs-button";
+import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 
-<SvelteComponent url="/link" />
+<div className="h-6" />
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/link" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
 
 ```svelte
-<script>
- import { Link } from '@/components/link';
+<script lang="ts">
+  import { Link } from '$lib/components/link';
 </script>
 
-<Link href="#">Google</Link>
+<Link href="#">Link link</Link>
 ```
 
-## Component API
+  </DocsTab>
+</DocsTabs>
 
-The Link component accepts various props for customization:
+## Usage
+
+```svelte
+<script lang="ts">
+  import { Link } from '$lib/components/link';
+</script>
+```
+
+```svelte
+<Link href="#">Link link</Link>
+```
+
+## Properties
 
 <TypeTable
   type={{
-    href: {
-      description: "The URL the link points to",
-      type: "string",
-      default: "required",
-    },
     variant: {
-      description: "The visual style of the link",
-      type: "default | primary | success | warning | critical",
-      default: "default",
+      description: "The variant style of the link.",
+      type: "string",
+      typeDescription:
+        "'white' | 'success' | 'critical' | 'primary' | 'warning'",
+      default: "primary",
+    },
+    href: {
+      description: "The URL that the link points to.",
+      type: "string",
+    },
+    leadingIcon: {
+      description: "The leading icon of the link.",
+      type: "ComponentType",
+    },
+    trailingIcon: {
+      description: "The trailing icon of the link.",
+      type: "ComponentType",
     },
     underline: {
-      description: "Whether to show an underline",
+      description: "Whether to show an underline on the link.",
+      type: "boolean",
+      default: "false",
+    },
+    button: {
+      description: "Whether the link should behave like a button.",
       type: "boolean",
       default: "false",
     },
     disabled: {
-      description: "Whether the link is disabled",
+      description:
+        "Whether the link is disabled. Only works when used as a button.",
       type: "boolean",
       default: "false",
     },
   }}
 />
 
-## Variants
+## Examples
 
-The Link component supports five different variants:
+### Icon support
 
-<SvelteComponent height={80} url="/link/variants" />
+Use the `leadingIcon` and `trailingIcon` properties to add an icon to the link.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/link/icon-support" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
 
 ```svelte
-<script>
- import { Link } from '@/components/link';
+<script lang="ts">
+  import { Link } from '$lib/components/link';
+  import { ChevronSmallLeft, ChevronSmallRight } from '$lib/components/icons';
 </script>
 
-<Link variant="default" href="#">
-  Default
-</Link>
-<Link variant="primary" href="#">
-  Primary
-</Link>
-<Link variant="success" href="#">
-  Success
-</Link>
-<Link variant="warning" href="#">
-  Warning
-</Link>
-<Link variant="critical" href="#">
-  Critical
-</Link>
+<Link leadingIcon={ChevronSmallLeft}>Previous</Link>
+<Link trailingIcon={ChevronSmallRight}>Next</Link>
 ```
 
-## Accessibility
+  </DocsTab>
+</DocsTabs>
 
-WFS lays on top of bits-ui and covers accessibility. For more information visit [documentation](https://bits-ui.com/docs/introduction).
+### Variants
+
+Use the `variant` property to change the appearance of the link.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/link/variants" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Link } from '$lib/components/link';
+</script>
+
+<Link variant="primary" href="https://webflow.com/">Primary link</Link>
+<Link variant="white" href="https://webflow.com/">White link</Link>
+<Link variant="critical" href="https://webflow.com/">Critical link</Link>
+<Link variant="warning" href="https://webflow.com/">Warning link</Link>
+<Link variant="success" href="https://webflow.com/">Success link</Link>
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Underline
+
+Use the `underline` property to show an underline on the link.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/link/underline" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Link } from '$lib/components/link';
+</script>
+
+<Link underline variant="primary" href="https://webflow.com/">Primary link</Link>
+<Link underline variant="white" href="https://webflow.com/">White link</Link>
+<Link underline variant="critical" href="https://webflow.com/">Critical link</Link>
+<Link underline variant="warning" href="https://webflow.com/">Warning link</Link>
+<Link underline variant="success" href="https://webflow.com/">Success link</Link>
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Button
+
+Use the `button` property to make the link behave like a button.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/link/button" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Link } from '$lib/components/link';
+</script>
+
+<Link button>Link text</Link>
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Disabled
+
+Use the `disabled` property to disable the link when used as a button.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/link/disabled" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Link } from '$lib/components/link';
+</script>
+
+<Link button disabled>Link text</Link>
+```
+
+  </DocsTab>
+</DocsTabs>

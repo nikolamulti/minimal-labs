@@ -1,15 +1,15 @@
-import { type PageTree, type TableOfContents } from 'fumadocs-core/server';
+import { type PageTree, type TableOfContents } from "fumadocs-core/server";
 import {
   type AnchorHTMLAttributes,
   forwardRef,
   type HTMLAttributes,
   type ReactNode,
-} from 'react';
-import type { LoaderConfig, LoaderOutput, Page } from 'fumadocs-core/source';
-import { type AnchorProviderProps, AnchorProvider } from 'fumadocs-core/toc';
-import { Card, Cards } from './card';
-import { replaceOrDefault } from './shared';
-import { cn } from '../lib/cn';
+} from "react";
+import type { LoaderConfig, LoaderOutput, Page } from "fumadocs-core/source";
+import { type AnchorProviderProps, AnchorProvider } from "fumadocs-core/toc";
+import { Card, Cards } from "./card";
+import { replaceOrDefault } from "./shared";
+import { cn } from "../lib/cn";
 import {
   Footer,
   type FooterProps,
@@ -18,33 +18,33 @@ import {
   PageHeader,
   Breadcrumb,
   type BreadcrumbProps,
-} from '../page.client';
-import { Toc, TOCItems, type TOCProps } from './layout/toc';
+} from "../page.client";
+import { Toc, TOCItems, type TOCProps } from "./layout/toc";
 import {
   TocPopoverTrigger,
   TocPopover,
   TocPopoverContent,
-} from './layout/toc-popover';
-import { buttonVariants } from './ui/button';
-import { Edit, Text } from 'lucide-react';
-import { I18nLabel } from 'fumadocs-ui/provider';
-import ClerkTOCItems from './layout/toc-clerk';
+} from "./layout/toc-popover";
+import { buttonVariants } from "./ui/button";
+import { Edit, Text } from "lucide-react";
+import { I18nLabel } from "fumadocs-ui/provider";
+import ClerkTOCItems from "./layout/toc-clerk";
 
-type TableOfContentOptions = Omit<TOCProps, 'items' | 'children'> &
-  Pick<AnchorProviderProps, 'single'> & {
+type TableOfContentOptions = Omit<TOCProps, "items" | "children"> &
+  Pick<AnchorProviderProps, "single"> & {
     enabled: boolean;
     component: ReactNode;
 
     /**
      * @defaultValue 'normal'
      */
-    style?: 'normal' | 'clerk';
+    style?: "normal" | "clerk";
   };
 
-type TableOfContentPopoverOptions = Omit<TableOfContentOptions, 'single'>;
+type TableOfContentPopoverOptions = Omit<TableOfContentOptions, "single">;
 
 interface EditOnGitHubOptions
-  extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href' | 'children'> {
+  extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href" | "children"> {
   owner: string;
   repo: string;
 
@@ -139,7 +139,7 @@ export function DocsPage({
         id="nd-page"
         style={
           {
-            '--fd-toc-width': fullWidth ? '0px' : undefined,
+            "--fd-toc-width": fullWidth ? "0px" : undefined,
           } as object
         }
       >
@@ -150,7 +150,7 @@ export function DocsPage({
               <TocPopoverTrigger className="size-full" items={toc} />
               <TocPopoverContent>
                 {tocPopoverOptions.header}
-                {tocPopoverOptions.style === 'clerk' ? (
+                {tocPopoverOptions.style === "clerk" ? (
                   <ClerkTOCItems items={toc} isMenu />
                 ) : (
                   <TOCItems items={toc} isMenu />
@@ -162,21 +162,21 @@ export function DocsPage({
           {
             items: toc,
             ...tocPopoverOptions,
-          },
+          }
         )}
         <article
           className={cn(
-            'mx-auto flex w-full flex-1 flex-col gap-6 px-4 pt-10 md:px-7 md:pt-12',
-            fullWidth ? 'max-w-[1120px]' : 'max-w-[860px]',
+            "mx-auto flex w-full flex-1 flex-col gap-6 px-4 pt-10 md:px-7 md:pt-12",
+            fullWidth ? "max-w-[1120px]" : "max-w-[720px]"
           )}
         >
           {replaceOrDefault(
             breadcrumb,
-            <Breadcrumb includePage={breadcrumb.full} {...breadcrumb} />,
+            <Breadcrumb includePage={breadcrumb.full} {...breadcrumb} />
           )}
           {props.children}
           <div role="none" className="flex-1" />
-          <div className="flex flex-row flex-wrap items-center justify-between gap-4 empty:hidden">
+          <div className="flex flex-row flex-wrap items-center justify-between gap-4 empty:hidden ">
             {props.editOnGithub ? (
               <EditOnGitHub {...props.editOnGithub} />
             ) : null}
@@ -196,7 +196,7 @@ export function DocsPage({
               <Text className="size-4" />
               <I18nLabel label="toc" />
             </h3>
-            {tocOptions.style === 'clerk' ? (
+            {tocOptions.style === "clerk" ? (
               <ClerkTOCItems items={toc} />
             ) : (
               <TOCItems items={toc} />
@@ -208,7 +208,7 @@ export function DocsPage({
           items: toc,
           ...tocOptions,
         },
-        <div role="none" className="flex-1" />,
+        <div role="none" className="flex-1" />
       )}
     </AnchorProvider>
   );
@@ -221,7 +221,9 @@ function EditOnGitHub({
   path,
   ...props
 }: EditOnGitHubOptions) {
-  const href = `https://github.com/${owner}/${repo}/blob/${sha}/${path.startsWith('/') ? path.slice(1) : path}`;
+  const href = `https://github.com/${owner}/${repo}/blob/${sha}/${
+    path.startsWith("/") ? path.slice(1) : path
+  }`;
 
   return (
     <a
@@ -231,10 +233,10 @@ function EditOnGitHub({
       {...props}
       className={cn(
         buttonVariants({
-          color: 'secondary',
-          className: 'gap-1.5 py-1 text-fd-muted-foreground',
+          color: "secondary",
+          className: "gap-1.5 py-1 text-fd-muted-foreground",
         }),
-        props.className,
+        props.className
       )}
     >
       <Edit className="size-3.5" />
@@ -250,10 +252,17 @@ export const DocsBody = forwardRef<
   HTMLDivElement,
   HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn('prose', className)} {...props} />
+  <div
+    ref={ref}
+    className={cn(
+      "prose prose-code:text-white  prose-p:text-neutral-400 prose-a:text-white prose-a:no-underline prose-a:font-semibold prose-headings:text-white prose-tr:border-b-fd-border prose-thead:border-b-fd-border",
+      className
+    )}
+    {...props}
+  />
 ));
 
-DocsBody.displayName = 'DocsBody';
+DocsBody.displayName = "DocsBody";
 
 export const DocsDescription = forwardRef<
   HTMLParagraphElement,
@@ -266,14 +275,14 @@ export const DocsDescription = forwardRef<
     <p
       ref={ref}
       {...props}
-      className={cn('mb-8 text-lg text-fd-muted-foreground', props.className)}
+      className={cn("text-xl text-fd-muted-foreground", props.className)}
     >
       {props.children}
     </p>
   );
 });
 
-DocsDescription.displayName = 'DocsDescription';
+DocsDescription.displayName = "DocsDescription";
 
 export const DocsTitle = forwardRef<
   HTMLHeadingElement,
@@ -283,30 +292,30 @@ export const DocsTitle = forwardRef<
     <h1
       ref={ref}
       {...props}
-      className={cn('text-3xl font-bold', props.className)}
+      className={cn("text-4xl font-bold", props.className)}
     >
       {props.children}
     </h1>
   );
 });
 
-DocsTitle.displayName = 'DocsTitle';
+DocsTitle.displayName = "DocsTitle";
 
 function findParent(
   node: PageTree.Root | PageTree.Folder,
-  page: Page,
+  page: Page
 ): PageTree.Root | PageTree.Folder | undefined {
-  if ('index' in node && node.index?.$ref?.file === page.file.path) {
+  if ("index" in node && node.index?.$ref?.file === page.file.path) {
     return node;
   }
 
   for (const child of node.children) {
-    if (child.type === 'folder') {
+    if (child.type === "folder") {
       const parent = findParent(child, page);
       if (parent) return parent;
     }
 
-    if (child.type === 'page' && child.$ref?.file === page.file.path) {
+    if (child.type === "page" && child.$ref?.file === page.file.path) {
       return node;
     }
   }
@@ -334,7 +343,7 @@ export function DocsCategory({
   if (!parent) return null;
 
   const items = parent.children.flatMap<Page>((item) => {
-    if (item.type !== 'page' || item.url === page.url) return [];
+    if (item.type !== "page" || item.url === page.url) return [];
 
     return from.getNodePage(item) ?? [];
   });
@@ -347,7 +356,7 @@ export function DocsCategory({
           title={item.data.title}
           description={
             (item.data as { description?: string }).description ??
-            'No Description'
+            "No Description"
           }
           href={item.url}
         />

@@ -3,111 +3,95 @@ title: Slider
 description: A form field that allows users to select a single value from within a given range.
 ---
 
-import { SvelteComponent } from "@/components/SvelteComponent";
-import { Tabs, Tab } from "fumadocs-ui/components/tabs";
-import { Step, Steps } from "fumadocs-ui/components/steps";
-import { TypeTable } from "fumadocs-ui/components/type-table";
+import { Svelte } from "@/components/svelte";
+import { Tabs, Tab } from "@/components/tabs";
+import { Step, Steps } from "@/components/steps";
+import { TypeTable } from "@/components/type-table";
+import { DocsButton } from "@/components/ui/docs-button";
+import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 
-<SvelteComponent url="/slider" />
+<DocsButton href="https://bits-ui.com/docs/components/slider">
+  API Reference
+</DocsButton>
 
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/slider" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+    
+    
 ```svelte
-import { Slider } from '@/components/slider';
-<Slider value={[50]} min={0} max={100} />
+<script lang="ts">
+  import { Slider } from '$lib/components/slider';
+  
+  let value = [50];
+</script>
+
+<Slider bind:value min={0} max={100} step={1} />
 ```
 
-## Component API
-
-Component accepts various props for customizing functionality and appearance.
-
-<TypeTable
-  type={{
-    min: {
-      description: "The minimum value the slider can have",
-      type: "number",
-      default: 0,
-    },
-    max: {
-      description: "The maximum value the slider can have",
-      type: "number",
-      default: 100,
-    },
-    step: {
-      description: "The stepping interval between values",
-      type: "number",
-      default: 1,
-    },
-    orientation: {
-      description: "The orientation of the slider",
-      type: "'horizontal' | 'vertical'",
-      default: "horizontal",
-    },
-    dir: {
-      description: "Text direction for correct thumb movement",
-      type: "'ltr' | 'rtl'",
-      default: "ltr",
-    },
-    disabled: {
-      description: "When true, prevents user interaction",
-      type: "boolean",
-      default: "false",
-    },
-    value: {
-      description: "The controlled value(s) of the slider",
-      type: "number[]",
-      default: "[0]",
-    },
-    onValueChange: {
-      description: "Callback fired when the value changes",
-      type: "Function",
-      default: "undefined",
-    },
-    showTooltip: {
-      description: "When true, displays value tooltip on focus",
-      type: "boolean",
-      default: "false",
-    },
-    asChild: {
-      description: "Merges passed props onto child element",
-      type: "boolean",
-      default: "false",
-    },
-  }}
-/>
-
->
+  </DocsTab>
+</DocsTabs>
 
 ## Usage
 
-### Basic slider
-
-Simple slider with default configuration.
-
-<SvelteComponent height={80} url="/slider" />
-
 ```svelte
-<Slider value={[25]} />
+<script lang="ts">
+  import { Slider } from '$lib/components/slider';
+
+  let value = [50];
+</script>
 ```
 
-### Range slider
-
-Support for selecting a range of values using multiple thumbs.
-
-<SvelteComponent height={80} url="/slider/range" />
-
 ```svelte
-<Slider value={[25, 75]} />
+<Slider bind:value min={0} max={100} step={1} />
 ```
 
-### Disabled slider
+## Examples
 
-Slider can be disabled to prevent user interaction.
+### Range
 
-<SvelteComponent height={80} url="/slider/disabled" />
+Use an array with two values to create a range slider.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/slider/range" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
 
 ```svelte
-<Slider disabled value={[50]} />
+<script lang="ts">
+  import { Slider } from '$lib/components/slider';
+
+  let value = [0, 50];
+</script>
+
+<Slider bind:value min={0} max={100} step={1} />
 ```
 
-## Accessibility
+  </DocsTab>
+</DocsTabs>
 
-WFS lays on top of bits-ui and covers accessibility. For more information visit [documentation](https://bits-ui.com/docs/introduction).
+### Disabled
+
+Use the `disabled` property to disable the `Slider` component.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/slider/disabled" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Slider } from '$lib/components/slider';
+
+  let value = [50];
+</script>
+
+<Slider disabled bind:value min={0} max={100} step={1} />
+```
+
+  </DocsTab>
+</DocsTabs>

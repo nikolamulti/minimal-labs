@@ -3,71 +3,117 @@ title: Empty state
 description: A component for displaying a message when no data is available, often including an action to remedy the situation.
 ---
 
-import { SvelteComponent } from "@/components/SvelteComponent";
-import { TypeTable } from "fumadocs-ui/components/type-table";
+import { Svelte } from "@/components/svelte";
+import { Tabs, Tab } from "@/components/tabs";
+import { Step, Steps } from "@/components/steps";
+import { TypeTable } from "@/components/type-table";
+import { DocsButton } from "@/components/ui/docs-button";
+import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 
-<SvelteComponent url="/empty-state/button" />
+<div className="h-6" />
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/empty-state" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
 
 ```svelte
-<script>
-  import { EmptyState, EmptyStateTitle, EmptyStateDescription, EmptyStateAction } from '@/components/empty-state';
-  import { Button } from '@/components/button';
-  import { Add } from '@/components/icons';
+<script lang="ts">
+  import { EmptyState, EmptyStateContent, EmptyStateTitle, EmptyStateDescription, EmptyStateAction } from '$lib/components/empty-state';
+  import { CMSAdd } from '$lib/components/icons';
+  import { Link } from '$lib/components/link';
 </script>
 
-<EmptyState icon={Add}>
-  <EmptyStateTitle>No links found</EmptyStateTitle>
-  <EmptyStateDescription>Create a new link to get started.</EmptyStateDescription>
+<EmptyState>
+  <CMSAdd size={20} />
+  <EmptyStateContent>
+    <EmptyStateTitle>No posts created yet</EmptyStateTitle>
+    <EmptyStateDescription>
+      Create your first blog post to start sharing content<br />with your audience
+    </EmptyStateDescription>
+  </EmptyStateContent>
   <EmptyStateAction>
-    <Button variant="default">Button text</Button>
+    <Link button href="/posts/new">Create new post</Link>
   </EmptyStateAction>
 </EmptyState>
 ```
 
-## Component API
+  </DocsTab>
+</DocsTabs>
 
-The EmptyState component and its subcomponents accept the following props:
+## Usage
+
+```svelte
+<script lang="ts">
+  import { EmptyState, EmptyStateContent, EmptyStateTitle, EmptyStateDescription, EmptyStateAction } from '$lib/components/empty-state';
+  import { CMSAdd } from '$lib/components/icons';
+  import { Link } from '$lib/components/link';
+</script>
+```
+
+```svelte
+<EmptyState>
+  <CMSAdd size={20} />
+  <EmptyStateContent>
+    <EmptyStateTitle>No posts created yet</EmptyStateTitle>
+    <EmptyStateDescription>
+      Create your first blog post to start sharing content<br />with your audience
+    </EmptyStateDescription>
+  </EmptyStateContent>
+  <EmptyStateAction>
+    <Link button>Create new post</Link>
+  </EmptyStateAction>
+</EmptyState>
+```
+
+## Properties
+
+### DropdownItem
 
 <TypeTable
   type={{
-    icon: {
-      description: "Icon component to display",
-      type: "ComponentType",
-      default: "null",
-    },
     transparent: {
-      description: "Whether to use a transparent backdrop",
+      description:
+        "Whether the empty state should have a transparent background.",
       type: "boolean",
       default: "false",
     },
   }}
 />
 
->
+## Examples
 
-## Variants
+### Transparent
 
-The EmptyState component supports two main variants:
+Use the `transparent` property for a transparent background.
 
-<SvelteComponent height={160} url="/empty-state/variants" />
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/empty-state/transparent" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
 
 ```svelte
-<EmptyState icon={Add}>
-		<EmptyStateTitle>No links found</EmptyStateTitle>
-		<EmptyStateDescription>Create a new link to get started.</EmptyStateDescription>
-		<EmptyStateAction>
-			<Link variant="primary" href="/links/create">Link text</Link>
-		</EmptyStateAction>
-	</EmptyState>
-	<EmptyState transparent icon={Add}>
-		<EmptyStateTitle>No links found</EmptyStateTitle>
-		<EmptyStateDescription>Create a new link to get started.</EmptyStateDescription>
-		<EmptyStateAction>
-			<Link variant="primary" href="/links/create">Link text</Link>
-		</EmptyStateAction>
-	</EmptyState>
+<script lang="ts">
+  import { EmptyState, EmptyStateContent, EmptyStateTitle, EmptyStateDescription, EmptyStateAction } from '$lib/components/empty-state';
+  import { CMSAdd } from '$lib/components/icons';
+  import { Link } from '$lib/components/link';
+</script>
+
+<EmptyState transparent>
+  <CMSAdd size={20} />
+  <EmptyStateContent>
+    <EmptyStateTitle>No posts created yet</EmptyStateTitle>
+    <EmptyStateDescription>
+      Create your first blog post to start sharing content<br />with your audience
+    </EmptyStateDescription>
+  </EmptyStateContent>
+  <EmptyStateAction>
+    <Link button>Create new post</Link>
+  </EmptyStateAction>
+</EmptyState>
 ```
 
-## Accessibility
-
-WFS lays on top of bits-ui and covers accessibility. For more information visit [documentation](https://bits-ui.com/docs/introduction).
+  </DocsTab>
+</DocsTabs>

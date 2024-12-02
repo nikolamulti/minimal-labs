@@ -3,174 +3,86 @@ title: Switch
 description: A toggle that allows users to turn an option on or off.
 ---
 
-import { SvelteComponent } from "@/components/SvelteComponent";
-import { Tabs, Tab } from "fumadocs-ui/components/tabs";
-import { Step, Steps } from "fumadocs-ui/components/steps";
-import { TypeTable } from "fumadocs-ui/components/type-table";
+import { Svelte } from "@/components/svelte";
+import { Tabs, Tab } from "@/components/tabs";
+import { Step, Steps } from "@/components/steps";
+import { TypeTable } from "@/components/type-table";
+import { DocsButton } from "@/components/ui/docs-button";
+import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 
-<SvelteComponent url="/switch" />
+<DocsButton href="https://bits-ui.com/docs/components/switch">
+  API Reference
+</DocsButton>
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/switch" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
 
 ```svelte
-<script>
-  import { Switch } from '@/components/switch';
+<script lang="ts">
+  import { Switch, SwitchField } from '$lib/components/switch';
+  import { Label, Description } from '$lib/components/fieldset';
+
+  let emailNotifications = false;
 </script>
 
-<Switch>Enable notifications</Switch>
+<SwitchField>
+  <Switch id="notifications" name="notifications" bind:checked={emailNotifications} />
+  <Label for="notifications">Email Notifications</Label>
+  <Description>Get email updates about your account</Description>
+</SwitchField>
 ```
 
-## Component API
+  </DocsTab>
+</DocsTabs>
 
-Component accepts a range of props allowing extensive customization of its appearance and behavior.
-
-### Props
-
-<TypeTable
-  type={{
-    disabled: {
-      description:
-        "When true, prevents user interaction with the switch and applies a visual disabled state.",
-      type: "boolean",
-      default: "false",
-    },
-    required: {
-      description:
-        "Marks the switch as a required form element. Useful for form validation.",
-      type: "boolean",
-      default: "false",
-    },
-    checked: {
-      description:
-        "Controls the switch's state. When true, the switch is in the 'on' position.",
-      type: "boolean",
-      default: "false",
-    },
-    name: {
-      description:
-        "Sets the name attribute for the underlying input element. Used when the switch is part of a form.",
-      type: "string",
-      default: "undefined",
-    },
-    value: {
-      description:
-        "Sets the value attribute for the underlying input element. This value is submitted with form data when the switch is checked.",
-      type: "string",
-      default: "undefined",
-    },
-    includeInput: {
-      description:
-        "When true, renders a hidden input element, making the switch compatible with traditional form submissions.",
-      type: "boolean",
-      default: "false",
-    },
-    asChild: {
-      description:
-        "Allows the root element to be replaced by the child component passed to it. Useful for custom implementations.",
-      type: "boolean",
-      default: "false",
-    },
-    inputAttrs: {
-      description:
-        "Additional attributes to be spread onto the hidden input element when includeInput is true.",
-      type: "object",
-      default: "undefined",
-    },
-    onCheckedChange: {
-      description:
-        "Callback function triggered when the switch's checked state changes. Receives the new checked state as an argument.",
-      type: "function",
-      default: "undefined",
-    },
-    buttonEl: {
-      description:
-        "Reference to the underlying button element. Useful for imperative DOM manipulation.",
-      type: "HTMLElement",
-      default: "undefined",
-    },
-    inputEl: {
-      description:
-        "Reference to the hidden input element when includeInput is true.",
-      type: "HTMLElement",
-      default: "undefined",
-    },
-  }}
-/>
-
->
-
-### Events
-
-<TypeTable
-  type={{
-    click: {
-      type: "MouseEvent",
-      description: "Fired when the switch is clicked.",
-      default: "undefined",
-    },
-    keydown: {
-      type: "KeyboardEvent",
-      description: "Fired when a key is pressed while the switch has focus.",
-      default: "undefined",
-    },
-  }}
-/>
-
-## States
-
-### Default
-
-<SvelteComponent url="/switch" />
+## Usage
 
 ```svelte
-<Switch>Enable notifications</Switch>
+<script lang="ts">
+  import { Switch, SwitchField } from '$lib/components/switch';
+  import { Label, Description } from '$lib/components/fieldset';
+
+  let emailNotifications = false;
+</script>
 ```
-
-### Checked
-
-<SvelteComponent url="/switch/checked" />
 
 ```svelte
-<Switch checked={true}>Enable notifications</Switch>
+<SwitchField>
+  <Switch id="notifications" name="notifications" bind:checked={emailNotifications} />
+  <Label for="notifications">Email Notifications</Label>
+  <Description>Get email updates about your account</Description>
+</SwitchField>
 ```
+
+## Examples
 
 ### Disabled
 
-<SvelteComponent url="/switch/disabled" />
+Use the `disabled` property to prevent users from interacting with the switch.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/switch/disabled" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
 
 ```svelte
-<Switch disabled={true}>Enable notifications</Switch>
-```
+<script lang="ts">
+  import { Switch, SwitchField } from '$lib/components/switch';
+  import { Label, Description } from '$lib/components/fieldset';
 
-### Required
-
-<SvelteComponent url="/switch/required" />
-
-```svelte
-<Switch required={true}>Enable notifications</Switch>
-```
-
-## Event Handling
-
-Component supports various interaction events.
-
-```svelte
-<script>
-  function handleChange(checked) {
-    console.log('Switch state:', checked);
-  }
-
-  function handleClick(event) {
-    console.log('Switch clicked:', event);
-  }
+  let emailNotifications = false;
 </script>
 
-<Switch
-  onCheckedChange={handleChange}
-  onClick={handleClick}
->
-  Auto-save
-</Switch>
+<SwitchField>
+  <Switch disabled id="notifications" name="notifications" bind:checked={emailNotifications} />
+  <Label for="notifications">Email Notifications</Label>
+  <Description>Get email updates about your account</Description>
+</SwitchField>
 ```
 
-## Accessibility
-
-WFS lays on top of bits-ui and covers accessibility. For more information visit [documentation](https://bits-ui.com/docs/introduction).
+  </DocsTab>
+</DocsTabs>
