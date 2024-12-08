@@ -73,6 +73,52 @@ Use an array with two values to create a range slider.
   </DocsTab>
 </DocsTabs>
 
+### Min max
+
+Use the `min` and `max` properties to set the minimum and maximum values.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/slider/min-max" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Slider } from '$lib/components/slider';
+
+  let value = [50];
+</script>
+
+<Slider bind:value min={0} max={100} />
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Step
+
+Use the `step` property to set the step size.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/slider/step" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Slider } from '$lib/components/slider';
+
+  let value = [50];
+</script>
+
+<Slider bind:value min={0} max={100} step={10} />
+```
+
+  </DocsTab>
+</DocsTabs>
+
 ### Disabled
 
 Use the `disabled` property to disable the `Slider` component.
