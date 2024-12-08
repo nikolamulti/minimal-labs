@@ -1,0 +1,204 @@
+---
+title: Fieldset
+description: Provides structured grouping to organize form fields together.
+---
+
+import { Svelte } from "@/components/svelte";
+import { Tabs, Tab } from "@/components/tabs";
+import { Step, Steps } from "@/components/steps";
+import { TypeTable } from "@/components/type-table";
+import { DocsButton } from "@/components/ui/docs-button";
+import { DocsTabs, DocsTab } from "@/components/docs-tabs";
+
+<DocsButton href="https://bits-ui.com/docs/components/select">
+  API Reference
+</DocsButton>
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/fieldset" height={480} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Fieldset, Legend, Field, Description, Label } from '$lib/components/fieldset';
+  import { TextInput } from '$lib/components/input';
+  import { Textarea } from '$lib/components/textarea';
+  import { Select, SelectTrigger, SelectContent, SelectItem } from '$lib/components/select';
+
+  const roles = [
+    { value: 'developer', label: 'Developer' },
+    { value: 'designer', label: 'Designer' },
+    { value: 'manager', label: 'Manager' },
+    { value: 'other', label: 'Other' }
+  ];
+</script>
+
+<Fieldset class="fieldset">
+  <Legend>Account Information</Legend>
+  <Description>Please provide your account details.</Description>
+  <Field>
+    <Label for="full_name">Full Name</Label>
+    <TextInput id="full_name" placeholder="Enter your full name" />
+  </Field>
+  <Field>
+    <Label for="email">Email</Label>
+    <TextInput id="email" type="email" placeholder="Enter your email" />
+  </Field>
+  <Field>
+    <Label>Role</Label>
+    <Select>
+      <SelectTrigger placeholder="Assign role" />
+      <SelectContent>
+        {#each roles as role}
+          <SelectItem value={role.value} label={role.label}>
+            {role.label}
+          </SelectItem>
+        {/each}
+      </SelectContent>
+    </Select>
+  </Field>
+  <Field>
+    <Label for="bio">Bio</Label>
+    <Textarea id="bio" placeholder="Enter your bio" />
+  </Field>
+</Fieldset>
+
+<style>
+  :global(.fieldset) {
+    width: 320px;
+  }
+</style>
+```
+
+  </DocsTab>
+</DocsTabs>
+
+## Usage
+
+```svelte
+<script lang="ts">
+  import { Fieldset, Legend, Field, Description, Label } from '$lib/components/fieldset';
+  import { TextInput } from '$lib/components/input';
+  import { Textarea } from '$lib/components/textarea';
+  import { Select, SelectTrigger, SelectContent, SelectItem } from '$lib/components/select';
+
+  const roles = [
+    { value: 'developer', label: 'Developer' },
+    { value: 'designer', label: 'Designer' },
+    { value: 'manager', label: 'Manager' },
+    { value: 'other', label: 'Other' }
+  ];
+</script>
+```
+
+```svelte
+<Fieldset class="fieldset">
+  <Legend>Account Information</Legend>
+  <Description>Please provide your account details.</Description>
+  <Field>
+    <Label for="full_name">Full Name</Label>
+    <TextInput id="full_name" placeholder="Enter your full name" />
+  </Field>
+  <Field>
+    <Label for="email">Email</Label>
+    <TextInput id="email" type="email" placeholder="Enter your email" />
+  </Field>
+  <Field>
+    <Label>Role</Label>
+    <Select>
+      <SelectTrigger placeholder="Assign role" />
+      <SelectContent>
+        {#each roles as role}
+          <SelectItem value={role.value} label={role.label}>
+            {role.label}
+          </SelectItem>
+        {/each}
+      </SelectContent>
+    </Select>
+  </Field>
+  <Field>
+    <Label for="bio">Bio</Label>
+    <Textarea id="bio" placeholder="Enter your bio" />
+  </Field>
+</Fieldset>
+```
+
+## Properties
+
+<TypeTable
+  type={{
+    disabled: {
+      description: "Whether the fieldset is disabled.",
+      type: "boolean",
+    },
+  }}
+/>
+
+## Examples
+
+### Disabled
+
+Use the `disabled` property to disable all the fields inside the `Fieldset` component.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/fieldset/disabled" height={480} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Fieldset, Legend, Field, Description, Label } from '$lib/components/fieldset';
+  import { TextInput } from '$lib/components/input';
+  import { Textarea } from '$lib/components/textarea';
+  import { Select, SelectTrigger, SelectContent, SelectItem } from '$lib/components/select';
+
+  const roles = [
+    { value: 'developer', label: 'Developer' },
+    { value: 'designer', label: 'Designer' },
+    { value: 'manager', label: 'Manager' },
+    { value: 'other', label: 'Other' }
+  ];
+</script>
+
+<Fieldset class="fieldset">
+  <Legend>Account Information</Legend>
+  <Description>Please provide your account details.</Description>
+  <Field>
+    <Label for="full_name">Full Name</Label>
+    <TextInput id="full_name" placeholder="Enter your full name" />
+  </Field>
+  <Field>
+    <Label for="email">Email</Label>
+    <TextInput id="email" type="email" placeholder="Enter your email" />
+  </Field>
+  <Field>
+    <Label>Role</Label>
+    <Select>
+      <SelectTrigger placeholder="Assign role" />
+      <SelectContent>
+        {#each roles as role}
+          <SelectItem value={role.value} label={role.label}>
+            {role.label}
+          </SelectItem>
+        {/each}
+      </SelectContent>
+    </Select>
+  </Field>
+  <Field>
+    <Label for="bio">Bio</Label>
+    <Textarea id="bio" placeholder="Enter your bio" />
+  </Field>
+</Fieldset>
+
+<style>
+  :global(.fieldset) {
+    width: 320px;
+  }
+</style>
+```
+
+  </DocsTab>
+</DocsTabs>

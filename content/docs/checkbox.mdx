@@ -82,33 +82,29 @@ Use the `CheckboxGroup` component to organize multiple checkboxes in a stack wit
     <Svelte url="/checkbox/group" height={360} />
   </DocsTab>
   <DocsTab value="Code">
-  
+
 ```svelte
 <script lang="ts">
   import { Checkbox, CheckboxField, CheckboxGroup } from '$lib/components/checkbox';
-  import { Label, Description } from '$lib/components/fieldset';
+  import { Label } from '$lib/components/fieldset';
 
-let options = [
-{
-id: 'email-updates',
-label: 'Account activity and updates',
-description: 'Get notified about important changes to your account',
-checked: false
-},
-{
-id: 'product-news',
-label: 'Product news and updates',
-description: 'Stay informed about new features and improvements',
-checked: false
-},
-{
-id: 'marketing',
-label: 'Special offers and promotions',
-description: 'Get exclusive deals and promotional content',
-checked: false
-}
-];
-
+  let options = [
+    {
+      id: 'email-updates',
+      label: 'Account activity and updates',
+      checked: false
+    },
+    {
+      id: 'product-news',
+      label: 'Product news and updates',
+      checked: false
+    },
+    {
+      id: 'marketing',
+      label: 'Special offers and promotions',
+      checked: false
+    }
+  ];
 </script>
 
 <CheckboxGroup>
@@ -116,11 +112,11 @@ checked: false
     <CheckboxField>
       <Checkbox id={option.id} bind:checked={option.checked} />
       <Label for={option.id}>{option.label}</Label>
-      <Description>{option.description}</Description>
     </CheckboxField>
   {/each}
 </CheckboxGroup>
 ```
+
   </DocsTab>
 </DocsTabs>
 
@@ -133,38 +129,42 @@ Use the `indeterminate` state to indicate that some, but not all, of the checkbo
     <Svelte url="/checkbox/indeterminate" height={360} />
   </DocsTab>
   <DocsTab value="Code">
-  
+
 ```svelte
 <script lang="ts">
   import { Checkbox, CheckboxField, CheckboxGroup } from '$lib/components/checkbox';
   import { Label } from '$lib/components/fieldset';
 
-let options = [
-{ id: 'option-1', label: 'Option 1', checked: true },
-{ id: 'option-2', label: 'Option 2', checked: false },
-{ id: 'option-3', label: 'Option 3', checked: false }
-];
+  let options = [
+    { id: 'option-1', label: 'Option 1', checked: true },
+    { id: 'option-2', label: 'Option 2', checked: false },
+    { id: 'option-3', label: 'Option 3', checked: false }
+  ];
 
-$: allSelected = options.every((option) => option.checked);
-$: someSelected = options.some((option) => option.checked) && !allSelected;
+  $: allSelected = options.every((option) => option.checked);
+  $: someSelected = options.some((option) => option.checked) && !allSelected;
 
-function handleSelectAll() {
-if (someSelected) {
-options = options.map((option) => ({ ...option, checked: true }));
-} else if (allSelected) {
-options = options.map((option) => ({ ...option, checked: false }));
-} else {
-options = options.map((option) => ({ ...option, checked: true }));
-}
-}
-
+  function handleSelectAll() {
+    if (someSelected) {
+      options = options.map((option) => ({ ...option, checked: true }));
+    } else if (allSelected) {
+      options = options.map((option) => ({ ...option, checked: false }));
+    } else {
+      options = options.map((option) => ({ ...option, checked: true }));
+    }
+  }
 </script>
 
 <CheckboxGroup>
   <CheckboxField>
-    <Checkbox id="select-all" checked={someSelected ? 'indeterminate' : allSelected} on:click={handleSelectAll} />
+    <Checkbox
+      id="select-all"
+      checked={someSelected ? 'indeterminate' : allSelected}
+      on:click={handleSelectAll}
+    />
     <Label for="select-all">Select all</Label>
   </CheckboxField>
+
   {#each options as option}
     <CheckboxField>
       <Checkbox id={option.id} bind:checked={option.checked} />
@@ -173,6 +173,7 @@ options = options.map((option) => ({ ...option, checked: true }));
   {/each}
 </CheckboxGroup>
 ```
+
   </DocsTab>
 </DocsTabs>
 
@@ -190,9 +191,8 @@ Use the `Description` component to provide additional information and helpful co
 <script lang="ts">
   import { Checkbox, CheckboxField } from '$lib/components/checkbox';
   import { Label, Description } from '$lib/components/fieldset';
-
-let acceptTerms = false;
-
+  
+  let acceptTerms = false;
 </script>
 
 <CheckboxField>
@@ -201,6 +201,7 @@ let acceptTerms = false;
   <Description>Please accept to continue</Description>
 </CheckboxField>
 ```
+
   </DocsTab>
 </DocsTabs>
 
@@ -218,9 +219,8 @@ Use the `Sublabel` component to add a secondary label to the checkbox.
 <script lang="ts">
   import { Checkbox, CheckboxField } from '$lib/components/checkbox';
   import { Label, Sublabel } from '$lib/components/fieldset';
-
-let acceptTerms = false;
-
+  
+  let acceptTerms = false;
 </script>
 
 <CheckboxField>
@@ -229,6 +229,35 @@ let acceptTerms = false;
   <Sublabel>(Required)</Sublabel>
 </CheckboxField>
 ```
+
+  </DocsTab>
+</DocsTabs>
+
+### Reversed
+
+Place the `Checkbox` last in the `CheckboxField` component to make the checkbox appear on the right side of the label.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/checkbox/reversed" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+  
+```svelte
+<script lang="ts">
+  import { Checkbox, CheckboxField } from '$lib/components/checkbox';
+  import { Label, Description } from '$lib/components/fieldset';
+  
+  let acceptTerms = false;
+</script>
+
+<CheckboxField>
+  <Label for="terms">Accept Terms and Conditions</Label>
+  <Description>Please accept to continue</Description>
+  <Checkbox id="terms" bind:checked={acceptTerms} />
+</CheckboxField>
+```
+
   </DocsTab>
 </DocsTabs>
 
@@ -255,6 +284,7 @@ Use the `error` property to indicate that the checkbox has an error.
   <Label for="terms">Accept Terms and Conditions</Label>
 </CheckboxField>
 ```
+
   </DocsTab>
 </DocsTabs>
 
@@ -281,5 +311,6 @@ Use the `disabled` property to prevent users from interacting with the checkbox.
   <Label for="terms">Accept Terms and Conditions</Label>
 </CheckboxField>
 ```
+
   </DocsTab>
 </DocsTabs>

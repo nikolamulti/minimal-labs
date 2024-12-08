@@ -28,7 +28,7 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
   let value = [50];
 </script>
 
-<Slider bind:value min={0} max={100} step={1} />
+<Slider bind:value />
 ```
 
   </DocsTab>
@@ -45,7 +45,7 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 ```
 
 ```svelte
-<Slider bind:value min={0} max={100} step={1} />
+<Slider bind:value />
 ```
 
 ## Examples
@@ -67,7 +67,7 @@ Use an array with two values to create a range slider.
   let value = [0, 50];
 </script>
 
-<Slider bind:value min={0} max={100} step={1} />
+<Slider bind:value />
 ```
 
   </DocsTab>
@@ -90,7 +90,7 @@ Use the `disabled` property to disable the `Slider` component.
   let value = [50];
 </script>
 
-<Slider disabled bind:value min={0} max={100} step={1} />
+<Slider disabled bind:value />
 ```
 
   </DocsTab>

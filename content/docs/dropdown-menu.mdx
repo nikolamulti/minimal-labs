@@ -16,7 +16,7 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 
 <DocsTabs items={["Preview", "Code"]}>
   <DocsTab value="Preview" className="mt-6">
-    <Svelte url="/dropdown-menu" height={360} />
+    <Svelte url="/dropdown-menu" height={400} />
   </DocsTab>
   <DocsTab value="Code">
 
@@ -28,14 +28,13 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 </script>
 
 <Dropdown>
-  <DropdownTrigger>
-    <Button trailingIcon={ChevronSmallDown}>Account</Button>
+  <DropdownTrigger asChild let:builder>
+    <Button builders={[builder]} trailingIcon={ChevronSmallDown}>Account</Button>
   </DropdownTrigger>
   <DropdownContent class="dropdown__content">
-    <DropdownItem>View Profile</DropdownItem>
-    <DropdownItem>Account Settings</DropdownItem>
+    <DropdownItem>Profile</DropdownItem>
+    <DropdownItem>Settings</DropdownItem>
     <DropdownItem>Billing</DropdownItem>
-    <DropdownItem>Team Members</DropdownItem>
     <DropdownItem>Support</DropdownItem>
   </DropdownContent>
 </Dropdown>
@@ -62,14 +61,13 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 
 ```svelte
 <Dropdown>
-  <DropdownTrigger>
-    <Button trailingIcon={ChevronSmallDown}>Account</Button>
+  <DropdownTrigger asChild let:builder>
+    <Button builders={[builder]} trailingIcon={ChevronSmallDown}>Account</Button>
   </DropdownTrigger>
   <DropdownContent>
-    <DropdownItem>View Profile</DropdownItem>
-    <DropdownItem>Account Settings</DropdownItem>
+    <DropdownItem>Profile</DropdownItem>
+    <DropdownItem>Settings</DropdownItem>
     <DropdownItem>Billing</DropdownItem>
-    <DropdownItem>Team Members</DropdownItem>
     <DropdownItem>Support</DropdownItem>
   </DropdownContent>
 </Dropdown>
@@ -85,8 +83,7 @@ These are the properties specific to our `dropdown-menu` implementation. For the
   type={{
     icon: {
       description: "The icon to display in dropdown item.",
-      type: "ComponentType | null",
-      default: "null",
+      type: "ComponentType",
     },
   }}
 />
@@ -96,9 +93,8 @@ These are the properties specific to our `dropdown-menu` implementation. For the
 <TypeTable
   type={{
     icon: {
-      description: "The icon to display in dropdown item.",
-      type: "ComponentType | null",
-      default: "null",
+      description: "The icon to display in dropdown sub trigger.",
+      type: "ComponentType",
     },
   }}
 />
@@ -108,9 +104,19 @@ These are the properties specific to our `dropdown-menu` implementation. For the
 <TypeTable
   type={{
     icon: {
-      description: "The icon to display in dropdown item.",
-      type: "ComponentType | null",
-      default: "null",
+      description: "The icon to display in dropdown checkbox item.",
+      type: "ComponentType",
+    },
+  }}
+/>
+
+### DropdownRadioItem
+
+<TypeTable
+  type={{
+    icon: {
+      description: "The icon to display in dropdown radio item.",
+      type: "ComponentType",
     },
   }}
 />
@@ -123,26 +129,25 @@ Use the `icon` property to easily add an icon to the `DropdownItem` component.
 
 <DocsTabs items={["Preview", "Code"]}>
   <DocsTab value="Preview" className="mt-6">
-    <Svelte url="/dropdown-menu/icon-support" height={360} />
+    <Svelte url="/dropdown-menu/icon-support" height={400} />
   </DocsTab>
   <DocsTab value="Code">
 
 ```svelte
 <script lang="ts">
   import { Dropdown, DropdownTrigger, DropdownContent, DropdownItem } from '$lib/components/dropdown-menu';
-  import { Account, Settings, Briefcase, Users, HelpCircle, ChevronSmallDown } from '$lib/components/icons';
+  import { Account, Settings, Briefcase, HelpCircle, ChevronSmallDown } from '$lib/components/icons';
   import { Button } from '$lib/components/button';
 </script>
 
 <Dropdown>
-  <DropdownTrigger>
-    <Button trailingIcon={ChevronSmallDown}>Account</Button>
+  <DropdownTrigger asChild let:builder>
+    <Button builders={[builder]} trailingIcon={ChevronSmallDown}>Account</Button>
   </DropdownTrigger>
   <DropdownContent class="dropdown__content">
-    <DropdownItem icon={Account}>View Profile</DropdownItem>
-    <DropdownItem icon={Settings}>Account Settings</DropdownItem>
+    <DropdownItem icon={Account}>Profile</DropdownItem>
+    <DropdownItem icon={Settings}>Settings</DropdownItem>
     <DropdownItem icon={Briefcase}>Billing</DropdownItem>
-    <DropdownItem icon={Users}>Team Members</DropdownItem>
     <DropdownItem icon={HelpCircle}>Support</DropdownItem>
   </DropdownContent>
 </Dropdown>
@@ -163,7 +168,7 @@ Use the `Description` component inside the `DropdownItem` component to provide a
 
 <DocsTabs items={["Preview", "Code"]}>
   <DocsTab value="Preview" className="mt-6">
-    <Svelte url="/dropdown-menu/description" height={360} />
+    <Svelte url="/dropdown-menu/description" height={400} />
   </DocsTab>
   <DocsTab value="Code">
 
@@ -175,29 +180,21 @@ Use the `Description` component inside the `DropdownItem` component to provide a
 </script>
 
 <Dropdown>
-  <DropdownTrigger>
-    <Button trailingIcon={ChevronSmallDown}>Account</Button>
+  <DropdownTrigger asChild let:builder>
+    <Button builders={[builder]} trailingIcon={ChevronSmallDown}>Account</Button>
   </DropdownTrigger>
   <DropdownContent class="dropdown__content">
     <DropdownItem>
-      View Profile
+      Profile
       <DropdownDescription>Edit your profile information</DropdownDescription>
     </DropdownItem>
     <DropdownItem>
-      Account Settings
+      Settings
       <DropdownDescription>Manage account preferences</DropdownDescription>
     </DropdownItem>
     <DropdownItem>
       Billing
       <DropdownDescription>Manage billing information</DropdownDescription>
-    </DropdownItem>
-    <DropdownItem>
-      Team Members
-      <DropdownDescription>Manage team members and permissions</DropdownDescription>
-    </DropdownItem>
-    <DropdownItem>
-      Support
-      <DropdownDescription>Contact customer support</DropdownDescription>
     </DropdownItem>
   </DropdownContent>
 </Dropdown>
@@ -218,7 +215,7 @@ Use the `Sublabel` component inside the `DropdownItem` component to add a second
 
 <DocsTabs items={["Preview", "Code"]}>
   <DocsTab value="Preview" className="mt-6">
-    <Svelte url="/dropdown-menu/sublabel" height={360} />
+    <Svelte url="/dropdown-menu/sublabel" height={400} />
   </DocsTab>
   <DocsTab value="Code">
 
@@ -230,25 +227,21 @@ Use the `Sublabel` component inside the `DropdownItem` component to add a second
 </script>
 
 <Dropdown>
-  <DropdownTrigger>
-    <Button trailingIcon={ChevronSmallDown}>Account</Button>
+  <DropdownTrigger asChild let:builder>
+    <Button builders={[builder]} trailingIcon={ChevronSmallDown}>Account</Button>
   </DropdownTrigger>
   <DropdownContent class="dropdown__content">
     <DropdownItem>
-      View Profile
+      Profile
       <DropdownSublabel>Edit profile</DropdownSublabel>
     </DropdownItem>
     <DropdownItem>
-      Account Settings
+      Settings
       <DropdownSublabel>Preferences</DropdownSublabel>
     </DropdownItem>
     <DropdownItem>
       Billing
       <DropdownSublabel>Payment details</DropdownSublabel>
-    </DropdownItem>
-    <DropdownItem>
-      Team Members
-      <DropdownSublabel>Manage team</DropdownSublabel>
     </DropdownItem>
     <DropdownItem>
       Support
@@ -273,7 +266,7 @@ Use the `DropdownCheckboxItem` component to create a checkbox item.
 
 <DocsTabs items={["Preview", "Code"]}>
   <DocsTab value="Preview" className="mt-6">
-    <Svelte url="/dropdown-menu/checkbox" height={360} />
+    <Svelte url="/dropdown-menu/checkbox" height={400} />
   </DocsTab>
   <DocsTab value="Code">
 
@@ -291,8 +284,8 @@ Use the `DropdownCheckboxItem` component to create a checkbox item.
 </script>
 
 <Dropdown closeOnItemClick={false}>
-  <DropdownTrigger>
-    <Button trailingIcon={ChevronSmallDown}>Account</Button>
+  <DropdownTrigger asChild let:builder>
+    <Button builders={[builder]} trailingIcon={ChevronSmallDown}>Account</Button>
   </DropdownTrigger>
   <DropdownContent class="dropdown__content">
     <DropdownCheckboxItem bind:checked={account.personalAccount}>
@@ -323,7 +316,7 @@ Use the `DropdownRadioItem` component to create a radio item.
 
 <DocsTabs items={["Preview", "Code"]}>
   <DocsTab value="Preview" className="mt-6">
-    <Svelte url="/dropdown-menu/radio" height={360} />
+    <Svelte url="/dropdown-menu/radio" height={400} />
   </DocsTab>
   <DocsTab value="Code">
 
@@ -337,8 +330,8 @@ Use the `DropdownRadioItem` component to create a radio item.
 </script>
 
 <Dropdown>
-  <DropdownTrigger>
-    <Button trailingIcon={ChevronSmallDown}>Account</Button>
+  <DropdownTrigger asChild let:builder>
+    <Button builders={[builder]} trailingIcon={ChevronSmallDown}>Account</Button>
   </DropdownTrigger>
   <DropdownContent class="dropdown__content">
     <DropdownRadioGroup bind:value={account}>
@@ -365,7 +358,7 @@ Use the `DropdownGroup` component to group items together in the dropdown menu.
 
 <DocsTabs items={["Preview", "Code"]}>
   <DocsTab value="Preview" className="mt-6">
-    <Svelte url="/dropdown-menu/group" height={360} />
+    <Svelte url="/dropdown-menu/group" height={400} />
   </DocsTab>
   <DocsTab value="Code">
 
@@ -377,30 +370,20 @@ Use the `DropdownGroup` component to group items together in the dropdown menu.
 </script>
 
 <Dropdown>
-  <DropdownTrigger>
-    <Button trailingIcon={ChevronSmallDown}>Account</Button>
+  <DropdownTrigger asChild let:builder>
+    <Button builders={[builder]} trailingIcon={ChevronSmallDown}>Account</Button>
   </DropdownTrigger>
   <DropdownContent class="dropdown__content">
     <DropdownGroup>
-      <DropdownHeader>Profile</DropdownHeader>
-      <DropdownItem>View Profile</DropdownItem>
-      <DropdownItem>Account Settings</DropdownItem>
+      <DropdownHeader>Personal</DropdownHeader>
+      <DropdownItem>Profile</DropdownItem>
+      <DropdownItem>Settings</DropdownItem>
     </DropdownGroup>
     <DropdownSeparator />
     <DropdownGroup>
-      <DropdownHeader>Billing & Teams</DropdownHeader>
+      <DropdownHeader>Organization</DropdownHeader>
       <DropdownItem>Billing</DropdownItem>
       <DropdownItem>Team Members</DropdownItem>
-    </DropdownGroup>
-    <DropdownSeparator />
-    <DropdownGroup>
-      <DropdownHeader>Help</DropdownHeader>
-      <DropdownItem>Support</DropdownItem>
-      <DropdownItem>Documentation</DropdownItem>
-    </DropdownGroup>
-    <DropdownSeparator />
-    <DropdownGroup>
-      <DropdownItem>Sign out</DropdownItem>
     </DropdownGroup>
   </DropdownContent>
 </Dropdown>
@@ -421,57 +404,32 @@ Use the `DropdownSub` component to create a submenu in the dropdown menu.
 
 <DocsTabs items={["Preview", "Code"]}>
   <DocsTab value="Preview" className="mt-6">
-    <Svelte url="/dropdown-menu/submenu" height={360} />
+    <Svelte url="/dropdown-menu/submenu" height={400} />
   </DocsTab>
   <DocsTab value="Code">
 
 ```svelte
 <script lang="ts">
-	import { Dropdown, DropdownTrigger, DropdownContent, DropdownHeader, DropdownItem, DropdownGroup, DropdownSub, DropdownSubTrigger, DropdownSubContent, DropdownSeparator } from '$lib/components/dropdown-menu';
+	import { Dropdown, DropdownTrigger, DropdownContent, DropdownItem, DropdownSub, DropdownSubTrigger, DropdownSubContent } from '$lib/components/dropdown-menu';
 	import { ChevronSmallDown } from '$lib/components/icons';
 	import { Button } from '$lib/components/button';
 </script>
 
 <Dropdown>
-  <DropdownTrigger>
-    <Button trailingIcon={ChevronSmallDown}>Account</Button>
+  <DropdownTrigger asChild let:builder>
+    <Button builders={[builder]} trailingIcon={ChevronSmallDown}>Account</Button>
   </DropdownTrigger>
   <DropdownContent class="dropdown__content">
-    <DropdownGroup>
-      <DropdownHeader>Profile</DropdownHeader>
-      <DropdownItem>View Profile</DropdownItem>
-      <DropdownItem>Account Settings</DropdownItem>
-    </DropdownGroup>
-    <DropdownSeparator />
-    <DropdownGroup>
-      <DropdownHeader>Billing & Teams</DropdownHeader>
-      <DropdownSub>
-        <DropdownSubTrigger>Billing</DropdownSubTrigger>
-        <DropdownSubContent class="dropdown__submenu-content">
-          <DropdownItem>Overview</DropdownItem>
-          <DropdownItem>Subscriptions</DropdownItem>
-          <DropdownItem>Invoices</DropdownItem>
-        </DropdownSubContent>
-      </DropdownSub>
-      <DropdownSub>
-        <DropdownSubTrigger>Team Members</DropdownSubTrigger>
-        <DropdownSubContent class="dropdown__submenu-content">
-          <DropdownItem>Manage Team</DropdownItem>
-          <DropdownItem>Add Member</DropdownItem>
-          <DropdownItem>Roles & Permissions</DropdownItem>
-        </DropdownSubContent>
-      </DropdownSub>
-    </DropdownGroup>
-    <DropdownSeparator />
-    <DropdownGroup>
-      <DropdownHeader>Help</DropdownHeader>
-      <DropdownItem>Support</DropdownItem>
-      <DropdownItem>Documentation</DropdownItem>
-    </DropdownGroup>
-    <DropdownSeparator />
-    <DropdownGroup>
-      <DropdownItem>Sign out</DropdownItem>
-    </DropdownGroup>
+    <DropdownItem>Profile</DropdownItem>
+    <DropdownItem>Settings</DropdownItem>
+    <DropdownSub>
+      <DropdownSubTrigger>Billing</DropdownSubTrigger>
+      <DropdownSubContent class="dropdown__submenu-content">
+        <DropdownItem>Subscriptions</DropdownItem>
+        <DropdownItem>Invoices</DropdownItem>
+      </DropdownSubContent>
+    </DropdownSub>
+    <DropdownItem>Support</DropdownItem>
   </DropdownContent>
 </Dropdown>
 

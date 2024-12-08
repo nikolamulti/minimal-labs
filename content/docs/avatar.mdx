@@ -25,7 +25,7 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
   import { Avatar } from '$lib/components/avatar';
 </script>
 
-<Avatar size="md" fallback="JD" image="/avatar-01.jpg" />
+<Avatar size="md" fallback="JD" image="/avatar-01.jpg" alt="Avatar" />
 ```
 
   </DocsTab>
@@ -40,7 +40,7 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 ```
 
 ```svelte
-<Avatar size="md" fallback="JD" image="/avatar-01.jpg" />
+<Avatar size="md" fallback="JD" image="/avatar-01.jpg" alt="Avatar" />
 ```
 
 ## Properties
@@ -147,10 +147,10 @@ The `size` property controls the dimensions of the avatar.
   import { Avatar } from '$lib/components/avatar';
 </script>
 
-<Avatar size="xs" fallback="JD" color="neutral" />
-<Avatar size="sm" fallback="JD" color="neutral" />
-<Avatar size="md" fallback="JD" color="neutral" />
-<Avatar size="lg" fallback="JD" color="neutral" />
+<Avatar size="xs" fallback="JD" color="neutral" image="/avatar-01.jpg" alt="Avatar" />
+<Avatar size="sm" fallback="JD" color="neutral" image="/avatar-01.jpg" alt="Avatar" />
+<Avatar size="md" fallback="JD" color="neutral" image="/avatar-01.jpg" alt="Avatar" />
+<Avatar size="lg" fallback="JD" color="neutral" image="/avatar-01.jpg" alt="Avatar" />
 ```
   </DocsTab>
 </DocsTabs>
@@ -198,11 +198,11 @@ Use the `AvatarGroup` component to display multiple avatars together. The `gap` 
 </script>
 
 <AvatarGroup gap="md">
-  <Avatar size="md" color="neutral" fallback="JD" image="/avatar-01.jpg" />
-  <Avatar size="md" color="neutral" fallback="NN" image="/avatar-02.jpg" />
-  <Avatar size="md" color="neutral" fallback="IP" image="/avatar-03.jpg" />
-  <Avatar size="md" color="neutral" fallback="AA" image="/avatar-04.jpg" />
-  <Avatar size="md" color="neutral" fallback="ZG" image="/avatar-05.jpg" />
+  <Avatar size="md" color="neutral" fallback="JD" image="/avatar-01.jpg" alt="Avatar" />
+  <Avatar size="md" color="neutral" fallback="NN" image="/avatar-02.jpg" alt="Avatar" />
+  <Avatar size="md" color="neutral" fallback="IP" image="/avatar-03.jpg" alt="Avatar" />
+  <Avatar size="md" color="neutral" fallback="AA" image="/avatar-04.jpg" alt="Avatar" />
+  <Avatar size="md" color="neutral" fallback="ZG" image="/avatar-05.jpg" alt="Avatar" />
 </AvatarGroup>
 ```
   </DocsTab>

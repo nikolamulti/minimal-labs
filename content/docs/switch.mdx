@@ -23,15 +23,14 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 ```svelte
 <script lang="ts">
   import { Switch, SwitchField } from '$lib/components/switch';
-  import { Label, Description } from '$lib/components/fieldset';
+  import { Label } from '$lib/components/fieldset';
 
   let emailNotifications = false;
 </script>
 
 <SwitchField>
-  <Switch id="notifications" name="notifications" bind:checked={emailNotifications} />
+  <Switch id="notifications" bind:checked={emailNotifications} />
   <Label for="notifications">Email Notifications</Label>
-  <Description>Get email updates about your account</Description>
 </SwitchField>
 ```
 
@@ -43,7 +42,7 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 ```svelte
 <script lang="ts">
   import { Switch, SwitchField } from '$lib/components/switch';
-  import { Label, Description } from '$lib/components/fieldset';
+  import { Label } from '$lib/components/fieldset';
 
   let emailNotifications = false;
 </script>
@@ -51,13 +50,102 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 
 ```svelte
 <SwitchField>
-  <Switch id="notifications" name="notifications" bind:checked={emailNotifications} />
+  <Switch id="notifications" bind:checked={emailNotifications} />
+  <Label for="notifications">Email Notifications</Label>
+</SwitchField>
+```
+
+## Examples
+
+### Description
+
+Use the `Description` component to provide additional information and helpful context about the switch.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/switch/description" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Switch, SwitchField } from '$lib/components/switch';
+  import { Label, Description } from '$lib/components/fieldset';
+
+  let emailNotifications = false;
+</script>
+
+<SwitchField>
+  <Switch id="notifications" bind:checked={emailNotifications} />
   <Label for="notifications">Email Notifications</Label>
   <Description>Get email updates about your account</Description>
 </SwitchField>
 ```
 
-## Examples
+  </DocsTab>
+</DocsTabs>
+
+### Sublabel
+
+Use the `Sublabel` component to add a secondary label to the switch.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/switch/sublabel" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Switch, SwitchField } from '$lib/components/switch';
+  import { Label, Sublabel } from '$lib/components/fieldset';
+
+  let emailNotifications = false;
+</script>
+
+<SwitchField>
+  <Switch id="notifications" bind:checked={emailNotifications} />
+  <Label for="notifications">Email Notifications</Label>
+  <Sublabel>(Optional)</Sublabel>
+</SwitchField>
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Reversed
+
+Place the `Switch` last in the `SwitchField` component to make the switch appear on the right side of the label.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/switch/reversed" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Switch, SwitchField } from '$lib/components/switch';
+  import { Label, Description } from '$lib/components/fieldset';
+
+  let emailNotifications = false;
+</script>
+
+<SwitchField class="switch-field">
+  <Label for="notifications">Email Notifications</Label>
+  <Description>Get email updates about your account</Description>
+  <Switch id="notifications" bind:checked={emailNotifications} />
+</SwitchField>
+
+<style>
+  :global(.switch-field) {
+    width: 320px;
+  }
+</style>
+```
+
+  </DocsTab>
+</DocsTabs>
 
 ### Disabled
 
@@ -72,15 +160,14 @@ Use the `disabled` property to prevent users from interacting with the switch.
 ```svelte
 <script lang="ts">
   import { Switch, SwitchField } from '$lib/components/switch';
-  import { Label, Description } from '$lib/components/fieldset';
+  import { Label } from '$lib/components/fieldset';
 
   let emailNotifications = false;
 </script>
 
 <SwitchField>
-  <Switch disabled id="notifications" name="notifications" bind:checked={emailNotifications} />
+  <Switch disabled id="notifications" bind:checked={emailNotifications} />
   <Label for="notifications">Email Notifications</Label>
-  <Description>Get email updates about your account</Description>
 </SwitchField>
 ```
 

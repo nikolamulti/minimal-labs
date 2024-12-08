@@ -23,7 +23,7 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
   import { NumberInput } from '$lib/components/input';
 </script>
 
-<NumberInput placeholder="Number of members" name="members" />
+<NumberInput placeholder="Number of members" />
 ```
 
   </DocsTab>
@@ -38,7 +38,7 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 ```
 
 ```svelte
-<NumberInput placeholder="Number of members" name="members" />
+<NumberInput placeholder="Number of members" />
 ```
 
 ## Properties
@@ -96,7 +96,7 @@ Use the `icon` property to add an icon to the `NumberInput` component.
   import { Users } from '$lib/components/icons';
 </script>
 
-<NumberInput icon={Users} placeholder="Number of members" name="members" />
+<NumberInput icon={Users} placeholder="Number of members" />
 ```
 
   </DocsTab>
@@ -117,7 +117,7 @@ Use the `min` and `max` properties to set the minimum and maximum input values.
   import { NumberInput } from '$lib/components/input';
 </script>
 
-<NumberInput min={0} max={10} placeholder="Number of members" name="members" />
+<NumberInput min={0} max={10} placeholder="Number of members" />
 ```
 
   </DocsTab>
@@ -138,7 +138,7 @@ Use the `error` property to indicate that the input has an error.
   import { NumberInput } from '$lib/components/input';
 </script>
 
-<NumberInput error placeholder="Number of members" name="members" />
+<NumberInput error placeholder="Number of members" />
 ```
 
   </DocsTab>
@@ -159,7 +159,7 @@ Use the `disabled` property to prevent users from interacting with the input.
   import { NumberInput } from '$lib/components/input';
 </script>
 
-<NumberInput disabled placeholder="Number of members" name="members" />
+<NumberInput disabled placeholder="Number of members" />
 ```
 
   </DocsTab>

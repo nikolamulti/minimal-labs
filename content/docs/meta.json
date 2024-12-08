@@ -21,12 +21,11 @@
     "divider",
     "dropdown-menu",
     "empty-state",
-    "text-input",
-    "theme-provider",
-    "number-input",
+    "fieldset",
     "link",
     "navigation",
     "note",
+    "number-input",
     "progress",
     "radio-group",
     "scroll-area",
@@ -35,7 +34,9 @@
     "spinner",
     "switch",
     "tabs",
+    "text-input",
     "textarea",
+    "theme-provider",
     "tooltip"
   ]
 }

@@ -22,8 +22,7 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 
 ```svelte
 <script lang="ts">
-  import { Combobox, ComboboxContent, ComboboxInput, ComboboxItem, ComboboxHeader } from '$lib/components/combobox';
-  import { Account } from '$lib/components/icons';
+  import { Combobox, ComboboxContent, ComboboxInput, ComboboxItem } from '$lib/components/combobox';
 
   const roles = [
     { value: 'admin', label: 'Admin' },
@@ -38,10 +37,9 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
   $: filteredRoles = inputValue && touchedInput ? roles.filter((role) => role.label.toLowerCase().includes(inputValue.toLowerCase())) : roles;
 </script>
 
-<Combobox name="userRoles" items={filteredRoles} bind:inputValue bind:touchedInput>
-  <ComboboxInput icon={Account} placeholder="Assign user roles" />
+<Combobox items={filteredRoles} bind:inputValue bind:touchedInput>
+  <ComboboxInput placeholder="Assign user roles" />
   <ComboboxContent>
-    <ComboboxHeader>User Roles</ComboboxHeader>
     {#each filteredRoles as role (role.value)}
       <ComboboxItem value={role.value} label={role.label}>
         {role.label}
@@ -60,8 +58,7 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 
 ```svelte
 <script lang="ts">
-  import { Combobox, ComboboxContent, ComboboxInput, ComboboxItem, ComboboxHeader } from '$lib/components/combobox';
-  import { Account } from '$lib/components/icons';
+  import { Combobox, ComboboxContent, ComboboxInput, ComboboxItem } from '$lib/components/combobox';
 
   const roles = [
     { value: 'admin', label: 'Admin' },
@@ -78,10 +75,9 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 ```
 
 ```svelte
-<Combobox name="userRoles" items={filteredRoles} bind:inputValue bind:touchedInput>
-  <ComboboxInput icon={Account} placeholder="Assign user roles" />
+<Combobox items={filteredRoles} bind:inputValue bind:touchedInput>
+  <ComboboxInput placeholder="Assign user roles" />
   <ComboboxContent>
-    <ComboboxHeader>User Roles</ComboboxHeader>
     {#each filteredRoles as role (role.value)}
       <ComboboxItem value={role.value} label={role.label}>
         {role.label}
@@ -123,6 +119,51 @@ These are the properties specific to our `combobox` implementation. For the comp
 
 ## Examples
 
+### Header
+
+Use the `ComboboxHeader` component to add a header to the combobox.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/combobox/header" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { Combobox, ComboboxContent, ComboboxInput, ComboboxItem, ComboboxHeader } from '$lib/components/combobox';
+
+  const roles = [
+    { value: 'admin', label: 'Admin' },
+    { value: 'editor', label: 'Editor' },
+    { value: 'reviewer', label: 'Reviewer' },
+    { value: 'guest', label: 'Guest' }
+  ];
+
+  let inputValue = '';
+  let touchedInput = false;
+
+  $: filteredRoles = inputValue && touchedInput ? roles.filter((role) => role.label.toLowerCase().includes(inputValue.toLowerCase())) : roles;
+</script>
+
+<Combobox items={filteredRoles} bind:inputValue bind:touchedInput>
+  <ComboboxInput placeholder="Assign user roles" />
+  <ComboboxContent>
+    <ComboboxHeader>User Roles</ComboboxHeader>
+    {#each filteredRoles as role (role.value)}
+      <ComboboxItem value={role.value} label={role.label} icon={role.icon}>
+        {role.label}
+      </ComboboxItem>
+    {:else}
+      <span>No roles found</span>
+    {/each}
+  </ComboboxContent>
+</Combobox>
+```
+
+  </DocsTab>
+</DocsTabs>
+
 ### Icon support
 
 Use the `icon` property to add an icon to either the `ComboboxInput` or `ComboboxItem` component.
@@ -135,7 +176,7 @@ Use the `icon` property to add an icon to either the `ComboboxInput` or `Combobo
 
 ```svelte
 <script lang="ts">
-  import { Combobox, ComboboxContent, ComboboxInput, ComboboxItem, ComboboxHeader } from '$lib/components/combobox';
+  import { Combobox, ComboboxContent, ComboboxInput, ComboboxItem } from '$lib/components/combobox';
   import { Account } from '$lib/components/icons';
 
   const roles = [
@@ -151,10 +192,9 @@ Use the `icon` property to add an icon to either the `ComboboxInput` or `Combobo
   $: filteredRoles = inputValue && touchedInput ? roles.filter((role) => role.label.toLowerCase().includes(inputValue.toLowerCase())) : roles;
 </script>
 
-<Combobox name="userRoles" items={filteredRoles} bind:inputValue bind:touchedInput>
+<Combobox items={filteredRoles} bind:inputValue bind:touchedInput>
   <ComboboxInput icon={Account} placeholder="Assign user roles" />
   <ComboboxContent>
-    <ComboboxHeader>User Roles</ComboboxHeader>
     {#each filteredRoles as role (role.value)}
       <ComboboxItem value={role.value} label={role.label} icon={role.icon}>
         {role.label}
@@ -181,8 +221,7 @@ Use the `Description` component inside the `ComboboxItem` component to provide a
 
 ```svelte
 <script lang="ts">
-  import { Combobox, ComboboxContent, ComboboxInput, ComboboxItem, ComboboxHeader, ComboboxDescription } from '$lib/components/combobox';
-  import { Account } from '$lib/components/icons';
+  import { Combobox, ComboboxContent, ComboboxInput, ComboboxItem, ComboboxDescription } from '$lib/components/combobox';
 
   const roles = [
     { value: 'admin',	label: 'Admin',	description: 'Full system access' },
@@ -197,10 +236,9 @@ Use the `Description` component inside the `ComboboxItem` component to provide a
   $: filteredRoles = inputValue && touchedInput ? roles.filter((role) => role.label.toLowerCase().includes(inputValue.toLowerCase())) : roles;
 </script>
 
-<Combobox name="userRoles" items={filteredRoles} bind:inputValue bind:touchedInput>
-  <ComboboxInput icon={Account} placeholder="Assign user roles" />
+<Combobox items={filteredRoles} bind:inputValue bind:touchedInput>
+  <ComboboxInput placeholder="Assign user roles" />
   <ComboboxContent>
-    <ComboboxHeader>User Roles</ComboboxHeader>
     {#each filteredRoles as role (role.value)}
       <ComboboxItem value={role.value} label={role.label}>
         {role.label}
@@ -228,8 +266,7 @@ Use the `Sublabel` component inside the `ComboboxItem` component to add a second
 
 ```svelte
 <script lang="ts">
-  import { Combobox, ComboboxContent, ComboboxInput, ComboboxItem, ComboboxHeader, ComboboxSublabel } from '$lib/components/combobox';
-  import { Account } from '$lib/components/icons';
+  import { Combobox, ComboboxContent, ComboboxInput, ComboboxItem, ComboboxSublabel } from '$lib/components/combobox';
 
   const roles = [
     { value: 'admin',	label: 'Admin',	sublabel: 'Full system access' },
@@ -244,10 +281,9 @@ Use the `Sublabel` component inside the `ComboboxItem` component to add a second
   $: filteredRoles = inputValue && touchedInput ? roles.filter((role) => role.label.toLowerCase().includes(inputValue.toLowerCase())) : roles;
 </script>
 
-<Combobox name="userRoles" items={filteredRoles} bind:inputValue bind:touchedInput>
-  <ComboboxInput icon={Account} placeholder="Assign user roles" />
+<Combobox items={filteredRoles} bind:inputValue bind:touchedInput>
+  <ComboboxInput placeholder="Assign user roles" />
   <ComboboxContent>
-    <ComboboxHeader>User Roles</ComboboxHeader>
     {#each filteredRoles as role (role.value)}
       <ComboboxItem value={role.value} label={role.label}>
         {role.label}
@@ -275,8 +311,7 @@ Use the `disabled` property to prevent users from interacting with the combobox.
 
 ```svelte
 <script lang="ts">
-  import { Combobox, ComboboxContent, ComboboxInput, ComboboxItem, ComboboxHeader } from '$lib/components/combobox';
-  import { Account } from '$lib/components/icons';
+  import { Combobox, ComboboxContent, ComboboxInput, ComboboxItem } from '$lib/components/combobox';
 
   const roles = [
     { value: 'admin', label: 'Admin' },
@@ -291,10 +326,9 @@ Use the `disabled` property to prevent users from interacting with the combobox.
   $: filteredRoles = inputValue && touchedInput ? roles.filter((role) => role.label.toLowerCase().includes(inputValue.toLowerCase())) : roles;
 </script>
 
-<Combobox disabled name="userRoles" items={filteredRoles} bind:inputValue bind:touchedInput>
-  <ComboboxInput icon={Account} placeholder="Assign user roles" />
+<Combobox disabled items={filteredRoles} bind:inputValue bind:touchedInput>
+  <ComboboxInput placeholder="Assign user roles" />
   <ComboboxContent>
-    <ComboboxHeader>User Roles</ComboboxHeader>
     {#each filteredRoles as role (role.value)}
       <ComboboxItem value={role.value} label={role.label}>
         {role.label}
@@ -321,8 +355,7 @@ Use the `disabled` property inside the `ComboboxItem` component to prevent users
 
 ```svelte
 <script lang="ts">
-  import { Combobox, ComboboxContent, ComboboxInput, ComboboxItem, ComboboxHeader } from '$lib/components/combobox';
-  import { Account } from '$lib/components/icons';
+  import { Combobox, ComboboxContent, ComboboxInput, ComboboxItem } from '$lib/components/combobox';
 
   const roles = [
     { value: 'admin', label: 'Admin', disabled: true },
@@ -337,10 +370,9 @@ Use the `disabled` property inside the `ComboboxItem` component to prevent users
   $: filteredRoles = inputValue && touchedInput ? roles.filter((role) => role.label.toLowerCase().includes(inputValue.toLowerCase())) : roles;
 </script>
 
-<Combobox name="userRoles" items={filteredRoles} bind:inputValue bind:touchedInput>
-  <ComboboxInput icon={Account} placeholder="Assign user roles" />
+<Combobox items={filteredRoles} bind:inputValue bind:touchedInput>
+  <ComboboxInput placeholder="Assign user roles" />
   <ComboboxContent>
-    <ComboboxHeader>User Roles</ComboboxHeader>
     {#each filteredRoles as role (role.value)}
       <ComboboxItem value={role.value} label={role.label} disabled={role.disabled}>
         {role.label}

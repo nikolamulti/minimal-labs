@@ -23,7 +23,7 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
   import { TextInput } from '$lib/components/input';
 </script>
 
-<TextInput id="search" placeholder="Search" />
+<TextInput id="username" placeholder="Username" />
 ```
 
   </DocsTab>
@@ -38,7 +38,7 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 ```
 
 ```svelte
-<TextInput id="search" placeholder="Search" />
+<TextInput id="username" placeholder="Username" />
 ```
 
 ## Properties
@@ -85,10 +85,10 @@ Use the `icon` property to add an icon to the `TextInput` component.
 ```svelte
 <script lang="ts">
   import { TextInput } from '$lib/components/input';
-  import { SearchDefault } from '$lib/components/icons';
+  import { User } from '$lib/components/icons';
 </script>
 
-<TextInput icon={SearchDefault} id="search" placeholder="Search" />
+<TextInput icon={User} id="username" placeholder="Username" />
 ```
 
   </DocsTab>
@@ -109,7 +109,7 @@ Use the `error` property to indicate that the input has an error.
   import { TextInput } from '$lib/components/input';
 </script>
 
-<TextInput error id="search" placeholder="Search" />
+<TextInput error id="username" placeholder="Username" />
 ```
 
   </DocsTab>
@@ -130,7 +130,7 @@ Use the `disabled` property to prevent users from interacting with the input.
   import { TextInput } from '$lib/components/input';
 </script>
 
-<TextInput disabled id="search" placeholder="Search" />
+<TextInput disabled id="username" placeholder="Username" />
 ```
 
   </DocsTab>

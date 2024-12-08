@@ -23,7 +23,7 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
   import { Textarea } from '$lib/components/textarea';
 </script>
 
-<Textarea placeholder="Write your message here..." />
+<Textarea placeholder="Type your message here" />
 ```
 
   </DocsTab>
@@ -38,7 +38,7 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 ```
 
 ```svelte
-<Textarea placeholder="Write your message here..." />
+<Textarea placeholder="Type your message here" />
 ```
 
 ## Properties
@@ -61,11 +61,6 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
       description: "The value of the textarea.",
       type: "string",
     },
-    el: {
-      description:
-        "The underlying DOM element being rendered. You can bind to this to programatically interact with the element.",
-      type: "HTMLTextAreaElement",
-    },
   }}
 />
 
@@ -86,7 +81,7 @@ Use the `error` property to indicate that the textarea has an error.
   import { Textarea } from '$lib/components/textarea';
 </script>
 
-<Textarea error placeholder="Write your message here..." />
+<Textarea error placeholder="Type your message here" />
 ```
 
   </DocsTab>

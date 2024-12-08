@@ -23,7 +23,7 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 ```svelte
 <script lang="ts">
   import { RadioGroup, Radio, RadioField } from '$lib/components/radio-group';
-  import { Label, Description } from '$lib/components/fieldset';
+  import { Label } from '$lib/components/fieldset';
   
   let selectedPlan = 'personal';
 </script>
@@ -31,15 +31,15 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 <RadioGroup value={selectedPlan}>
   <RadioField>
     <Radio value="personal" id="personal" />
-    <Label for="personal">Personal Plan</Label>
+    <Label for="personal">Personal plan</Label>
   </RadioField>
   <RadioField>
     <Radio value="team" id="team" />
-    <Label for="team">Team Plan</Label>
+    <Label for="team">Team plan</Label>
   </RadioField>
   <RadioField>
     <Radio value="enterprise" id="enterprise" />
-    <Label for="enterprise">Enterprise Plan</Label>
+    <Label for="enterprise">Enterprise plan</Label>
   </RadioField>
 </RadioGroup>
 ```
@@ -52,7 +52,7 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 ```svelte
 <script lang="ts">
   import { RadioGroup, Radio, RadioField } from '$lib/components/radio-group';
-  import { Label, Description } from '$lib/components/fieldset';
+  import { Label } from '$lib/components/fieldset';
 
   let selectedPlan = 'personal';
 </script>
@@ -62,15 +62,15 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 <RadioGroup value={selectedPlan}>
   <RadioField>
     <Radio value="personal" id="personal" />
-    <Label for="personal">Personal Plan</Label>
+    <Label for="personal">Personal plan</Label>
   </RadioField>
   <RadioField>
     <Radio value="team" id="team" />
-    <Label for="team">Team Plan</Label>
+    <Label for="team">Team plan</Label>
   </RadioField>
   <RadioField>
     <Radio value="enterprise" id="enterprise" />
-    <Label for="enterprise">Enterprise Plan</Label>
+    <Label for="enterprise">Enterprise plan</Label>
   </RadioField>
 </RadioGroup>
 ```
@@ -114,17 +114,17 @@ Use the `description` component inside the `RadioField` to add a description to 
 <RadioGroup value={selectedPlan}>
   <RadioField>
     <Radio value="personal" id="personal" />
-    <Label for="personal">Personal Plan</Label>
+    <Label for="personal">Personal plan</Label>
     <Description>Perfect for individuals and small projects</Description>
   </RadioField>
   <RadioField>
     <Radio value="team" id="team" />
-    <Label for="team">Team Plan</Label>
+    <Label for="team">Team plan</Label>
     <Description>Great for teams up to 20 people</Description>
   </RadioField>
   <RadioField>
     <Radio value="enterprise" id="enterprise" />
-    <Label for="enterprise">Enterprise Plan</Label>
+    <Label for="enterprise">Enterprise plan</Label>
     <Description>For large organizations with custom needs</Description>
   </RadioField>
 </RadioGroup>
@@ -154,20 +154,66 @@ Use the `sublabel` component inside the `RadioField` to add a sublabel to the ra
 <RadioGroup value={selectedPlan}>
   <RadioField>
     <Radio value="personal" id="personal" />
-    <Label for="personal">Personal Plan</Label>
+    <Label for="personal">Personal plan</Label>
     <Sublabel>1 license</Sublabel>
   </RadioField>
   <RadioField>
     <Radio value="team" id="team" />
-    <Label for="team">Team Plan</Label>
+    <Label for="team">Team plan</Label>
     <Sublabel>10 licenses</Sublabel>
   </RadioField>
   <RadioField>
     <Radio value="enterprise" id="enterprise" />
-    <Label for="enterprise">Enterprise Plan</Label>
+    <Label for="enterprise">Enterprise plan</Label>
     <Sublabel>Unlimited licenses</Sublabel>
   </RadioField>
 </RadioGroup>
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Reversed
+
+Place the `Radio` last in the `RadioField` component to make the radio appear on the right side of the label.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/radio-group/reversed" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { RadioGroup, Radio, RadioField } from '$lib/components/radio-group';
+  import { Label, Description } from '$lib/components/fieldset';
+
+  let selectedPlan = 'personal';
+</script>
+
+<RadioGroup value={selectedPlan} class="radio-group">
+  <RadioField>
+    <Label for="personal">Personal plan</Label>
+    <Description>Perfect for individuals and small projects</Description>
+    <Radio value="personal" id="personal" />
+  </RadioField>
+  <RadioField>
+    <Label for="team">Team plan</Label>
+    <Description>Great for teams up to 20 people</Description>
+    <Radio value="team" id="team" />
+  </RadioField>
+  <RadioField>
+    <Label for="enterprise">Enterprise plan</Label>
+    <Description>For large organizations with custom needs</Description>
+    <Radio value="enterprise" id="enterprise" />
+  </RadioField>
+</RadioGroup>
+
+<style>
+  :global(.radio-group) {
+    width: 320px;
+  }
+</style>
 ```
 
   </DocsTab>
@@ -194,15 +240,15 @@ Use the `orientation` property to change the orientation of the `RadioGroup` com
 <RadioGroup orientation="horizontal" value={selectedPlan}>
   <RadioField>
     <Radio value="personal" id="personal" />
-    <Label for="personal">Personal Plan</Label>
+    <Label for="personal">Personal plan</Label>
   </RadioField>
   <RadioField>
     <Radio value="team" id="team" />
-    <Label for="team">Team Plan</Label>
+    <Label for="team">Team plan</Label>
   </RadioField>
   <RadioField>
     <Radio value="enterprise" id="enterprise" />
-    <Label for="enterprise">Enterprise Plan</Label>
+    <Label for="enterprise">Enterprise plan</Label>
   </RadioField>
 </RadioGroup>
 ```
@@ -231,15 +277,15 @@ Use the `error` property to add an error state to the `RadioGroup` component.
 <RadioGroup error value={selectedPlan}>
   <RadioField>
     <Radio value="personal" id="personal" />
-    <Label for="personal">Personal Plan</Label>
+    <Label for="personal">Personal plan</Label>
   </RadioField>
   <RadioField>
     <Radio value="team" id="team" />
-    <Label for="team">Team Plan</Label>
+    <Label for="team">Team plan</Label>
   </RadioField>
   <RadioField>
     <Radio value="enterprise" id="enterprise" />
-    <Label for="enterprise">Enterprise Plan</Label>
+    <Label for="enterprise">Enterprise plan</Label>
   </RadioField>
 </RadioGroup>
 ```
@@ -268,15 +314,15 @@ Use the `disabled` property to disable the `RadioGroup` component.
 <RadioGroup disabled value={selectedPlan}>
   <RadioField>
     <Radio value="personal" id="personal" />
-    <Label for="personal">Personal Plan</Label>
+    <Label for="personal">Personal plan</Label>
   </RadioField>
   <RadioField>
     <Radio value="team" id="team" />
-    <Label for="team">Team Plan</Label>
+    <Label for="team">Team plan</Label>
   </RadioField>
   <RadioField>
     <Radio value="enterprise" id="enterprise" />
-    <Label for="enterprise">Enterprise Plan</Label>
+    <Label for="enterprise">Enterprise plan</Label>
   </RadioField>
 </RadioGroup>
 ```
@@ -305,15 +351,15 @@ Use the `disabled` property on individual `Radio` components to disable specific
 <RadioGroup value={selectedPlan}>
   <RadioField>
     <Radio value="personal" id="personal" />
-    <Label for="personal">Personal Plan</Label>
+    <Label for="personal">Personal plan</Label>
   </RadioField>
   <RadioField>
     <Radio value="team" id="team" />
-    <Label for="team">Team Plan</Label>
+    <Label for="team">Team plan</Label>
   </RadioField>
   <RadioField>
     <Radio disabled value="enterprise" id="enterprise" />
-    <Label for="enterprise">Enterprise Plan</Label>
+    <Label for="enterprise">Enterprise plan</Label>
   </RadioField>
 </RadioGroup>
 ```
