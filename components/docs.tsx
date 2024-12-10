@@ -108,8 +108,23 @@ export function DocsLayout({
                   <RootToggle options={tabs} className="-mx-2" />
                 ) : null}
                 <SearchOnly>
-                  <LargeSearchToggle className="rounded-lg max-md:hidden" />
+                  <LargeSearchToggle className="rounded-lg max-md:hidden mt-1 mb-2" />
                 </SearchOnly>
+                <Link
+                  className="flex gap-2 p-2 mb-1 rounded-lg border bg-fd-secondary/50 hover:bg-fd-accent/80 transition-colors"
+                  href="https://www.figma.com/design/QWWynAfNdebaDFCQ7iZqRz/Webflow-Apps---Extended-UI-Kit-v1.0"
+                  target="_blank"
+                >
+                  <div className="flex h-[2.25rem] w-[2.25rem] items-center justify-center rounded-md border border-muted bg-base">
+                    <div className="h-[1rem] w-[1rem] bg-[url('/figma-color.svg')] bg-contain bg-center bg-no-repeat" />
+                  </div>
+                  <div className="flex flex-col">
+                    <div className="text-sm font-medium">Figma UI Kit</div>
+                    <div className="text-xs text-fd-muted-foreground">
+                      Preview Figma Library
+                    </div>
+                  </div>
+                </Link>
               </SidebarHeader>
               <SidebarViewport>
                 <div className="px-2 pt-4 empty:hidden md:hidden">

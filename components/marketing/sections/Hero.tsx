@@ -207,7 +207,7 @@ const Hero = () => {
           <h1 className="text-balance text-[2.25rem] font-semibold leading-[3rem] fg-base lg:text-5xl lg:leading-[3.625rem]">
             Supercharge building Webflow apps
           </h1>
-          <p className="text-balance text-xl font-light leading-[2rem] fg-muted">
+          <p className="text-balance text-xl font-normal leading-[2rem] fg-muted">
             Ship faster with Webflow&apos;s design system, Svelte components and
             user-friendly CLI that streamline your workflow.
           </p>

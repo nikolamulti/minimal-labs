@@ -2,7 +2,7 @@
   "title": "Name of Folder",
   "pages": [
     "---Getting Started---",
-    "overview",
+    "index",
     "installation",
     "---Foundations---",
     "colors",

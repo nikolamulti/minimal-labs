@@ -11,8 +11,8 @@ const buttonVariants = cva(
       variant: {
         primary: "bg-white fg-inverted lg:hover:bg-[#E0E0E0]",
         ghost:
-          "fg-muted hover:bg-transparent lg:hover:fg-base hover:fg-muted lg:hover:bg-medium",
-        faded: "fg-base bg-medium hover:transparent lg:hover:bg-[#4c4c4c]",
+          "fg-muted hover:bg-transparent lg:hover:fg-base hover:fg-muted lg:hover:bg-[#373737]",
+        faded: "fg-base bg-[#373737] hover:transparent lg:hover:bg-[#4c4c4c]",
       },
       size: {
         small: "px-3 py-1.5 text-sm	text-sm",
@@ -23,7 +23,7 @@ const buttonVariants = cva(
       variant: "faded",
       size: "small",
     },
-  },
+  }
 );
 
 type ButtonVariantsProps = VariantProps<typeof buttonVariants>;
