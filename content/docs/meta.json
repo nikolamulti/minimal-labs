@@ -2,9 +2,8 @@
   "title": "Name of Folder",
   "pages": [
     "---Getting Started---",
-    "introduction",
+    "overview",
     "installation",
-    "cli",
     "---Foundations---",
     "colors",
     "typography",

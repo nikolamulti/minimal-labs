@@ -1,17 +1,57 @@
 ---
 title: Icons
-description: Icons
+description: A library of Webflow scalable vector icons.
 ---
 
-## Code Block
+import { VariableSize } from "@/components/icons/VariableSize";
+import { CmsDefault } from "@/components/icons/CmsDefault";
+import { Dashboard } from "@/components/icons/Dashboard";
+import { Settings } from "@/components/icons/Settings";
+import { Users } from "@/components/icons/Users";
+import { Component } from "@/components/icons/Component";
+import { FolderDefault } from "@/components/icons/FolderDefault";
+import { Showcase } from "@/components/icons/Showcase";
+import { Localization } from "@/components/icons/Localization";
 
-```js
-console.log("Hello World");
-```
+<div className="mt-6 rounded-md bg-background-primary flex flex-col items-center justify-center h-80 bg-muted border border-fd-border">
+  <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-row gap-4">
+        <div className="w-12 h-12 rounded-[4px] flex items-center justify-center bg-default border border-fd-border">
+          <CmsDefault size={24} className="fg-muted" />
+        </div>
+        <div className="w-12 h-12 rounded-[4px] flex items-center justify-center bg-default border border-fd-border">
+          <Dashboard size={24} className="fg-muted" />
+        </div>
+        <div className="w-12 h-12 rounded-[4px] flex items-center justify-center bg-default border border-fd-border">
+          <Users size={24} className="fg-muted" />
+        </div>
+        <div className="w-12 h-12 rounded-[4px] flex items-center justify-center bg-default border border-fd-border">
+          <Component size={24} className="fg-muted" />
+        </div>
+      </div>
+      <div className="flex flex-row gap-4 ml-8">
+        <div className="w-12 h-12 rounded-[4px] flex items-center justify-center bg-default border border-fd-border">
+          <Settings size={24} className="fg-muted" />
+        </div>
+        <div className="w-12 h-12 rounded-[4px] flex items-center justify-center bg-default border border-fd-border">
+          <FolderDefault size={24} className="fg-muted" />
+        </div>
+        <div className="w-12 h-12 rounded-[4px] flex items-center justify-center bg-default border border-fd-border">
+          <Showcase size={24} className="fg-muted" />
+        </div>
+        <div className="w-12 h-12 rounded-[4px] flex items-center justify-center bg-default border border-fd-border">
+          <Localization size={24} className="fg-muted" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-## Cards
+Icon library is provided by Webflow and includes a comprehensive set of scalable vector icons designed for consistency and clarity across the interface.
 
-<Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.vercel.app" />
-</Cards>
+## Search
+
+import { IconSearch } from "@/components/icon-search";
+
+<IconSearch />

@@ -57,7 +57,7 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 
 ## Properties
 
-These are the properties specific to our `checkbox` implementation. For the complete list of properties, please refer to their <a href="https://www.bits-ui.com/docs/components/checkbox" target="_blank">documentation</a>.
+The `Checkbox` component extends the Bits UI `<Checkbox>` component. Find the full list of available properties in the official Bits UI <a href="https://www.bits-ui.com/docs/components/checkbox" target="_blank">documentation</a>.
 
 ### Checkbox
 
@@ -251,12 +251,20 @@ Place the `Checkbox` last in the `CheckboxField` component to make the checkbox 
   let acceptTerms = false;
 </script>
 
-<CheckboxField>
+<CheckboxField class="checkbox-field">
   <Label for="terms">Accept Terms and Conditions</Label>
   <Description>Please accept to continue</Description>
   <Checkbox id="terms" bind:checked={acceptTerms} />
 </CheckboxField>
-```
+
+<style>
+  :global(.checkbox-field) {
+    width: 320px;
+  }
+</style>
+
+````
+
 
   </DocsTab>
 </DocsTabs>
@@ -270,12 +278,12 @@ Use the `error` property to indicate that the checkbox has an error.
     <Svelte url="/checkbox/error" height={360} />
   </DocsTab>
   <DocsTab value="Code">
-    
+
 ```svelte
 <script lang="ts">
   import { Checkbox, CheckboxField } from '$lib/components/checkbox';
   import { Label } from '$lib/components/fieldset';
-  
+
   let acceptTerms = false;
 </script>
 
@@ -283,7 +291,7 @@ Use the `error` property to indicate that the checkbox has an error.
   <Checkbox error id="terms" bind:checked={acceptTerms} />
   <Label for="terms">Accept Terms and Conditions</Label>
 </CheckboxField>
-```
+````
 
   </DocsTab>
 </DocsTabs>

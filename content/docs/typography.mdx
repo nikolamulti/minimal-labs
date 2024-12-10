@@ -1,17 +1,56 @@
 ---
 title: Typography
-description: Typography
+description: Tokens used to maintain consistent display of text content.
 ---
 
-## Code Block
+<div className="mt-6 rounded-md fg-base bg-background-primary flex align-start items-center h-80 justify-center gap-10 p-8 bg-muted border border-fd-border">
+  <div className="flex gap-2">
+    <div className="text-6xl leading-[32px] font-[800]">A</div>
+    <div className="text-6xl leading-[32px] font-[600]">A</div>
+    <div className="text-6xl leading-[32px] font-[400]">A</div>
+    <div className="text-6xl leading-[32px] font-[200]">A</div>
+  </div>
+</div>
 
-```js
-console.log("Hello World");
-```
+Typography system is designed to create clear visual hierarchy and ensure optimal readability. Each text size is carefully paired with specific line heights to maintain proper spacing and legibility.
 
-## Cards
+## Text styles
 
-<Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.vercel.app" />
-</Cards>
+Text styles define the size and line height combinations used throughout the interface.
+
+| Font Size           | Value &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
+| ------------------- | ------------------------------------------------------------------------------------------------------- |
+| --wfs-font-size-3xl | 20px                                                                                                    |
+| --wfs-font-size-2xl | 18px                                                                                                    |
+| --wfs-font-size-xl  | 16px                                                                                                    |
+| --wfs-font-size-lg  | 14px                                                                                                    |
+| --wfs-font-size-md  | 12.5px                                                                                                  |
+| --wfs-font-size-sm  | 11.5px                                                                                                  |
+
+| Line Height           | Value &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| --wfs-line-height-3xl | 32px                                                                                                                 |
+| --wfs-line-height-2xl | 28px                                                                                                                 |
+| --wfs-line-height-xl  | 24px                                                                                                                 |
+| --wfs-line-height-lg  | 20px                                                                                                                 |
+| --wfs-line-height-md  | 15px                                                                                                                 |
+| --wfs-line-height-sm  | 15px                                                                                                                 |
+
+## Font weight
+
+Font weights provide different levels of text emphasis, from `regular` to `bold`, allowing for clear content hierarchy and visual contrast in typography.
+
+| Name                       | Value &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --wfs-font-weight-regular  | 400                                                                                                                                                             |
+| --wfs-font-weight-medium   | 500                                                                                                                                                             |
+| --wfs-font-weight-semibold | 600                                                                                                                                                             |
+| --wfs-font-weight-bold     | 700                                                                                                                                                             |
+
+## Font family
+
+Font family defines the default typeface used throughout the interface.
+
+| Name              | Value &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; |
+| ----------------- | ---------------------------------------------------------------------------------------- |
+| --wfs-font-family | 'Inter', sans-serif;                                                                     |

@@ -1,17 +1,108 @@
 ---
 title: Units
-description: Units
+description: A set of tokens that define consistent usage of spacing, icon sizes, and corner radius across interface.
 ---
 
-## Code Block
+import { VariableSize } from "@/components/icons/VariableSize";
 
-```js
-console.log("Hello World");
-```
+<div className="mt-6 rounded-md bg-background-primary flex flex-col items-center justify-center h-80 bg-muted border border-fd-border">
+  <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-row gap-[2px]">
+        <div className="w-12 h-12 rounded-[4px] flex items-center justify-center bg-default border border-fd-border z-30"></div>
+        <div className="w-14 h-12 flex items-center justify-center relative">
+          <div className="h-[14px] w-[1px] bg-[#CF313B]"></div>
+          <div
+            className="w-full h-[1px]"
+            style={{
+              backgroundImage:
+                "repeating-linear-gradient(90deg, #CF313B, #CF313B 6px, transparent 9px, transparent 12px)",
+              backgroundPosition: "left top",
+              backgroundRepeat: "repeat-x",
+              backgroundSize: "100% 1px",
+            }}
+          />
+          <div className="h-[14px] w-[1px] bg-[#CF313B]"></div>
+        </div>
+        <div className="w-12 h-12 rounded-[4px] flex items-center justify-center bg-default border border-fd-border z-50"></div>
+        <div className="w-14 h-12 flex items-center justify-center relative">
+          <div className="h-[14px] w-[1px] bg-[#CF313B]"></div>
+          <div
+            className="w-full h-[1px]"
+            style={{
+              backgroundImage:
+                "repeating-linear-gradient(90deg, #CF313B, #CF313B 6px, transparent 9px, transparent 12px)",
+              backgroundPosition: "left top",
+              backgroundRepeat: "repeat-x",
+              backgroundSize: "100% 1px",
+            }}
+          />
+          <div className="h-[14px] w-[1px] bg-[#CF313B]"></div>
+        </div>
+        <div className="w-12 h-12 rounded-[4px] flex items-center justify-center bg-default border border-fd-border z-30"></div>
+      </div>
+    </div>
+  </div>
+</div>
 
-## Cards
+## Spacing
 
-<Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.vercel.app" />
-</Cards>
+A set of tokens that define consistent usage of spacing across interface.
+
+| Name               | Value &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
+| :----------------- | :----------------------------------------------------------------------------------------------- |
+| --wfs-spacing-0x   | 0px                                                                                              |
+| --wfs-spacing-0-5x | 2px                                                                                              |
+| --wfs-spacing-1x   | 4px                                                                                              |
+| --wfs-spacing-1-5x | 6px                                                                                              |
+| --wfs-spacing-2x   | 8px                                                                                              |
+| --wfs-spacing-2-5x | 10px                                                                                             |
+| --wfs-spacing-3x   | 12px                                                                                             |
+| --wfs-spacing-4x   | 16px                                                                                             |
+| --wfs-spacing-5x   | 20px                                                                                             |
+| --wfs-spacing-6x   | 24px                                                                                             |
+| --wfs-spacing-7x   | 28px                                                                                             |
+| --wfs-spacing-8x   | 32px                                                                                             |
+| --wfs-spacing-9x   | 36px                                                                                             |
+| --wfs-spacing-10x  | 40px                                                                                             |
+| --wfs-spacing-11x  | 44px                                                                                             |
+| --wfs-spacing-12x  | 48px                                                                                             |
+| --wfs-spacing-16x  | 64px                                                                                             |
+| --wfs-spacing-20x  | 80px                                                                                             |
+| --wfs-spacing-24x  | 96px                                                                                             |
+| --wfs-spacing-28x  | 112px                                                                                            |
+| --wfs-spacing-32x  | 128px                                                                                            |
+| --wfs-spacing-36x  | 144px                                                                                            |
+| --wfs-spacing-40x  | 160px                                                                                            |
+
+## Icon sizes
+
+A set of tokens that defines dimensions for icons to ensure visual consistency.
+
+| Name           | Value &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
+| :------------- | :------------------------------------------------------------ |
+| --wfs-icon-xs  | 16px                                                          |
+| --wfs-icon-sm  | 20px                                                          |
+| --wfs-icon-md  | 24px                                                          |
+| --wfs-icon-lg  | 32px                                                          |
+| --wfs-icon-xl  | 40px                                                          |
+| --wfs-icon-2xl | 48px                                                          |
+| --wfs-icon-3xl | 64px                                                          |
+| --wfs-icon-4xl | 80px                                                          |
+
+## Radius
+
+A scale of tokens that defines components corner radius throughout the interface.
+
+| Name                  | Value &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
+| :-------------------- | :------------------------------------------------------------------------------------------------------ |
+| --wfs-radius-xs       | 2px                                                                                                     |
+| --wfs-radius-sm       | 4px                                                                                                     |
+| --wfs-radius-md       | 6px                                                                                                     |
+| --wfs-radius-lg       | 8px                                                                                                     |
+| --wfs-radius-xl       | 10px                                                                                                    |
+| --wfs-radius-2xl      | 12px                                                                                                    |
+| --wfs-radius-3xl      | 16px                                                                                                    |
+| --wfs-radius-4xl      | 24px                                                                                                    |
+| --wfs-radius-5xl      | 32px                                                                                                    |
+| --wfs-radius-circular | 999px                                                                                                   |

@@ -255,7 +255,7 @@ export const DocsBody = forwardRef<
   <div
     ref={ref}
     className={cn(
-      "prose prose-code:text-white  prose-p:text-neutral-400 prose-a:text-white prose-a:no-underline prose-a:font-semibold prose-headings:text-white prose-tr:border-b-fd-border prose-thead:border-b-fd-border",
+      "prose prose-code:text-white prose-td:text-neutral-400  prose-p:text-neutral-400 prose-a:text-white prose-a:no-underline prose-a:font-semibold prose-headings:text-white prose-tr:border-b-fd-border prose-thead:border-b-fd-border",
       className
     )}
     {...props}

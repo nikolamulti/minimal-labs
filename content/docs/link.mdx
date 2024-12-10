@@ -23,7 +23,7 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
   import { Link } from '$lib/components/link';
 </script>
 
-<Link href="#">Link link</Link>
+<Link href="https://webflow.com">Link text</Link>
 ```
 
   </DocsTab>
@@ -38,10 +38,12 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
 ```
 
 ```svelte
-<Link href="#">Link link</Link>
+<Link href="https://webflow.com">Link text</Link>
 ```
 
 ## Properties
+
+The `Link` component extends the Bits UI `<Button>` component. Find the full list of available properties in the official Bits UI <a href="https://www.bits-ui.com/docs/components/button" target="_blank">documentation</a>.
 
 <TypeTable
   type={{
@@ -51,10 +53,6 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
       typeDescription:
         "'white' | 'success' | 'critical' | 'primary' | 'warning'",
       default: "primary",
-    },
-    href: {
-      description: "The URL that the link points to.",
-      type: "string",
     },
     leadingIcon: {
       description: "The leading icon of the link.",
@@ -66,17 +64,6 @@ import { DocsTabs, DocsTab } from "@/components/docs-tabs";
     },
     underline: {
       description: "Whether to show an underline on the link.",
-      type: "boolean",
-      default: "false",
-    },
-    button: {
-      description: "Whether the link should behave like a button.",
-      type: "boolean",
-      default: "false",
-    },
-    disabled: {
-      description:
-        "Whether the link is disabled. Only works when used as a button.",
       type: "boolean",
       default: "false",
     },
@@ -123,11 +110,11 @@ Use the `variant` property to change the appearance of the link.
   import { Link } from '$lib/components/link';
 </script>
 
-<Link variant="primary" href="https://webflow.com/">Primary link</Link>
-<Link variant="white" href="https://webflow.com/">White link</Link>
-<Link variant="critical" href="https://webflow.com/">Critical link</Link>
-<Link variant="warning" href="https://webflow.com/">Warning link</Link>
-<Link variant="success" href="https://webflow.com/">Success link</Link>
+<Link variant="primary" href="https://webflow.com">Primary link</Link>
+<Link variant="white" href="https://webflow.com">White link</Link>
+<Link variant="critical" href="https://webflow.com">Critical link</Link>
+<Link variant="warning" href="https://webflow.com">Warning link</Link>
+<Link variant="success" href="https://webflow.com">Success link</Link>
 ```
 
   </DocsTab>
@@ -148,11 +135,11 @@ Use the `underline` property to show an underline on the link.
   import { Link } from '$lib/components/link';
 </script>
 
-<Link underline variant="primary" href="https://webflow.com/">Primary link</Link>
-<Link underline variant="white" href="https://webflow.com/">White link</Link>
-<Link underline variant="critical" href="https://webflow.com/">Critical link</Link>
-<Link underline variant="warning" href="https://webflow.com/">Warning link</Link>
-<Link underline variant="success" href="https://webflow.com/">Success link</Link>
+<Link underline variant="primary" href="https://webflow.com">Primary link</Link>
+<Link underline variant="white" href="https://webflow.com">White link</Link>
+<Link underline variant="critical" href="https://webflow.com">Critical link</Link>
+<Link underline variant="warning" href="https://webflow.com">Warning link</Link>
+<Link underline variant="success" href="https://webflow.com">Success link</Link>
 ```
 
   </DocsTab>
@@ -160,7 +147,7 @@ Use the `underline` property to show an underline on the link.
 
 ### Button
 
-Use the `button` property to make the link behave like a button.
+When a Link component is used without an `href` property, it will automatically behave like a button.
 
 <DocsTabs items={["Preview", "Code"]}>
   <DocsTab value="Preview" className="mt-6">
@@ -173,7 +160,7 @@ Use the `button` property to make the link behave like a button.
   import { Link } from '$lib/components/link';
 </script>
 
-<Link button>Link text</Link>
+<Link>Link text</Link>
 ```
 
   </DocsTab>
@@ -181,11 +168,11 @@ Use the `button` property to make the link behave like a button.
 
 ### Disabled
 
-Use the `disabled` property to disable the link when used as a button.
+Use the `disabled` property to disable the link (button) when it doesn't have an `href`.
 
 <DocsTabs items={["Preview", "Code"]}>
   <DocsTab value="Preview" className="mt-6">
-    <Svelte url="/link/disabled" height={360} />
+    <Svelte url="/link/button-disabled" height={360} />
   </DocsTab>
   <DocsTab value="Code">
 
@@ -194,7 +181,7 @@ Use the `disabled` property to disable the link when used as a button.
   import { Link } from '$lib/components/link';
 </script>
 
-<Link button disabled>Link text</Link>
+<Link disabled>Link text</Link>
 ```
 
   </DocsTab>

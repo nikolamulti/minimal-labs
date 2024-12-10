@@ -3,51 +3,350 @@ title: Colors
 description: Semantic color tokens for consistent and meaningful design.
 ---
 
-# Color Tokens
+<div className="mt-6 rounded-md bg-background-primary flex items-center h-80 justify-center gap-4 p-8 bg-muted border border-fd-border">
+  <div className="w-12 h-12 bg-primary rounded-[4px]" />
+  <div className="w-12 h-12 bg-critical rounded-[4px]" />
+  <div className="w-12 h-12 bg-warning rounded-[4px]" />
+  <div className="w-12 h-12 bg-success rounded-[4px]" />
+</div>
 
-Our design system uses semantic color tokens to ensure consistency and meaningful use of colors across the application. These tokens are organized into four main categories: Background, Foreground, Border, and Persistent.
+The design system uses semantic color tokens to ensure consistency and meaningful use of colors across the application.
+
+Semantic color tokens are named values that connect colors to their functional meaning in the interface, using descriptive names like `primary` or `warning` instead of using primitive color names like `blue` or `yellow`.
+
+All color tokens are designed to work seamlessly across all three Webflow interface appearance settings - `Brighter`, `Default`, and `Darker`, ensuring optimal visibility and contrast in any environment.
+
+## Color Roles
+
+Color system is organized into semantic roles that guide consistent and meaningful usage across the interface:
+
+- `Primary`: Used for primary actions, key interactive elements, and brand representation. These colors guide users to important actions and maintain brand consistency.
+
+- `Critical`: Used to communicate error states, destructive actions, or critical warnings that require immediate attention. Examples include error messages and delete confirmations.
+
+- `Warning`: Used to indicate caution states, draw attention to important notices, or highlight potential issues that need user awareness but aren't critical.
+
+- `Success`: Used to communicate successful operations, completed states, or positive outcomes. Examples include confirmation messages and completion indicators.
+
+- `Orange`, `Pink`, `Purple`: Accent colors used for visual variety and hierarchy without implying semantic meaning.
 
 ## Background Colors
 
-Background colors are used for the various surfaces and containers in our UI. They help establish hierarchy and separate different sections of the interface.
+Background color tokens define surface colors for UI elements, containers, and interactive states throughout the interface.
 
-- `background-primary`: The main background color for the application.
-- `background-secondary`: Used for secondary or alternate background areas.
-- `background-tertiary`: For tertiary level backgrounds, often used in nested components.
-- `background-inverse`: Contrasting background color, useful for creating emphasis.
-
-## Colors
+<div className="rounded-md bg-background-primary flex flex-col items-center py-12 px-8 bg-muted border border-fd-border">
+  <div className="flex flex-col gap-6">
+    {/* Neutral */}
+    <div className="flex flex-col gap-2 align-start">
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-base rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-bg-base</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-muted rounded-sm border border-fd-border" />
+        <div className="text-xs fg-muted">--wfs-bg-muted</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-default rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-bg-default</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-inverted rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-bg-inverted</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-input rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-bg-input</div>
+      </div>
+    </div>
+    {/* Primary */}
+    <div className="flex flex-col gap-2 align-start">
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-primary rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-bg-primary</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-primary-hover rounded-sm border border-fd-border" />
+        <div className="text-xs fg-muted">--wfs-bg-primary-hover</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-primary-transparent rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-bg-primary-transparent</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-primary-transparent-hover rounded-sm" />
+        <div className="text-xs fg-muted">
+          <div>--wfs-bg-primary-transparent-hover</div>
+        </div>
+      </div>
+    </div>
+    {/* Success */}
+    <div className="flex flex-col gap-2 align-start">
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-success rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-bg-success</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-success-hover rounded-sm border border-fd-border" />
+        <div className="text-xs fg-muted">--wfs-bg-success-hover</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-success-transparent rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-bg-success-transparent</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-success-transparent-hover rounded-sm" />
+        <div className="text-xs fg-muted">
+          <div>--wfs-bg-success-transparent-hover</div>
+        </div>
+      </div>
+    </div>
+    {/* Warning */}
+    <div className="flex flex-col gap-2 align-start">
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-warning rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-bg-warning</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-warning-hover rounded-sm border border-fd-border" />
+        <div className="text-xs fg-muted">--wfs-bg-warning-hover</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-warning-transparent rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-bg-warning-transparent</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-warning-transparent-hover rounded-sm" />
+        <div className="text-xs fg-muted">
+          <div>--wfs-bg-warning-transparent-hover</div>
+        </div>
+      </div>
+    </div>
+    {/* Critical */}
+    <div className="flex flex-col gap-2 align-start">
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-critical rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-bg-critical</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-critical-hover rounded-sm border border-fd-border" />
+        <div className="text-xs fg-muted">--wfs-bg-critical-hover</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-critical-transparent rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-bg-critical-transparent</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-critical-transparent-hover rounded-sm" />
+        <div className="text-xs fg-muted">
+          <div>--wfs-bg-critical-transparent-hover</div>
+        </div>
+      </div>
+    </div>
+    {/* Orange */}
+    <div className="flex flex-col gap-2 align-start">
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-orange rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-bg-orange</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-orange-hover rounded-sm border border-fd-border" />
+        <div className="text-xs fg-muted">--wfs-bg-orange-hover</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-orange-transparent rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-bg-orange-transparent</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-orange-transparent-hover rounded-sm" />
+        <div className="text-xs fg-muted">
+          <div>--wfs-bg-orange-transparent-hover</div>
+        </div>
+      </div>
+    </div>
+    {/* Pink */}
+    <div className="flex flex-col gap-2 align-start">
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-pink rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-bg-pink</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-pink-hover rounded-sm border border-fd-border" />
+        <div className="text-xs fg-muted">--wfs-bg-pink-hover</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-pink-transparent rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-bg-pink-transparent</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-pink-transparent-hover rounded-sm" />
+        <div className="text-xs fg-muted">
+          <div>--wfs-bg-pink-transparent-hover</div>
+        </div>
+      </div>
+    </div>
+    {/* Purple */}
+    <div className="flex flex-col gap-2 align-start">
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-purple rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-bg-purple</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-purple-hover rounded-sm border border-fd-border" />
+        <div className="text-xs fg-muted">--wfs-bg-purple-hover</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-purple-transparent rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-bg-purple-transparent</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-purple-transparent-hover rounded-sm" />
+        <div className="text-xs fg-muted">
+          <div>--wfs-bg-purple-transparent-hover</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 ## Foreground Colors
 
-Foreground colors are primarily used for text and icons. They ensure readability and proper contrast against the background colors.
+Foreground colors are used for text and icons. They ensure readability and proper contrast against the background colors.
 
-- `foreground-primary`: The main color for body text.
-- `foreground-secondary`: Used for less emphasized text, such as captions or helper text.
-- `foreground-tertiary`: For the least prominent text, often used for placeholders or disabled states.
-- `foreground-inverse`: Contrasting text color, typically used on dark or colored backgrounds.
+<div className="rounded-md bg-background-primary flex flex-col items-center py-12 px-8 bg-muted border border-fd-border">
+  <div className="flex flex-col gap-6">
+    {/* Neutral */}
+    <div className="flex flex-col gap-2 align-start">
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-[var(--color-white)] rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-fg-base</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-[var(--color-neutral-white-67)] rounded-sm border border-fd-border" />
+        <div className="text-xs fg-muted">--wfs-fg-muted</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-[var(--color-neutral-white-50)] rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-fg-subtle</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-[var(--color-black)] rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-fg-inverted</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-[var(--color-neutral-700)] rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-fg-disabled</div>
+      </div>
+    </div>
+    <div className="flex flex-col gap-2 align-start">
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-[var(--color-blue-100)] rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-fg-primary</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-[var(--color-green-100)] rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-fg-success</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-[var(--color-yellow-100)] rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-fg-warning</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-[var(--color-red-100)] rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-fg-critical</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-[var(--color-orange-100)] rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-fg-orange</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-[var(--color-pink-100)] rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-fg-pink</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-[var(--color-purple-100)] rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-fg-purple</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 ## Border Colors
 
-Border colors help define boundaries between elements and can be used to group related items or separate distinct sections.
+Border colors are used for element borders and dividers to visually separate and organize content.
 
-- `border-default`: The standard border color for most UI elements.
-- `border-strong`: A more prominent border color for emphasis.
-- `border-subtle`: A softer border color for less distinct separations.
-- `border-inverse`: Contrasting border color, used on darker backgrounds or for highlighting.
+<div className="rounded-md bg-background-primary flex flex-col items-center py-12 px-8 bg-muted border border-fd-border">
+  <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-2 align-start">
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-[var(--color-neutral-1100)] border border-fd-border rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-border-base</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-[var(--color-neutral-white-13)] rounded-sm border border-fd-border" />
+        <div className="text-xs fg-muted">--wfs-border-muted</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-[var(--color-neutral-white-16)] rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-border-default</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-[var(--color-neutral-white-19)] rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-border-medium</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-[var(--color-white)] rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-border-inverted</div>
+      </div>
+    </div>
+    <div className="flex flex-col gap-2 align-start">
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-[var(--color-blue-200)] rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-border-primary</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-[var(--color-green-200)] rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-border-success</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-[var(--color-yellow-200)] rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-border-warning</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-[var(--color-red-200)] rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-border-critical</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-[var(--color-orange-200)] rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-border-orange</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-[var(--color-pink-200)] rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-border-pink</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-[var(--color-purple-200)] rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-border-purple</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 ## Persistent Colors
 
-Persistent colors maintain their meaning across different contexts and are often used for conveying specific information or states.
+Persistent colors maintain consistent values across all themes, unlike other color tokens that adapt to each theme setting.
 
-- `persistent-error`: Used consistently to indicate errors or critical issues.
-- `persistent-success`: Represents successful actions or positive states.
-- `persistent-warning`: Indicates warnings or cautionary information.
-- `persistent-info`: Used for informational or neutral messaging.
-- `persistent-accent`: The primary accent color of the application, used for key interactive elements.
-
-## Usage
-
-When applying these color tokens in your designs or code, always use the semantic token names rather than specific color values. This ensures consistency and makes it easier to update the color scheme globally if needed.
-
-Example usage in CSS:
+<div className="rounded-md bg-background-primary flex flex-col items-center py-12 px-8 bg-muted border border-fd-border">
+  <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-2 align-start">
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-[var(--color-white)] rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-persistent-white</div>
+      </div>
+      <div className="flex flex-row items-center gap-2">
+        <div className="w-5 h-5 bg-[var(--color-black)] rounded-sm" />
+        <div className="text-xs fg-muted">--wfs-persistent-black</div>
+      </div>
+    </div>
+  </div>
+</div>

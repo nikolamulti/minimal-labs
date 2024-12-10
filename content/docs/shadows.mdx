@@ -1,17 +1,47 @@
 ---
 title: Shadows
-description: Shadows
+description: A set of tokens that communicate component elevation on the z-axis in the interface.
 ---
 
-## Code Block
+<div className="relative mt-6 rounded-md bg-background-primary flex items-center h-80 justify-center gap-4 p-8 bg-muted border border-fd-border">
+  <div className="absolute w-44 h-28 rounded-[4px] flex justify-center bg-default border border-fd-border -translate-x-[16px] -translate-y-[16px] z-20 shadow-[0px_1.5px_4px_-1px_rgba(0,0,0,0.3),0px_10px_35px_-4px_rgba(0,0,0,0.25)] flex-col items-start p-3">
+    <div className="text-sm fg-base font-medium">Shadow lg</div>
+    <div className="mt-auto text-xs fg-muted">--wfs-shadow-lg</div>
+  </div>
+  <div className="absolute w-44 h-28 rounded-[4px] flex items-center justify-center bg-default opacity-40 border border-subtle translate-x-[16px] translate-y-[16px]" />
+</div>
 
-```js
-console.log("Hello World");
-```
+Shadows help create visual hierarchy by simulating elevation in the interface. They are commonly used to highlight important containers that float above the main content.
 
-## Cards
+## Examples
 
-<Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.vercel.app" />
-</Cards>
+<div className="grid grid-cols-3 gap-6">
+  <div className="h-28 rounded-[4px] flex justify-center bg-default z-20 shadow-[0px_1px_3px_-1px_rgba(0,0,0,0.4)] flex-col items-start p-3">
+    <div className="text-sm fg-base font-medium">Shadow xs</div>
+    <div className="mt-auto text-xs fg-muted">--wfs-shadow-xs</div>
+  </div>
+  <div className="h-28 rounded-[4px] flex justify-center bg-default z-20 shadow-[0px_0.5px_2px_-1px_rgba(0,0,0,0.34),0px_3px_6px_-2px_rgba(0,0,0,0.36)] flex-col items-start p-3">
+    <div className="text-sm fg-base font-medium">Shadow sm</div>
+    <div className="mt-auto text-xs fg-muted">--wfs-shadow-sm</div>
+  </div>
+  <div className="h-28 rounded-[4px] flex justify-center bg-default z-20 shadow-[0px_1px_3px_-1px_rgba(0,0,0,0.34),0px_5px_10px_-2px_rgba(0,0,0,0.32)] flex-col items-start p-3">
+    <div className="text-sm fg-base font-medium">Shadow md</div>
+    <div className="mt-auto text-xs fg-muted">--wfs-shadow-md</div>
+  </div>
+  <div className="h-28 rounded-[4px] flex justify-center bg-default z-20 shadow-[0px_1.5px_4px_-1px_rgba(0,0,0,0.3),0px_10px_35px_-4px_rgba(0,0,0,0.25)] flex-col items-start p-3">
+    <div className="text-sm fg-base font-medium">Shadow lg</div>
+    <div className="mt-auto text-xs fg-muted">--wfs-shadow-lg</div>
+  </div>
+  <div className="h-28 rounded-[4px] flex justify-center bg-default z-20 shadow-[0px_0.5px_1px_0px_rgba(0,0,0,0.8),0px_0.5px_0.5px_0px_rgba(255,255,255,0.2)_inset] flex-col items-start p-3">
+    <div className="text-sm fg-base font-medium">Shadow action</div>
+    <div className="mt-auto text-xs fg-muted">--wfs-shadow-action</div>
+  </div>
+  <div className="h-28 rounded-[4px] flex justify-center bg-default z-20 shadow-[0px_12px_24px_8px_rgba(0,0,0,0.08),0px_8px_16px_4px_rgba(0,0,0,0.08),0px_4px_8px_2px_rgba(0,0,0,0.08),0px_2px_6px_0px_rgba(0,0,0,0.08),0px_-0.5px_0.5px_0px_rgba(0,0,0,0.12)_inset,0px_0.5px_0.5px_0px_rgba(255,255,255,0.12)_inset] flex-col items-start p-3">
+    <div className="text-sm fg-base font-medium">Shadow menu</div>
+    <div className="mt-auto text-xs fg-muted">--wfs-shadow-menu</div>
+  </div>
+  <div className="h-28 rounded-[4px] flex justify-center bg-default z-20 shadow-[0px_1px_1px_-1px_rgba(0,0,0,0.13)_inset,0px_3px_3px_-3px_rgba(0,0,0,0.17)_inset,0px_4px_4px_-4px_rgba(0,0,0,0.17)_inset,0px_8px_8px_-8px_rgba(0,0,0,0.17)_inset,0px_12px_12px_-12px_rgba(0,0,0,0.13)_inset,0px_16px_16px_-16px_rgba(0,0,0,0.13)_inset] flex-col items-start p-3">
+    <div className="text-sm fg-base font-medium">Shadow input</div>
+    <div className="mt-auto text-xs fg-muted">--wfs-shadow-input</div>
+  </div>
+</div>
