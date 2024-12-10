@@ -478,11 +478,15 @@ export const icons = [
   WarningTriangle,
   WebflowBadge,
   WebflowIcon,
-].map((component) => {
-  const key = component.name;
+].map((component: React.ComponentType) => {
+  // Use displayName as fallback if name is not available in production
+  const key = component.displayName || component.name;
+  if (!key) {
+    console.warn(`Component missing both name and displayName:`, component);
+  }
   return {
-    name: key.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase(),
-    code: `<${key} size={20} />`,
+    name: key ? key.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase() : "",
+    code: key ? `<${key} size={20} />` : "",
     component,
   };
 });
