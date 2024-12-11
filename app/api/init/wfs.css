@@ -1,0 +1,509 @@
+/*  import Inter font */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+:root {
+  /* Color primitives */
+  --wfs-color-white: rgb(255 255 255);
+  --wfs-color-black: rgb(0 0 0);
+
+  --wfs-color-blue-100: rgb(167 209 255);
+  --wfs-color-blue-200: rgb(0 125 240);
+  --wfs-color-blue-300: rgb(24 124 217);
+  --wfs-color-blue-400: rgb(0 106 204);
+  --wfs-color-blue-alpha-10: rgb(0 125 240 / 0.1);
+  --wfs-color-blue-alpha-15: rgb(0 125 240 / 0.15);
+  --wfs-color-blue-alpha-20: rgb(0 125 240 / 0.2);
+  --wfs-color-blue-alpha-25: rgb(0 125 240 / 0.25);
+  --wfs-color-blue-alpha-30: rgb(0 125 240 / 0.3);
+  --wfs-color-blue-alpha-35: rgb(0 125 240 / 0.35);
+
+  --wfs-color-green-100: rgb(121 224 156);
+  --wfs-color-green-200: rgb(37 157 77);
+  --wfs-color-green-300: rgb(13 138 79);
+  --wfs-color-green-400: rgb(0 122 65);
+  --wfs-color-green-alpha-10: rgb(37 157 77 / 0.1);
+  --wfs-color-green-alpha-15: rgb(37 157 77 / 0.15);
+  --wfs-color-green-alpha-20: rgb(37 157 77 / 0.2);
+  --wfs-color-green-alpha-25: rgb(37 157 77 / 0.25);
+  --wfs-color-green-alpha-30: rgb(37 157 77 / 0.3);
+  --wfs-color-green-alpha-35: rgb(37 157 77 / 0.35);
+
+  --wfs-color-yellow-100: rgb(255 222 91);
+  --wfs-color-yellow-200: rgb(255 211 1);
+  --wfs-color-yellow-300: rgb(240 192 0);
+  --wfs-color-yellow-400: rgb(139 109 0);
+  --wfs-color-yellow-alpha-10: rgb(255 211 1 / 0.1);
+  --wfs-color-yellow-alpha-15: rgb(255 211 1 / 0.15);
+  --wfs-color-yellow-alpha-20: rgb(255 211 1 / 0.2);
+  --wfs-color-yellow-alpha-25: rgb(255 211 1 / 0.25);
+  --wfs-color-yellow-alpha-30: rgb(255 211 1 / 0.3);
+  --wfs-color-yellow-alpha-35: rgb(255 211 1 / 0.35);
+
+  --wfs-color-red-100: rgb(255 156 156);
+  --wfs-color-red-200: rgb(228 47 58);
+  --wfs-color-red-300: rgb(203 53 53);
+  --wfs-color-red-400: rgb(207 49 59);
+  --wfs-color-red-alpha-10: rgb(228 47 58 / 0.1);
+  --wfs-color-red-alpha-15: rgb(228 47 58 / 0.15);
+  --wfs-color-red-alpha-20: rgb(228 47 58 / 0.2);
+  --wfs-color-red-alpha-25: rgb(228 47 58 / 0.25);
+  --wfs-color-red-alpha-30: rgb(228 47 58 / 0.3);
+  --wfs-color-red-alpha-35: rgb(228 47 58 / 0.35);
+
+  --wfs-color-orange-100: rgb(255 188 134);
+  --wfs-color-orange-200: rgb(223 100 12);
+  --wfs-color-orange-300: rgb(201 86 22);
+  --wfs-color-orange-400: rgb(191 71 7);
+  --wfs-color-orange-alpha-10: rgb(223 100 12 / 0.1);
+  --wfs-color-orange-alpha-15: rgb(223 100 12 / 0.15);
+  --wfs-color-orange-alpha-20: rgb(223 100 12 / 0.2);
+  --wfs-color-orange-alpha-25: rgb(223 100 12 / 0.25);
+  --wfs-color-orange-alpha-30: rgb(223 100 12 / 0.3);
+  --wfs-color-orange-alpha-35: rgb(223 100 12 / 0.35);
+
+  --wfs-color-pink-100: rgb(254 189 255);
+  --wfs-color-pink-200: rgb(221 44 172);
+  --wfs-color-pink-300: rgb(196 74 169);
+  --wfs-color-pink-400: rgb(181 58 154);
+  --wfs-color-pink-alpha-10: rgb(221 44 172 / 0.1);
+  --wfs-color-pink-alpha-15: rgb(221 44 172 / 0.15);
+  --wfs-color-pink-alpha-20: rgb(221 44 172 / 0.2);
+  --wfs-color-pink-alpha-25: rgb(221 44 172 / 0.25);
+  --wfs-color-pink-alpha-30: rgb(221 44 172 / 0.3);
+  --wfs-color-pink-alpha-35: rgb(221 44 172 / 0.35);
+
+  --wfs-color-purple-100: rgb(196 175 255);
+  --wfs-color-purple-200: rgb(135 95 253);
+  --wfs-color-purple-300: rgb(129 91 235);
+  --wfs-color-purple-400: rgb(115 76 224);
+  --wfs-color-purple-alpha-10: rgb(135 95 253 / 0.1);
+  --wfs-color-purple-alpha-15: rgb(135 95 253 / 0.15);
+  --wfs-color-purple-alpha-20: rgb(135 95 253 / 0.2);
+  --wfs-color-purple-alpha-25: rgb(135 95 253 / 0.25);
+  --wfs-color-purple-alpha-30: rgb(135 95 253 / 0.3);
+  --wfs-color-purple-alpha-35: rgb(135 95 253 / 0.35);
+
+  --wfs-color-neutral-0: rgb(245 245 245);
+  --wfs-color-neutral-100: rgb(232 232 232);
+  --wfs-color-neutral-1000: rgb(53 53 53);
+  --wfs-color-neutral-1100: rgb(41 41 41);
+  --wfs-color-neutral-1200: rgb(30 30 30);
+  --wfs-color-neutral-200: rgb(224 224 224);
+  --wfs-color-neutral-300: rgb(219 219 219);
+  --wfs-color-neutral-400: rgb(196 196 196);
+  --wfs-color-neutral-450: rgb(184 184 184);
+  --wfs-color-neutral-50: rgb(237 237 237);
+  --wfs-color-neutral-500: rgb(166 166 166);
+  --wfs-color-neutral-550: rgb(138 138 138);
+  --wfs-color-neutral-600: rgb(109 109 109);
+  --wfs-color-neutral-700: rgb(94 94 94);
+  --wfs-color-neutral-750: rgb(76 76 76);
+  --wfs-color-neutral-800: rgb(64 64 64);
+  --wfs-color-neutral-900: rgb(55 55 55);
+  --wfs-color-neutral-black-10: rgb(0 0 0 / 0.1);
+  --wfs-color-neutral-black-13: rgb(0 0 0 / 0.13);
+  --wfs-color-neutral-black-16: rgb(0 0 0 / 0.16);
+  --wfs-color-neutral-black-19: rgb(0 0 0 / 0.19);
+  --wfs-color-neutral-black-22: rgb(0 0 0 / 0.22);
+  --wfs-color-neutral-black-25: rgb(0 0 0 / 0.25);
+  --wfs-color-neutral-black-30: rgb(0 0 0 / 0.3);
+  --wfs-color-neutral-black-40: rgb(0 0 0 / 0.4);
+  --wfs-color-neutral-black-50: rgb(0 0 0 / 0.5);
+  --wfs-color-neutral-black-60: rgb(0 0 0 / 0.6);
+  --wfs-color-neutral-black-67: rgb(0 0 0 / 0.67);
+  --wfs-color-neutral-black-7: rgb(0 0 0 / 0.07);
+  --wfs-color-neutral-black-70: rgb(0 0 0 / 0.7);
+  --wfs-color-neutral-black-80: rgb(0 0 0 / 0.8);
+  --wfs-color-neutral-white-10: rgb(255 255 255 / 0.1);
+  --wfs-color-neutral-white-13: rgb(255 255 255 / 0.13);
+  --wfs-color-neutral-white-16: rgb(255 255 255 / 0.16);
+  --wfs-color-neutral-white-19: rgb(255 255 255 / 0.19);
+  --wfs-color-neutral-white-22: rgb(255 255 255 / 0.22);
+  --wfs-color-neutral-white-25: rgb(255 255 255 / 0.25);
+  --wfs-color-neutral-white-30: rgb(255 255 255 / 0.3);
+  --wfs-color-neutral-white-40: rgb(255 255 255 / 0.4);
+  --wfs-color-neutral-white-50: rgb(255 255 255 / 0.5);
+  --wfs-color-neutral-white-60: rgb(255 255 255 / 0.6);
+  --wfs-color-neutral-white-67: rgb(255 255 255 / 0.67);
+  --wfs-color-neutral-white-7: rgb(255 255 255 / 0.07);
+  --wfs-color-neutral-white-70: rgb(255 255 255 / 0.7);
+  --wfs-color-neutral-white-80: rgb(255 255 255 / 0.8);
+
+  /* Unit primitives */
+  --wfs-unit-0px: 0rem;
+  --wfs-unit-2px: 0.125rem;
+  --wfs-unit-4px: 0.25rem;
+  --wfs-unit-6px: 0.375rem;
+  --wfs-unit-8px: 0.5rem;
+  --wfs-unit-10px: 0.625rem;
+  --wfs-unit-12px: 0.75rem;
+  --wfs-unit-14px: 0.875rem;
+  --wfs-unit-16px: 1rem;
+  --wfs-unit-20px: 1.25rem;
+  --wfs-unit-24px: 1.5rem;
+  --wfs-unit-28px: 1.75rem;
+  --wfs-unit-32px: 2rem;
+  --wfs-unit-36px: 2.25rem;
+  --wfs-unit-40px: 2.5rem;
+  --wfs-unit-44px: 2.75rem;
+  --wfs-unit-48px: 3rem;
+  --wfs-unit-56px: 3.5rem;
+  --wfs-unit-64px: 4rem;
+  --wfs-unit-80px: 5rem;
+  --wfs-unit-96px: 6rem;
+  --wfs-unit-112px: 7rem;
+  --wfs-unit-128px: 8rem;
+  --wfs-unit-144px: 9rem;
+  --wfs-unit-160px: 10rem;
+
+  /* Typography */
+  --wfs-font-family: "Inter", sans-serif;
+
+  --wfs-font-weight-regular: 400;
+  --wfs-font-weight-medium: 500;
+  --wfs-font-weight-semibold: 600;
+  --wfs-font-weight-bold: 700;
+
+  --wfs-font-size-sm: 0.71875rem;
+  --wfs-line-height-sm: 1rem;
+
+  --wfs-font-size-md: 0.78125rem;
+  --wfs-line-height-md: 1rem;
+
+  --wfs-font-size-lg: 0.875rem;
+  --wfs-line-height-lg: 1.25rem;
+
+  --wfs-font-size-xl: 1rem;
+  --wfs-line-height-xl: 1.5rem;
+
+  --wfs-font-size-2xl: 1.125rem;
+  --wfs-line-height-2xl: 1.75rem;
+
+  --wfs-font-size-3xl: 1.25rem;
+  --wfs-line-height-3xl: 2rem;
+
+  /* Spacing */
+  --wfs-spacing-0x: var(--wfs-unit-0px);
+  --wfs-spacing-0-5x: var(--wfs-unit-2px);
+  --wfs-spacing-1x: var(--wfs-unit-4px);
+  --wfs-spacing-1-5x: var(--wfs-unit-6px);
+  --wfs-spacing-2x: var(--wfs-unit-8px);
+  --wfs-spacing-2-5x: var(--wfs-unit-10px);
+  --wfs-spacing-3x: var(--wfs-unit-12px);
+  --wfs-spacing-4x: var(--wfs-unit-16px);
+  --wfs-spacing-5x: var(--wfs-unit-20px);
+  --wfs-spacing-6x: var(--wfs-unit-24px);
+  --wfs-spacing-7x: var(--wfs-unit-28px);
+  --wfs-spacing-8x: var(--wfs-unit-32px);
+  --wfs-spacing-9x: var(--wfs-unit-36px);
+  --wfs-spacing-10x: var(--wfs-unit-40px);
+  --wfs-spacing-11x: var(--wfs-unit-44px);
+  --wfs-spacing-12x: var(--wfs-unit-48px);
+  --wfs-spacing-16x: var(--wfs-unit-64px);
+  --wfs-spacing-20x: var(--wfs-unit-80px);
+  --wfs-spacing-24x: var(--wfs-unit-96px);
+  --wfs-spacing-28x: var(--wfs-unit-112px);
+  --wfs-spacing-32x: var(--wfs-unit-128px);
+  --wfs-spacing-36x: var(--wfs-unit-144px);
+  --wfs-spacing-40x: var(--wfs-unit-160px);
+
+  /* Icon */
+  --wfs-icon-xs: var(--wfs-unit-16px);
+  --wfs-icon-sm: var(--wfs-unit-20px);
+  --wfs-icon-md: var(--wfs-unit-24px);
+  --wfs-icon-lg: var(--wfs-unit-32px);
+  --wfs-icon-xl: var(--wfs-unit-40px);
+  --wfs-icon-2xl: var(--wfs-unit-48px);
+  --wfs-icon-3xl: var(--wfs-unit-64px);
+  --wfs-icon-4xl: var(--wfs-unit-80px);
+
+  /* Radius */
+  --wfs-radius-xs: 0.125rem;
+  --wfs-radius-sm: 0.25rem;
+  --wfs-radius-md: 0.375rem;
+  --wfs-radius-lg: 0.5rem;
+  --wfs-radius-xl: 0.625rem;
+  --wfs-radius-2xl: 0.75rem;
+  --wfs-radius-3xl: 1rem;
+  --wfs-radius-4xl: 1.5rem;
+  --wfs-radius-5xl: 2rem;
+  --wfs-radius-circular: 62.4375rem;
+
+  /* Shadows */
+  --wfs-shadow-xs: 0px 1px 3px -1px rgba(0, 0, 0, 0.4);
+  --wfs-shadow-sm: 0px 0.5px 2px -1px rgba(0, 0, 0, 0.34),
+    0px 3px 6px -2px rgba(0, 0, 0, 0.36);
+  --wfs-shadow-md: 0px 1px 3px -1px rgba(0, 0, 0, 0.34),
+    0px 5px 10px -2px rgba(0, 0, 0, 0.32);
+  --wfs-shadow-lg: 0px 1.5px 4px -1px rgba(0, 0, 0, 0.3),
+    0px 10px 35px -4px rgba(0, 0, 0, 0.25);
+  --wfs-shadow-action: 0px 0.5px 1px 0px rgba(0, 0, 0, 0.8),
+    0px 0.5px 0.5px 0px rgba(255, 255, 255, 0.2) inset;
+  --wfs-shadow-menu: 0px 12px 24px 8px rgba(0, 0, 0, 0.08),
+    0px 8px 16px 4px rgba(0, 0, 0, 0.08), 0px 4px 8px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 6px 0px rgba(0, 0, 0, 0.08),
+    0px -0.5px 0.5px 0px rgba(0, 0, 0, 0.12) inset,
+    0px 0.5px 0.5px 0px rgba(255, 255, 255, 0.12) inset;
+  --wfs-shadow-input: 0px 1px 1px -1px rgba(0, 0, 0, 0.13) inset,
+    0px 3px 3px -3px rgba(0, 0, 0, 0.17) inset,
+    0px 4px 4px -4px rgba(0, 0, 0, 0.17) inset,
+    0px 8px 8px -8px rgba(0, 0, 0, 0.17) inset,
+    0px 12px 12px -12px rgba(0, 0, 0, 0.13) inset,
+    0px 16px 16px -16px rgba(0, 0, 0, 0.13) inset;
+
+  /* Gradients */
+  --wfs-bg-action: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.13) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  --wfs-bg-action-hover: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.19) 0%,
+    rgba(255, 255, 255, 0.16) 100%
+  );
+}
+
+body,
+[data-theme="default"] {
+  /* Backgrounds */
+  --wfs-bg-base: var(--wfs-color-neutral-1100);
+  --wfs-bg-muted: var(--wfs-color-neutral-1000);
+  --wfs-bg-default: var(--wfs-color-neutral-800);
+  --wfs-bg-inverted: var(--wfs-color-neutral-100);
+  --wfs-bg-input: var(--wfs-color-neutral-black-22);
+  --wfs-bg-primary: var(--wfs-color-blue-400);
+  --wfs-bg-primary-hover: var(--wfs-color-blue-300);
+  --wfs-bg-primary-transparent: var(--wfs-color-blue-alpha-25);
+  --wfs-bg-primary-transparent-hover: var(--wfs-color-blue-alpha-35);
+  --wfs-bg-success: var(--wfs-color-green-400);
+  --wfs-bg-success-hover: var(--wfs-color-green-300);
+  --wfs-bg-success-transparent: var(--wfs-color-green-alpha-25);
+  --wfs-bg-success-transparent-hover: var(--wfs-color-green-alpha-35);
+  --wfs-bg-warning: var(--wfs-color-yellow-200);
+  --wfs-bg-warning-hover: var(--wfs-color-yellow-100);
+  --wfs-bg-warning-transparent: var(--wfs-color-yellow-alpha-15);
+  --wfs-bg-warning-transparent-hover: var(--wfs-color-yellow-alpha-25);
+  --wfs-bg-critical: var(--wfs-color-red-400);
+  --wfs-bg-critical-hover: var(--wfs-color-red-300);
+  --wfs-bg-critical-transparent: var(--wfs-color-red-alpha-25);
+  --wfs-bg-critical-transparent-hover: var(--wfs-color-red-alpha-35);
+  --wfs-bg-orange: var(--wfs-color-orange-400);
+  --wfs-bg-orange-hover: var(--wfs-color-orange-300);
+  --wfs-bg-orange-transparent: var(--wfs-color-orange-alpha-20);
+  --wfs-bg-orange-transparent-hover: var(--wfs-color-orange-alpha-30);
+  --wfs-bg-pink: var(--wfs-color-pink-400);
+  --wfs-bg-pink-hover: var(--wfs-color-pink-300);
+  --wfs-bg-pink-transparent: var(--wfs-color-pink-alpha-25);
+  --wfs-bg-pink-transparent-hover: var(--wfs-color-pink-alpha-35);
+  --wfs-bg-purple: var(--wfs-color-purple-400);
+  --wfs-bg-purple-hover: var(--wfs-color-purple-300);
+  --wfs-bg-purple-transparent: var(--wfs-color-purple-alpha-25);
+  --wfs-bg-purple-transparent-hover: var(--wfs-color-purple-alpha-35);
+
+  /* Foregrounds */
+  --wfs-fg-base: var(--wfs-color-white);
+  --wfs-fg-muted: var(--wfs-color-neutral-white-67);
+  --wfs-fg-subtle: var(--wfs-color-neutral-white-50);
+  --wfs-fg-inverted: var(--wfs-color-black);
+  --wfs-fg-disabled: var(--wfs-color-neutral-700);
+  --wfs-fg-primary: var(--wfs-color-blue-100);
+  --wfs-fg-success: var(--wfs-color-green-100);
+  --wfs-fg-warning: var(--wfs-color-yellow-100);
+  --wfs-fg-critical: var(--wfs-color-red-100);
+  --wfs-fg-orange: var(--wfs-color-orange-100);
+  --wfs-fg-pink: var(--wfs-color-pink-100);
+  --wfs-fg-purple: var(--wfs-color-purple-100);
+
+  /* Borders */
+  --wfs-border-base: var(--wfs-color-neutral-1100);
+  --wfs-border-muted: var(--wfs-color-neutral-white-13);
+  --wfs-border-default: var(--wfs-color-neutral-white-16);
+  --wfs-border-medium: var(--wfs-color-neutral-white-19);
+  --wfs-border-bold: var(--wfs-color-neutral-white-22);
+  --wfs-border-inverted: var(--wfs-color-white);
+  --wfs-border-primary: var(--wfs-color-blue-200);
+  --wfs-border-success: var(--wfs-color-green-200);
+  --wfs-border-warning: var(--wfs-color-yellow-200);
+  --wfs-border-critical: var(--wfs-color-red-200);
+  --wfs-border-orange: var(--wfs-color-orange-200);
+  --wfs-border-pink: var(--wfs-color-pink-200);
+  --wfs-border-purple: var(--wfs-color-purple-200);
+
+  /* Persistent */
+  --wfs-persistent-white: var(--wfs-color-white);
+  --wfs-persistent-black: var(--wfs-color-black);
+}
+
+[data-theme="brighter"] {
+  /* Backgrounds */
+  --wfs-bg-base: var(--wfs-color-neutral-1000);
+  --wfs-bg-muted: var(--wfs-color-neutral-800);
+  --wfs-bg-default: var(--wfs-color-neutral-750);
+  --wfs-bg-inverted: var(--wfs-color-neutral-100);
+  --wfs-bg-input: var(--wfs-color-neutral-black-25);
+  --wfs-bg-primary: var(--wfs-color-blue-400);
+  --wfs-bg-primary-hover: var(--wfs-color-blue-300);
+  --wfs-bg-primary-transparent: var(--wfs-color-blue-alpha-25);
+  --wfs-bg-primary-transparent-hover: var(--wfs-color-blue-alpha-35);
+  --wfs-bg-success: var(--wfs-color-green-400);
+  --wfs-bg-success-hover: var(--wfs-color-green-300);
+  --wfs-bg-success-transparent: var(--wfs-color-green-alpha-25);
+  --wfs-bg-success-transparent-hover: var(--wfs-color-green-alpha-35);
+  --wfs-bg-warning: var(--wfs-color-yellow-200);
+  --wfs-bg-warning-hover: var(--wfs-color-yellow-100);
+  --wfs-bg-warning-transparent: var(--wfs-color-yellow-alpha-15);
+  --wfs-bg-warning-transparent-hover: var(--wfs-color-yellow-alpha-25);
+  --wfs-bg-critical: var(--wfs-color-red-400);
+  --wfs-bg-critical-hover: var(--wfs-color-red-300);
+  --wfs-bg-critical-transparent: var(--wfs-color-red-alpha-25);
+  --wfs-bg-critical-transparent-hover: var(--wfs-color-red-alpha-35);
+  --wfs-bg-orange: var(--wfs-color-orange-400);
+  --wfs-bg-orange-hover: var(--wfs-color-orange-300);
+  --wfs-bg-orange-transparent: var(--wfs-color-orange-alpha-20);
+  --wfs-bg-orange-transparent-hover: var(--wfs-color-orange-alpha-30);
+  --wfs-bg-pink: var(--wfs-color-pink-400);
+  --wfs-bg-pink-hover: var(--wfs-color-pink-300);
+  --wfs-bg-pink-transparent: var(--wfs-color-pink-alpha-25);
+  --wfs-bg-pink-transparent-hover: var(--wfs-color-pink-alpha-35);
+  --wfs-bg-purple: var(--wfs-color-purple-400);
+  --wfs-bg-purple-hover: var(--wfs-color-purple-300);
+  --wfs-bg-purple-transparent: var(--wfs-color-purple-alpha-25);
+  --wfs-bg-purple-transparent-hover: var(--wfs-color-purple-alpha-35);
+
+  /* Foregrounds */
+  --wfs-fg-base: var(--wfs-color-white);
+  --wfs-fg-muted: var(--wfs-color-neutral-white-67);
+  --wfs-fg-subtle: var(--wfs-color-neutral-white-50);
+  --wfs-fg-inverted: var(--wfs-color-black);
+  --wfs-fg-disabled: var(--wfs-color-neutral-600);
+  --wfs-fg-primary: var(--wfs-color-blue-100);
+  --wfs-fg-success: var(--wfs-color-green-100);
+  --wfs-fg-warning: var(--wfs-color-yellow-100);
+  --wfs-fg-critical: var(--wfs-color-red-100);
+  --wfs-fg-orange: var(--wfs-color-orange-100);
+  --wfs-fg-pink: var(--wfs-color-pink-100);
+  --wfs-fg-purple: var(--wfs-color-purple-100);
+
+  /* Borders */
+  --wfs-border-base: var(--wfs-color-neutral-1000);
+  --wfs-border-muted: var(--wfs-color-neutral-white-16);
+  --wfs-border-default: var(--wfs-color-neutral-white-19);
+  --wfs-border-medium: var(--wfs-color-neutral-white-22);
+  --wfs-border-bold: var(--wfs-color-neutral-white-25);
+  --wfs-border-inverted: var(--wfs-color-white);
+  --wfs-border-primary: var(--wfs-color-blue-200);
+  --wfs-border-success: var(--wfs-color-green-200);
+  --wfs-border-warning: var(--wfs-color-yellow-200);
+  --wfs-border-critical: var(--wfs-color-red-200);
+  --wfs-border-orange: var(--wfs-color-orange-200);
+  --wfs-border-pink: var(--wfs-color-pink-200);
+  --wfs-border-purple: var(--wfs-color-purple-200);
+
+  /* Persistent */
+  --wfs-persistent-white: var(--wfs-color-white);
+  --wfs-persistent-black: var(--wfs-color-black);
+}
+
+[data-theme="darker"] {
+  /* Backgrounds */
+  --wfs-bg-base: var(--wfs-color-neutral-1200);
+  --wfs-bg-muted: var(--wfs-color-neutral-1100);
+  --wfs-bg-default: var(--wfs-color-neutral-1000);
+  --wfs-bg-inverted: var(--wfs-color-neutral-100);
+  --wfs-bg-input: var(--wfs-color-neutral-black-22);
+  --wfs-bg-primary: var(--wfs-color-blue-400);
+  --wfs-bg-primary-hover: var(--wfs-color-blue-300);
+  --wfs-bg-primary-transparent: var(--wfs-color-blue-alpha-25);
+  --wfs-bg-primary-transparent-hover: var(--wfs-color-blue-alpha-35);
+  --wfs-bg-success: var(--wfs-color-green-400);
+  --wfs-bg-success-hover: var(--wfs-color-green-300);
+  --wfs-bg-success-transparent: var(--wfs-color-green-alpha-25);
+  --wfs-bg-success-transparent-hover: var(--wfs-color-green-alpha-35);
+  --wfs-bg-warning: var(--wfs-color-yellow-200);
+  --wfs-bg-warning-hover: var(--wfs-color-yellow-100);
+  --wfs-bg-warning-transparent: var(--wfs-color-yellow-alpha-15);
+  --wfs-bg-warning-transparent-hover: var(--wfs-color-yellow-alpha-25);
+  --wfs-bg-critical: var(--wfs-color-red-400);
+  --wfs-bg-critical-hover: var(--wfs-color-red-300);
+  --wfs-bg-critical-transparent: var(--wfs-color-red-alpha-25);
+  --wfs-bg-critical-transparent-hover: var(--wfs-color-red-alpha-35);
+  --wfs-bg-orange: var(--wfs-color-orange-400);
+  --wfs-bg-orange-hover: var(--wfs-color-orange-300);
+  --wfs-bg-orange-transparent: var(--wfs-color-orange-alpha-20);
+  --wfs-bg-orange-transparent-hover: var(--wfs-color-orange-alpha-30);
+  --wfs-bg-pink: var(--wfs-color-pink-400);
+  --wfs-bg-pink-hover: var(--wfs-color-pink-300);
+  --wfs-bg-pink-transparent: var(--wfs-color-pink-alpha-25);
+  --wfs-bg-pink-transparent-hover: var(--wfs-color-pink-alpha-35);
+  --wfs-bg-purple: var(--wfs-color-purple-400);
+  --wfs-bg-purple-hover: var(--wfs-color-purple-300);
+  --wfs-bg-purple-transparent: var(--wfs-color-purple-alpha-25);
+  --wfs-bg-purple-transparent-hover: var(--wfs-color-purple-alpha-35);
+
+  /* Foregrounds */
+  --wfs-fg-base: var(--wfs-color-white);
+  --wfs-fg-muted: var(--wfs-color-neutral-white-67);
+  --wfs-fg-subtle: var(--wfs-color-neutral-white-50);
+  --wfs-fg-inverted: var(--wfs-color-black);
+  --wfs-fg-disabled: var(--wfs-color-neutral-600);
+  --wfs-fg-primary: var(--wfs-color-blue-100);
+  --wfs-fg-success: var(--wfs-color-green-100);
+  --wfs-fg-warning: var(--wfs-color-yellow-100);
+  --wfs-fg-critical: var(--wfs-color-red-100);
+  --wfs-fg-orange: var(--wfs-color-orange-100);
+  --wfs-fg-pink: var(--wfs-color-pink-100);
+  --wfs-fg-purple: var(--wfs-color-purple-100);
+
+  /* Borders */
+  --wfs-border-base: var(--wfs-color-neutral-1200);
+  --wfs-border-muted: var(--wfs-color-neutral-white-13);
+  --wfs-border-default: var(--wfs-color-neutral-white-16);
+  --wfs-border-medium: var(--wfs-color-neutral-white-19);
+  --wfs-border-bold: var(--wfs-color-neutral-white-22);
+  --wfs-border-inverted: var(--wfs-color-white);
+  --wfs-border-primary: var(--wfs-color-blue-200);
+  --wfs-border-success: var(--wfs-color-green-200);
+  --wfs-border-warning: var(--wfs-color-yellow-200);
+  --wfs-border-critical: var(--wfs-color-red-200);
+  --wfs-border-orange: var(--wfs-color-orange-200);
+  --wfs-border-pink: var(--wfs-color-pink-200);
+  --wfs-border-purple: var(--wfs-color-purple-200);
+
+  /* Persistent */
+  --wfs-persistent-white: var(--wfs-color-white);
+  --wfs-persistent-black: var(--wfs-color-black);
+}
+
+body {
+  color: var(--wfs-fg-base);
+  font-size: var(--wfs-font-size-sm);
+  font-family: var(--wfs-font-family);
+  font-weight: var(--wfs-font-weight-regular);
+  margin: 0 !important;
+  height: 100%;
+}
+
+button {
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  padding: 0;
+}
+
+input {
+  font-size: 100%;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
