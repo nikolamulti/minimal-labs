@@ -73,7 +73,7 @@ your-project/
 ├── src/
 │   ├── lib/
 │   │   └── components/    # Installed components
-│   └── wfs.css         # Required styles
+│   └── wfs.css            # Required styles
 ```
 
 ## Requirements

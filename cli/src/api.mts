@@ -296,5 +296,5 @@ export async function cliInstallBitsUI(): Promise<void> {
     installCommand = "npm install bits-ui";
   }
 
-  execSync(installCommand, { stdio: "inherit" });
+  execSync(installCommand, { stdio: "ignore" });
 }

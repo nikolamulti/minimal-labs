@@ -1,15 +1,17 @@
 #!/usr/bin/env node
 
-import { log } from "@clack/prompts";
+import { log, intro, outro } from "@clack/prompts";
 import { activate, deactivate, init } from "./logic.mjs";
 import { Command } from "./types/index.js";
 
 function displayHelp(): void {
+  intro("WFS CLI");
   log.info(`Available commands:
 init            - Initialize the project and install all components
 activate        - Activate a license
 deactivate      - Deactivate the license
 help            - Display this help message`);
+  outro("For more information, visit https://minimal-labs.com/svelte/docs");
 }
 
 // Main function to run the CLI

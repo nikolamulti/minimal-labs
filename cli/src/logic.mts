@@ -1,4 +1,12 @@
-import { log, text, spinner, confirm, isCancel, outro } from "@clack/prompts";
+import {
+  log,
+  text,
+  spinner,
+  confirm,
+  isCancel,
+  outro,
+  intro,
+} from "@clack/prompts";
 import { saveConfig, loadConfig, removeConfig } from "./utils/index.js";
 import fs from "fs";
 import path from "path";
@@ -29,6 +37,8 @@ const s = spinner();
  * 8. Logs success message
  */
 export async function init(): Promise<void> {
+  intro("WFS Initialization");
+
   const config = loadConfig();
   let licenseKey = config?.license_key;
 
@@ -49,9 +59,9 @@ export async function init(): Promise<void> {
     licenseKey = enteredLicenseKey as string;
 
     // Activate and save license
-    s.start("Activating license...");
+    s.start("Validating license...");
     const activationResponse = await cliActivateLicense(licenseKey);
-    s.stop("License activated successfully");
+    s.stop("Successfully validated license");
 
     saveConfig({
       license_key: licenseKey,
@@ -63,7 +73,8 @@ export async function init(): Promise<void> {
   const defaultGlobalCSSPath = path.join(process.cwd(), "src");
 
   const globalCSSInstallPath = await text({
-    message: "Installation path for wfs.css (press Enter for default: ./src):",
+    message: "Installation path for wfs.css:",
+    initialValue: "./src",
     defaultValue: defaultGlobalCSSPath,
   });
 
@@ -81,12 +92,6 @@ export async function init(): Promise<void> {
     fs.mkdirSync(selectedGlobalCSSPath, { recursive: true });
   }
 
-  // Install bits-ui package
-  s.start("Installing dependencies...");
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  await cliInstallBitsUI();
-  s.stop("Dependencies installed successfully");
-
   const newGlobalCSS = await fetchGlobalCSSContent();
 
   // Update wfs.css file in selected directory
@@ -103,7 +108,7 @@ export async function init(): Promise<void> {
       // Remove existing file and create new one
       fs.unlinkSync(globalCSSPath);
       fs.writeFileSync(globalCSSPath, newGlobalCSS);
-      s.stop("wfs.css overwritten successfully");
+      s.stop("wfs.css created successfully");
     } else {
       log.warn("Skipping wfs.css update");
     }
@@ -123,8 +128,8 @@ export async function init(): Promise<void> {
   );
 
   const componentsInstallPath = await text({
-    message:
-      "Installation path for components (press Enter for default: ./src/lib/components):",
+    message: "Installation path for components:",
+    initialValue: "./src/lib/components",
     defaultValue: defaultComponentsPath,
   });
 
@@ -132,6 +137,8 @@ export async function init(): Promise<void> {
     outro("Operation cancelled");
     return;
   }
+
+  s.start("Installing components...");
 
   // Use the selected path or default path for components
   const selectedComponentsPath =
@@ -142,11 +149,10 @@ export async function init(): Promise<void> {
     fs.mkdirSync(selectedComponentsPath, { recursive: true });
   }
 
-  // Install all components
-  s.start("Fetching available components...");
-  const availableComponents: Component[] = await cliFetchComponents(licenseKey);
-  s.stop("Components fetched successfully");
+  await cliInstallBitsUI();
 
+  // Install all components
+  const availableComponents: Component[] = await cliFetchComponents(licenseKey);
   let installedCount = 0;
 
   for (const component of availableComponents) {
@@ -197,12 +203,13 @@ export async function init(): Promise<void> {
     installedCount++;
   }
 
-  log.success(
+  s.stop(
     `Successfully installed ${installedCount} component${
       installedCount !== 1 ? "s" : ""
     }`
   );
-  log.success("Initialization completed successfully");
+
+  outro("You're all set!");
 }
 
 /**
@@ -213,6 +220,8 @@ export async function init(): Promise<void> {
  * 4. Saves the configuration
  */
 export async function activate(): Promise<void> {
+  intro("WFS License Activation");
+
   const existingConfig = loadConfig();
   if (existingConfig && existingConfig.license_key) {
     log.error("License key is already activated.");
@@ -231,10 +240,10 @@ export async function activate(): Promise<void> {
     return;
   }
 
-  s.start("Processing license...");
+  s.start("Validating license...");
 
   const data = await cliActivateLicense(licenseKey as string);
-  s.stop("License activated successfully");
+  s.stop("Validation completed");
 
   const instanceId = data.instance_id;
 
@@ -245,7 +254,7 @@ export async function activate(): Promise<void> {
 
   saveConfig({ license_key: licenseKey as string, instance_id: instanceId });
 
-  log.success("License activated and saved successfully.");
+  outro("License validated successfully.");
 }
 
 /**
@@ -259,6 +268,8 @@ export async function activate(): Promise<void> {
  * @returns {Promise<void>}
  */
 export async function deactivate(): Promise<void> {
+  intro("WFS License Deactivation");
+
   const config = loadConfig();
   let licenseKey: string;
   let instanceId: InstanceId | undefined;
@@ -301,8 +312,8 @@ export async function deactivate(): Promise<void> {
     } else {
       await cliDeactivateAllInstances(licenseKey);
     }
-    s.stop("Processing completed");
-    log.success("License deactivated successfully!");
+    s.stop("Deactivation completed");
+    outro("License deactivated successfully!");
     removeConfig();
   } catch (error: unknown) {
     s.stop("Processing completed");

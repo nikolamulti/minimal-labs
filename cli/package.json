@@ -1,6 +1,6 @@
 {
   "name": "webflow-svelte-cli",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "description": "A CLI for adding Webflow Svelte components to your project.",
   "main": "dist/index.mjs",
   "type": "module",
