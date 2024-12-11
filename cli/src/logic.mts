@@ -23,7 +23,7 @@ const s = spinner();
  * 2. If no license key, prompts user to enter one
  * 3. Activates the license
  * 4. Saves the configuration
- * 5. Initializes the project (creates/updates global.css)
+ * 5. Initializes the project (creates/updates wfs.css)
  * 6. Installs bits-ui package
  * 7. Installs all available components
  * 8. Logs success message
@@ -59,27 +59,26 @@ export async function init(): Promise<void> {
     });
   }
 
-  // Move working directory prompt here, after license key handling
-  const workingDir = await text({
-    message: "Working directory (press Enter for current directory):",
-    defaultValue: "./",
+  // Default installation path for wfs.css is cwd/src
+  const defaultGlobalCSSPath = path.join(process.cwd(), "src");
+
+  const globalCSSInstallPath = await text({
+    message: "Installation path for wfs.css (press Enter for default: ./src):",
+    defaultValue: defaultGlobalCSSPath,
   });
 
-  if (isCancel(workingDir)) {
+  if (isCancel(globalCSSInstallPath)) {
     outro("Operation cancelled");
     return;
   }
 
-  // Use the selected working directory or default to current directory
-  const selectedDir =
-    workingDir && workingDir.trim() !== ""
-      ? (workingDir as string)
-      : process.cwd();
+  // Use the selected path or default path for wfs.css
+  const selectedGlobalCSSPath =
+    (globalCSSInstallPath as string).trim() || defaultGlobalCSSPath;
 
-  // Validate the selected directory exists
-  if (!fs.existsSync(selectedDir)) {
-    log.error("Directory does not exist");
-    return;
+  // Validate the selected path exists
+  if (!fs.existsSync(selectedGlobalCSSPath)) {
+    fs.mkdirSync(selectedGlobalCSSPath, { recursive: true });
   }
 
   // Install bits-ui package
@@ -90,21 +89,57 @@ export async function init(): Promise<void> {
 
   const newGlobalCSS = await fetchGlobalCSSContent();
 
-  // Update global.css file
-  const filePath = path.join(selectedDir, "global.css");
+  // Update wfs.css file in selected directory
+  const globalCSSPath = path.join(selectedGlobalCSSPath, "wfs.css");
 
-  s.start("Adding CSS...");
-  if (fs.existsSync(filePath)) {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    const existingContent = fs.readFileSync(filePath, "utf8");
+  if (fs.existsSync(globalCSSPath)) {
+    const overrideConfirm = await confirm({
+      message: "wfs.css already exists. Do you want to override it?",
+    });
 
-    const updatedContent = existingContent + "\n\n" + newGlobalCSS;
-    fs.writeFileSync(filePath, updatedContent);
-    s.stop("global.css updated successfully");
+    if (!isCancel(overrideConfirm) && overrideConfirm) {
+      s.start("Adding CSS...");
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      // Remove existing file and create new one
+      fs.unlinkSync(globalCSSPath);
+      fs.writeFileSync(globalCSSPath, newGlobalCSS);
+      s.stop("wfs.css overwritten successfully");
+    } else {
+      log.warn("Skipping wfs.css update");
+    }
   } else {
+    s.start("Adding CSS...");
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    fs.writeFileSync(filePath, newGlobalCSS);
-    s.stop("global.css created successfully");
+    fs.writeFileSync(globalCSSPath, newGlobalCSS);
+    s.stop("wfs.css created successfully");
+  }
+
+  // Default installation path for components
+  const defaultComponentsPath = path.join(
+    process.cwd(),
+    "src",
+    "lib",
+    "components"
+  );
+
+  const componentsInstallPath = await text({
+    message:
+      "Installation path for components (press Enter for default: ./src/lib/components):",
+    defaultValue: defaultComponentsPath,
+  });
+
+  if (isCancel(componentsInstallPath)) {
+    outro("Operation cancelled");
+    return;
+  }
+
+  // Use the selected path or default path for components
+  const selectedComponentsPath =
+    (componentsInstallPath as string).trim() || defaultComponentsPath;
+
+  // Create components directory if it doesn't exist
+  if (!fs.existsSync(selectedComponentsPath)) {
+    fs.mkdirSync(selectedComponentsPath, { recursive: true });
   }
 
   // Install all components
@@ -115,14 +150,13 @@ export async function init(): Promise<void> {
   let installedCount = 0;
 
   for (const component of availableComponents) {
-    const componentDir = path.join(
-      selectedDir,
-      "components",
+    const componentPath = path.join(
+      selectedComponentsPath,
       component.toLowerCase()
     );
     let finalComponentName = component;
 
-    if (fs.existsSync(componentDir)) {
+    if (fs.existsSync(componentPath)) {
       const overrideConfirm = await confirm({
         message: `A component named "${component}" already exists. Do you want to override it?`,
       });
@@ -138,7 +172,7 @@ export async function init(): Promise<void> {
             if (value.trim() === "") return "Component name cannot be empty";
             const sanitizedName = value.replace(/\s+/g, "-").toLowerCase();
             if (
-              fs.existsSync(path.join(selectedDir, "components", sanitizedName))
+              fs.existsSync(path.join(selectedComponentsPath, sanitizedName))
             ) {
               return "A component with this name already exists";
             }
@@ -153,11 +187,12 @@ export async function init(): Promise<void> {
       }
     }
 
+    // Install component directly in the selected path
     await cliInstallComponent(
       component,
       licenseKey,
       finalComponentName,
-      selectedDir
+      selectedComponentsPath
     );
     installedCount++;
   }
