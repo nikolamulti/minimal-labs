@@ -44,7 +44,7 @@ export function IconSearch() {
             <button
               key={icon.name}
               onClick={() => handleCopy(icon)}
-              className="group relative flex flex-col items-center justify-center px-2 py-4 rounded-md bg-fd-secondary border border-fd-border hover:bg-fd-muted/70 transition-colors"
+              className="group relative flex flex-col items-center justify-center px-2 py-5 rounded-md bg-fd-secondary border border-fd-border hover:bg-fd-muted/70 transition-colors"
             >
               <div
                 className={`flex flex-col items-center gap-1 ${

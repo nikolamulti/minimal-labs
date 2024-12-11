@@ -1,0 +1,193 @@
+---
+title: Unit input
+description: Form field for numerical values.
+---
+
+import { Svelte } from "@/components/svelte";
+import { Tabs, Tab } from "@/components/tabs";
+import { Step, Steps } from "@/components/steps";
+import { TypeTable } from "@/components/type-table";
+import { DocsButton } from "@/components/ui/docs-button";
+import { DocsTabs, DocsTab } from "@/components/docs-tabs";
+
+<div className="h-6" />
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/unit-input" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { UnitInput } from '$lib/components/input';
+</script>
+
+<UnitInput placeholder="Value" />
+```
+
+  </DocsTab>
+</DocsTabs>
+
+## Usage
+
+```svelte
+<script lang="ts">
+  import { UnitInput } from '$lib/components/input';
+</script>
+```
+
+```svelte
+<UnitInput placeholder="Value" />
+```
+
+## Properties
+
+<TypeTable
+  type={{
+    icon: {
+      description: "The icon to be displayed in the input.",
+      type: "ComponentType",
+    },
+    value: {
+      description: "The value of the input.",
+      type: "number",
+    },
+    placeholder: {
+      description: "The placeholder text to display when empty.",
+      type: "string",
+    },
+    defaultUnit: {
+      description: "The default unit of the input.",
+      type: "string",
+      typeDescription: "px, %, em, rem, ch, vw, vh, svw, svh, auto",
+      default: "px",
+    },
+    min: {
+      description: "The minimum allowed value.",
+      type: "number",
+    },
+    max: {
+      description: "The maximum allowed value.",
+      type: "number",
+    },
+    disabled: {
+      description: "Whether the input is disabled.",
+      type: "boolean",
+      default: "false",
+    },
+    error: {
+      description: "Whether to show error styling.",
+      type: "boolean",
+      default: "false",
+    },
+  }}
+/>
+
+## Examples
+
+### Icon support
+
+Use the `icon` property to add an icon to the `UnitInput` component.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/unit-input/icon-support" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { UnitInput } from '$lib/components/input';
+  import { VariableSize } from '$lib/components/icons';
+</script>
+
+<UnitInput icon={VariableSize} placeholder="Value" />
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Default unit
+
+Use the `defaultUnit` property to set the default unit of the input.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/unit-input/default-unit" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { UnitInput } from '$lib/components/input';
+</script>
+
+<UnitInput defaultUnit="rem" placeholder="Value" />
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Min max
+
+Use the `min` and `max` properties to set the minimum and maximum input values.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/unit-input/min-max" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { UnitInput } from '$lib/components/input';
+</script>
+
+<UnitInput min={0} max={10} placeholder="Value" />
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Error
+
+Use the `error` property to indicate that the input has an error.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/unit-input/error" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { UnitInput } from '$lib/components/input';
+</script>
+
+<UnitInput error placeholder="Value" />
+```
+
+  </DocsTab>
+</DocsTabs>
+
+### Disabled
+
+Use the `disabled` property to prevent users from interacting with the input.
+
+<DocsTabs items={["Preview", "Code"]}>
+  <DocsTab value="Preview" className="mt-6">
+    <Svelte url="/unit-input/disabled" height={360} />
+  </DocsTab>
+  <DocsTab value="Code">
+
+```svelte
+<script lang="ts">
+  import { UnitInput } from '$lib/components/input';
+</script>
+
+<UnitInput disabled placeholder="Value" />
+```
+
+  </DocsTab>
+</DocsTabs>
