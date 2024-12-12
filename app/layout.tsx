@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     siteName: "WFS Components",
     images: [
       {
-        url: "/opengraph-image.jpg",
+        url: "/app/opengraph-image.jpg",
         width: 1200,
         height: 630,
         alt: "WFS Components",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     creator: "@minimalsquare",
     images: [
       {
-        url: "/twitter-image.jpg",
+        url: "/app/twitter-image.jpg",
         width: 1200,
         height: 630,
         alt: "WFS Components",
