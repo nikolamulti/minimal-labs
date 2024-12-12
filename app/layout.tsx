@@ -22,6 +22,15 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://minimal-labs.com/svelte",
     siteName: "WFS Components",
+    images: [
+      {
+        url: "https://minimal-labs.com/app/opengraph-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "WFS Components",
+        type: "image/jpeg",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -29,6 +38,15 @@ export const metadata: Metadata = {
     description:
       "Ship faster with Webflow's design system, Svelte components and user-friendly CLI that streamline your workflow.",
     creator: "@minimalsquare",
+    images: [
+      {
+        url: "https://minimal-labs.com/app/twitter-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "WFS Components",
+        type: "image/jpeg",
+      },
+    ],
   },
   authors: [{ name: "Minimal Square", url: "https://minimal-square.com" }],
   keywords: [
