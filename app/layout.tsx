@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     url: "https://minimal-labs.com/svelte",
     images: [
       {
-        url: "/app/og-image.png",
+        url: "/app/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "WFS Components",

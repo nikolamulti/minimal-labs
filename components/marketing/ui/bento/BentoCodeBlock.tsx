@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Card } from "@/components/marketing/ui/Card";
 
 const BentoCodeBlock: React.FC = () => {
-  const [activeTab, setActiveTab] = useState("Checkbox");
+  const [activeTab, setActiveTab] = useState("Avatar");
 
   return (
     <Card className="relative col-span-8 row-span-1 mx-auto h-[20rem] max-w-[40rem] overflow-hidden p-6 lg:col-span-7">
