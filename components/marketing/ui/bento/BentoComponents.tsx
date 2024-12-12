@@ -22,7 +22,7 @@ const BentoComponents: React.FC = () => {
             <div className="flex items-center gap-1">
               <Image
                 src="/webflow-icons/Account.svg"
-                alt="Account"
+                alt="User profile"
                 width={16}
                 height={16}
               />
@@ -213,20 +213,26 @@ const BentoComponents: React.FC = () => {
               ))}
             </div>
             <div className="flex items-center gap-3">
-              <input
-                type="radio"
-                id="radio1"
-                name="radioGroup"
-                className="accent-primary relative h-3 w-3 cursor-pointer appearance-none rounded-full bg-critical shadow-[inset_0_0.5px_0.5px_0_rgba(255,255,255,0.2)] checked:before:absolute checked:before:left-1/2 checked:before:top-1/2 checked:before:h-1 checked:before:w-1 checked:before:-translate-x-1/2 checked:before:-translate-y-1/2 checked:before:rounded-full checked:before:bg-white checked:before:content-[''] checked:hover:bg-critical-hover focus:outline-none focus-visible:ring-1 focus-visible:ring-[#007DF0] focus-visible:ring-offset-1 focus-visible:ring-offset-[#2e2e2e]"
-                defaultChecked
-              />
-              <input
-                type="checkbox"
-                id="checkbox1"
-                name="checkboxGroup"
-                className="relative h-3 w-3 cursor-pointer appearance-none rounded-sm bg-input shadow-[inset_0_0_0_1px_rgba(255,255,255,0.19)] checked:bg-primary checked:bg-[url('/webflow-icons/CheckboxCheck.svg')] checked:bg-cover checked:bg-center checked:bg-no-repeat checked:shadow-[inset_0_0.5px_0.5px_0_rgba(255,255,255,0.2)] checked:hover:bg-primary-hover focus:outline-none focus-visible:ring-1 focus-visible:ring-[#007DF0] focus-visible:ring-offset-1 focus-visible:ring-offset-[#2e2e2e]"
-                defaultChecked
-              />
+              <label className="flex items-center">
+                <input
+                  type="radio"
+                  id="radio1"
+                  name="radioGroup"
+                  className="accent-primary relative h-3 w-3 cursor-pointer appearance-none rounded-full bg-critical shadow-[inset_0_0.5px_0.5px_0_rgba(255,255,255,0.2)] checked:before:absolute checked:before:left-1/2 checked:before:top-1/2 checked:before:h-1 checked:before:w-1 checked:before:-translate-x-1/2 checked:before:-translate-y-1/2 checked:before:rounded-full checked:before:bg-white checked:before:content-[''] checked:hover:bg-critical-hover focus:outline-none focus-visible:ring-1 focus-visible:ring-[#007DF0] focus-visible:ring-offset-1 focus-visible:ring-offset-[#2e2e2e]"
+                  defaultChecked
+                />
+                <span className="sr-only">Radio option</span>
+              </label>
+              <label className="flex items-center">
+                <input
+                  type="checkbox"
+                  id="checkbox1"
+                  name="checkboxGroup"
+                  className="relative h-3 w-3 cursor-pointer appearance-none rounded-sm bg-input shadow-[inset_0_0_0_1px_rgba(255,255,255,0.19)] checked:bg-primary checked:bg-[url('/webflow-icons/CheckboxCheck.svg')] checked:bg-cover checked:bg-center checked:bg-no-repeat checked:shadow-[inset_0_0.5px_0.5px_0_rgba(255,255,255,0.2)] checked:hover:bg-primary-hover focus:outline-none focus-visible:ring-1 focus-visible:ring-[#007DF0] focus-visible:ring-offset-1 focus-visible:ring-offset-[#2e2e2e]"
+                  defaultChecked
+                />
+                <span className="sr-only">Checkbox option</span>
+              </label>
             </div>
           </div>
           <div className="relative mt-4 flex items-center">

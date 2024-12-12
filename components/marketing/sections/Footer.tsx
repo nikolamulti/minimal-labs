@@ -9,6 +9,7 @@ const Footer = () => {
           <Link
             href="https://www.minimal-square.com/"
             className="underline fg-base"
+            aria-label="Visit Minimal Square website"
           >
             Minimal Square
           </Link>{" "}
@@ -31,6 +32,7 @@ const Footer = () => {
             className="fg-base"
             href="https://x.com/minimalsquare"
             target="_blank"
+            aria-label="Follow us on X (formerly Twitter)"
           >
             <svg
               width="16"
@@ -38,6 +40,8 @@ const Footer = () => {
               viewBox="0 0 16 16"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+              role="img"
             >
               <path
                 d="m1.53163 2 5.01915 6.61878L1.5 14h1.13682l4.42205-4.71144L10.6316 14H14.5L9.19834 7.009 13.8996 2h-1.1368L8.69047 6.33901 5.4 2H1.53163Zm1.67174.82598h1.77711L12.828 13.1742h-1.7771L3.20337 2.82598Z"

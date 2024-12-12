@@ -23,7 +23,7 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
       href={href}
       className={cn(
         "inline-block rounded-lg bg-muted bg-gradient-to-b from-[rgba(255,255,255,0.04)] to-[rgba(31,31,31,0)] py-1 pl-1 pr-3 shadow-[inset_0_1px_0_0_#FFFFFF1F] drop-shadow-[0_1px_2px__rgba(0,0,0,0.40)] transition-[background-image] duration-1000 ease-in-out hover:from-[rgba(255,255,255,0.08)]",
-        className,
+        className
       )}
     >
       <div className="flex flex-row gap-3 text-left">
@@ -35,7 +35,7 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
           className="rounded"
         />
         <div className="flex flex-col gap-0.5 self-center">
-          <h4 className="text-sm font-semibold fg-base">{title}</h4>
+          <h3 className="text-sm font-semibold fg-base">{title}</h3>
           <p className="text-xs fg-muted">{description}</p>
         </div>
       </div>
