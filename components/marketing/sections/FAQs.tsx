@@ -21,8 +21,8 @@ const FAQs = () => {
             Everything you need to know
           </h2>
           <p className="max-w-[30rem] text-base fg-muted">
-            Find expert answers to common questions about Figma UI Kit and
-            Svelte component library.
+            Find answers to common questions about Figma UI Kit and Svelte
+            component library.
           </p>
         </div>
         <div className="w-full">
@@ -81,10 +81,9 @@ const FAQs = () => {
                   </AccordionTrigger>
                   <AccordionContent>
                     <p>
-                      After purchasing, you will receive an email with Svelte
-                      and Figma files for Webflow app building. You will have
-                      full edit access to these files to use in your code editor
-                      of choice and Figma account.
+                      After purchasing, you will receive an email with the Figma
+                      file and a license key for installing components using
+                      CLI.
                     </p>
                   </AccordionContent>
                 </AccordionItem>
@@ -154,31 +153,6 @@ const FAQs = () => {
                         get in touch
                       </a>{" "}
                       with us with your customer email.
-                    </p>
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-9">
-                  <AccordionTrigger>
-                    <h3>
-                      Can I sell templates or themes built with a purchased
-                      product?
-                    </h3>
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <p>
-                      No, you&apos;re not allowed to sell or distribute the
-                      products on your website or marketplaces like ThemeForest,
-                      Creative Market, etc. (even for free), as well as resell,
-                      lease, license, sublicense or redistribute a purchased
-                      product on its own (even for free). You can learn more
-                      about licensing on our{" "}
-                      <a
-                        className="underline fg-base"
-                        href="https://www.minimal-labs.com/license"
-                      >
-                        Licensing Page
-                      </a>
-                      .
                     </p>
                   </AccordionContent>
                 </AccordionItem>
@@ -348,36 +322,31 @@ const FAQs = () => {
                       After the purchase you will get a receipt directly to your
                       email:<br></br>
                       <br></br>
-                      <ul>
-                        <li>
-                          • Receipts are sent from{" "}
-                          <a
-                            href="mailto:hello@lemonsqueezy-mail.com"
-                            className="fg-base"
-                          >
-                            hello@lemonsqueezy-mail.com
-                          </a>{" "}
-                          with the subject Your WFS for Svelte and Figma
-                          receipt.
-                        </li>
-                        <li>
-                          • Try searching in your email inbox
-                          from:hello@lemonsqueezy-mail.com. If you cannot find
-                          the receipt email, it may have been sent to a
-                          different email address. Try to recall what email
-                          address you&apos;ve used to make a purchase.
-                        </li>
-                        <li>
-                          If you get super stuck, we&apos;re here to help via{" "}
-                          <a
-                            href="mailto:aleksandar@minimal-square.com"
-                            className="fg-base"
-                          >
-                            aleksandar@minimal-square.com
-                          </a>
-                          .
-                        </li>
-                      </ul>
+                      Receipts are sent from{" "}
+                      <a
+                        href="mailto:hello@lemonsqueezy-mail.com"
+                        className="fg-base"
+                      >
+                        hello@lemonsqueezy-mail.com
+                      </a>{" "}
+                      with the subject Your WFS for Svelte and Figma receipt.
+                      <br />
+                      <br />
+                      Try searching in your email inbox
+                      from:hello@lemonsqueezy-mail.com. If you cannot find the
+                      receipt email, it may have been sent to a different email
+                      address. Try to recall what email address you&apos;ve used
+                      to make a purchase.
+                      <br />
+                      <br />
+                      If you get super stuck, we&apos;re here to help via{" "}
+                      <a
+                        href="mailto:aleksandar@minimal-square.com"
+                        className="fg-base"
+                      >
+                        aleksandar@minimal-square.com
+                      </a>
+                      .
                     </p>
                   </AccordionContent>
                 </AccordionItem>

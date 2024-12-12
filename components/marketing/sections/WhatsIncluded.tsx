@@ -160,7 +160,10 @@ const WhatsIncluded: React.FC = () => (
                 adding components in a project.
               </p>
             </div>
-            <Button href="/svelte/docs/cli" className="whitespace-nowrap">
+            <Button
+              href="/svelte/docs/installation"
+              className="whitespace-nowrap"
+            >
               How it works
             </Button>
           </div>

@@ -3,12 +3,12 @@ import { Section } from "@/components/marketing/ui/Section";
 
 export default function PrivacyPage() {
   return (
-    <div className="bg-base">
+    <div className="bg-base mt-8 lg:mt-16">
       <Nav />
       <main>
         <Section className="py-20">
           <div>
-            <article className="lg:prose-md prose mx-auto max-w-[44rem] prose-p:fg-muted prose-li:fg-muted">
+            <article className="lg:prose-md prose mx-auto max-w-[44rem] prose-headings:fg-base prose-a:fg-base prose-strong:fg-base prose-p:fg-muted  prose-li:fg-muted">
               <h1>Privacy Policy</h1>
               <p>
                 At Minimal Labs, your privacy is our priority. We honor the

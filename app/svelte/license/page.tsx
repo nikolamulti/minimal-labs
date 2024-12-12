@@ -3,12 +3,12 @@ import { Section } from "@/components/marketing/ui/Section";
 
 export default function LicensingPage() {
   return (
-    <div className="bg-base">
+    <div className="bg-base mt-8 lg:mt-16">
       <Nav />
       <main>
         <Section className="py-20">
           <div>
-            <article className="lg:prose-md prose mx-auto max-w-[44rem] prose-p:fg-muted  prose-li:fg-muted">
+            <article className="lg:prose-md prose mx-auto max-w-[44rem] prose-headings:fg-base prose-a:fg-base prose-strong:fg-base prose-p:fg-muted  prose-li:fg-muted">
               <h1>Licensing Agreement</h1>
               <p>
                 By subscribing to Minimal Labs or purchasing Minimal Labs

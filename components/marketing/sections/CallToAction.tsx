@@ -56,8 +56,8 @@ const CallToAction = () => {
               Build your app today
             </h2>
             <p className="text-balance text-lg font-normal leading-normal fg-muted lg:text-xl lg:leading-8">
-              Improve the design and development process with the best Figma Kit
-              and component library for Webflow apps.
+              Improve the design and development process with the Figma UI Kit
+              and Svelte component library for Webflow apps.
             </p>
           </div>
           <Light divider={false} />

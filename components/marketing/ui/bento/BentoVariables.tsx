@@ -50,7 +50,8 @@ const BentoVariables: React.FC = () => {
       <div className="z-20 mt-auto flex max-w-[25rem] flex-col gap-1 px-6 pb-6">
         <h3 className="text-lg font-semibold fg-base">Variables & Styles</h3>
         <p className="text-sm fg-muted">
-          Streamline project quickly using plug-and-play building blocks.
+          Maintain consistent design with variables and styles for colors,
+          typography, and spacing.
         </p>
       </div>
     </Card>
@@ -60,7 +61,7 @@ const BentoVariables: React.FC = () => {
 const renderMarqueeItems = (rowIndex: number) => {
   const allItems = [
     // Row 1
-    { type: "text", content: "font-family-body", icon: "VariableTextSize" },
+    { type: "text", content: "font-family", icon: "VariableTextSize" },
     { type: "color", content: "bg-primary-hover" },
     { type: "size", content: "spacing-12x", icon: "VariableSize" },
     { type: "color", content: "bg-success-transparent" },
@@ -68,7 +69,7 @@ const renderMarqueeItems = (rowIndex: number) => {
     // Row 2
     { type: "color", content: "bg-purple" },
     { type: "size", content: "spacing-1x", icon: "VariableSize" },
-    { type: "color", content: "bg-pink-pressed" },
+    { type: "color", content: "bg-pink-hover" },
     { type: "text", content: "line-height-md", icon: "VariableTextSize" },
     { type: "size", content: "radius-2xl", icon: "VariableSize" },
     // Row 3

@@ -44,15 +44,17 @@ const Pricing = () => {
               <div className="border border-muted" />
               <CardList className="flex-grow px-6 pb-6 pt-8">
                 <CardListItem>License for 1 user</CardListItem>
-                <CardListItem>Figma UI Kit (30+ components)</CardListItem>
-                <CardListItem>Svelte components (30+ components)</CardListItem>
+                <CardListItem>Figma UI Kit (25 components)</CardListItem>
+                <CardListItem>Svelte components (25 components)</CardListItem>
                 <CardListItem>Unlimited projects</CardListItem>
+                <CardListItem>Lifetime access</CardListItem>
                 <CardAction className="mt-6">
                   <Button
                     variant="primary"
                     size="medium"
                     className="lemonsqueezy-button w-full"
                     href={personalCheckoutUrl}
+                    target="_blank"
                   >
                     Buy personal license
                   </Button>
@@ -78,15 +80,17 @@ const Pricing = () => {
               <div className="border border-muted" />
               <CardList className="flex-grow px-6 pb-6 pt-8">
                 <CardListItem>License for up to 5 users</CardListItem>
-                <CardListItem>Figma UI Kit (30+ components)</CardListItem>
-                <CardListItem>Svelte components (30+ components)</CardListItem>
+                <CardListItem>Figma UI Kit (25 components)</CardListItem>
+                <CardListItem>Svelte components (25 components)</CardListItem>
                 <CardListItem>Unlimited projects</CardListItem>
+                <CardListItem>Lifetime access</CardListItem>
                 <CardAction className="mt-6">
                   <Button
                     variant="faded"
                     size="medium"
                     className="lemonsqueezy-button w-full"
                     href={teamCheckoutUrl}
+                    target="_blank"
                   >
                     Buy team license
                   </Button>

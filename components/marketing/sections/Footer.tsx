@@ -22,6 +22,12 @@ const Footer = () => {
             Licensing
           </Link>
           <Link
+            className="underline fg-base"
+            href="mailto:aleksandar@minimal-square.com"
+          >
+            Support
+          </Link>
+          <Link
             className="fg-base"
             href="https://x.com/minimalsquare"
             target="_blank"

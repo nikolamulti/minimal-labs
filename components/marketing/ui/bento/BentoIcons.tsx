@@ -58,7 +58,7 @@ const BentoIcons: React.FC = () => {
             {row.map((icon, iconIndex) => (
               <div
                 key={`${rowIndex}-${iconIndex}`}
-                className="flex h-16 w-16 flex-shrink-0 place-content-center place-items-center rounded-md bg-default"
+                className="flex h-16 w-16 flex-shrink-0 place-content-center place-items-center rounded-md bg-default hover:bg-[#4C4C4C] transition-colors"
               >
                 <Image
                   className="h-5 w-5"

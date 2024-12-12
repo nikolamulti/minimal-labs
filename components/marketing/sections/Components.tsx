@@ -5,169 +5,145 @@ import { ComponentCard } from "@/components/marketing/ui/ComponentCard";
 const componentData = [
   {
     title: "Accordion",
-    description: "2 variants",
+    description: "4 components",
     imageSrc: "/components/Accordion.png",
     href: "/svelte/docs/accordion",
   },
   {
     title: "Aspect ratio",
-    description: "18 variants",
+    description: "1 component",
     imageSrc: "/components/Aspect.png",
     href: "/svelte/docs/aspect-ratio",
   },
   {
     title: "Avatar",
-    description: "89 variants",
+    description: "2 components",
     imageSrc: "/components/Avatar.png",
     href: "/svelte/docs/avatar",
   },
   {
     title: "Button",
-    description: "75 variants",
+    description: "2 components",
     imageSrc: "/components/Button.png",
     href: "/svelte/docs/button",
   },
   {
     title: "Checkbox",
-    description: "24 variants",
+    description: "3 components",
     imageSrc: "/components/Checkbox.png",
     href: "/svelte/docs/checkbox",
   },
   {
-    title: "Color input",
-    description: "6 variants",
-    imageSrc: "/components/Color input.png",
-    href: "/svelte/docs/color-picker",
-  },
-  {
     title: "Combobox",
-    description: "2 variants",
+    description: "7 components",
     imageSrc: "/components/Combobox.png",
     href: "/svelte/docs/combobox",
   },
   {
     title: "Divider",
-    description: "8 variants",
+    description: "1 component",
     imageSrc: "/components/Divider.png",
     href: "/svelte/docs/divider",
   },
   {
-    title: "Dropdown",
-    description: "4 variants",
+    title: "Dropdown menu",
+    description: "15 components",
     imageSrc: "/components/Dropdown.png",
-    href: "/svelte/docs/dropdown",
+    href: "/svelte/docs/dropdown-menu",
   },
   {
     title: "Empty state",
-    description: "6 variants",
+    description: "5 components",
     imageSrc: "/components/Empty state.png",
     href: "/svelte/docs/empty-state",
   },
   {
     title: "Fieldset",
-    description: "1 variant",
+    description: "7 components",
     imageSrc: "/components/Fieldset.png",
     href: "/svelte/docs/fieldset",
   },
   {
-    title: "Helper text",
-    description: "2 variants",
-    imageSrc: "/components/Helper text.png",
-    href: "/svelte/docs/helper-text",
-  },
-  {
-    title: "Label",
-    description: "3 variants",
-    imageSrc: "/components/Label.png",
-    href: "/svelte/docs/label",
-  },
-  {
     title: "Link",
-    description: "30 variants",
+    description: "1 component",
     imageSrc: "/components/Link.png",
     href: "/svelte/docs/link",
   },
   {
-    title: "Navigation",
-    description: "3 variants",
-    imageSrc: "/components/Navigation.png",
-    href: "/svelte/docs/navigation",
-  },
-  {
     title: "Note",
-    description: "48 variants",
+    description: "5 components",
     imageSrc: "/components/Note.png",
     href: "/svelte/docs/note",
   },
   {
     title: "Number input",
-    description: "6 variants",
+    description: "1 component",
     imageSrc: "/components/Number input.png",
     href: "/svelte/docs/number-input",
   },
   {
     title: "Progress",
-    description: "55 variants",
+    description: "1 component",
     imageSrc: "/components/Progress.png",
     href: "/svelte/docs/progress",
   },
   {
     title: "Radio",
-    description: "16 variants",
+    description: "3 components",
     imageSrc: "/components/Radio.png",
     href: "/svelte/docs/radio",
   },
   {
     title: "Scroll area",
-    description: "3 variants",
+    description: "1 component",
     imageSrc: "/components/Scroll area.png",
     href: "/svelte/docs/scroll-area",
   },
   {
     title: "Select",
-    description: "2 variants",
+    description: "9 components",
     imageSrc: "/components/Select.png",
     href: "/svelte/docs/select",
   },
   {
     title: "Slider",
-    description: "75 variants",
+    description: "1 component",
     imageSrc: "/components/Slider.png",
     href: "/svelte/docs/slider",
   },
   {
     title: "Spinner",
-    description: "4 variants",
+    description: "1 component",
     imageSrc: "/components/Spinner.png",
     href: "/svelte/docs/spinner",
   },
   {
     title: "Switch",
-    description: "8 variants",
+    description: "2 components",
     imageSrc: "/components/Switch.png",
     href: "/svelte/docs/switch",
   },
   {
     title: "Tabs",
-    description: "6 variants",
+    description: "4 components",
     imageSrc: "/components/Tabs.png",
     href: "/svelte/docs/tabs",
   },
   {
     title: "Text input",
-    description: "6 variants",
+    description: "1 component",
     imageSrc: "/components/Text input.png",
     href: "/svelte/docs/text-input",
   },
   {
     title: "Textarea",
-    description: "6 variants",
+    description: "1 component",
     imageSrc: "/components/Textarea.png",
     href: "/svelte/docs/textarea",
   },
   {
     title: "Tooltip",
-    description: "8 variants",
+    description: "3 components",
     imageSrc: "/components/Tooltip.png",
     href: "/svelte/docs/tooltip",
   },
@@ -180,16 +156,17 @@ const Components = () => {
         <div className="relative flex w-full justify-self-start text-left">
           <div className="flex max-w-[40rem] flex-col items-start gap-4">
             <p className="flex bg-gradient-to-r from-[#6EA2F5] to-[#FD855F] bg-clip-text text-base font-bold text-transparent">
-              Library
+              Components
             </p>
             <h2 className="text-balance text-2xl font-semibold fg-base lg:text-3xl">
-              Pre-made components
+              Build Webflow apps faster with Svelte components
             </h2>
             <p className="max-w-[30rem] text-base fg-muted">
-              Curated library of ready-to-use Webflow app elements.
+              A comprehensive collection of accessible components that match
+              Webflow&apos;s design system.
             </p>
           </div>
-          <div className="absolute right-0 top-0 hidden justify-end lg:flex">
+          <div className="absolute right-0 top-0 hidden justify-end lg:flex mt-6">
             <span className="absolute top-[1rem] z-20 -rotate-[-15deg] text-nowrap bg-gradient-to-r from-[#6EA2F5] to-[#FD855F] bg-clip-text text-center font-handwritten text-[2rem] leading-7 text-transparent">
               Everything you
               <br />

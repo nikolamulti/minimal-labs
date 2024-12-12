@@ -19,7 +19,7 @@ const Features = () => {
           Features
         </p>
         <h2 className="text-balance text-2xl font-semibold fg-base lg:text-3xl">
-          Easy and fast development process
+          Everything you need to build Webflow apps
         </h2>
         <p className="max-w-[30rem] text-base fg-muted">
           Simplify design and development cycles with our optimized, time-saving

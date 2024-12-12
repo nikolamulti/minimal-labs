@@ -28,7 +28,7 @@ const Benefits = () => {
                 Kickstart your app
               </h3>
               <p className="text-balance text-sm fg-muted">
-                Streamline your workflow and focus on w hat truly matters. 100+
+                Streamline your workflow and focus on what truly matters. 200+
                 hours saved means more time for innovation and growth.
               </p>
             </div>

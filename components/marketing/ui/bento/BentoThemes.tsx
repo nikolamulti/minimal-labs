@@ -5,9 +5,10 @@ const BentoThemes: React.FC = () => {
   return (
     <Card className="relative col-span-8 mx-auto h-[20rem] max-w-[40rem] overflow-hidden p-6 lg:col-span-5">
       <div className="mb-6 flex max-w-[25rem] flex-col gap-1">
-        <h3 className="text-lg font-semibold fg-base">All 3 modes available</h3>
+        <h3 className="text-lg font-semibold fg-base">Themes</h3>
         <p className="text-sm fg-muted">
-          Compatible with native Webflow designer themes and their changes.
+          Automatically detects and syncs with Webflow&apos;s interface
+          appearance settings.
         </p>
       </div>
       <div className="relative w-[60rem]">

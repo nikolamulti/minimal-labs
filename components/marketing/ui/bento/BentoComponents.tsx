@@ -10,10 +10,10 @@ const BentoComponents: React.FC = () => {
   return (
     <Card className="relative col-span-8 mx-auto h-[20rem] max-w-[40rem] overflow-hidden rounded-[12px] p-6 lg:col-span-7">
       <div className="mb-6 flex max-w-[25rem] flex-col gap-1">
-        <h3 className="text-lg font-semibold fg-base">Pre-made components</h3>
+        <h3 className="text-lg font-semibold fg-base">Accessible components</h3>
         <p className="text-sm fg-muted">
-          Streamline projects quickly using efficient plug-and-play building
-          blocks.
+          Production-ready components to help you build interfaces faster and
+          with confidence.
         </p>
       </div>
       <div className="grid grid-cols-[1fr_14.75rem] gap-4">
