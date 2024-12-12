@@ -45,38 +45,38 @@ const WhatsIncluded: React.FC = () => (
             <CardListItem>
               <span className="">
                 <span className="font-semibold fg-base">
-                  Pixel-perfect components:
+                  Extended design system:
                 </span>{" "}
-                Fixed variables, variants, and components from Webflow&apos;s
-                Figma file.
+                Built on top of Webflow&apos;s design system with additional
+                variables, variants, and components while maintaining full
+                compatibility.
               </span>
             </CardListItem>
             <CardListItem>
               <span className="">
-                <span className="font-semibold fg-base">25+ components:</span>{" "}
-                An extended list of components is at your fingertips.
+                <span className="font-semibold fg-base">25 components:</span> A
+                comprehensive library of production-ready UI components matching
+                Webflow&apos;s design system.
+              </span>
+            </CardListItem>
+            <CardListItem>
+              <span className="">
+                <span className="font-semibold fg-base">Auto Layout 5.0:</span>{" "}
+                Components that automatically resize and reflow as you edit
+                content.
+              </span>
+            </CardListItem>
+            <CardListItem>
+              <span className="">
+                <span className="font-semibold fg-base">Themes:</span> Design
+                and adapt your app to Webflow&apos;s default, brighter or darker
+                mode.
               </span>
             </CardListItem>
             <CardListItem>
               <span className="">
                 <span className="font-semibold fg-base">
-                  Auto Layout components:
-                </span>{" "}
-                Auto-layout components grow or shrink as you edit the text.
-              </span>
-            </CardListItem>
-            <CardListItem>
-              <span className="">
-                <span className="font-semibold fg-base">
-                  Designer themes supported:
-                </span>{" "}
-                Design and adapt your app to all native Webflow themes.
-              </span>
-            </CardListItem>
-            <CardListItem>
-              <span className="">
-                <span className="font-semibold fg-base">
-                  Perfectly matching the code:
+                  Perfectly aligned with code:
                 </span>{" "}
                 Pixel perfect components that match both Figma and Svelte
                 components.
@@ -117,9 +117,11 @@ const WhatsIncluded: React.FC = () => (
             </CardListItem>
             <CardListItem>
               <span className="">
-                <span className="font-semibold fg-base">Fully typed:</span> Each
-                component is fully typed with TypeScript, so you can move fast
-                without breaking things.
+                <span className="font-semibold fg-base">
+                  Typescript support:
+                </span>{" "}
+                Each component is fully typed with TypeScript, so you can move
+                fast without breaking things.
               </span>
             </CardListItem>
             <CardListItem>
@@ -127,8 +129,8 @@ const WhatsIncluded: React.FC = () => (
                 <span className="font-semibold fg-base">
                   Semantic variables:
                 </span>{" "}
-                Names that clearly describe the data they hold, making code
-                easier to understand.
+                Color, spacing, and typography variables with meaningful names
+                that match their purpose in the interface.
               </span>
             </CardListItem>
             <CardListItem>
@@ -140,8 +142,9 @@ const WhatsIncluded: React.FC = () => (
             </CardListItem>
             <CardListItem>
               <span className="">
-                <span className="font-semibold fg-base">Themes:</span> Easily
-                choose from all three native Webflow designer themes.
+                <span className="font-semibold fg-base">Themes:</span>{" "}
+                Automatically synchronized with the Webflow interface appearance
+                settings.
               </span>
             </CardListItem>
           </CardList>
