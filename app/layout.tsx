@@ -28,6 +28,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: "WFS Components",
+        type: "image/jpeg",
       },
     ],
   },
@@ -36,8 +37,16 @@ export const metadata: Metadata = {
     title: "WFS Components - Supercharge building Webflow apps",
     description:
       "Ship faster with Webflow's design system, Svelte components and user-friendly CLI that streamline your workflow.",
-    images: ["/opengraph-image.jpg"],
     creator: "@minimalsquare",
+    images: [
+      {
+        url: "/twitter-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "WFS Components",
+        type: "image/jpeg",
+      },
+    ],
   },
   authors: [{ name: "Minimal Square", url: "https://minimal-square.com" }],
   keywords: [
