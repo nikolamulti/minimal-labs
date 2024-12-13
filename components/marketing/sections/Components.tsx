@@ -88,10 +88,10 @@ const componentData = [
     href: "/svelte/docs/progress",
   },
   {
-    title: "Radio",
+    title: "Radio group",
     description: "3 components",
     imageSrc: "/components/Radio.png",
-    href: "/svelte/docs/radio",
+    href: "/svelte/docs/radio-group",
   },
   {
     title: "Scroll area",
